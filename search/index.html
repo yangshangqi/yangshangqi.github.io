@@ -192,7 +192,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview2.jpg'
+        var defaultPreview = '/imgs/preview/preview4.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -400,13 +400,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/10/你好-hexo/">你好, hexo</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/10/hello-world/">Hello World</a>
+                    <a href="/2019/06/10/你好/">你好</a>
                 </span>
             </li>
             
@@ -428,13 +422,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/10/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/10/你好-hexo/">你好, hexo</a>
+                    <a href="/2019/06/10/你好/">你好</a>
                 </span>
             </li>
             
@@ -521,6 +509,9 @@
 <div id="gal-gotop">
     <i class="fa fa-angle-up"></i>
 </div>
+    {% if theme.canvas_nest %}
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+{% endif %}
 </body>
 <script src="/js/activate-power-mode.js"></script>
 <script>
