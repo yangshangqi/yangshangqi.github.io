@@ -10,7 +10,7 @@
     
     
     
-    <title>1 | zhumenger ❤ blog</title>
+    <title>单链表 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -151,17 +151,21 @@
                         
                         
                         <li>
-                            <a href="/tags/栈/">栈</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/单调栈/">单调栈</a>
+                            <a href="/tags/单链表/">单链表</a>
                         </li>
                         
                         <li>
                             <a href="/tags/堆/">堆</a>
                         </li>
                         
+                        <li>
+                            <a href="/tags/栈/">栈</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
                         
                         
                     </ul>
@@ -191,16 +195,23 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>1</span>
+        <span>单链表</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/06/10/1/">1</a>
+                <a href="/2019/06/10/单链表/">单链表</a>
             </h1>
         </div>
         <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/单链表/">单链表</a>
+                
+            </span>
             
             <span class="label label-gal">
                 <i class="fa fa-calendar"></i> 2019-06-10
@@ -213,7 +224,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/06/10/1/">1</a>
+                    <a href="/2019/06/10/单链表/">单链表</a>
                 </h4>
             </div>
             <p>
@@ -221,12 +232,47 @@
             </p>
             <p>
                 
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/单链表/">单链表</a>
+                
+                
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>实现一个单链表，链表初始为空，支持三种操作：</p>
+<p>(1) 向链表头插入一个数；</p>
+<p>(2) 删除第k个插入的数后面的数；</p>
+<p>(3) 在第k个插入的数后插入一个数</p>
+<p>现在要对该链表进行M次操作，进行完所有操作后，从头到尾输出整个链表。</p>
+<p>注意:题目中第k个插入的数并不是指当前链表的第k个数。例如操作过程中一共插入了n个数，则按照插入的时间顺序，这n个数依次为：第1个插入的数，第2个插入的数，…第n个插入的数。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
+<p>第一行包含整数M，表示操作次数。<br>接下来M行，每行包含一个操作命令，操作命令可能为以下几种：<br>(1) “H x”，表示向链表头插入一个数x。<br>(2) “D k”，表示删除第k个输入的数后面的数（当k为0时，表示删除头结点）。<br>(3) “I k x”，表示在第k个输入的数后面插入一个数x（此操作中k均大于0）。</p>
+</blockquote>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
+<p>共一行，将整个链表从头到尾输出。</p>
+</blockquote>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
+<p>1≤M≤100000<br>所有操作保证合法。</p>
+</blockquote>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>10<br>H 9<br>I 1 1<br>D 1<br>D 0<br>H 6<br>I 3 6<br>I 4 5<br>I 4 5<br>I 3 4<br>D 6</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>6 4 6 5</p>
+</blockquote>
+<p><strong>1.单链表的简单介绍</strong></p>
+<blockquote>
+<p>单链表是一种链式存取的数据结构，用一组任意地址空间（地址空间即存储单元）来存放线性表的数据元素。单链表中的数据是以节点的形式来表示，而节点是用结构体来描述，每个节点都是由元素和指针构成，即该结构体中包含两个成员变量：存放元素的成员变量和存放下一个节点地址的成员变量。</p>
+</blockquote>
+<p><strong>2.顺序表与链表的区别</strong></p>
+<blockquote>
+<p>顺序表的特点为：逻辑相邻的两节点其物理地址也是相邻的；链表的特点为：逻辑相邻的两节点其物理地址不相邻。顺序表的存储方式是：节点元素连续存放在存储单元；链表的存储方式是：节点元素随机存放在存储单元。</p>
+</blockquote>
+<p>链表的插入和删除操作：<br>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> head;  <span class="comment">//表示头结点</span></span><br><span class="line"><span class="keyword">int</span> idx;  <span class="comment">//表示当前是第几个数</span></span><br><span class="line"><span class="keyword">int</span> e[N]; <span class="comment">//表示第i个数所存储的值</span></span><br><span class="line"><span class="keyword">int</span> ne[N]; <span class="comment">//i的下一个节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    head = <span class="number">-1</span>;  <span class="comment">//初始化</span></span><br><span class="line">    idx = <span class="number">0</span>;  <span class="comment">//下标从0开始</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//插入到头结点</span></span><br><span class="line"><span class="comment">//1.先用e[idx]存储该值</span></span><br><span class="line"><span class="comment">//2.将ne[idx]即第idx个数的下一个节点指向头结点</span></span><br><span class="line"><span class="comment">//3.头结点head更新为idx;</span></span><br><span class="line"><span class="comment">//4.idx++;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_to_head</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = x, ne[idx] = head, head = idx, idx++;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将x插入到第k个数的后面</span></span><br><span class="line"><span class="comment">//1.先用e[idx]存储该值x</span></span><br><span class="line"><span class="comment">//2.将ne[idx]即第idx个数的下一个节点指向第k个数的下一个节点</span></span><br><span class="line"><span class="comment">//3.将ne[k]指向idx;</span></span><br><span class="line"><span class="comment">//4.idx++;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = x, ne[idx] = ne[k], ne[k] = idx, idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除第k个数后面的数</span></span><br><span class="line"><span class="comment">//直接让ne[k] = ne[ne[k]]即可</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ne[k] = ne[ne[k]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">int</span> k, x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">'H'</span>)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">            add_to_head(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'D'</span>)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">            <span class="keyword">if</span>(!k)head = ne[head];  <span class="comment">//如果k == 0, 要删除头结点，即让head等于下一个节点</span></span><br><span class="line">            <span class="keyword">else</span> move(k - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'I'</span>)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; k &gt;&gt; x;</span><br><span class="line">            add(k - <span class="number">1</span>, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = head; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; e[i] &lt;&lt; <span class="string">' '</span> ;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -236,7 +282,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '1'
+      window.commentConfig.title = '单链表'
     }
 </script>
 
@@ -294,25 +340,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/10/1/">1</a>
+                    <a href="/2019/06/10/单链表/">单链表</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/06/10/堆/">堆</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/10/你好/">单调栈1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/10/hello/">hello</a>
                 </span>
             </li>
             
@@ -334,25 +374,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/10/hello/">hello</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/10/1/">1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/10/你好/">单调栈1</a>
+                    <a href="/2019/06/10/单链表/">单链表</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/06/10/堆/">堆</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
@@ -367,17 +401,17 @@
 
                 
                 <li>
-                    <a href="/2019/06/10/1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/06/10/单链表/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/06/10/1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/06/10/单链表/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/06/10/1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/06/10/单链表/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -385,11 +419,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/栈/" style="font-size: 16.36760821760303px;" class="tag-cloud-link">栈</a>
+    <a href="/tags/单链表/" style="font-size: 19.996784806350043px;" class="tag-cloud-link">单链表</a>
     
-    <a href="/tags/单调栈/" style="font-size: 11.874426753011821px;" class="tag-cloud-link">单调栈</a>
+    <a href="/tags/堆/" style="font-size: 15.01213158720031px;" class="tag-cloud-link">堆</a>
     
-    <a href="/tags/堆/" style="font-size: 17.726462628810737px;" class="tag-cloud-link">堆</a>
+    <a href="/tags/栈/" style="font-size: 13.63524685598123px;" class="tag-cloud-link">栈</a>
+    
+    <a href="/tags/单调栈/" style="font-size: 9.056974860877823px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
@@ -517,7 +553,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Mon Jun 10 2019 21:25:59 GMT+0800'
+      window.commentConfig.id = 'Mon Jun 10 2019 22:32:06 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -525,7 +561,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Mon Jun 10 2019 21:25:59 GMT+0800',
+      	id: 'Mon Jun 10 2019 22:32:06 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
