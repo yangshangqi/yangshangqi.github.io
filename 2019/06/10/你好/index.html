@@ -45,6 +45,7 @@
     </script>-->
 </head></html>
 <body>
+
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
     <ul class="cb-slideshow">
@@ -352,7 +353,7 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/堆/" style="font-size: 12.169766115821902px;" class="tag-cloud-link">堆</a>
+    <a href="/tags/堆/" style="font-size: 13.041502471496033px;" class="tag-cloud-link">堆</a>
     
 </div>
                 
@@ -409,18 +410,19 @@
 <div id="gal-gotop">
     <i class="fa fa-angle-up"></i>
 </div>
-    {% if theme.canvas_nest %}
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-{% endif %}
-<script type="text/javascript" src="/js/love.js"></script>
 <!-- 雪花特效 -->
 <script type="text/javascript">
   var windowWidth = $(window).width();
   if (windowWidth > 480) {
-    document.write('<script type="text/javascript" src="/js/src/snow.js"><\/script>');
+    document.write('<script type="text/javascript" src="/js/snow.js"><\/script>');
   }
 </script>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
+<script type="text/javascript" src="/js/love.js"></script>
+{% if theme.canvas_nest %}
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+{% endif %}
 </body>
 <script src="/js/activate-power-mode.js"></script>
 <script>
