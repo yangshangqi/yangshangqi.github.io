@@ -12,17 +12,17 @@
     
     
     
-    <title>search | zhumenger ❤ blog</title>
+    <title>tags: Trie | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/aos.css">
-<link rel="stylesheet" href="../css/style.css">
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/aos.js"></script>
-    <script src="../js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="../js/highslide/highslide.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/aos.css">
+<link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/aos.js"></script>
+    <script src="../../js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="../../js/highslide/highslide.css">
     <style type="text/css">
         @media (max-width: 768px) {
             body {
@@ -36,12 +36,12 @@
     <!--<script type="text/javascript">
       if (document.images) {
         var avatar = new Image();
-        avatar.src = '../imgs/zhumenger.jpg'
+        avatar.src = '../../imgs/zhumenger.jpg'
         var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg,preview8.jpg,preview9.jpg,preview10.jpg,preview12.jpg,preview13.jpg,preview14.jpg,preview15.jpg,preview16.jpg,preview17.jpg,preview18.jpg,preview19.jpg,preview20.jpg,preview21.jpg,preview22.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
           previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '../imgs/preview' + previews[i]
+          previewsPreLoad[previewsPreLoad.length - 1].src = '../../imgs/preview' + previews[i]
         }
       }
     </script>-->
@@ -68,14 +68,14 @@
             
             <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
             
-            <a href="../archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="../about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="../message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            <a href="../../archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="../../about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="../../message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
             
             <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
             
         </div>
-        <audio id="audio" src="../imgs/oni.mp3"></audio>
+        <audio id="audio" src="../../imgs/oni.mp3"></audio>
     </div>
 </div>
     
@@ -107,7 +107,7 @@
                 
                 
                 <li class>
-                    <a href="../index.html">
+                    <a href="../../index.html">
                         <i class="fa fa-home"></i>首页
                     </a>
                 </li>
@@ -115,7 +115,7 @@
                 
                 
                 <li class>
-                    <a href="../archives">
+                    <a href="../../archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
                 </li>
@@ -132,7 +132,7 @@
                         
                         
                         <li>
-                            <a href="../categories/数据结构基础/">数据结构基础</a>
+                            <a href="../../categories/数据结构基础/">数据结构基础</a>
                         </li>
                         
                         
@@ -153,23 +153,23 @@
                         
                         
                         <li>
-                            <a href="../tags/Trie/">Trie</a>
+                            <a href>Trie</a>
                         </li>
                         
                         <li>
-                            <a href="../tags/单链表/">单链表</a>
+                            <a href="../单链表/">单链表</a>
                         </li>
                         
                         <li>
-                            <a href="../tags/堆/">堆</a>
+                            <a href="../堆/">堆</a>
                         </li>
                         
                         <li>
-                            <a href="../tags/栈/">栈</a>
+                            <a href="../栈/">栈</a>
                         </li>
                         
                         <li>
-                            <a href="../tags/单调栈/">单调栈</a>
+                            <a href="../单调栈/">单调栈</a>
                         </li>
                         
                         
@@ -181,7 +181,7 @@
                 
                 
                 <li class>
-                    <a href="../about">
+                    <a href="../../about">
                         <i class="fa fa-user"></i>关于我
                     </a>
                 </li>
@@ -195,222 +195,47 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-<!-- search自定义页面 -->
-<script type="text/javascript">
-
-	var htmlEntityMap = {
-		'&': '&amp;',
-		'<': '&lt;',
-		'>': '&gt;',
-		'"': '&quot;',
-		'\'': '&#39;',
-		'/': '&#x2F;'
-	};
-
-	// 参照hexo过滤html的方法(事实上感觉静态也没什么可以过滤的)
-	function escapeKey(str) {
-		if (typeof str !== 'string') throw new TypeError('str must be a string!');
-
-		// http://stackoverflow.com/a/12034334
-		return str.replace(/[&<>"'\/]/g, function(a) {
-			return htmlEntityMap[a];
-		});
-	}
-
-	var query = decodeURIComponent(window.location.search).substring(1).split('&')
-    // 获取搜索关键词
-    var s = escapeKey(query[0].split('=')[1])
-    // 获取当前页数
-    var p = query.length > 1 ? query[1].split('=')[1] : 1
-    // 获取每页的页码数
-    var pageSize = '10'
-    var useLeancloud = ''
-    var useComment = ('true' === 'true')
-    $.getJSON('../content.json', function (json) {
-      $('#search-breadcrumb').append(`搜索'${s}'的结果`)
-      var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
-      if (result.length === 0 || result.length <= (p - 1) * pageSize) {
-      	// TODO 显示404页面
-      } else {
-        displaySearchResult(result.slice((p - 1) * pageSize, p * pageSize))
-        displayPagination(result)
-      }
-    })
-
-    function getArticles(val, type, json) {
-      return json[type].filter((e) => {
-        return e.title.indexOf(val) !== -1 || e.text.indexOf(val) !== -1
-      })
-    }
-
-    function displaySearchResult(result) {
-      var resultList = $('#article-list')
-      result.forEach(function (article) {
-      	var [month, day] = article.date.split('-')
-        ''
-        ''
-        var defaultPreview = '../imgs/preview/preview1.jpg'
-        var preview = article.preview ? article.preview : defaultPreview
-        var path = '/' + article.path
-        resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-                                <div class="data-article hidden-xs">
-                                    <span class="month">${month}月</span>
-                                    <span class="day">${day}</span>
-                                </div>
-                                <section class="hidden-xs">
-                                    <div class="title-article">
-                                        <h1>
-                                            <a href="${path}">
-                                                <span>${article.title}</span>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                    <div class="tag-article">
-                                    ${ article.tags.length > 0 ? `<span class="label label-gal"><i class="fa fa-tags"></i>${
-                                    	article.tags.map(function (tag) {
-						                 return `<a href=${ tag.permalink }>${ tag.name }</a>`
-                                    	}).join(', ') }</span>` : '' }
-                                    ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
-                                    </div>
-                                    <div class="alert alert-gal article-body content-article">
-                                         <div class="item">
-                                            <a href="${path}">
-                                                <div class="img">
-                                                    <img src="${preview}" alt="${article.title}">
-                                                </div>
-                                                <div class="info">
-                                                    <p>${article.excerpt}</p>
-                                                </div>
-                                            </a>
-                                         </div>
-					                </div>
-					            </section>
-                           </div>`)
-      })
-      if (useLeancloud) {
-        var Counter = AV.Object.extend('Counter')
-        showPostsTime(Counter)
-      }
-      if (useComment) {
-      	showCommentCount()
-      }
-    }
-
-    function displayPagination(result) {
-      var pgContainer = $('#gal-pagination')
-      var pg = $(pgContainer.find('.pagination-gal')[0])
-      if(result.length > 0) {
-        pgContainer.css('display', 'block')
-      }
-      var num = Math.ceil(result.length / pageSize)
-      var root = '../search'
-      var link = root + `/index.html?s=${s}`
-      if(p > 1) {
-      	pg.append(`<li class="prev"><a href="${link}&page=${p-1}">«</a></li>`)
-      }
-      if(p > 7) {
-      	pg.append(`<li><a href="${link}">1</a></li>
-                   <li><span>...</span></li>`)
-        for(var i = p - 3; i < p; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-      } else {
-      	for(var j = 1; j < p; j++) {
-          pg.append(`<li><a href="${link}${j === 1 ? '' : `&page=${j}`}">${j}</a></li>`)
-        }
-      }
-      pg.append(`<li class="current"><span>${p}</span></li>`)
-      if(p + 7 < num) {
-      	for(var i = p + 1; i <= p + 3; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-        pg.append(`<li><span>...</span></li>`)
-      } else {
-      	for(var j = p + 1; j <= num; j++) {
-          pg.append(`<li><a href="${link}&page=${j}">${j}</a></li>`)
-        }
-      }
-      if(p < num) {
-      	pg.append(`<li class="next"><a href="${link}&page=${p+1}">»</a></li>`)
-      }
-    }
-
-    function showPostsTime(Counter) {
-      var entries = []
-      var excerpts = $('.article-excerpt')
-      excerpts.each(function () {
-        entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
-      })
-      var query = new AV.Query(Counter)
-      query.containedIn('url', entries)
-      query.find().then(function (result) {
-        excerpts.each(function () {
-          var href = $(this).find('.title-article').first().find('a').attr('href').trim()
-          var r = result.filter(function (e) {
-            return e.get('url') === href
-          })
-          if(r.length > 0) {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' ' + r[0].get('time') + ' ℃')
-            })
-          } else {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' 0 ℃')
-            })
-          }
-        })
-      }).then(function (error) {
-        console.log('Error:' + error.code + ' ' + error.message)
-      })
-    }
-
-    function showCommentCount() {
-      const excerpts = $('.article-excerpt')
-      const owner = window.commentConfig.owner
-      const repo = window.commentConfig.repo
-      $.ajax({
-        url: "https://api.github.com/repos/" + owner + '/' + repo + '/issues',
-        data: {
-          creator: owner
-        }
-      }).done(function(issues) {
-        excerpts.each(function () {
-          const that = $(this)
-          that.find('h1 > a > span').each(function () {
-            const title = $(this).text()
-            const tags = that.find('div.tag-article')
-            const issue = issues.filter(function (issue) {
-              return issue.title === title
-            })
-            const comments = issue.length > 0 ? issue[0].comments : 0
-            tags.each(function () {
-              $(this).append('<span class="label label-gal"><i class="fa fa-comments"></i><a> ' + comments + '</a></span>')
-            })
-          })
-        })
-      }).fail(function (error) {
-        console.log(error)
-      });
-    }
-
-</script>
-<div class="breadcrumb breadcrumb-gal" id="search-breadcrumb">
-    <i class="fa fa-home"></i>
-</div>
-<div id="article-list"></div>
-<div id="gal-pagination" class="clearfix" style="display: none;">
-    <ul class="pagination pagination-gal pull-right"></ul>
-</div>
-<!-- 404页面 -->
-
+                    <article class="article well article-body" id="article-tag">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>标签</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href>Trie</a>
+            </h1>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href>Trie</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="../../2019/06/11/Trie-字典树/">Trie-字典树</a>
+            <br>
+            
+            
+        </div>
+    </div>
+</article>
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
 <aside id="sidebar-search">
     <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get" action="../search/index.html">
+        <form class="form-inline clearfix" id="search-form" method="get" action="../../search/index.html">
             <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
             <button class="btn btn-danger btn-gal" type="submit">
                 <i class="fa fa-search"></i>
@@ -426,7 +251,7 @@
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="../imgs/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <img src="../../imgs/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
             <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说有一天你会名扬天下实现你的抱负!</p>
 <p></p>
         </div>
@@ -460,25 +285,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/11/Trie-字典树/">Trie-字典树</a>
+                    <a href="../../2019/06/11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/单链表/">单链表</a>
+                    <a href="../../2019/06/10/单链表/">单链表</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../2019/06/10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/堆/">堆</a>
+                    <a href="../../2019/06/10/堆/">堆</a>
                 </span>
             </li>
             
@@ -500,25 +325,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/11/Trie-字典树/">Trie-字典树</a>
+                    <a href="../../2019/06/11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/单链表/">单链表</a>
+                    <a href="../../2019/06/10/单链表/">单链表</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/堆/">堆</a>
+                    <a href="../../2019/06/10/堆/">堆</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../2019/06/10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
@@ -551,15 +376,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../tags/Trie/" style="font-size: 9.500575821532163px;" class="tag-cloud-link">Trie</a>
+    <a href style="font-size: 9.568869532782983px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../tags/单链表/" style="font-size: 13.757665638837548px;" class="tag-cloud-link">单链表</a>
+    <a href="../单链表/" style="font-size: 16.770671228309336px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../tags/堆/" style="font-size: 15.14260210125138px;" class="tag-cloud-link">堆</a>
+    <a href="../堆/" style="font-size: 17.74442005255736px;" class="tag-cloud-link">堆</a>
     
-    <a href="../tags/栈/" style="font-size: 11.518372530492712px;" class="tag-cloud-link">栈</a>
+    <a href="../栈/" style="font-size: 19.969911401893924px;" class="tag-cloud-link">栈</a>
     
-    <a href="../tags/单调栈/" style="font-size: 10.73839794666895px;" class="tag-cloud-link">单调栈</a>
+    <a href="../单调栈/" style="font-size: 16.539253033148853px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
@@ -671,22 +496,22 @@
 </script>
 <script>
     window.slideConfig = {
-      prefix: '../imgs/slide/background',
+      prefix: '../../imgs/slide/background',
       ext: 'jpg',
       maxCount: '10'
     }
 </script>
-<script src="../js/hs.js"></script>
-<script src="../js/blog.js"></script>
+<script src="../../js/hs.js"></script>
+<script src="../../js/blog.js"></script>
 
-<script src="../js/oni.js"></script>
+<script src="../../js/oni.js"></script>
 
 
 
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Mon Jun 10 2019 18:17:29 GMT+0800'
+      window.commentConfig.id = ''
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -694,7 +519,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Mon Jun 10 2019 18:17:29 GMT+0800',
+      	id: '',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
@@ -703,6 +528,6 @@
       }
     }
 </script>
-<script src="../js/comment/gitment.js"></script>
+<script src="../../js/comment/gitment.js"></script>
 
 </html>
