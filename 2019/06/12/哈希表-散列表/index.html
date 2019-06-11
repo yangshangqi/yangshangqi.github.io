@@ -12,7 +12,7 @@
     
     
     
-    <title>最大异或对 | zhumenger ❤ blog</title>
+    <title>哈希表(散列表) | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -205,13 +205,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>最大异或对</span>
+        <span>哈希表(散列表)</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href>最大异或对</a>
+                <a href>哈希表(散列表)</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -219,12 +219,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../tags/Trie/">Trie</a>
+                <a href="../../../../tags/哈希/">哈希</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-06-12
             </span>
             
         </div>
@@ -234,17 +234,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href>最大异或对</a>
+                    <a href>哈希表(散列表)</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-06-12
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../tags/Trie/">Trie</a>
+                <a href="../../../../tags/哈希/">哈希</a>
                 
                 
                 
@@ -252,27 +252,33 @@
         </center>
     </div>
     <div class="content-article">
-        <p><a href="https://www.acwing.com/problem/content/145/" target="_blank" rel="noopener">Acwing-&gt;143.最大异或对</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在给定的N个整数A1，A2……AN中选出两个进行xor（异或）运算，得到的结果最大是多少？</p>
+        <p><strong>简介</strong>：
+<strong>哈希表</strong>又称为<strong>散列表</strong>，是实现字典操作的一种有效的数据结构。通过哈希函数将关键字映射到表中的某个位置上进行存放，以实现快速插入和查询的。时间复杂度可达到O(n).<br><strong>为什么要用到哈希</strong>：比如说有n(1&lt;=n&lt;=1e6)个数,当给你一个非常大的数时，为了方便查找这个数是否出现过，我们可以给这个数重新编号到1~n，这样我们就可以快速的找到想要的答案。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+<p>维护一个集合，支持如下几种操作：<br>“I x”，插入一个数x；<br>“Q x”，询问数x是否在集合中出现过；<br>现在要进行N次操作，对于每个询问操作输出对应的结果。</p>
+</blockquote>
 <h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行输入一个整数N。<br>第二行输入N个整数A1～AN。</p>
+<p>第一行包含整数N，表示操作数量。<br>接下来N行，每行包含一个操作指令，操作指令为”I x”，”Q x”中的一种。</p>
 </blockquote>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>输出一个整数表示答案。</p>
+<p>对于每个询问指令“Q x”，输出一个询问结果，如果x在集合中出现过，则输出“Yes”，否则输出“No”。每个结果占一行。</p>
 </blockquote>
 <h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤N≤105,<br>0≤Ai&lt;231</p>
+<p>1≤N≤105<br>−109≤x≤109</p>
 </blockquote>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>3
-1 2 3</p>
+<p>5
+I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>3
-<strong>题解</strong>：异或+前缀+字典树<br>其实来说,一个整数,是可以转化成为一个32位的二进制数,而也就可以变成长度为32位的二进制字符串.<br>既然如此话,那么我们可以这么做,每一次检索的时候,我们都走与当前Ai的二进制位的数值相反的位置走,这样就可以让Xor值最大,如果说没有路可以走的话,那么就走相同的路.<br><strong>时间复杂度</strong>：位数*n，所以是O(32 * n)</p>
+<p>Yes<br>No</p>
 </blockquote>
-<p>代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], trie[N * <span class="number">32</span>][<span class="number">5</span>], idx;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span> <span class="comment">//建树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[p][u])trie[p][u] = idx++;</span><br><span class="line">        p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//找最大的</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(trie[p][u^<span class="number">1</span>])&#123;</span><br><span class="line">            p = trie[p][u^<span class="number">1</span>];</span><br><span class="line">            ans +=(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    idx =<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        insert(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)res = max(res, search(a[i]));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>题解</strong>：
+<strong>拉链法：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>, mod = <span class="number">100003</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % mod + mod) % mod;</span><br><span class="line">    e[idx] = x, ne[idx] = h[k], h[k] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % mod + mod) % mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[k]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">        <span class="keyword">if</span>(e[i] == x)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt;x;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">"I"</span>)&#123;</span><br><span class="line">            insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(Find(x))<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>开放寻址法</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200003</span>, Max = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> h[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">    <span class="keyword">while</span>(h[k] != Max &amp;&amp; h[k] != x)&#123;</span><br><span class="line">        k++;</span><br><span class="line">        <span class="keyword">if</span>(k == N)k = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">memset</span>(h, Max, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">"I"</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k = Find(x);</span><br><span class="line">            h[k] = x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> k = Find(x);</span><br><span class="line">            <span class="keyword">if</span>(h[k] != Max)<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -282,7 +288,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '最大异或对'
+      window.commentConfig.title = '哈希表(散列表)'
     }
 </script>
 
@@ -341,19 +347,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../12/哈希表-散列表/">哈希表(散列表)</a>
+                    <a href>哈希表(散列表)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>最大异或对</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Trie-字典树/">Trie-字典树</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -393,7 +399,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../12/哈希表-散列表/">哈希表(散列表)</a>
+                    <a href>哈希表(散列表)</a>
                 </span>
             </li>
             
@@ -405,13 +411,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Trie-字典树/">Trie-字典树</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>最大异或对</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
@@ -456,17 +462,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../tags/哈希/" style="font-size: 16.47023555372641px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../tags/哈希/" style="font-size: 10.901281432640841px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../tags/栈/" style="font-size: 19.07690630753513px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../tags/栈/" style="font-size: 10.623402313823027px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../tags/单调栈/" style="font-size: 9.553511823595981px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../tags/单调栈/" style="font-size: 12.740953113078625px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../tags/Trie/" style="font-size: 11.998550788432851px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../tags/Trie/" style="font-size: 8.027284604995767px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../tags/单链表/" style="font-size: 12.43808484134283px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../tags/单链表/" style="font-size: 19.804562976870862px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../tags/堆/" style="font-size: 8.780581626743812px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../tags/堆/" style="font-size: 9.91340040172005px;" class="tag-cloud-link">堆</a>
     
 </div>
                 
@@ -593,7 +599,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Jun 11 2019 11:37:08 GMT+0800'
+      window.commentConfig.id = 'Wed Jun 12 2019 00:08:08 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -601,7 +607,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Jun 11 2019 11:37:08 GMT+0800',
+      	id: 'Wed Jun 12 2019 00:08:08 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
