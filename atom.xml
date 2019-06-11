@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-06-11T03:13:20.709Z</updated>
+  <updated>2019-06-11T03:45:19.192Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最大异或对</title>
+    <link href="http://zhumenger.top/2019/06/11/%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%AF%B9/"/>
+    <id>http://zhumenger.top/2019/06/11/最大异或对/</id>
+    <published>2019-06-11T03:37:08.000Z</published>
+    <updated>2019-06-11T03:45:19.192Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.acwing.com/problem/content/145/" target="_blank" rel="noopener">Acwing-&gt;143.最大异或对</a></p><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在给定的N个整数A1，A2……AN中选出两个进行xor（异或）运算，得到的结果最大是多少？</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>第一行输入一个整数N。<br>第二行输入N个整数A1～AN。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>输出一个整数表示答案。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤N≤105,<br>0≤Ai&lt;231</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>31 2 3</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>3<strong>题解</strong>：异或+前缀+字典树<br>其实来说,一个整数,是可以转化成为一个32位的二进制数,而也就可以变成长度为32位的二进制字符串.<br>既然如此话,那么我们可以这么做,每一次检索的时候,我们都走与当前Ai的二进制位的数值相反的位置走,这样就可以让Xor值最大,如果说没有路可以走的话,那么就走相同的路.<br><strong>时间复杂度</strong>：位数*n，所以是O(32 * n)</p></blockquote><p>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], trie[N * <span class="number">32</span>][<span class="number">5</span>], idx;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span> <span class="comment">//建树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[p][u])trie[p][u] = idx++;</span><br><span class="line">        p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//找最大的</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(trie[p][u^<span class="number">1</span>])&#123;</span><br><span class="line">            p = trie[p][u^<span class="number">1</span>];</span><br><span class="line">            ans +=(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    idx =<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        insert(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)res = max(res, search(a[i]));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.acwing.com/problem/content/145/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Acwing-&amp;gt;143.最大异或对&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+      <category term="数据结构基础" scheme="http://zhumenger.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Trie" scheme="http://zhumenger.top/tags/Trie/"/>
+    
+  </entry>
   
   <entry>
     <title>Trie-字典树</title>
