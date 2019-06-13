@@ -168,7 +168,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../tags/栈/">栈</a>
+                            <a href="../../../../tags/字符串哈希/">字符串哈希</a>
                         </li>
                         
                         
@@ -272,11 +272,11 @@ I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
 <p>Yes<br>No</p>
 </blockquote>
-<p><strong>题解</strong>：
-<strong>拉链法：</strong></p>
+<p><strong>题解</strong>：</p>
+<p><strong>拉链法：</strong>数组元素存储指向链表的指针，链表的每个元素都可以存储一个输入的元素。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>, mod = <span class="number">100003</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % mod + mod) % mod;</span><br><span class="line">    e[idx] = x, ne[idx] = h[k], h[k] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % mod + mod) % mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[k]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">        <span class="keyword">if</span>(e[i] == x)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt;x;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">"I"</span>)&#123;</span><br><span class="line">            insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(Find(x))<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>开放寻址法</strong>：</p>
+<p><strong>开放寻址法</strong>：所有的元素都存放在散列表中，它不用指针，是计算出要存取的槽序列</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200003</span>, Max = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> h[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">    <span class="keyword">while</span>(h[k] != Max &amp;&amp; h[k] != x)&#123;</span><br><span class="line">        k++;</span><br><span class="line">        <span class="keyword">if</span>(k == N)k = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">memset</span>(h, Max, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">"I"</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k = Find(x);</span><br><span class="line">            h[k] = x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> k = Find(x);</span><br><span class="line">            <span class="keyword">if</span>(h[k] != Max)<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
@@ -346,6 +346,12 @@ I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
             <i class="fa fa-chevron-circle-up panel-toggle"></i>
         </div>
         <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../13/字符串哈希/">字符串哈希</a>
+                </span>
+            </li>
             
             <li class="list-group-item">
                 <span class="post-title">
@@ -425,13 +431,19 @@ I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../13/字符串哈希/">字符串哈希</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../11/最大异或对/">最大异或对</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
@@ -464,17 +476,19 @@ I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../tags/Trie/" style="font-size: 14.018990079058653px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../tags/Trie/" style="font-size: 13.322456324496933px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../tags/单链表/" style="font-size: 18.073694318800975px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../tags/单链表/" style="font-size: 18.657007392329177px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../tags/哈希/" style="font-size: 8.967147643324203px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../tags/哈希/" style="font-size: 10.95866205058827px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../tags/堆/" style="font-size: 17.89901075676646px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../tags/堆/" style="font-size: 8.845482071709638px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../tags/栈/" style="font-size: 15.394433048740016px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../tags/字符串哈希/" style="font-size: 14.054019936484599px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../tags/单调栈/" style="font-size: 18.590191868091264px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../tags/栈/" style="font-size: 18.901459431713548px;" class="tag-cloud-link">栈</a>
+    
+    <a href="../../../../tags/单调栈/" style="font-size: 12.117412915710803px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
@@ -542,7 +556,7 @@ I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
 
 <script type="text/javascript" src="/js/love.js"></script>
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</body>
 <script>
 
     // 配置highslide
