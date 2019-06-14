@@ -12,7 +12,7 @@
     
     
     
-    <title>最大异或对 | zhumenger ❤ blog</title>
+    <title>n-皇后问题 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -216,13 +216,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>最大异或对</span>
+        <span>n-皇后问题</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href>最大异或对</a>
+                <a href>n-皇后问题</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -230,12 +230,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../tags/Trie/">Trie</a>
+                <a href="../../../../tags/dfs/">dfs</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-06-14
             </span>
             
         </div>
@@ -245,17 +245,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href>最大异或对</a>
+                    <a href>n-皇后问题</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-06-14
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../tags/Trie/">Trie</a>
+                <a href="../../../../tags/dfs/">dfs</a>
                 
                 
                 
@@ -263,27 +263,30 @@
         </center>
     </div>
     <div class="content-article">
-        <p><a href="https://www.acwing.com/problem/content/145/" target="_blank" rel="noopener">Acwing-&gt;143.最大异或对</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在给定的N个整数A1，A2……AN中选出两个进行xor（异或）运算，得到的结果最大是多少？</p>
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>n-皇后问题是指将 n 个皇后放在 n∗n 的国际象棋棋盘上，使得皇后不能相互攻击到，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190614231556382.png" alt="1_597ec77c49-8-queens.png"></p>
+<p>现在给定整数n，请你输出所有的满足条件的棋子摆法。</p>
 <h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行输入一个整数N。<br>第二行输入N个整数A1～AN。</p>
+<p>共一行，包含整数n。</p>
 </blockquote>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>输出一个整数表示答案。</p>
+<p>每个解决方案占n行，每行输出一个长度为n的字符串，用来表示完整的棋盘状态。<br>其中”.”表示某一个位置的方格状态为空，”Q”表示某一个位置的方格上摆着皇后。<br>每个方案输出完成后，输出一个空行。</p>
 </blockquote>
 <h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤N≤105,<br>0≤Ai&lt;231</p>
+<p>1≤n≤9</p>
 </blockquote>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>3
-1 2 3</p>
+<p>4</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>3
-<strong>题解</strong>：异或+前缀+字典树<br>其实来说,一个整数,是可以转化成为一个32位的二进制数,而也就可以变成长度为32位的二进制字符串.<br>既然如此话,那么我们可以这么做,每一次检索的时候,我们都走与当前Ai的二进制位的数值相反的位置走,这样就可以让Xor值最大,如果说没有路可以走的话,那么就走相同的路.<br><strong>时间复杂度</strong>：位数*n，所以是O(32 * n)</p>
+<p>.Q..<br>…Q<br>Q…<br>..Q.</p>
 </blockquote>
-<p>代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], trie[N * <span class="number">32</span>][<span class="number">5</span>], idx;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span> <span class="comment">//建树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[p][u])trie[p][u] = idx++;</span><br><span class="line">        p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//找最大的</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(trie[p][u^<span class="number">1</span>])&#123;</span><br><span class="line">            p = trie[p][u^<span class="number">1</span>];</span><br><span class="line">            ans +=(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    idx =<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        insert(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)res = max(res, search(a[i]));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>..Q.<br>Q…<br>…Q<br>.Q..</p>
+</blockquote>
+<p><strong>题解</strong>：
+经典的n皇后问题:<br>dfs深搜每一行，用col[J]， dg[J], udg[J]数组分别来标记第J列， 正对角线， 反对角线是否有皇后，如果有我们就剪掉， 否则就把皇后放到该位置。<br>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> arr[N][N], col[N], dg[N], udg[N], n;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur == n)&#123;  <span class="comment">//如果放了n个皇后，直接输出</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i][j])<span class="built_in">cout</span> &lt;&lt; <span class="string">'Q'</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">'.'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(col[i] || dg[cur + i] ||udg[n - cur + i])<span class="keyword">continue</span>; <span class="comment">//如果有了皇后，剪枝</span></span><br><span class="line">        arr[cur][i] = col[i] = dg[cur + i] = udg[n - cur + i] = <span class="number">1</span>; </span><br><span class="line">        dfs(cur + <span class="number">1</span>);</span><br><span class="line">        arr[cur][i] = col[i] = dg[cur + i] = udg[n - cur + i] = <span class="number">0</span>; <span class="comment">//恢复现场</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dfs(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -293,7 +296,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '最大异或对'
+      window.commentConfig.title = 'n-皇后问题'
     }
 </script>
 
@@ -355,19 +358,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/n-皇后问题/">n-皇后问题</a>
+                    <a href>n-皇后问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树的重心/">树的重心(dfs)</a>
+                    <a href="../树的重心/">树的重心(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
+                    <a href="../树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
                 </span>
             </li>
             
@@ -385,13 +388,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>最大异或对</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Trie-字典树/">Trie-字典树</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -431,7 +434,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Trie-字典树/">Trie-字典树</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -461,19 +464,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>最大异或对</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树的重心/">树的重心(dfs)</a>
+                    <a href="../树的重心/">树的重心(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
+                    <a href="../树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
                 </span>
             </li>
             
@@ -485,7 +488,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/n-皇后问题/">n-皇后问题</a>
+                    <a href>n-皇后问题</a>
                 </span>
             </li>
             
@@ -518,21 +521,21 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../tags/Trie/" style="font-size: 11.734812649279215px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../tags/Trie/" style="font-size: 17.127612682926227px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../tags/单链表/" style="font-size: 8.588966107598967px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../tags/单链表/" style="font-size: 15.199374334821577px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../tags/哈希/" style="font-size: 12.668764773611692px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../tags/哈希/" style="font-size: 14.7379090743585px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../tags/堆/" style="font-size: 9.99104061782456px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../tags/堆/" style="font-size: 16.646567365346108px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../tags/字符串哈希/" style="font-size: 16.829192581014453px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../tags/字符串哈希/" style="font-size: 15.196745416032261px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../tags/dfs/" style="font-size: 16.72110486876062px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../tags/dfs/" style="font-size: 10.18498190920679px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../tags/栈/" style="font-size: 16.825246896996852px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../tags/栈/" style="font-size: 11.140882041274278px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../tags/单调栈/" style="font-size: 18.176556881418797px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../tags/单调栈/" style="font-size: 19.39280680735233px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
@@ -658,7 +661,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Jun 11 2019 11:37:08 GMT+0800'
+      window.commentConfig.id = 'Fri Jun 14 2019 23:25:28 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -666,7 +669,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Jun 11 2019 11:37:08 GMT+0800',
+      	id: 'Fri Jun 14 2019 23:25:28 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',

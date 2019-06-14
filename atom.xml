@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-06-14T13:31:40.286Z</updated>
+  <updated>2019-06-14T15:34:32.464Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>n-皇后问题</title>
+    <link href="http://zhumenger.top/2019/06/14/n-%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/"/>
+    <id>http://zhumenger.top/2019/06/14/n-皇后问题/</id>
+    <published>2019-06-14T15:25:28.000Z</published>
+    <updated>2019-06-14T15:34:32.464Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>n-皇后问题是指将 n 个皇后放在 n∗n 的国际象棋棋盘上，使得皇后不能相互攻击到，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</p><p><img src="https://img-blog.csdnimg.cn/20190614231556382.png" alt="1_597ec77c49-8-queens.png"></p><p>现在给定整数n，请你输出所有的满足条件的棋子摆法。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>共一行，包含整数n。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>每个解决方案占n行，每行输出一个长度为n的字符串，用来表示完整的棋盘状态。<br>其中”.”表示某一个位置的方格状态为空，”Q”表示某一个位置的方格上摆着皇后。<br>每个方案输出完成后，输出一个空行。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤n≤9</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>4</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>.Q..<br>…Q<br>Q…<br>..Q.</p></blockquote><blockquote><p>..Q.<br>Q…<br>…Q<br>.Q..</p></blockquote><p><strong>题解</strong>：经典的n皇后问题:<br>dfs深搜每一行，用col[J]， dg[J], udg[J]数组分别来标记第J列， 正对角线， 反对角线是否有皇后，如果有我们就剪掉， 否则就把皇后放到该位置。<br>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> arr[N][N], col[N], dg[N], udg[N], n;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur == n)&#123;  <span class="comment">//如果放了n个皇后，直接输出</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i][j])<span class="built_in">cout</span> &lt;&lt; <span class="string">'Q'</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">'.'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(col[i] || dg[cur + i] ||udg[n - cur + i])<span class="keyword">continue</span>; <span class="comment">//如果有了皇后，剪枝</span></span><br><span class="line">        arr[cur][i] = col[i] = dg[cur + i] = udg[n - cur + i] = <span class="number">1</span>; </span><br><span class="line">        dfs(cur + <span class="number">1</span>);</span><br><span class="line">        arr[cur][i] = col[i] = dg[cur + i] = udg[n - cur + i] = <span class="number">0</span>; <span class="comment">//恢复现场</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dfs(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;p&gt;n-皇后问题是指将 n 个皇后放在 n∗n 的国际象棋棋盘上，使得皇后不能相互攻击到，即任意两个皇后都不能处于同一行、同一列
+      
+    
+    </summary>
+    
+      <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
+    
+    
+      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
+    
+  </entry>
   
   <entry>
     <title>树的重心(dfs)</title>
