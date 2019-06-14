@@ -12,7 +12,7 @@
     
     
     
-    <title>最大异或对 | zhumenger ❤ blog</title>
+    <title>树与图的深度优先遍历 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -212,13 +212,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>最大异或对</span>
+        <span>树与图的深度优先遍历</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href>最大异或对</a>
+                <a href>树与图的深度优先遍历</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -226,12 +226,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../tags/Trie/">Trie</a>
+                <a href="../../../../tags/dfs/">dfs</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-06-14
             </span>
             
         </div>
@@ -241,17 +241,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href>最大异或对</a>
+                    <a href>树与图的深度优先遍历</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-06-14
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../tags/Trie/">Trie</a>
+                <a href="../../../../tags/dfs/">dfs</a>
                 
                 
                 
@@ -259,27 +259,17 @@
         </center>
     </div>
     <div class="content-article">
-        <p><a href="https://www.acwing.com/problem/content/145/" target="_blank" rel="noopener">Acwing-&gt;143.最大异或对</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在给定的N个整数A1，A2……AN中选出两个进行xor（异或）运算，得到的结果最大是多少？</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行输入一个整数N。<br>第二行输入N个整数A1～AN。</p>
+        <p><strong>树与图的深度优先遍历</strong>:
+树其实也是图的一种<br><strong>图:</strong> 分为有向图和无向图<br><strong>图的储存:</strong></p>
+<blockquote>
+<p>第一种：邻接矩阵，就是一个二维数组，缺点：当点和边特别多的时候，存不下，一般用的比较少，而且非常浪费空间<br>第二种：邻接表:由n个单链表组成，也可以用vector动态数组来实现，但vector有很大的缺点，当点和边非常大时，用vector动态数组的方法很容易超时，所以我们常用n个但链表的方式来存储图</p>
 </blockquote>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>输出一个整数表示答案。</p>
-</blockquote>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤N≤105,<br>0≤Ai&lt;231</p>
-</blockquote>
-<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>3
-1 2 3</p>
-</blockquote>
-<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>3
-<strong>题解</strong>：异或+前缀+字典树<br>其实来说,一个整数,是可以转化成为一个32位的二进制数,而也就可以变成长度为32位的二进制字符串.<br>既然如此话,那么我们可以这么做,每一次检索的时候,我们都走与当前Ai的二进制位的数值相反的位置走,这样就可以让Xor值最大,如果说没有路可以走的话,那么就走相同的路.<br><strong>时间复杂度</strong>：位数*n，所以是O(32 * n)</p>
-</blockquote>
-<p>代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], trie[N * <span class="number">32</span>][<span class="number">5</span>], idx;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span> <span class="comment">//建树</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[p][u])trie[p][u] = idx++;</span><br><span class="line">        p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//找最大的</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = x &gt;&gt; i &amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(trie[p][u^<span class="number">1</span>])&#123;</span><br><span class="line">            p = trie[p][u^<span class="number">1</span>];</span><br><span class="line">            ans +=(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    idx =<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        insert(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)res = max(res, search(a[i]));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>邻接表如何存图呢：</strong><br>假设有这样一个图:<br><img src="https://img-blog.csdnimg.cn/20190614172459555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI4MDQw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那么我们可以给每个节点开一个单链表，如下图所示：<br><img src="https://img-blog.csdnimg.cn/20190614172601738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI4MDQw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样我们就把图用邻接表的方法存了下来<br>树与图深度优先遍历的大致流程：一条路走到黑，直到撞到南墙，走不通了，然后往回走，只要有分支就继续往下走，示例图如下:</p>
+<p><img src="https://img-blog.csdnimg.cn/2019061417364859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI4MDQw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>树与图的遍历模板：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N  = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx, n;<span class="comment">//这里跟单链表一样，只不过这里是N个头节点，H[N]</span></span><br><span class="line"><span class="keyword">bool</span> vis[N];  <span class="comment">//判断是否遍历过</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>  <span class="comment">//邻接表存树与图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vis[cur] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[cur]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">//遍历树</span></span><br><span class="line">        <span class="keyword">int</span> u = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!vis[u])&#123;</span><br><span class="line">            dfs(u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="comment">//建树，双向图</span></span><br><span class="line">        add(a, b);</span><br><span class="line">        add(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就遍历了每个点。</p>
+
     </div>
 </article>
 
@@ -289,7 +279,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '最大异或对'
+      window.commentConfig.title = '树与图的深度优先遍历'
     }
 </script>
 
@@ -351,13 +341,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树的重心/">树的重心</a>
+                    <a href="../树的重心/">树的重心</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树与图的深度优先遍历/">树与图的深度优先遍历</a>
+                    <a href>树与图的深度优先遍历</a>
                 </span>
             </li>
             
@@ -375,13 +365,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>最大异或对</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Trie-字典树/">Trie-字典树</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -421,7 +411,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Trie-字典树/">Trie-字典树</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -439,13 +429,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树与图的深度优先遍历/">树与图的深度优先遍历</a>
+                    <a href>树与图的深度优先遍历</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../14/树的重心/">树的重心</a>
+                    <a href="../树的重心/">树的重心</a>
                 </span>
             </li>
             
@@ -457,7 +447,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>最大异或对</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
@@ -502,21 +492,21 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../tags/Trie/" style="font-size: 11.8161823194608px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../tags/Trie/" style="font-size: 14.15887185378414px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../tags/哈希/" style="font-size: 16.345445445227814px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../tags/哈希/" style="font-size: 15.240729019603762px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../tags/字符串哈希/" style="font-size: 8.077384785433225px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../tags/字符串哈希/" style="font-size: 9.80365502489429px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../tags/dfs/" style="font-size: 14.9569966631387px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../tags/dfs/" style="font-size: 10.836006882653313px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../tags/单链表/" style="font-size: 13.524030030215602px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../tags/单链表/" style="font-size: 9.275542746096509px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../tags/堆/" style="font-size: 13.374256479059149px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../tags/堆/" style="font-size: 17.45856179944556px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../tags/栈/" style="font-size: 17.75232721556832px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../tags/栈/" style="font-size: 18.664507665594236px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../tags/单调栈/" style="font-size: 13.341724146358981px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../tags/单调栈/" style="font-size: 9.249958311447308px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
@@ -642,7 +632,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Jun 11 2019 11:37:08 GMT+0800'
+      window.commentConfig.id = 'Fri Jun 14 2019 17:47:20 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -650,7 +640,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Jun 11 2019 11:37:08 GMT+0800',
+      	id: 'Fri Jun 14 2019 17:47:20 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
