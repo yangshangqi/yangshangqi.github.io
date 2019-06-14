@@ -156,11 +156,7 @@
                         
                         
                         <li>
-                            <a href="../../../../tags/Trie/">Trie</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../tags/单链表/">单链表</a>
+                            <a href="../../../../tags/堆/">堆</a>
                         </li>
                         
                         <li>
@@ -168,7 +164,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../tags/堆/">堆</a>
+                            <a href="../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../tags/dfs/">dfs</a>
                         </li>
                         
                         <li>
@@ -176,7 +176,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../tags/dfs/">dfs</a>
+                            <a href="../../../../tags/单链表/">单链表</a>
                         </li>
                         
                         <li>
@@ -283,7 +283,7 @@
 <p>4</p>
 </blockquote>
 <p><strong>解题思路</strong>：
-这道题就是树的深度优先遍历，我们只需套用模板，遍历每个点的同时，返回该子树的点的个数，以及计算去掉该点时连通块点的最大值即可，最后用ans取最大联通的最下值即可。<br>具体代码如下：</p>
+这道题就是树的深度优先遍历，我们只需套用模板，遍历每个点的同时，返回该子树的点的个数，以及计算去掉该点时连通块点的最大值即可，最后用ans取去掉每个点之后的最大联通块的最小值就是最后的答案。<br>具体代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N  = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx, n;</span><br><span class="line"><span class="keyword">int</span> ans = N;  <span class="comment">//答案</span></span><br><span class="line"><span class="keyword">bool</span> vis[N];  <span class="comment">//判断是否遍历过</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>  <span class="comment">//邻接表存树与图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vis[cur] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, sum = <span class="number">1</span>;  <span class="comment">//res表示去掉cur这个节点，联通块点的最大值， sum表示该子树点的个数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[cur]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">//遍历树</span></span><br><span class="line">        <span class="keyword">int</span> u = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!vis[u])&#123;</span><br><span class="line">            <span class="keyword">int</span> s = dfs(u);</span><br><span class="line">            res = max(res, s);</span><br><span class="line">            sum += s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    res = max(res, n - sum);  <span class="comment">// sum是该子树的点的个数， n - sum表示它的父节点所连接的联通块点的个数</span></span><br><span class="line">    ans = min(res, ans);  <span class="comment">//取最大连通块点的最小值</span></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="comment">//建树，双向图</span></span><br><span class="line">        add(a, b);</span><br><span class="line">        add(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
@@ -426,13 +426,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../10/单链表/">单链表</a>
+                    <a href="../../10/堆/">堆</a>
                 </span>
             </li>
             
@@ -444,19 +438,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../10/堆/">堆</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../13/字符串哈希/">字符串哈希</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../11/最大异或对/">最大异或对</a>
+                    <a href="../../11/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -468,13 +450,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href>树的重心(dfs)</a>
+                    <a href="../../11/最大异或对/">最大异或对</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../13/字符串哈希/">字符串哈希</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../10/单链表/">单链表</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../10/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href>树的重心(dfs)</a>
                 </span>
             </li>
             
@@ -507,21 +507,21 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../tags/Trie/" style="font-size: 10.935023785135638px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../tags/堆/" style="font-size: 14.53053925813391px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../tags/单链表/" style="font-size: 12.61696198451533px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../tags/哈希/" style="font-size: 10.61622213871129px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../tags/哈希/" style="font-size: 11.441508890325082px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../tags/Trie/" style="font-size: 17.14196181031946px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../tags/堆/" style="font-size: 11.76050636455795px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../tags/dfs/" style="font-size: 19.191651013238175px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../tags/字符串哈希/" style="font-size: 19.86388238682693px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../tags/字符串哈希/" style="font-size: 19.577189240072098px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../tags/dfs/" style="font-size: 16.908421623516205px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../tags/单链表/" style="font-size: 19.761789635654086px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../tags/栈/" style="font-size: 16.46157116943689px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../tags/栈/" style="font-size: 15.568621173890314px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../tags/单调栈/" style="font-size: 8.579809227044677px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../tags/单调栈/" style="font-size: 12.069697931207319px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
