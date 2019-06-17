@@ -164,15 +164,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/Trie/">Trie</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/单链表/">单链表</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/哈希/">哈希</a>
                         </li>
                         
                         <li>
@@ -180,7 +172,15 @@
                         </li>
                         
                         <li>
+                            <a href="../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
                             <a href="../../../../../tags/字符串哈希/">字符串哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
                         </li>
                         
                         <li>
@@ -272,8 +272,8 @@
 <blockquote>
 <p>第一种：邻接矩阵，就是一个二维数组，缺点：当点和边特别多的时候，存不下，一般用的比较少，而且非常浪费空间<br>第二种：邻接表:由n个单链表组成，也可以用vector动态数组来实现，但vector有很大的缺点，当点和边非常大时，用vector动态数组的方法很容易超时，所以我们常用n个但链表的方式来存储图</p>
 </blockquote>
-<p><strong>邻接表如何存图呢：</strong><br>假设有这样一个图:<br><img src="https://img-blog.csdnimg.cn/20190614172459555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI4MDQw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那么我们可以给每个节点开一个单链表，如下图所示：<br><img src="https://img-blog.csdnimg.cn/20190614172601738.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI4MDQw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样我们就把图用邻接表的方法存了下来<br>树与图深度优先遍历的大致流程：一条路走到黑，直到撞到南墙，走不通了，然后往回走，只要有分支就继续往下走，示例图如下:</p>
-<p><img src="https://img-blog.csdnimg.cn/2019061417364859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzI4MDQw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>树与图的遍历模板：</p>
+<p><strong>邻接表如何存图呢：</strong><br>假设有这样一个图:<br><img src="http://psx1igs00.bkt.clouddn.com/0W~UIVAX9QD%60EUE%5BEN5QT_2.png" alt="在这里插入图片描述"><br>那么我们可以给每个节点开一个单链表，如下图所示：<br><img src="http://psx1igs00.bkt.clouddn.com/%29%7D%7D%29OAOF6G2I%5B%7DAEVI3%5BD9S.png" alt="在这里插入图片描述"><br>这样我们就把图用邻接表的方法存了下来<br>树与图深度优先遍历的大致流程：一条路走到黑，直到撞到南墙，走不通了，然后往回走，只要有分支就继续往下走，示例图如下:</p>
+<p><img src="images/shu.png" alt="在这里插入图片描述"><br>树与图的遍历模板：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N  = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx, n;<span class="comment">//这里跟单链表一样，只不过这里是N个头节点，H[N]</span></span><br><span class="line"><span class="keyword">bool</span> vis[N];  <span class="comment">//判断是否遍历过</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>  <span class="comment">//邻接表存树与图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vis[cur] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[cur]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">//遍历树</span></span><br><span class="line">        <span class="keyword">int</span> u = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!vis[u])&#123;</span><br><span class="line">            dfs(u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="comment">//建树，双向图</span></span><br><span class="line">        add(a, b);</span><br><span class="line">        add(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样我们就遍历了每个点。</p>
@@ -431,19 +431,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../n-皇后问题/">n-皇后问题(dfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="../../../15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
+                    <a href="../树的重心/">树的重心(dfs)</a>
                 </span>
             </li>
             
@@ -461,13 +455,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                    <a href="../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../12/数据结构基础/哈希表-散列表/">哈希表(散列表)</a>
+                    <a href="../n-皇后问题/">n-皇后问题(dfs)</a>
                 </span>
             </li>
             
@@ -480,6 +474,12 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../../10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -512,23 +512,23 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/dfs/" style="font-size: 9.458342338626696px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 8.555921409820897px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 10.505677328443976px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 19.647717985201297px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 13.574155847595112px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 13.093278343042016px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 13.403797422633986px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/堆/" style="font-size: 12.1903440525182px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 10.533516218691185px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 12.104425502550603px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 9.076935282141395px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 19.129038651476204px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.832082554008851px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 11.241570471404176px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 19.175696906774345px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 17.401981418235334px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 10.564548729679px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 16.332575182227146px;" class="tag-cloud-link">单调栈</a>
     
 </div>
                 
