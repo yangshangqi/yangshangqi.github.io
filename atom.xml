@@ -177,9 +177,9 @@
       <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
     
     
-      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
-    
       <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
+    
+      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
     
   </entry>
   
