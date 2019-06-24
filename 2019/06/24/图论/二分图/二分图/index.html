@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="zhumenger">
+    
+    <meta name="description" content="穿过落雁修竹, 看过日升月暮&lt;br/&gt;你说总有一天你会名扬天下实现你的抱负!">
+    
+    
+    
+    
+    
+    
+    <title>二分图 | zhumenger ❤ blog</title>
+    <link href="”http://zhumenger.top“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="../../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../../css/aos.css">
+<link rel="stylesheet" href="../../../../../../css/style.css">
+    <script src="../../../../../../js/jquery.min.js"></script>
+    <script src="../../../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../../../js/aos.js"></script>
+    <script src="../../../../../../js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="../../../../../../js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '../../../../../../imgs/http:/psx1igs00.bkt.clouddn.com/zhumenger.jpg'
+        var previews = 'http://psx1igs00.bkt.clouddn.com/preview7.jpg,http://psx1igs00.bkt.clouddn.com/preview1.jpg,http://psx1igs00.bkt.clouddn.com/preview2.jpg,http://psx1igs00.bkt.clouddn.com/preview3.jpg,http://psx1igs00.bkt.clouddn.com/preview4.jpg,http://psx1igs00.bkt.clouddn.com/preview5.jpg,http://psx1igs00.bkt.clouddn.com/preview6.jpg,http://psx1igs00.bkt.clouddn.com/preview21.jpg,http://psx1igs00.bkt.clouddn.com/preview8.jpg,http://psx1igs00.bkt.clouddn.com/preview9.jpg,http://psx1igs00.bkt.clouddn.com/preview10.jpg,http://psx1igs00.bkt.clouddn.com/preview11.jpg,http://psx1igs00.bkt.clouddn.com/preview12.jpg,http://psx1igs00.bkt.clouddn.com/preview13.jpg,http://psx1igs00.bkt.clouddn.com/preview14.jpg,http://psx1igs00.bkt.clouddn.com/preview15.jpg,http://psx1igs00.bkt.clouddn.com/preview16.jpg,http://psx1igs00.bkt.clouddn.com/preview17.jpg,http://psx1igs00.bkt.clouddn.com/preview18.jpg,http://psx1igs00.bkt.clouddn.com/preview19.jpg,http://psx1igs00.bkt.clouddn.com/preview20.jpg,http://psx1igs00.bkt.clouddn.com/preview22.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '../../../../../../imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://zhumenger.top" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="../../../../../../archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="../../../../../../about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="../../../../../../categories" class="menuItem" style="left: 19.6891%; top: 67.5%;">分类</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="../../../../../../imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://zhumenger.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">zhumenger ❤ blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class>
+                    <a href="../../../../../../index.html">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class>
+                    <a href="../../../../../../archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../../categories/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/图论/">图论</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/堆/">堆</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/栈/">栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/单调栈/">单调栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/字符串哈希/">字符串哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/图论/">图论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/二分图/">二分图</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/最小生成树/">最小生成树</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/最短路问题/">最短路问题</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class>
+                    <a href="../../../../../../about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>二分图</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href>二分图</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../../tags/图论/">图论</a>, 
+                
+                <a href="../../../../../../tags/二分图/">二分图</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-24
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href>二分图</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-06-24
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../../tags/图论/">图论</a>, 
+                
+                <a href="../../../../../../tags/二分图/">二分图</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h2><p><strong>1.定义：</strong></p>
+<blockquote>
+<p>二分图是指将图中的点分为俩个集合X和Y，满足所有的边仅在俩个集合之间，并且俩个集合中没有边，即X中的点只与Y中的点相连，如下图所示，这样的图称为二分图。</p>
+</blockquote>
+<p><img src="https://img-blog.csdn.net/20180509132741261?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTU2NzY5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="è¿éåå¾çæè¿°"></p>
+<p><strong>2.性质：</strong></p>
+<blockquote>
+<p>当且仅当图中不含奇数环，即所有的环的边数为偶数。这样的图一定是二分图。</p>
+</blockquote>
+<p><strong>3.判定：</strong> </p>
+<h4 id="染色法判定二分图"><a href="#染色法判定二分图" class="headerlink" title="染色法判定二分图"></a>染色法判定二分图</h4><p><strong>原理：</strong></p>
+<p>首先任意取出一个顶点进行染色,和该节点相邻的点有三种情况:</p>
+<blockquote>
+<p>1.未染色    那么继续染色此节点(染色为另一种颜色)</p>
+<p>2.已染色但和当前节点颜色不同      跳过该点</p>
+<p>3.已染色并且和当前节点颜色相同       返回失败(该图不是二分图)</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;</span><br><span class="line"><span class="keyword">int</span> n, m, color[N];<span class="comment">//color表示哪些点已经被染了色</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> c)</span><span class="comment">//c表示染色的种类</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    color[x] = c;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(color[j] == c)<span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//如果与i相连的点与i染成了相同的颜色，返回false</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(color[j] == <span class="number">0</span> &amp;&amp; !dfs(j, -c))<span class="keyword">return</span> <span class="literal">false</span>;  <span class="comment">//如果该点还没有被染色，并且染成相反的染色失败了的话，返回false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</span><br><span class="line">        add(a, b);</span><br><span class="line">        add(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;<span class="comment">//遍历每一个点</span></span><br><span class="line">        <span class="keyword">if</span>(color[i] == <span class="number">0</span>)&#123;<span class="comment">//如果没有被染色</span></span><br><span class="line">            <span class="keyword">if</span>(!dfs(i, <span class="number">1</span>))&#123;<span class="comment">//   判断是否能被染色</span></span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)<span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二分图的最大匹配"><a href="#二分图的最大匹配" class="headerlink" title="二分图的最大匹配"></a>二分图的最大匹配</h2><p><strong>什么是匹配：</strong></p>
+<blockquote>
+<p>给定一个二分图G，在G的一个子图M中， M的边集{E}中的任意两条边都不交汇于同一个结点，则称M是一个匹配。 </p>
+</blockquote>
+<p>图中加粗的边是数量为2的匹配。 </p>
+<p><img src="https://img-blog.csdn.net/20180509133539768?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTU2NzY5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="è¿éåå¾çæè¿°"></p>
+<p><strong>二分图的最大匹配</strong> ：选择匹配边数最多的一个子图称为图的最大匹配</p>
+<p>如下图所示，加粗的边数最多为3，所以该子图为二分图的最大匹配</p>
+<p><img src="https://img-blog.csdn.net/20180509133943779?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4OTU2NzY5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="è¿éåå¾çæè¿°"></p>
+<p><strong>如何求二分图的最大匹配：</strong></p>
+<h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><blockquote>
+<p>假设左边的集合都为男生，右边的集合都为女生，让我们求出最多有多少对情侣能够配对成功。</p>
+<p>对于每个男生，遍历他所有有好感度的女生，有俩种情况：</p>
+<p>1.如果该女生是单身，则匹配成功</p>
+<p>2.否则我们寻找与该女生的配对的那个男生，看看这个男生是否能和其他的女生配对，如果可以的话，让这个男与其备胎匹配，空出来的这个女生便可以与当前的这个男生配对成功。</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;</span><br><span class="line"><span class="keyword">int</span> match[N];<span class="comment">//一个映射关系:表示妹子与谁配了对</span></span><br><span class="line"><span class="keyword">bool</span> vis[N];<span class="comment">//表示哪些妹子已经遍历过了</span></span><br><span class="line"><span class="keyword">int</span> n1, n2, m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i])&#123;<span class="comment">//遍历该男生所有有好感度的女生</span></span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!vis[j])&#123;<span class="comment">//如果该女生还没有被当前男生询问过</span></span><br><span class="line">            vis[j] = <span class="literal">true</span>;<span class="comment">//已经被询问过</span></span><br><span class="line">            <span class="keyword">if</span>(match[j] == <span class="number">0</span> || Find(match[j]))&#123;<span class="comment">//如果该女生还没有配对或者与该女生配对的那个男生可以跟另</span></span><br><span class="line">                match[j] = x;                   <span class="comment">//一个女生配对的话，该女生便可以与当前的这个男生配对。</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">//返回true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//否则，返回false</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n1 &gt;&gt; n2 &gt;&gt; m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        add(a, b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;<span class="comment">//表示成功匹配了对少对</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n1; i++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis);<span class="comment">//对于每一个男生，所有的妹子还没有询问过，所以这里要初始化</span></span><br><span class="line">        <span class="keyword">if</span>(Find(i))ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '二分图'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="../../../../../../search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            zhumenger
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://psx1igs00.bkt.clouddn.com/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说总有一天你会名扬天下实现你的抱负!</p>
+<p></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href>二分图</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../最小生成树/最小生成树/">最小生成树</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../21/搜索/八数码/">八数码(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../16/搜索/dfs和bfs简介/">dfs和bfs简介</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../14/搜索/迷宫问题/">迷宫问题(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../16/搜索/dfs和bfs简介/">dfs和bfs简介</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../14/搜索/树的重心/">树的重心(dfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../14/搜索/迷宫问题/">迷宫问题(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/数据结构基础/最大异或对/">最大异或对</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../最小生成树/最小生成树/">最小生成树</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="../../../../../../tags/dfs/" style="font-size: 18.175447647182818px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="../../../../../../tags/bfs/" style="font-size: 9.808043480729554px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="../../../../../../tags/题解/" style="font-size: 9.506149812720743px;" class="tag-cloud-link">题解</a>
+    
+    <a href="../../../../../../tags/Trie/" style="font-size: 13.294439499763799px;" class="tag-cloud-link">Trie</a>
+    
+    <a href="../../../../../../tags/单链表/" style="font-size: 18.374715165252457px;" class="tag-cloud-link">单链表</a>
+    
+    <a href="../../../../../../tags/哈希/" style="font-size: 11.164045238142034px;" class="tag-cloud-link">哈希</a>
+    
+    <a href="../../../../../../tags/堆/" style="font-size: 15.940675090767712px;" class="tag-cloud-link">堆</a>
+    
+    <a href="../../../../../../tags/栈/" style="font-size: 12.981894256757377px;" class="tag-cloud-link">栈</a>
+    
+    <a href="../../../../../../tags/单调栈/" style="font-size: 16.789692599147095px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="../../../../../../tags/字符串哈希/" style="font-size: 10.172125813952569px;" class="tag-cloud-link">字符串哈希</a>
+    
+    <a href="../../../../../../tags/图论/" style="font-size: 17.75090590390352px;" class="tag-cloud-link">图论</a>
+    
+    <a href="../../../../../../tags/二分图/" style="font-size: 8.105540253622868px;" class="tag-cloud-link">二分图</a>
+    
+    <a href="../../../../../../tags/最小生成树/" style="font-size: 14.875157242280592px;" class="tag-cloud-link">最小生成树</a>
+    
+    <a href="../../../../../../tags/最短路问题/" style="font-size: 18.357764669386967px;" class="tag-cloud-link">最短路问题</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://sorashiro.top/" target="_blank">空白之间</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.csdn.net/qq_43328040" target="_blank">CSDN</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
+    </aside>
+    
+</aside>r
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 zhumenger Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+<!-- 雪花特效 -->
+<script type="text/javascript">
+  var windowWidth = $(window).width();
+  if (windowWidth > 480) {
+    document.write('<script type="text/javascript" src="/js/snow.js"><\/script>');
+  }
+</script>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/love.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://psx1igs00.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '10'
+    }
+</script>
+<script src="../../../../../../js/hs.js"></script>
+<script src="../../../../../../js/blog.js"></script>
+
+<script src="../../../../../../js/oni.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Mon Jun 24 2019 20:11:27 GMT+0800'
+      window.commentConfig.owner = 'yangshangqi'
+      window.commentConfig.repo = 'yangshangqi.github.io'
+      window.commentConfig.client_id = '60e14965f8d29e28aed6'
+      window.commentConfig.client_secret = '734664cef8637979b4e5ace1145b8f19456aa802'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Mon Jun 24 2019 20:11:27 GMT+0800',
+        owner: 'yangshangqi',
+        repo: 'yangshangqi.github.io',
+        client_id: '60e14965f8d29e28aed6',
+        client_secret: '734664cef8637979b4e5ace1145b8f19456aa802',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="../../../../../../js/comment/gitment.js"></script>
+
+<script src="/live2d-widget/autoload.js"></script>
+</html>
