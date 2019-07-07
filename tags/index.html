@@ -27,7 +27,7 @@
         @media (max-width: 768px) {
             body {
                 background-color: #f0f0f0;
-                background: url('/imgs/http://pu82h1duu.bkt.clouddn.com/avatar.jpg');
+                background: url('/imgs/avatar.jpg');
                 background-attachment: fixed;
             }
         }
@@ -37,7 +37,7 @@
       if (document.images) {
         var avatar = new Image();
         avatar.src = '../imgs/http:/pu82h1duu.bkt.clouddn.com/zhumenger.jpg'
-        var previews = 'http://pu82h1duu.bkt.clouddn.com/preview7.jpg,http://pu82h1duu.bkt.clouddn.com/preview1.jpg,http://pu82h1duu.bkt.clouddn.com/preview2.jpg,http://pu82h1duu.bkt.clouddn.com/preview3.jpg,http://pu82h1duu.bkt.clouddn.com/preview4.jpg,http://pu82h1duu.bkt.clouddn.com/preview5.jpg,http://pu82h1duu.bkt.clouddn.com/preview6.jpg,http://pu82h1duu.bkt.clouddn.com/preview21.jpg,http://pu82h1duu.bkt.clouddn.com/preview8.jpg,http://pu82h1duu.bkt.clouddn.com/preview9.jpg,http://pu82h1duu.bkt.clouddn.com/preview10.jpg,http://pu82h1duu.bkt.clouddn.com/preview11.jpg,http://pu82h1duu.bkt.clouddn.com/preview12.jpg,http://pu82h1duu.bkt.clouddn.com/preview13.jpg,http://pu82h1duu.bkt.clouddn.com/preview14.jpg,http://pu82h1duu.bkt.clouddn.com/preview15.jpg,http://pu82h1duu.bkt.clouddn.com/preview16.jpg,http://pu82h1duu.bkt.clouddn.com/preview17.jpg,http://pu82h1duu.bkt.clouddn.com/preview18.jpg,http://pu82h1duu.bkt.clouddn.com/preview19.jpg,http://pu82h1duu.bkt.clouddn.com/preview20.jpg,http://pu82h1duu.bkt.clouddn.com/preview22.jpg'.split(',')
+        var previews = 'http://pu82h1duu.bkt.clouddn.com/preview7.jpg,http://pu82h1duu.bkt.clouddn.com/preview1.jpg,http://pu82h1duu.bkt.clouddn.com/preview2.jpg,http://pu82h1duu.bkt.clouddn.com/preview3.jpg,http://pu82h1duu.bkt.clouddn.com/preview4.jpg,http://pu82h1duu.bkt.clouddn.com/preview5.jpg,http://pu82h1duu.bkt.clouddn.com/preview6.jpg,http://pu82h1duu.bkt.clouddn.com/preview21.jpg,http://pu82h1duu.bkt.clouddn.com/preview8.jpg,http://pu82h1duu.bkt.clouddn.com/preview9.jpg,http://pu82h1duu.bkt.clouddn.com/preview10.jpg,http://pu82h1duu.bkt.clouddn.com/preview11.jpg,http://pu82h1duu.bkt.clouddn.com/preview12.jpg,http://pu82h1duu.bkt.clouddn.com/preview13.jpg,http://pu82h1duu.bkt.clouddn.com/preview14.jpg,http://pu82h1duu.bkt.clouddn.com/preview15.jpg,http://pu82h1duu.bkt.clouddn.com/preview16.jpg,http://pu82h1duu.bkt.clouddn.com/preview17.jpg,http://pu82h1duu.bkt.clouddn.com/preview18.jpg,http://pu82h1duu.bkt.clouddn.com/preview19.jpg,http://pu82h1duu.bkt.clouddn.com/preview20.jpg,http://pu82h1duu.bkt.clouddn.com/preview22.jpg,http://pu82h1duu.bkt.clouddn.com/preview23.jpg,http://pu82h1duu.bkt.clouddn.com/preview24.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
           previewsPreLoad.push(new Image())
@@ -188,6 +188,10 @@
                         </li>
                         
                         <li>
+                            <a href="哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
                             <a href="字符串哈希/">字符串哈希</a>
                         </li>
                         
@@ -213,10 +217,6 @@
                         
                         <li>
                             <a href="数论，约数/">数论，约数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="哈希/">哈希</a>
                         </li>
                         
                         <li>
@@ -439,7 +439,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
+                    <a href="../2019/06/14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../2019/06/21/搜索/八数码/">八数码(bfs)</a>
                 </span>
             </li>
             
@@ -451,13 +457,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/14/搜索/树的重心/">树的重心(dfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/06/11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                    <a href="../2019/06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
@@ -469,25 +469,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/07/07/数论/欧拉函数/">欧拉函数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/07/07/数论/约数/">约数</a>
+                    <a href="../2019/06/11/数据结构基础/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../2019/06/23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../2019/06/24/图论/二分图/二分图/">二分图</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../2019/06/24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
@@ -526,41 +526,41 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="dfs/" style="font-size: 11.479558627866279px;" class="tag-cloud-link">dfs</a>
+    <a href="dfs/" style="font-size: 8.060561954428678px;" class="tag-cloud-link">dfs</a>
     
-    <a href="bfs/" style="font-size: 9.739277083921108px;" class="tag-cloud-link">bfs</a>
+    <a href="bfs/" style="font-size: 17.78598623411884px;" class="tag-cloud-link">bfs</a>
     
-    <a href="Trie/" style="font-size: 13.02920057859923px;" class="tag-cloud-link">Trie</a>
+    <a href="Trie/" style="font-size: 9.655848429716297px;" class="tag-cloud-link">Trie</a>
     
-    <a href="单链表/" style="font-size: 13.954747475744178px;" class="tag-cloud-link">单链表</a>
+    <a href="单链表/" style="font-size: 16.59630575564945px;" class="tag-cloud-link">单链表</a>
     
-    <a href="堆/" style="font-size: 17.00090956095715px;" class="tag-cloud-link">堆</a>
+    <a href="堆/" style="font-size: 15.510065369457651px;" class="tag-cloud-link">堆</a>
     
-    <a href="字符串哈希/" style="font-size: 18.837905899937038px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="哈希/" style="font-size: 16.76338006732148px;" class="tag-cloud-link">哈希</a>
     
-    <a href="栈/" style="font-size: 13.54742524817653px;" class="tag-cloud-link">栈</a>
+    <a href="字符串哈希/" style="font-size: 15.454543384322458px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="单调栈/" style="font-size: 19.887086046731586px;" class="tag-cloud-link">单调栈</a>
+    <a href="栈/" style="font-size: 15.012063535232066px;" class="tag-cloud-link">栈</a>
     
-    <a href="数论/" style="font-size: 13.534452903278435px;" class="tag-cloud-link">数论</a>
+    <a href="单调栈/" style="font-size: 13.964153470516287px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="快速幂/" style="font-size: 15.930690005675391px;" class="tag-cloud-link">快速幂</a>
+    <a href="数论/" style="font-size: 9.17752831266959px;" class="tag-cloud-link">数论</a>
     
-    <a href="欧拉函数/" style="font-size: 12.941697185687367px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="快速幂/" style="font-size: 14.930012646839993px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="数论，约数/" style="font-size: 8.245309502287219px;" class="tag-cloud-link">数论，约数</a>
+    <a href="欧拉函数/" style="font-size: 13.232853740945288px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="哈希/" style="font-size: 8.848191013432386px;" class="tag-cloud-link">哈希</a>
+    <a href="数论，约数/" style="font-size: 19.379113756326326px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="题解/" style="font-size: 12.499449660281451px;" class="tag-cloud-link">题解</a>
+    <a href="题解/" style="font-size: 8.694750180616136px;" class="tag-cloud-link">题解</a>
     
-    <a href="图论/" style="font-size: 17.91418211753441px;" class="tag-cloud-link">图论</a>
+    <a href="图论/" style="font-size: 12.50813905288135px;" class="tag-cloud-link">图论</a>
     
-    <a href="二分图/" style="font-size: 10.820258649086163px;" class="tag-cloud-link">二分图</a>
+    <a href="二分图/" style="font-size: 18.183101250396028px;" class="tag-cloud-link">二分图</a>
     
-    <a href="最小生成树/" style="font-size: 15.79120247967146px;" class="tag-cloud-link">最小生成树</a>
+    <a href="最小生成树/" style="font-size: 8.956880108294373px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="最短路问题/" style="font-size: 10.612162129844439px;" class="tag-cloud-link">最短路问题</a>
+    <a href="最短路问题/" style="font-size: 12.762273778017839px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -671,9 +671,9 @@
 </script>
 <script>
     window.slideConfig = {
-      prefix: 'http://pu82h1duu.bkt.clouddn.com/background',
+      prefix: 'http://pu82h1duu.bkt.clouddn.com/preview',
       ext: 'jpg',
-      maxCount: '10'
+      maxCount: '11'
     }
 </script>
 <script src="../js/hs.js"></script>
