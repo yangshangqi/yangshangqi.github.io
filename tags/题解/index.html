@@ -37,7 +37,7 @@
       if (document.images) {
         var avatar = new Image();
         avatar.src = '../../imgs/http:/pu82h1duu.bkt.clouddn.com/zhumenger.jpg'
-        var previews = 'http://pu82h1duu.bkt.clouddn.com/preview1.jpg,http://pu82h1duu.bkt.clouddn.com/preview1.jpg,http://pu82h1duu.bkt.clouddn.com/preview2.jpg,http://pu82h1duu.bkt.clouddn.com/preview3.jpg,http://pu82h1duu.bkt.clouddn.com/preview4.jpg,http://pu82h1duu.bkt.clouddn.com/preview5.jpg,http://pu82h1duu.bkt.clouddn.com/preview6.jpg,http://pu82h1duu.bkt.clouddn.com/preview21.jpg,http://pu82h1duu.bkt.clouddn.com/preview8.jpg,http://pu82h1duu.bkt.clouddn.com/preview9.jpg,http://pu82h1duu.bkt.clouddn.com/preview10.jpg,http://pu82h1duu.bkt.clouddn.com/preview11.jpg,http://pu82h1duu.bkt.clouddn.com/preview12.jpg,http://pu82h1duu.bkt.clouddn.com/preview13.jpg,http://pu82h1duu.bkt.clouddn.com/preview14.jpg,http://pu82h1duu.bkt.clouddn.com/preview15.jpg,http://pu82h1duu.bkt.clouddn.com/preview16.jpg,http://pu82h1duu.bkt.clouddn.com/preview17.jpg,http://pu82h1duu.bkt.clouddn.com/preview18.jpg,http://pu82h1duu.bkt.clouddn.com/preview19.jpg,http://pu82h1duu.bkt.clouddn.com/preview20.jpg,http://pu82h1duu.bkt.clouddn.com/preview22.jpg'.split(',')
+        var previews = 'http://pu82h1duu.bkt.clouddn.com/preview7.jpg,http://pu82h1duu.bkt.clouddn.com/preview1.jpg,http://pu82h1duu.bkt.clouddn.com/preview2.jpg,http://pu82h1duu.bkt.clouddn.com/preview3.jpg,http://pu82h1duu.bkt.clouddn.com/preview4.jpg,http://pu82h1duu.bkt.clouddn.com/preview5.jpg,http://pu82h1duu.bkt.clouddn.com/preview6.jpg,http://pu82h1duu.bkt.clouddn.com/preview21.jpg,http://pu82h1duu.bkt.clouddn.com/preview8.jpg,http://pu82h1duu.bkt.clouddn.com/preview9.jpg,http://pu82h1duu.bkt.clouddn.com/preview10.jpg,http://pu82h1duu.bkt.clouddn.com/preview11.jpg,http://pu82h1duu.bkt.clouddn.com/preview12.jpg,http://pu82h1duu.bkt.clouddn.com/preview13.jpg,http://pu82h1duu.bkt.clouddn.com/preview14.jpg,http://pu82h1duu.bkt.clouddn.com/preview15.jpg,http://pu82h1duu.bkt.clouddn.com/preview16.jpg,http://pu82h1duu.bkt.clouddn.com/preview17.jpg,http://pu82h1duu.bkt.clouddn.com/preview18.jpg,http://pu82h1duu.bkt.clouddn.com/preview19.jpg,http://pu82h1duu.bkt.clouddn.com/preview20.jpg,http://pu82h1duu.bkt.clouddn.com/preview22.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
           previewsPreLoad.push(new Image())
@@ -164,11 +164,11 @@
                         
                         
                         <li>
-                            <a href="../dfs/">dfs</a>
+                            <a href="../bfs/">bfs</a>
                         </li>
                         
                         <li>
-                            <a href="../bfs/">bfs</a>
+                            <a href="../dfs/">dfs</a>
                         </li>
                         
                         <li>
@@ -180,11 +180,11 @@
                         </li>
                         
                         <li>
-                            <a href="../哈希/">哈希</a>
+                            <a href="../堆/">堆</a>
                         </li>
                         
                         <li>
-                            <a href="../堆/">堆</a>
+                            <a href="../哈希/">哈希</a>
                         </li>
                         
                         <li>
@@ -408,13 +408,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="../../2019/06/21/搜索/八数码/">八数码(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="../../2019/06/15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/06/14/搜索/树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
+                    <a href="../../2019/06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
@@ -426,13 +432,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/06/12/数据结构基础/哈希表-散列表/">哈希表(散列表)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../2019/06/10/数据结构基础/堆/">堆</a>
+                    <a href="../../2019/06/10/数据结构基础/单链表/">单链表</a>
                 </span>
             </li>
             
@@ -495,33 +495,33 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../dfs/" style="font-size: 16.47437063783649px;" class="tag-cloud-link">dfs</a>
+    <a href="../bfs/" style="font-size: 18.556735847658935px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../bfs/" style="font-size: 19.67721201482582px;" class="tag-cloud-link">bfs</a>
+    <a href="../dfs/" style="font-size: 19.766759286739806px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../Trie/" style="font-size: 9.69280349714961px;" class="tag-cloud-link">Trie</a>
+    <a href="../Trie/" style="font-size: 9.391474289513823px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../单链表/" style="font-size: 10.165086197826557px;" class="tag-cloud-link">单链表</a>
+    <a href="../单链表/" style="font-size: 13.510419714188767px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../哈希/" style="font-size: 15.916500047622499px;" class="tag-cloud-link">哈希</a>
+    <a href="../堆/" style="font-size: 10.1034359018997px;" class="tag-cloud-link">堆</a>
     
-    <a href="../堆/" style="font-size: 14.028175389174741px;" class="tag-cloud-link">堆</a>
+    <a href="../哈希/" style="font-size: 12.12886095755508px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../字符串哈希/" style="font-size: 11.873533935387425px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../字符串哈希/" style="font-size: 10.847908422609784px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../栈/" style="font-size: 14.014962180050302px;" class="tag-cloud-link">栈</a>
+    <a href="../栈/" style="font-size: 11.984213621370591px;" class="tag-cloud-link">栈</a>
     
-    <a href="../单调栈/" style="font-size: 12.453843909910978px;" class="tag-cloud-link">单调栈</a>
+    <a href="../单调栈/" style="font-size: 17.35468771877694px;" class="tag-cloud-link">单调栈</a>
     
-    <a href style="font-size: 14.760119881832502px;" class="tag-cloud-link">题解</a>
+    <a href style="font-size: 13.762841099608757px;" class="tag-cloud-link">题解</a>
     
-    <a href="../图论/" style="font-size: 16.50154325222793px;" class="tag-cloud-link">图论</a>
+    <a href="../图论/" style="font-size: 10.488542842488345px;" class="tag-cloud-link">图论</a>
     
-    <a href="../最小生成树/" style="font-size: 9.300950400527018px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../最小生成树/" style="font-size: 13.818349651858398px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../二分图/" style="font-size: 14.775337566194512px;" class="tag-cloud-link">二分图</a>
+    <a href="../二分图/" style="font-size: 10.975334352472515px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../最短路问题/" style="font-size: 17.861239931079794px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../最短路问题/" style="font-size: 16.03041063367313px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -634,7 +634,7 @@
     window.slideConfig = {
       prefix: 'http://pu82h1duu.bkt.clouddn.com/background',
       ext: 'jpg',
-      maxCount: '100'
+      maxCount: '10'
     }
 </script>
 <script src="../../js/hs.js"></script>
