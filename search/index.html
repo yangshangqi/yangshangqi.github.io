@@ -131,11 +131,11 @@
                         
                         
                         <li>
-                            <a href="../categories/数据结构基础/">数据结构基础</a>
+                            <a href="../categories/搜索/">搜索</a>
                         </li>
                         
                         <li>
-                            <a href="../categories/搜索/">搜索</a>
+                            <a href="../categories/数据结构基础/">数据结构基础</a>
                         </li>
                         
                         <li>
@@ -168,11 +168,19 @@
                         
                         
                         <li>
+                            <a href="../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
                             <a href="../tags/Trie/">Trie</a>
                         </li>
                         
                         <li>
-                            <a href="../tags/哈希/">哈希</a>
+                            <a href="../tags/单链表/">单链表</a>
                         </li>
                         
                         <li>
@@ -192,23 +200,11 @@
                         </li>
                         
                         <li>
-                            <a href="../tags/dfs/">dfs</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../tags/bfs/">bfs</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../tags/单链表/">单链表</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../tags/数论，约数/">数论，约数</a>
-                        </li>
-                        
-                        <li>
                             <a href="../tags/数论/">数论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../tags/快速幂/">快速幂</a>
                         </li>
                         
                         <li>
@@ -216,11 +212,15 @@
                         </li>
                         
                         <li>
-                            <a href="../tags/题解/">题解</a>
+                            <a href="../tags/数论，约数/">数论，约数</a>
                         </li>
                         
                         <li>
-                            <a href="../tags/最短路问题/">最短路问题</a>
+                            <a href="../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../tags/题解/">题解</a>
                         </li>
                         
                         <li>
@@ -233,6 +233,10 @@
                         
                         <li>
                             <a href="../tags/最小生成树/">最小生成树</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../tags/最短路问题/">最短路问题</a>
                         </li>
                         
                         
@@ -314,7 +318,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = 'http://pu82h1duu.bkt.clouddn.com/preview20.jpg'
+        var defaultPreview = 'http://pu82h1duu.bkt.clouddn.com/preview14.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -523,6 +527,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="../2019/07/07/数论/快速幂/">快速幂</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="../2019/07/07/数论/欧拉函数/">欧拉函数</a>
                 </span>
             </li>
@@ -575,12 +585,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -599,19 +603,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/13/数据结构基础/字符串哈希/">字符串哈希</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/06/11/数据结构基础/最大异或对/">最大异或对</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/06/10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../2019/06/14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
                 </span>
             </li>
             
@@ -623,19 +615,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="../2019/06/21/搜索/八数码/">八数码(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../2019/06/15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="../2019/06/10/数据结构基础/单链表/">单链表</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/06/14/搜索/树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
+                    <a href="../2019/06/13/数据结构基础/字符串哈希/">字符串哈希</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../2019/07/07/数论/约数/">约数</a>
+                    <a href="../2019/06/10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../2019/07/07/数论/快速幂/">快速幂</a>
                 </span>
             </li>
             
@@ -648,12 +658,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../2019/06/24/图论/二分图/二分图/">二分图</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../2019/06/24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
@@ -686,39 +690,41 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../tags/Trie/" style="font-size: 14.008758384870289px;" class="tag-cloud-link">Trie</a>
+    <a href="../tags/dfs/" style="font-size: 11.602915407976909px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../tags/哈希/" style="font-size: 18.702724463078287px;" class="tag-cloud-link">哈希</a>
+    <a href="../tags/bfs/" style="font-size: 10.384819052167122px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../tags/堆/" style="font-size: 11.367908612295324px;" class="tag-cloud-link">堆</a>
+    <a href="../tags/Trie/" style="font-size: 11.651766236049257px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../tags/字符串哈希/" style="font-size: 8.271944015985042px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../tags/单链表/" style="font-size: 14.228360134722426px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../tags/栈/" style="font-size: 15.623627487847614px;" class="tag-cloud-link">栈</a>
+    <a href="../tags/堆/" style="font-size: 16.354709835790906px;" class="tag-cloud-link">堆</a>
     
-    <a href="../tags/单调栈/" style="font-size: 15.429264387550123px;" class="tag-cloud-link">单调栈</a>
+    <a href="../tags/字符串哈希/" style="font-size: 8.57817301169046px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../tags/dfs/" style="font-size: 8.25218948209245px;" class="tag-cloud-link">dfs</a>
+    <a href="../tags/栈/" style="font-size: 12.178266387250442px;" class="tag-cloud-link">栈</a>
     
-    <a href="../tags/bfs/" style="font-size: 11.334733763083038px;" class="tag-cloud-link">bfs</a>
+    <a href="../tags/单调栈/" style="font-size: 19.924658777625744px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../tags/单链表/" style="font-size: 15.015628590826791px;" class="tag-cloud-link">单链表</a>
+    <a href="../tags/数论/" style="font-size: 10.058296512911575px;" class="tag-cloud-link">数论</a>
     
-    <a href="../tags/数论，约数/" style="font-size: 15.124618441519143px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../tags/快速幂/" style="font-size: 12.779329809194781px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../tags/数论/" style="font-size: 14.359409604169667px;" class="tag-cloud-link">数论</a>
+    <a href="../tags/欧拉函数/" style="font-size: 18.531558059293346px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../tags/欧拉函数/" style="font-size: 12.866374683738062px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../tags/数论，约数/" style="font-size: 14.130900425330477px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../tags/题解/" style="font-size: 12.877770232737374px;" class="tag-cloud-link">题解</a>
+    <a href="../tags/哈希/" style="font-size: 13.948371569637498px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../tags/最短路问题/" style="font-size: 14.067994438153596px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../tags/题解/" style="font-size: 18.027522320550737px;" class="tag-cloud-link">题解</a>
     
-    <a href="../tags/图论/" style="font-size: 11.719689820801293px;" class="tag-cloud-link">图论</a>
+    <a href="../tags/图论/" style="font-size: 9.958549753421337px;" class="tag-cloud-link">图论</a>
     
-    <a href="../tags/二分图/" style="font-size: 16.70652551714338px;" class="tag-cloud-link">二分图</a>
+    <a href="../tags/二分图/" style="font-size: 8.245876273781395px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../tags/最小生成树/" style="font-size: 15.795330975230257px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../tags/最小生成树/" style="font-size: 8.862889162921386px;" class="tag-cloud-link">最小生成树</a>
+    
+    <a href="../tags/最短路问题/" style="font-size: 11.792629642846578px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
