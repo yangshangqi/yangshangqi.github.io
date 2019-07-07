@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-07-07T11:57:14.595Z</updated>
+  <updated>2019-07-07T12:47:12.601Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS基础之编写位置</title>
+    <link href="http://zhumenger.top/2019/07/07/JavaScirpt/JS%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BC%96%E5%86%99%E4%BD%8D%E7%BD%AE/"/>
+    <id>http://zhumenger.top/2019/07/07/JavaScirpt/JS基础之编写位置/</id>
+    <published>2019-07-07T12:45:20.000Z</published>
+    <updated>2019-07-07T12:47:12.601Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>1.可以将JS的代码写到标签的属性中，当点击按钮时执行</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span> = <span class="string">"alert('讨厌，你点我干嘛');"</span>&gt;</span>点我一下<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:alert('让你点你就点');"</span>&gt;</span>你也点我一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>2.可以将JS代码写在href属性中，这样点击超链接时，会执行JS代码</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:alert('让你点你就点');"</span>&gt;</span>你也点我一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>虽然可以写在标签的属性中，但是他们属于结构与行为耦合不方便维护，不推荐使用</strong></p><p><strong>3.可以将JS写在script标签中,打开网页时直接运行</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">alert("我是script标签中的代码");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>4.可以将JS代码写到外部JS文件中，然后通过script标签引入,用src引入路径</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>script标签一旦引入外部文件，就不能编写代码了，即使编写了代码，编译器也会忽略</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;1.可以将JS的代码写到标签的属性中，当点击按钮时执行&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/
+      
+    
+    </summary>
+    
+      <category term="JavaScirpt" scheme="http://zhumenger.top/categories/JavaScirpt/"/>
+    
+    
+      <category term="JavaScirpt" scheme="http://zhumenger.top/tags/JavaScirpt/"/>
+    
+  </entry>
   
   <entry>
     <title>JS基础之Hello World</title>
