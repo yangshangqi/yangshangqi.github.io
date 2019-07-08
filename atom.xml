@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-07-07T13:16:35.696Z</updated>
+  <updated>2019-07-08T03:39:26.332Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>扩展欧几里得算法</title>
+    <link href="http://zhumenger.top/2019/07/08/%E6%95%B0%E8%AE%BA/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
+    <id>http://zhumenger.top/2019/07/08/数论/扩展欧几里得算法/</id>
+    <published>2019-07-08T03:36:44.000Z</published>
+    <updated>2019-07-08T03:39:26.332Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一-扩展欧几里得算法"><a href="#一-扩展欧几里得算法" class="headerlink" title="一.扩展欧几里得算法"></a>一.扩展欧几里得算法</h2><h4 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h4><blockquote><p><strong>对于任意的整数a, b，存在一对整数 x，y，满足ax + by = gcd(a, b).</strong></p></blockquote><p><strong>题目描述</strong></p><p>给定n对正整数ai,bi，对于每对数，求出一组xi,yi，使其满足ai∗xi+bi∗yi=gcd(ai,bi)。</p><p><strong>输入格式</strong></p><p>第一行包含整数n。</p><p>接下来n行，每行包含两个整数ai,bi。</p><p><strong>输出格式</strong></p><p>输出共n行，对于每组ai,bi，求出一组满足条件的xi,yi，每组结果占一行。</p><p>本题答案不唯一，输出任意满足条件的xi,yi均可。</p><p><strong>数据范围</strong></p><p>1≤n≤105<br>1≤ai,bi≤2∗109</p><p><strong>输入样例：</strong></p><blockquote><p>24 6<br>8 18</p></blockquote><p><strong>输出样例：</strong></p><blockquote><p>-1 1<br>-2 1</p></blockquote><p>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> d = exgcd(b, a % b, y, x);</span><br><span class="line">    y -= a / b * x ; <span class="comment">//y表示b的系数</span></span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    ll a, b, x, y;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;a, &amp;b);</span><br><span class="line">        ll d = exgcd(a, b, x, y);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld %lld\n"</span>, x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="二-线性同余方程"><a href="#二-线性同余方程" class="headerlink" title="二.线性同余方程"></a>二.线性同余方程</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定n组数据ai,bi,mi，对于每组数求出一个xi，使其满足ai∗xi≡bi(mod mi)，如果无解则输出impossible。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数n。</p><p>接下来n行，每行包含一组数据ai,bi,mi。</p><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出共n行，每组数据输出一个整数表示一个满足条件的xi，如果无解则输出impossible。</p><p>每组数据结果占一行，结果可能不唯一，输出任意一个满足条件的结果均可。</p><p>输出答案必须在int范围之内。</p><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤10^5<br>1≤ai,bi,mi≤2∗10^9</p><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>22 3 6<br>4 3 5</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>impossible<br>7</p></blockquote><p><strong>题解：</strong></p><p><strong>对于a * x % m = b 等价于 a * x  - b 是m的倍数，不妨设为 -y 倍。于是，该方程可以改写为 a * x + m * y = b。</strong></p><p><strong>这样就变成了欧几里得算法，只有 b 为 gcd(a, m) 的倍数的时候，方程才有解，带公式即可</strong></p><p>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll d = exgcd(b, a % b, y ,x);</span><br><span class="line">    y -= a / b * x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        ll a, b, c;</span><br><span class="line">        ll x, y;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld %lld %lld"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        ll d = exgcd(a, c, x, y);</span><br><span class="line">        <span class="keyword">if</span>(b % d == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, x *(b / d) % c);  <span class="comment">//x 乘以倍数 % c</span></span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"impossible"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一-扩展欧几里得算法&quot;&gt;&lt;a href=&quot;#一-扩展欧几里得算法&quot; class=&quot;headerlink&quot; title=&quot;一.扩展欧几里得算法&quot;&gt;&lt;/a&gt;一.扩展欧几里得算法&lt;/h2&gt;&lt;h4 id=&quot;裴蜀定理&quot;&gt;&lt;a href=&quot;#裴蜀定理&quot; class=&quot;head
+      
+    
+    </summary>
+    
+      <category term="数论" scheme="http://zhumenger.top/categories/%E6%95%B0%E8%AE%BA/"/>
+    
+    
+      <category term="数论" scheme="http://zhumenger.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="扩展欧几里得" scheme="http://zhumenger.top/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>JS基础之基本语法、字面量和变量</title>
@@ -281,9 +308,9 @@
       <category term="图论" scheme="http://zhumenger.top/categories/%E5%9B%BE%E8%AE%BA/"/>
     
     
-      <category term="图论" scheme="http://zhumenger.top/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="最短路问题" scheme="http://zhumenger.top/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="图论" scheme="http://zhumenger.top/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
