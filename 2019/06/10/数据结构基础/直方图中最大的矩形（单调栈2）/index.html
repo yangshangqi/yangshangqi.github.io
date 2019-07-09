@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="zhumenger">
@@ -81,7 +81,9 @@
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
             <a href="http://zhumenger.top">
@@ -105,7 +107,7 @@
             <ul class="nav navbar-nav" id="menu-gal">
                 
                 
-                <li class>
+                <li class="">
                     <a href="../../../../../index.html">
                         <i class="fa fa-home"></i>首页
                     </a>
@@ -113,7 +115,7 @@
                 
                 
                 
-                <li class>
+                <li class="">
                     <a href="../../../../../archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -124,7 +126,8 @@
                 
                 <li class="dropdown">
                     <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-list"></i>分类
                     </a>
                     <ul class="dropdown-menu">
@@ -165,7 +168,8 @@
                 
                 <li class="dropdown">
                     <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-tags"></i>标签
                     </a>
                     <ul class="dropdown-menu">
@@ -184,10 +188,6 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/Trie/">Trie</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/单链表/">单链表</a>
                         </li>
                         
@@ -197,6 +197,10 @@
                         
                         <li>
                             <a href="../../../../../tags/堆/">堆</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
                         </li>
                         
                         <li>
@@ -240,11 +244,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/最短路问题/">最短路问题</a>
+                            <a href="../../../../../tags/图论/">图论</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/图论/">图论</a>
+                            <a href="../../../../../tags/二分图/">二分图</a>
                         </li>
                         
                         <li>
@@ -252,7 +256,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/二分图/">二分图</a>
+                            <a href="../../../../../tags/最短路问题/">最短路问题</a>
                         </li>
                         
                         
@@ -263,7 +267,7 @@
                 
                 
                 
-                <li class>
+                <li class="">
                     <a href="../../../../../about">
                         <i class="fa fa-user"></i>关于我
                     </a>
@@ -290,7 +294,7 @@
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href>直方图中最大的矩形（单调栈2）</a>
+                <a href="">直方图中最大的矩形（单调栈2）</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -315,7 +319,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href>直方图中最大的矩形（单调栈2）</a>
+                    <a href="">直方图中最大的矩形（单调栈2）</a>
                 </h4>
             </div>
             <p>
@@ -353,11 +357,9 @@
 <p>7 2 1 4 5 1 3 3<br>4 1000 1000 1000 1000<br>0</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>8
-4000</p>
+<p>8<br>4000</p>
 </blockquote>
-<p><strong>题解</strong>：
-以H[ i ]为高的矩形向左右扩展，找到能够到达的最远距离，即找到左右边界第一个小于H[ i ]的位置， 实际上就是一道单调栈的问题，用一个栈来维护一个单调递增的序列，如果栈中的某个元素比当前的数值的小，那么该元素之后的元素肯定是用不到了，所以就可以直接丢出栈， 并将该值加入栈中，遍历一遍，用ans记录最大值即可</p>
+<p><strong>题解</strong>：<br>以H[ i ]为高的矩形向左右扩展，找到能够到达的最远距离，即找到左右边界第一个小于H[ i ]的位置， 实际上就是一道单调栈的问题，用一个栈来维护一个单调递增的序列，如果栈中的某个元素比当前的数值的小，那么该元素之后的元素肯定是用不到了，所以就可以直接丢出栈， 并将该值加入栈中，遍历一遍，用ans记录最大值即可</p>
 <p>代码如下:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这样就形成了一个单调栈</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="keyword">int</span> l[N], r[N], h[N], q[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> a[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">    h[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(h[q[t]] &gt;= h[i])t--;  <span class="comment">//找到栈中第一个比该值小的位置</span></span><br><span class="line">        a[i] = q[t]; <span class="comment">//记录以H[i]为高能够到达的左右边界</span></span><br><span class="line">        q[++t] = i;  <span class="comment">//加入栈中</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; h[i];</span><br><span class="line">        get(l);  <span class="comment">//get左边界</span></span><br><span class="line">        reverse(h + <span class="number">1</span>, h + <span class="number">1</span> + n);  <span class="comment">//翻转</span></span><br><span class="line">        get(r);  <span class="comment">//get有边界</span></span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>, j = n; i &lt;= n; i++, j--)</span><br><span class="line">            ans = max(ans, (ll)h[i] * (n - r[i] - l[j]));</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -383,7 +385,8 @@
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
 <aside id="sidebar-search">
     <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get" action="../../../../../search/index.html">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="../../../../../search/index.html">
             <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
             <button class="btn btn-danger btn-gal" type="submit">
                 <i class="fa fa-search"></i>
@@ -399,9 +402,10 @@
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="http://pu82h1duu.bkt.clouddn.com/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
-            <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说总有一天你会名扬天下实现你的抱负!</p>
-<p></p>
+            <img src="http://pu82h1duu.bkt.clouddn.com/zhumenger.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>穿过落雁修竹, 看过日升月暮<br/>你说总有一天你会名扬天下实现你的抱负!</p>
+</p>
         </div>
     </div>
 </aside>
@@ -509,31 +513,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../07/07/JavaScirpt/JS基础之编写位置/">JS基础之编写位置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../14/搜索/树的重心/">树的重心(dfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../14/搜索/迷宫问题/">迷宫问题(bfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                    <a href="../单链表/">单链表</a>
                 </span>
             </li>
             
@@ -545,7 +525,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../堆/">堆</a>
+                    <a href="../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="">直方图中最大的矩形（单调栈2）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../07/07/数论/快速幂/">快速幂</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../07/08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
                 </span>
             </li>
             
@@ -563,7 +561,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../24/图论/二分图/二分图/">二分图</a>
+                    <a href="../../../23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
                 </span>
             </li>
             
@@ -596,47 +600,47 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 12.34909072584032px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 12.444496535024985px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 9.547226089943152px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 13.628941833053721px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 11.445793443926204px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 19.06233520747106px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 14.741609912278179px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 8.185307831244732px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 14.328939326091714px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 15.883097053432454px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 19.99631209246953px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/堆/" style="font-size: 19.558526083636664px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 16.06181024244175px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 14.427030337845872px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 17.338190900886556px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 8.977655056826915px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 18.897478368254482px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 9.445170658138515px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 18.98493018604724px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 18.070969385135193px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 19.190165888190315px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 11.48888660808679px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 16.31972986617729px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 16.133323467618645px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 18.521391509240743px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 18.434831940292792px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 14.02489779272199px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 8.218682958031131px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 14.293337680539818px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 18.87315641584814px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 10.218820804153562px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 14.345679365099652px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 13.454854771229119px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 9.44801019675062px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 17.97535642854769px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/图论/" style="font-size: 17.237744372321146px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 19.481690774217935px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 16.31065428297785px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 18.011961247014906px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 12.096172529641208px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 15.346329796342946px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 17.93374806880018px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -676,7 +680,7 @@
                 
             </div>
         </div>
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=370 height=86 src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
     </aside>
     
 </aside>r
