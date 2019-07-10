@@ -197,7 +197,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/堆/">堆</a>
+                            <a href="../../../../../tags/哈希/">哈希</a>
                         </li>
                         
                         <li>
@@ -205,15 +205,15 @@
                         </li>
                         
                         <li>
+                            <a href="../../../../../tags/栈/">栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单调栈/">单调栈</a>
+                        </li>
+                        
+                        <li>
                             <a href="../../../../../tags/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/快速幂/">快速幂</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/哈希/">哈希</a>
                         </li>
                         
                         
@@ -304,7 +304,7 @@
 <p>   首字母小写，每个单词的开头字母大写，其余字母小写</p>
 <p>   如: var helloWorld = 123；</p>
 </blockquote>
-<h4 id="二-数据类型"><a href="#二-数据类型" class="headerlink" title="二.数据类型"></a>二.数据类型</h4><p><strong>1.数据类型指的是字面量的类型，一共有6种</strong></p>
+<h4 id="二-数据类型"><a href="#二-数据类型" class="headerlink" title="二.数据类型"></a>二.数据类型</h4><p><strong>数据类型指的是字面量的类型，一共有6种</strong></p>
 <blockquote>
 <p>String 字符串</p>
 <p>Number 数值</p>
@@ -314,8 +314,8 @@
 <p>Object 对象</p>
 </blockquote>
 <p>前5个为基本数据类型，Object属于引用数据类型</p>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p><strong>声明:</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	var str = "hello";</span><br><span class="line">    //输出字面量 字符串str</span><br><span class="line">    alert("str");</span><br><span class="line">    //输出变量str</span><br><span class="line">    alert(str);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1.字符串"></a>1.字符串</h4><p><strong>声明:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> str = <span class="string">"hello"</span>;</span><br><span class="line">    <span class="comment">//输出字面量 字符串str</span></span><br><span class="line">    alert(<span class="string">"str"</span>);</span><br><span class="line">    <span class="comment">//输出变量str</span></span><br><span class="line">    alert(str);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>1&gt;.单引号，双引号都可以，但必须配对，不能混淆</p>
 <p>2&gt;.引号不能嵌套，双引号里不能放双引号，单引号里不能放单引号</p>
@@ -326,20 +326,26 @@
 <p>在字符串中可以用\作为转义字符</p>
 <p>如\ “表示 单引号， \ n 表示换行， \ \ 表示斜杠</p>
 </blockquote>
-<h4 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h4><p><strong>声明</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	var a = <span class="number">123</span>;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-数值"><a href="#2-数值" class="headerlink" title="2.数值"></a>2.数值</h4><p><strong>1&gt;.声明</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>可以用 typeof 来检查一个变量的类型</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	var a = <span class="number">123</span>;</span><br><span class="line">	console.<span class="built_in">log</span>(typeof a);<span class="comment">//输出“number”类型</span></span><br><span class="line">	var b = <span class="string">"123"</span></span><br><span class="line">    console.<span class="built_in">log</span>(typeof b);<span class="comment">//输出“string”类型</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>2&gt;.可以用 typeof 来检查一个变量的类型</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);<span class="comment">//输出“number”类型</span></span><br><span class="line">	<span class="keyword">var</span> b = <span class="string">"123"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> b);<span class="comment">//输出“string”类型</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>输出数字的最大值、最小值</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	//输出最大值</span><br><span class="line">    console.log(Number.MAX_VALUE);</span><br><span class="line">    //输出最小值</span><br><span class="line">    console.log(Number.MIN_VALUE);</span><br><span class="line">	//如果使用的Number表示的数字超过了最大值,则会返回一个Infinity表示无穷</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>3&gt;.输出数字的最大值、最小值</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">//输出最大值</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_VALUE);</span><br><span class="line">    <span class="comment">//输出最小值</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Number</span>.MIN_VALUE);</span><br><span class="line">	<span class="comment">//如果使用的Number表示的数字超过了最大值,则会返回一个Infinity表示无穷</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>NAN 是一个特殊的数字， 表示Not A Number</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	var a = "abc" * "abc";</span><br><span class="line">    console.log(a);</span><br><span class="line">    //输出NAN，</span><br><span class="line">    console.log(typeof a);</span><br><span class="line">    //输出number</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>4&gt;.NAN 是一个特殊的数字， 表示Not A Number</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="string">"abc"</span> * <span class="string">"abc"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="comment">//输出NAN，</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);</span><br><span class="line">    <span class="comment">//输出number</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>如果JS进行浮点元素，可能得到一个不确定的结果</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">	var a = 0.1 + 0.2;</span><br><span class="line">    comsole.log(a);</span><br><span class="line">    //输出0.3000000000000004</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>5&gt;.如果JS进行浮点元素，可能得到一个不确定的结果</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line">    comsole.log(a);</span><br><span class="line">    <span class="comment">//输出0.3000000000000004</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-布尔值-Boolean"><a href="#3-布尔值-Boolean" class="headerlink" title="3.布尔值 Boolean"></a>3.布尔值 Boolean</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 *Boolean 布尔值</span></span><br><span class="line"><span class="comment">	 *  布尔值只有俩个</span></span><br><span class="line"><span class="comment">	 *  true  -表示真</span></span><br><span class="line"><span class="comment">	 *  false -表示假</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="keyword">var</span> bool = <span class="literal">false</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(bool)<span class="comment">//输出false</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> bool)<span class="comment">//输出boolean</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-Null"><a href="#4-Null" class="headerlink" title="4.Null"></a>4.Null</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">		<span class="comment">/* </span></span><br><span class="line"><span class="comment">		 * Null类型只有一个,就是null</span></span><br><span class="line"><span class="comment">		 *	null表示一个为空的对象</span></span><br><span class="line"><span class="comment">		 *	使用typeof检查null值时，返回object</span></span><br><span class="line"><span class="comment">	 	*/</span></span><br><span class="line">	 	<span class="keyword">var</span> a = <span class="literal">null</span>; </span><br><span class="line">	 	<span class="built_in">console</span>.log(a);<span class="comment">//输出null</span></span><br><span class="line">	 	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);<span class="comment">//输出//object</span></span><br><span class="line">	&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-Undefined"><a href="#5-Undefined" class="headerlink" title="5.Undefined"></a>5.Undefined</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">		<span class="comment">/* </span></span><br><span class="line"><span class="comment">		 *	Undefined的类型只有一个，就是undefined</span></span><br><span class="line"><span class="comment">		 *	当声明一个变量未赋值时，就是undefined</span></span><br><span class="line"><span class="comment">	 	*/</span></span><br><span class="line">    	<span class="keyword">var</span> a;</span><br><span class="line">		<span class="built_in">console</span>.log(a)<span class="comment">//输出undefined</span></span><br><span class="line">	&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -497,19 +503,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
+                    <a href="../../../../06/21/搜索/八数码/">八数码(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/11/数据结构基础/最大异或对/">最大异或对</a>
+                    <a href="../../../../06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/10/数据结构基础/堆/">堆</a>
+                    <a href="../../../../06/10/数据结构基础/单链表/">单链表</a>
                 </span>
             </li>
             
@@ -521,13 +527,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../10/数论/满足条件的01序列/">满足条件的01序列</a>
+                    <a href="../../../07/数论/快速幂/">快速幂</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../07/数论/约数/">约数</a>
+                    <a href="../../../10/数论/满足条件的01序列/">满足条件的01序列</a>
                 </span>
             </li>
             
@@ -539,7 +545,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
+                    <a href="../../../../06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
                 </span>
             </li>
             
@@ -578,49 +584,49 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 17.396022834159588px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 15.307720645403174px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 12.290045466991256px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 8.5028017320601px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 13.08123254534891px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 11.24165749074648px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 11.990207748418236px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 17.263375099758317px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 11.755776994294756px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 9.277657903563398px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 8.305385609234165px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 19.60407613955639px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 10.391752810793092px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 13.650648468648575px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 8.887234908018254px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/栈/" style="font-size: 18.068739916022906px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 17.667917161240297px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 19.630898481485143px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 17.164620574483642px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/数论/" style="font-size: 10.555202620649144px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 14.760806963947532px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 14.77662520596449px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 9.891970849928217px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 18.386709903511758px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 9.11212065742518px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 12.950275148944174px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 10.583877136809601px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 18.29542317804673px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 12.837159080012974px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 11.488788561878689px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 15.311296648392585px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 17.70923953652522px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 14.70326440660276px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/题解/" style="font-size: 15.68786353601265px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 9.008321770367033px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/堆/" style="font-size: 16.28296593342335px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 15.810979225442324px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 15.12317969239534px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 14.015426923271004px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 18.35343406134627px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 8.529541271143366px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 12.015121153868002px;" class="tag-cloud-link">最短路问题</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 12.651917324292615px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 9.800535703458554px;" class="tag-cloud-link">最小生成树</a>
     
 </div>
                 
