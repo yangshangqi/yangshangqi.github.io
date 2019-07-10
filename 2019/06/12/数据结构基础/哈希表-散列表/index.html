@@ -135,14 +135,6 @@
                         
                         
                         <li>
-                            <a href="../../../../../categories/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/题解/">题解</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
@@ -152,6 +144,14 @@
                         
                         <li>
                             <a href="../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数论/">数论</a>
                         </li>
                         
                         <li>
@@ -177,43 +177,43 @@
                         
                         
                         <li>
-                            <a href="../../../../../tags/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/欧拉函数/">欧拉函数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/数论，约数/">数论，约数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/组合数/">组合数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/高斯消元/">高斯消元</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/题解/">题解</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/快速幂/">快速幂</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/扩展欧几里得/">扩展欧几里得</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
                             <a href="../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/堆/">堆</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/栈/">栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单调栈/">单调栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/题解/">题解</a>
                         </li>
                         
                         
@@ -244,6 +244,101 @@
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
                     
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>哈希表(散列表)</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="">哈希表(散列表)</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/哈希/">哈希</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-12
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="">哈希表(散列表)</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-06-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/哈希/">哈希</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p><strong>简介</strong>：<br><strong>哈希表</strong>又称为<strong>散列表</strong>，是实现字典操作的一种有效的数据结构。通过哈希函数将关键字映射到表中的某个位置上进行存放，以实现快速插入和查询的。时间复杂度可达到O(n).<br><strong>为什么要用到哈希</strong>：比如说有n(1&lt;=n&lt;=1e6)个数,当给你一个非常大的数时，为了方便查找这个数是否出现过，我们可以给这个数重新编号到1~n，这样我们就可以快速的找到想要的答案。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+<p>维护一个集合，支持如下几种操作：<br>“I x”，插入一个数x；<br>“Q x”，询问数x是否在集合中出现过；<br>现在要进行N次操作，对于每个询问操作输出对应的结果。</p>
+</blockquote>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
+<p>第一行包含整数N，表示操作数量。<br>接下来N行，每行包含一个操作指令，操作指令为”I x”，”Q x”中的一种。</p>
+</blockquote>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
+<p>对于每个询问指令“Q x”，输出一个询问结果，如果x在集合中出现过，则输出“Yes”，否则输出“No”。每个结果占一行。</p>
+</blockquote>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
+<p>1≤N≤105<br>−109≤x≤109</p>
+</blockquote>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>5<br>I 1<br>I 2<br>I 3<br>Q 2<br>Q 5</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>Yes<br>No</p>
+</blockquote>
+<p><strong>题解</strong>：</p>
+<p><strong>拉链法：</strong></p>
+<p>​    先找出编号的数据范围MOD，最好是一个质数，这样冲突的几率是最小的，让输入的数字x%mod，这样就可以让x重新编号到0~mod - 1， 有的时候我们得到的余数是一样的，我们可以以这个余数为head， 把这些余数相同的储存到一个链表当中，具体代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>, mod = <span class="number">100003</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % mod + mod) % mod;  <span class="comment">//得到余数head</span></span><br><span class="line">    e[idx] = x, ne[idx] = h[k], h[k] = idx++;<span class="comment">//在以head为头结点的链表中插入数值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % mod + mod) % mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[k]; i != <span class="number">-1</span>; i = ne[i])  <span class="comment">//在以head为头结点的链表中查找x</span></span><br><span class="line">        <span class="keyword">if</span>(e[i] == x)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt;x;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">"I"</span>)&#123;</span><br><span class="line">            insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(Find(x))<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>开放寻址法</strong>：</p>
+<p>​        这种方法也是先让x对mod取模， 得到x应该去到哪个坑里，如果这个坑已经被占了，就继续往下遍历直到寻找到一个没有人的坑位，数据范围往往开到n的俩到三倍。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200003</span>, Max = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> h[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % N + N) % N;  <span class="comment">//取模</span></span><br><span class="line">    <span class="keyword">while</span>(h[k] != Max &amp;&amp; h[k] != x)&#123;   <span class="comment">//找到一个没有人的坑位</span></span><br><span class="line">        k++;</span><br><span class="line">        <span class="keyword">if</span>(k == N)k = <span class="number">0</span>;  <span class="comment">//如果到头了，就从0重新开始遍历，因为一共就只有n个数，所以肯定有剩余的							//坑位供x使用</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> k;  <span class="comment">//返回坑位的下标</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">memset</span>(h, Max, <span class="keyword">sizeof</span> h);<span class="comment">//初始化，开始的时候都没有人</span></span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">"I"</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k = Find(x);</span><br><span class="line">            h[k] = x;  <span class="comment">//把x放到该坑位</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> k = Find(x);</span><br><span class="line">            <span class="keyword">if</span>(h[k] != Max)<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '哈希表(散列表)'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -377,19 +472,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/数论/约数/">约数</a>
+                    <a href="../../../../07/07/JavaScirpt/JS基础之Hello-World/">JS基础之Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../14/搜索/树与图的深度优先遍历/">树与图的深度优先遍历(dfs)</a>
+                    <a href="../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
@@ -401,31 +490,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                    <a href="../../../10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../21/搜索/八数码/">八数码(bfs)</a>
+                    <a href="../../../23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../13/数据结构基础/字符串哈希/">字符串哈希</a>
+                    <a href="../../../../07/07/数论/欧拉函数/">欧拉函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../07/09/数论/组合数/">组合数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../07/09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../../24/图论/二分图/二分图/">二分图</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
@@ -464,49 +559,49 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/数论/" style="font-size: 11.376092559386402px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 18.79023750262554px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 9.65302542586021px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 17.59540774924824px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 8.211327223668032px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 10.762342067944683px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 19.129703700627456px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 17.540115702025656px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 16.68547389275953px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/堆/" style="font-size: 16.983267747663284px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 17.22384295363146px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 13.13343348521456px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 8.223450861587665px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 18.206872528026594px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 19.655845005055564px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/栈/" style="font-size: 16.831779049709503px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 14.988700025622364px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 8.300868591704614px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 13.273805304849564px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/题解/" style="font-size: 19.79021442784449px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 8.716535926960084px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/数论/" style="font-size: 10.668577341383042px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 11.754835395988065px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 10.28045409062605px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 19.041901645417568px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 14.808932205890082px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 14.67348939438466px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 12.697174224021428px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 10.270606996283224px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 15.483582616735543px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 12.903216608092388px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 13.96680429304897px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 18.065321287038536px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 12.513002637793365px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 17.644752196299244px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.858228284848241px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 12.319661539198162px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 11.040087978688288px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 13.417352511363955px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 17.866069136342933px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 13.52992298997346px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 13.381156268159522px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 16.03843404213646px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 12.720387123664839px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 

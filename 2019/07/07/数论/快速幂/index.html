@@ -135,14 +135,6 @@
                         
                         
                         <li>
-                            <a href="../../../../../categories/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/题解/">题解</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
@@ -152,6 +144,14 @@
                         
                         <li>
                             <a href="../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数论/">数论</a>
                         </li>
                         
                         <li>
@@ -177,43 +177,43 @@
                         
                         
                         <li>
-                            <a href="../../../../../tags/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/欧拉函数/">欧拉函数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/数论，约数/">数论，约数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/组合数/">组合数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/高斯消元/">高斯消元</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/题解/">题解</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/快速幂/">快速幂</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/扩展欧几里得/">扩展欧几里得</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
                             <a href="../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/堆/">堆</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/栈/">栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单调栈/">单调栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/题解/">题解</a>
                         </li>
                         
                         
@@ -244,6 +244,129 @@
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
                     
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>快速幂</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="">快速幂</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/快速幂/">快速幂</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-07
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="">快速幂</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/快速幂/">快速幂</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h4 id="一-快速幂"><a href="#一-快速幂" class="headerlink" title="一.快速幂"></a>一.快速幂</h4><p><strong>快速幂问题（求a^b）:</strong></p>
+<blockquote>
+<p>1.我们都知道当指数为偶数的时候，对于a ^b，可以变为(a ^ 2) ^ (b/2)。<br>2.而当指数为奇数的时候，对于a ^ b，可以化简为a * (a ^ (b-1))，然后即可以化简为a * ((a ^ 2) ^ ((b-1)/2))<br>3.如此我们便可知道 如果b为奇数，则将b减一除二，将一个a取到外面，同时对里面的a平方。<br>4.如果b为偶数，则直接除二，同时对a平方。</p>
+</blockquote>
+<blockquote>
+<p>若b为7，a为2。<br>则a变为4，b变为3，ans变为2 * (2 ^ 2) ^ 3。<br>然后继续向后运，(注意此时a为4)，a变为16，b变为1，ans变为2* 4*(2 ^ 2 ^ 2) ^ 1。<br>结果为128。</p>
+</blockquote>
+<blockquote>
+<p>若b为10，a为2。<br>则a变为4，b变为5，ans变(2 ^ 2) ^ 5。<br>然后继续向后运，(注意此时a为4)，a变为16，b变为2，ans变为4<em>(2 ^ 2 ^ 2) ^2。<br>再之后(注意此时a为16)，a变为256，b变为1，ans变为4</em>(2 ^ 2 ^ 2 ^ 2) ^ 1。结果为1024</p>
+</blockquote>
+<p><strong>快速幂取余</strong></p>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line">ll a, b, c;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)ans = ans * a % c; <span class="comment">//如果b为奇数</span></span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>; <span class="comment">//b除以2</span></span><br><span class="line">        a = a * a % c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        solve();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二-快速幂求逆元"><a href="#二-快速幂求逆元" class="headerlink" title="二.快速幂求逆元"></a>二.快速幂求逆元</h4><p><strong>题目描述</strong></p>
+<blockquote>
+<p>给定n组ai,pi，其中pipi是质数,求ai模pi的乘法逆元，若逆元不存在则输出impossible。</p>
+</blockquote>
+<p><strong>输入格式</strong></p>
+<blockquote>
+<p>第一行包含整数n。</p>
+<p>接下来n行，每行包含一个数组ai,pi，数据保证pi是质数。</p>
+</blockquote>
+<p><strong>输出格式</strong></p>
+<blockquote>
+<p>输出共n行，每组数据输出一个结果，每个结果占一行。</p>
+<p>若ai模pi的乘法逆元存在，则输出一个整数，表示逆元，否则输出impossible。</p>
+</blockquote>
+<p><strong>数据范围</strong></p>
+<blockquote>
+<p>1≤n≤10^5<br>1≤ai,pi≤2∗10^9</p>
+</blockquote>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>3<br>4 3<br>8 5<br>6 3</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>1<br>2<br>impossible</p>
+</blockquote>
+<p>什么是逆元**</p>
+<blockquote>
+<p>若b与m互质，对于a/b(a是b的倍数) % m，可以找到一个数x使得ax % m = a/b % m,那么我们称x为b%m的逆元</p>
+</blockquote>
+<p><strong>费马定理：</strong></p>
+<blockquote>
+<p>若p为质数，则b^(p - 1) % p == 1。</p>
+</blockquote>
+<p><strong>题解：</strong> 这道题用到了费马定理，b * b^(p - 2) % p == 1,所以只需求b^(p - 2) % p即可，那么这道题便转化为了一道快速幂的问题</p>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//费马定理：若p为质数，则a^(p -1)% p == 1,可得a * a^(p - 2) % p == 1，这道题求a^(p - 2) % p 便是a的逆元</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(ll a, ll b, ll c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)ans = ans * a % c;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a =a * a % c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll t, a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span>(a % b == <span class="number">0</span>)<span class="built_in">cout</span> &lt;&lt; <span class="string">"impossible"</span> &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//若a是p的倍数，则不存在逆元</span></span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; ksm(a, b - <span class="number">2</span>, b) &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '快速幂'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -377,25 +500,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../欧拉函数/">欧拉函数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../约数/">约数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../09/数论/组合数/">组合数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../06/23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
+                    <a href="../../JavaScirpt/JS基础之Hello-World/">JS基础之Hello World</a>
                 </span>
             </li>
             
@@ -407,31 +512,49 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
+                    <a href="../../../../06/21/搜索/八数码/">八数码(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/12/数据结构基础/哈希表-散列表/">哈希表(散列表)</a>
+                    <a href="../../../../06/15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/11/数据结构基础/最大异或对/">最大异或对</a>
+                    <a href="../../../../06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/10/数据结构基础/单链表/">单链表</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="">快速幂</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../../../06/24/图论/二分图/二分图/">二分图</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
                 </span>
             </li>
             
@@ -464,49 +587,49 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/数论/" style="font-size: 13.483160073842503px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 15.061044932044581px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 10.521408513831474px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 9.129202377140059px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 17.098726051802746px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 10.567793446322792px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 11.703898509029772px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 11.908790337087654px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 16.594112721912317px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/堆/" style="font-size: 12.749295240047896px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 14.281492462315097px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 9.903593234801157px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 19.70020311027516px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 18.80740070676923px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 14.389466716897354px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/栈/" style="font-size: 16.274223558171737px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 15.215173588468648px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 13.372393335714957px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 8.030922031283716px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/题解/" style="font-size: 11.867493006966797px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 19.31165419563537px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/数论/" style="font-size: 11.308862305488592px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 13.970662437319206px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 13.64623940955589px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 12.857467526665317px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 8.642933655466585px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 15.739497292176834px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 17.593357168633403px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 11.831055032112285px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 11.54500561998805px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 19.655894823581264px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 17.195614236280854px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 14.87674221945974px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 17.806537203795997px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 12.700921138761487px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 16.208414640375672px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 13.138343725655563px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 13.403970316306662px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 11.780404590683823px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 18.212502987332527px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 12.252894026279115px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 11.135044443176927px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 17.749274405893935px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 16.29903959977605px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 

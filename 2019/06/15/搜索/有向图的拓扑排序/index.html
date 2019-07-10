@@ -135,14 +135,6 @@
                         
                         
                         <li>
-                            <a href="../../../../../categories/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/题解/">题解</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
@@ -152,6 +144,14 @@
                         
                         <li>
                             <a href="../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数论/">数论</a>
                         </li>
                         
                         <li>
@@ -177,43 +177,43 @@
                         
                         
                         <li>
-                            <a href="../../../../../tags/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/欧拉函数/">欧拉函数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/数论，约数/">数论，约数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/组合数/">组合数</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/高斯消元/">高斯消元</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/题解/">题解</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/快速幂/">快速幂</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/扩展欧几里得/">扩展欧几里得</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
                             <a href="../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/堆/">堆</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/栈/">栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单调栈/">单调栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/题解/">题解</a>
                         </li>
                         
                         
@@ -244,6 +244,106 @@
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
                     
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>有向图的拓扑排序(bfs)</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="">有向图的拓扑排序(bfs)</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/bfs/">bfs</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-15
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="">有向图的拓扑排序(bfs)</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-06-15
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/bfs/">bfs</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote>
+<p>给定一个n个点m条边的有向图，图中可能存在重边和自环。</p>
+<p>请输出任意一个该有向图的拓扑序列，如果拓扑序列不存在，则输出-1。</p>
+<p>若一个由图中所有点构成的序列A满足：对于图中的每条边(x, y)，x在A中都出现在y之前，则称A是该图的一个拓扑序列。</p>
+</blockquote>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
+<p>第一行包含两个整数n和m</p>
+<p>接下来m行，每行包含两个整数x和y，表示点x和点y之间存在一条有向边(x, y)。</p>
+</blockquote>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
+<p>共一行，如果存在拓扑序列，则输出拓扑序列。</p>
+<p>否则输出-1。</p>
+</blockquote>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
+<p>1≤n,m≤10^5, 1≤n,m≤10^5</p>
+</blockquote>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>3 3<br>1 2<br>2 3<br>1 3</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>1 2 3</p>
+</blockquote>
+<p><strong>拓扑序列简介：</strong> 若一个由图中所有点构成的序列A满足：对于图中的每条边(x, y)，x在A中都出现在y之前，则称A是该图的一个拓扑序列。范围是有向图， 无向图是没有拓扑排序的。</p>
+<p><strong>入度：</strong> 有多少个点指向该元素，就表示该元素的入度是多少。</p>
+<p><strong>初出度：</strong> 该元素指向了多少个点，就表示该元素的出度是多少、</p>
+<p><strong>拓扑序列的起点：</strong></p>
+<p>​    因为入度为0的点，没有其他的点指向它，所以它一定是一个起点，如果入度为0的点有多个，那么该拓扑序列不唯一，如果没有入度为0的点，也就是这个图是一个环，那么它没有拓扑排序。所以我们要求拓扑序列，那么该图一定是一个<strong>有向无环图</strong></p>
+<p><strong>如何求拓扑序列：</strong> </p>
+<p>​    将入度为0的点加入队列当中，每次从入度为0的点开始遍历它的每一个子节点，不断删去前一个点，并且该节点的入度–，如果入度为0,则加入队列当中，在删去节点的同时用一个数组来存储该拓扑排序的顺序，最后输出答案即可。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;<span class="comment">//邻接表</span></span><br><span class="line"><span class="keyword">int</span> d[N], n ,m;<span class="comment">//入度</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span> &gt; ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><span class="comment">//邻接表建图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">if</span>(!d[i])q.push(i);  <span class="comment">//将入度为0的点入队</span></span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        <span class="keyword">int</span> u = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        ans.push_back(u);  <span class="comment">//储存该拓扑排序</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> s = e[i];</span><br><span class="line">            d[s]--;</span><br><span class="line">            <span class="keyword">if</span>(!d[s])q.push(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (ans.size() == n);  <span class="comment">//判断是否所有的点都已经入队</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        add(a, b);</span><br><span class="line">        d[b]++;  <span class="comment">//入度++</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(bfs())&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ans.size(); i++)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '有向图的拓扑排序(bfs)'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -377,13 +477,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/数论/约数/">约数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../07/09/数论/组合数/">组合数</a>
+                    <a href="../../../../07/07/JavaScirpt/JS基础之Hello-World/">JS基础之Hello World</a>
                 </span>
             </li>
             
@@ -395,13 +489,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/JavaScirpt/JS基础之编写位置/">JS基础之编写位置</a>
+                    <a href="../../../14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="">有向图的拓扑排序(bfs)</a>
+                    <a href="../树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
@@ -413,25 +507,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../10/数据结构基础/单链表/">单链表</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="../../../12/数据结构基础/哈希表-散列表/">哈希表(散列表)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../10/数据结构基础/堆/">堆</a>
+                    <a href="../../../10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../11/数据结构基础/最大异或对/">最大异或对</a>
+                    <a href="../../../../07/07/数论/约数/">约数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../07/09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
@@ -464,49 +564,49 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/数论/" style="font-size: 17.156436524812754px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 15.750810487540658px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 10.16122672509418px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 16.666196036908588px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 10.586637763615466px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 10.954166606457955px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 15.812852499638296px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 13.123086333389749px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 10.724666124040832px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/堆/" style="font-size: 17.757988704707174px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 9.536461928649409px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 18.246359452427093px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 9.273275385465295px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 9.879407599455494px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 14.667456212419655px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/栈/" style="font-size: 13.765324495576879px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 9.763634237711354px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 11.488397339523177px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 8.189855603583556px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/题解/" style="font-size: 10.826853823980915px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 11.040176458374974px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/数论/" style="font-size: 10.360744858955806px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 14.05412879923896px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 12.017406022092626px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 8.767971256486549px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 10.724546957568638px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 12.831133311620537px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 18.106600360140245px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 16.736058979473103px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 10.113945129953041px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 12.076755158142387px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 8.06865022309378px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 9.993597660950968px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 19.728143936196425px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.817936688937849px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 19.471401780778066px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 19.82833638843637px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 13.780229749747672px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 10.036782901330874px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 19.045159900617804px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 15.64695995316317px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 11.095344768279443px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 16.205828886702783px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 8.400003379933956px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
