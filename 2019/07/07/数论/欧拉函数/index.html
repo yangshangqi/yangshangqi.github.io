@@ -45,6 +45,7 @@
         }
       }
     </script>-->
+
 </head></html>
 <body>
     <!-- 背景轮播图功能 -->
@@ -134,6 +135,14 @@
                         
                         
                         <li>
+                            <a href="../../../../../categories/数论/">数论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
                             <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
@@ -143,14 +152,6 @@
                         
                         <li>
                             <a href="../../../../../categories/数据结构基础/">数据结构基础</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/题解/">题解</a>
                         </li>
                         
                         <li>
@@ -176,43 +177,43 @@
                         
                         
                         <li>
+                            <a href="../../../../../tags/数论/">数论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/欧拉函数/">欧拉函数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/数论，约数/">数论，约数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/组合数/">组合数</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/高斯消元/">高斯消元</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/快速幂/">快速幂</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/扩展欧几里得/">扩展欧几里得</a>
+                        </li>
+                        
+                        <li>
                             <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
                             <a href="../../../../../tags/dfs/">dfs</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/bfs/">bfs</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/Trie/">Trie</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/单链表/">单链表</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/哈希/">哈希</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/堆/">堆</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/字符串哈希/">字符串哈希</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/栈/">栈</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/单调栈/">单调栈</a>
                         </li>
                         
                         
@@ -243,119 +244,6 @@
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
                     
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
-        >
-        <span>欧拉函数</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="">欧拉函数</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="../../../../../tags/数论/">数论</a>, 
-                
-                <a href="../../../../../tags/欧拉函数/">欧拉函数</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-07-07
-            </span>
-            
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="">欧拉函数</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2019-07-07
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="../../../../../tags/数论/">数论</a>, 
-                
-                <a href="../../../../../tags/欧拉函数/">欧拉函数</a>
-                
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <h4 id="一-欧拉函数"><a href="#一-欧拉函数" class="headerlink" title="一.欧拉函数"></a>一.欧拉函数</h4><p><strong>什么是欧拉函数：</strong></p>
-<blockquote>
-<p>1 ~ N 中与 N 互质的数的个数被称为欧拉函数，记为ϕ(N)。</p>
-</blockquote>
-<p><strong>欧拉函数的通式：</strong></p>
-<p><strong>φ(n)=n<em>(1-1/p1)</em>(1-1/p2)<em>(1-1/p3)</em>(1-1/p4)…..(1-1/pn),</strong>其中p1, p2……pn为n的所有质因数，n是不为0的整数。φ(1)=1（唯一和1互质的数就是1本身）。</p>
-<p><strong>欧拉定理：</strong></p>
-<blockquote>
-<p>若a与n互质，则a^φ(n) % n == 1</p>
-</blockquote>
-<p><strong>求欧拉函数</strong>的代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n / i; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">            ans = ans / i * (i - <span class="number">1</span>);<span class="comment">//如果i为n的质因数，则带入公式</span></span><br><span class="line">            <span class="keyword">while</span>(n % i == <span class="number">0</span>)n /= i;<span class="comment">//分解质因数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>)ans = ans / n * (n - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n, t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        solve(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="二-筛法求欧拉函数"><a href="#二-筛法求欧拉函数" class="headerlink" title="二.. 筛法求欧拉函数"></a>二.. 筛法求欧拉函数</h4><blockquote>
-<p>给定一个正整数n，求1~n中每个数的欧拉函数之和。</p>
-</blockquote>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>共一行，包含一个整数n。</p>
-</blockquote>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>共一行，包含一个整数，表示1~n中每个数的欧拉函数之和。</p>
-</blockquote>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤n≤10^6</p>
-</blockquote>
-<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>6</p>
-</blockquote>
-<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>12</p>
-</blockquote>
-<p><strong>思路：</strong> 在线性筛法的过程得到每个数的欧拉函数</p>
-<blockquote>
-<p>1.如果i为质数，则i之前的数都与i互质,所以φ(i) = i - 1,</p>
-<p>2.如果i % prime[j] == 0,φ(prime[j] * i) = prime[j] * ouler[i];</p>
-<p>3.若果i % prime[j] != 0, φ(prime[j] * i) = ouler[i] * (prime[j] - 1)</p>
-</blockquote>
-<p>代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> prime[N], ouler[N], cnt;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_ouler</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ouler[<span class="number">1</span>] = <span class="number">1</span>;  <span class="comment">//φ(1) = 1,与1互质的数为1</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123;  <span class="comment">//如果是质数</span></span><br><span class="line">            prime[cnt++] = i;</span><br><span class="line">            ouler[i] = i - <span class="number">1</span>;<span class="comment">//φ(i) = i - 1  </span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cnt &amp;&amp; prime[j] &lt;= n / i; j++)&#123;</span><br><span class="line">            vis[prime[j] * i] = <span class="literal">true</span>; </span><br><span class="line">            <span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>)&#123;</span><br><span class="line">                ouler[prime[j] * i] = prime[j] * ouler[i];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ouler[prime[j] * i] = ouler[i] * (prime[j] - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        ans += ouler[i];</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    get_ouler(n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-    </div>
-</article>
-
-
-<div id="comments-template"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script>
-	if(!window.commentConfig) {
-      window.commentConfig = {}
-      window.commentConfig.title = '欧拉函数'
-    }
-</script>
-
-<span id="busuanzi_container_page_pv">
-   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-</span>
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -489,7 +377,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
+                    <a href="">欧拉函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../约数/">约数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
@@ -501,31 +401,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../06/10/数据结构基础/堆/">堆</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../06/11/数据结构基础/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
@@ -537,13 +413,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../09/数论/组合数/">组合数</a>
+                    <a href="../../../../06/10/数据结构基础/堆/">堆</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/13/数据结构基础/字符串哈希/">字符串哈希</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../../../06/24/图论/二分图/二分图/">二分图</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
@@ -576,49 +464,49 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 19.019660654385063px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/数论/" style="font-size: 12.504102459528967px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 17.390887874681702px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 15.267893098953177px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 12.597163565394641px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 18.646593229267737px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 8.922052945583408px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 8.75716029133472px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 10.915254083638361px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 12.785505174094023px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 12.571676202771501px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/题解/" style="font-size: 13.032721207068114px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 9.23048487657223px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 15.350930073899168px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 11.452209277375763px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 15.88452201926193px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 19.15262757635285px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 10.177543311766096px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 11.454760927583393px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 9.112752776529234px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 13.150732214056095px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 12.292713714881346px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 13.327456954633602px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 16.35608958319768px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 17.549778237858618px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 10.127347614792635px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 17.097047999847643px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 19.018117600162583px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 16.21491334723148px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/栈/" style="font-size: 8.255872386160256px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 9.498108074010801px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 15.841741017243812px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 17.334904861998417px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/堆/" style="font-size: 15.943028036321396px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 14.34256654764149px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 14.252225700837752px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 19.480204637222513px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 9.57475574430997px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 8.198149395829331px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 16.856848851094522px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 15.713982099284173px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 15.489266887409658px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 8.081251090772195px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 9.228141626431633px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -675,6 +563,7 @@
 <div id="gal-gotop">
     <i class="fa fa-angle-up"></i>
 </div>
+
 <!-- 雪花特效 -->
 <script type="text/javascript">
   var windowWidth = $(window).width();
