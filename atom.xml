@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-07-10T07:58:04.918Z</updated>
+  <updated>2019-07-10T08:20:24.020Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>满足条件的01序列</title>
+    <link href="http://zhumenger.top/2019/07/10/%E6%95%B0%E8%AE%BA/%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%8401%E5%BA%8F%E5%88%97/"/>
+    <id>http://zhumenger.top/2019/07/10/数论/满足条件的01序列/</id>
+    <published>2019-07-10T08:18:54.000Z</published>
+    <updated>2019-07-10T08:20:24.020Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote><p>给定n个0和n个1，它们将按照某种顺序排成长度为2n的序列，求它们能排列成的所有序列中，能够满足任意前缀序列中0的个数都不少于1的个数的序列有多少个。</p><p>输出的答案对109+7取模。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>共一行，包含整数n。</p></blockquote><h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>共一行，包含一个整数，表示答案。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤n≤105</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>3</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>5</p></blockquote><p><strong>题解：</strong></p><p><strong>可以将这道题转化为表格的形式，0表示向左走一格，1表示向上走一格，要想满足前缀序列中0的个数始终不少于1的个数，只需满足x &gt;= y即可，如下图所示</strong></p><p><img src="http://pu82h1duu.bkt.clouddn.com/CEV%5BVJLH2%5B%5B%5BXNQ%29S_@5~V6.png" alt="1562745839773"></p><p><strong>即到(n, n)的路径中不能越过红线，越过红线的路径皆为违法的路径,如下图所示：</strong></p><p><img src="http://pu82h1duu.bkt.clouddn.com/%7D%25%25PQ@@MNV8WXE7O%28%7B7V%29F7.png" alt></p><p><strong>任意一条违法的路径都能通过 y = x 这条线从(n, n)映射到(n - 1, n + 1)</strong></p><p><img src="http://pu82h1duu.bkt.clouddn.com/AB921IL~O%7DOR79PB%5BAWDR%601.png" alt></p><p><strong>所以违法的路径我们是可以求出来的，即C(2n, n - 1), 那么用总路径减去违法的路径便是我们想要求出的答案</strong></p><p><strong>即answer = C(2n, n) - C(2n, n - 1), 化简可得answer = (2n)! /(n! * n!)/(1 + n) = C(2n, n) / (1 + n)</strong></p><p>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ksm</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><span class="comment">//快速幂求乘法逆元</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)ans = (ll)ans * a % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (ll)a * a % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">2</span> * n, b = n;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = a; i &gt; a - b; i--)</span><br><span class="line">        ans = (ll)ans * i % mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= b; i++)</span><br><span class="line">        ans = (ll)ans * ksm(i, mod - <span class="number">2</span>) % mod;</span><br><span class="line">    ans = (ll)ans * ksm(n + <span class="number">1</span>, mod - <span class="number">2</span>) % mod;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;给定n个0和n个1，它们将按照某种顺序排成长度为2n的序列，求它们能排列成的所有序列中，能够满足任
+      
+    
+    </summary>
+    
+      <category term="数论" scheme="http://zhumenger.top/categories/%E6%95%B0%E8%AE%BA/"/>
+    
+    
+      <category term="数论" scheme="http://zhumenger.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>组合数IV之高精度</title>
@@ -419,9 +445,9 @@
       <category term="图论" scheme="http://zhumenger.top/categories/%E5%9B%BE%E8%AE%BA/"/>
     
     
-      <category term="最短路问题" scheme="http://zhumenger.top/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/"/>
-    
       <category term="图论" scheme="http://zhumenger.top/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="最短路问题" scheme="http://zhumenger.top/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
