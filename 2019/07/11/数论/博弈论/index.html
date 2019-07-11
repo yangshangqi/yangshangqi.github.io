@@ -12,7 +12,7 @@
     
     
     
-    <title>迷宫问题(bfs) | zhumenger ❤ blog</title>
+    <title>博弈论 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
@@ -249,13 +249,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>迷宫问题(bfs)</span>
+        <span>博弈论</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="">迷宫问题(bfs)</a>
+                <a href="">博弈论</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -263,12 +263,14 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/bfs/">bfs</a>
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/博弈论/">博弈论</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-14
+                <i class="fa fa-calendar"></i> 2019-07-11
             </span>
             
         </div>
@@ -278,17 +280,19 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="">迷宫问题(bfs)</a>
+                    <a href="">博弈论</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-14
+                <i class="fa fa-calendar"></i> 2019-07-11
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/bfs/">bfs</a>
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/博弈论/">博弈论</a>
                 
                 
                 
@@ -296,29 +300,52 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个n*m的二维整数数组，用来表示一个迷宫，数组中只包含0或1，其中0表示可以走的路，1表示不可通过的墙壁。</p>
-<p>最初，有一个人位于左上角(1, 1)处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。</p>
-<p>请问，该人从左上角移动至右下角(n, m)处，至少需要移动多少次。</p>
-<p>数据保证(1, 1)处和(n, m)处的数字为0，且一定至少存在一条通路。</p>
+        <h2 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h2><h4 id="一-NIM博弈"><a href="#一-NIM博弈" class="headerlink" title="一.NIM博弈"></a>一.NIM博弈</h4><p>给定N堆物品，第i堆物品有Ai个。两名玩家轮流行动，每次可以任选一堆，取走任意多个物品，可把一堆取光，但不能不取。取走最后一件物品者获胜。两人都采取最优策略，问先手是否必胜。</p>
+<blockquote>
+<p>我们把这种游戏称为NIM博弈。把游戏过程中面临的状态称为局面。整局游戏第一个行动的称为先手，第二个行动的称为后手。若在某一局面下无论采取何种行动，都会输掉游戏，则称该局面必败。<br>所谓采取最优策略是指，若在某一局面下存在某种行动，使得行动后对面面临必败局面，则优先采取该行动。同时，这样的局面被称为必胜。我们讨论的博弈问题一般都只考虑理想情况，即两人均无失误，都采取最优策略行动时游戏的结果。<br>NIM博弈不存在平局，只有先手必胜和先手必败两种情况。</p>
+</blockquote>
+<p><strong>定理： NIM博弈先手必胜，当且仅当 A1 ^ A2 ^ … ^ An != 0</strong></p>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)ans ^= a[i];</span><br><span class="line">    <span class="keyword">if</span>(ans != <span class="number">0</span>)<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二-SG函数"><a href="#二-SG函数" class="headerlink" title="二.SG函数"></a>二.SG函数</h4><p><strong>Mex运算：</strong></p>
+<blockquote>
+<p>设S表示一个非负整数集合。定义mex(S)为求出不属于集合S的最小非负整数的运算，即：mex(S) = min{x}, x属于自然数，且x不属于S</p>
+</blockquote>
+<p><strong>SG函数</strong></p>
+<blockquote>
+<p>在有向图游戏中，对于每个节点x，设从x出发共有k条有向边，分别到达子节点y1, y2, …, yk，定义SG(x)为x的后继节点y1, y2, …, yk 的SG函数值构成的集合再执行mex(S)运算的结果，即：SG(x) = mex({SG(y1), SG(y2), …, SG(yk)})</p>
+<p>特别地，整个有向图游戏G的SG函数值被定义为有向图游戏起点s的SG函数值，即SG(G) = SG(s)。</p>
+</blockquote>
+<p><strong>有向图游戏的和</strong></p>
+<blockquote>
+<p>设G1, G2, …, Gm 是m个有向图游戏。定义有向图游戏G，它的行动规则是任选某个有向图游戏Gi，并在Gi上行动一步。G被称为有向图游戏G1, G2, …, Gm的和。<br>有向图游戏的和的SG函数值等于它包含的各个子游戏SG函数值的异或和，即：<br>    <strong>SG(G) = SG(G1) ^ SG(G2) ^ … ^ SG(Gm)</strong></p>
+</blockquote>
+<p><strong>定理</strong><br><strong>有向图游戏的某个局面必胜，当且仅当该局面对应节点的SG函数值大于0。</strong><br><strong>有向图游戏的某个局面必败，当且仅当该局面对应节点的SG函数值等于0。</strong></p>
+<h4 id="例题：集合-Nim游戏"><a href="#例题：集合-Nim游戏" class="headerlink" title="例题：集合-Nim游戏"></a>例题：集合-Nim游戏</h4><blockquote>
+<p>给定n堆石子以及一个由k个不同正整数构成的数字集合S。</p>
+<p>现在有两位玩家轮流操作，每次操作可以从任意一堆石子中拿取石子，每次拿取的石子数量必须包含于集合S，最后无法进行操作的人视为失败。</p>
+<p>问如果两人都采用最优策略，先手是否必胜。</p>
+</blockquote>
 <h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行包含两个整数n和m。</p>
-<p>接下来n行，每行包含m个整数（0或1），表示完整的二维数组迷宫。</p>
+<p>第一行包含整数k，表示数字集合S中数字的个数。</p>
+<p>第二行包含k个整数，其中第i个整数表示数字集合S中的第i个数si。</p>
+<p>第三行包含整数n。</p>
+<p>第四行包含n个整数，其中第ii个整数表示第i堆石子的数量hi。</p>
 </blockquote>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>输出一个整数，表示从左上角移动至右下角的最少移动次数。</p>
+<p>如果先手方必胜，则输出“Yes”。</p>
+<p>否则，输出“No”。</p>
 </blockquote>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤n,m≤1001≤n,m≤100</p>
-</blockquote>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n,k≤100<br>1≤si,hi≤10000</p>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>5 5<br>0 1 0 0 0<br>0 1 0 1 0<br>0 0 0 0 0<br>0 1 1 1 0<br>0 0 0 1 0</p>
+<p>2<br>2 5<br>3<br>2 4 7</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>8</p>
+<p>Yes</p>
 </blockquote>
-<p><strong>题解：</strong> 经典的bfs问题：bfs有最短路的性质，如果每条边的边权值都是1的话，bfs最先遍历到的点离起点的距离一定是最短的，所以我们可以用bfs来做这道题，用队列的方法是bfs的主要特征。</p>
-<p>具体代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000</span>, INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> a[N][N], d[N][N];  <span class="comment">//a数组用来存图， d数组表示距离</span></span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;<span class="comment">//往上下左右4个方向遍历</span></span><br><span class="line"><span class="keyword">int</span> dy[] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;  </span><br><span class="line"><span class="keyword">int</span> n ,m;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span> ,<span class="keyword">int</span> &gt;P;</span><br><span class="line"><span class="built_in">queue</span>&lt;P&gt; q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(d, INF, <span class="keyword">sizeof</span> d);  <span class="comment">//将开始的距离都初始化为最大值，</span></span><br><span class="line">    d[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;  <span class="comment">//起点的距离为0</span></span><br><span class="line">    q.push(&#123;<span class="number">1</span>, <span class="number">1</span>&#125;);</span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        P cur = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">if</span>(cur.first == n &amp;&amp; cur.second == m)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; d[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//4个方向遍历</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;  </span><br><span class="line">            <span class="keyword">int</span> x = cur.first + dx[i];</span><br><span class="line">            <span class="keyword">int</span> y = cur.second + dy[i];</span><br><span class="line">            <span class="keyword">if</span>(x &gt;= <span class="number">1</span> &amp;&amp; x &lt;= n &amp;&amp; y &gt;= <span class="number">1</span> &amp;&amp; y &lt;= m &amp;&amp; d[x][y] == INF &amp;&amp; a[x][y] == <span class="number">0</span>)&#123;<span class="comment">//x，y一定是合法的 &amp;&amp; 判断这条路是否可通 &amp;&amp; 判断这条路是否已经走过了</span></span><br><span class="line">                d[x][y] = d[cur.first][cur.second] +<span class="number">1</span>;  <span class="comment">//距离+1</span></span><br><span class="line">                q.push(&#123;x, y&#125;);<span class="comment">//放入到队列中</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a[i][j];</span><br><span class="line">    bfs();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>, M = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> f[N], SG[M], s[M];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getSG</span><span class="params">(<span class="keyword">int</span> n)</span><span class="comment">//SG函数模板</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(SG, <span class="number">0</span>, <span class="keyword">sizeof</span> SG);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(s, <span class="number">0</span>, <span class="keyword">sizeof</span> s);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; f[j] &lt;= i &amp;&amp; j &lt; m; j++)&#123;</span><br><span class="line">            s[SG[i - f[j]]] = <span class="number">1</span>;<span class="comment">//记录i的子节点的SG函数</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!s[j])&#123;</span><br><span class="line">                SG[i] = j;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)<span class="built_in">cin</span> &gt;&gt; f[i];</span><br><span class="line">    sort(f, f + m);</span><br><span class="line">    getSG(<span class="number">10000</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        ans ^= SG[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ans)<span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -330,7 +357,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '迷宫问题(bfs)'
+      window.commentConfig.title = '博弈论'
     }
 </script>
 
@@ -394,61 +421,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/11/数论/博弈论/">博弈论</a>
+                    <a href="">博弈论</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/11/数论/容斥原理/">容斥原理</a>
+                    <a href="../容斥原理/">容斥原理</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/JavaScirpt/JS基础之强制类型转换/">JS基础之强制类型转换</a>
+                    <a href="../../../10/JavaScirpt/JS基础之强制类型转换/">JS基础之强制类型转换</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/数论/满足条件的01序列/">满足条件的01序列</a>
+                    <a href="../../../10/数论/满足条件的01序列/">满足条件的01序列</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/数论/组合数IV之高精度/">组合数IV之高精度</a>
+                    <a href="../../../10/数论/组合数IV之高精度/">组合数IV之高精度</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/09/数论/组合数/">组合数</a>
+                    <a href="../../../09/数论/组合数/">组合数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
+                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/08/JavaScirpt/JS基础之标识符、数据类型/">JS基础之标识符、数据类型</a>
+                    <a href="../../../08/JavaScirpt/JS基础之标识符、数据类型/">JS基础之标识符、数据类型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
+                    <a href="../../../08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
+                    <a href="../../../07/JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
                 </span>
             </li>
             
@@ -470,61 +497,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../21/搜索/八数码/">八数码(bfs)</a>
+                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../树的重心/">树的重心(dfs)</a>
+                    <a href="../../../../06/14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../n-皇后问题/">n-皇后问题(dfs)</a>
+                    <a href="">博弈论</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/11/数论/博弈论/">博弈论</a>
+                    <a href="../../../07/数论/快速幂/">快速幂</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/数论/快速幂/">快速幂</a>
+                    <a href="../../../../06/11/数据结构基础/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/数论/约数/">约数</a>
+                    <a href="../../../08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/数论/满足条件的01序列/">满足条件的01序列</a>
+                    <a href="../../../09/数论/组合数/">组合数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
+                    <a href="../../../../06/24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../../../06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../24/图论/二分图/二分图/">二分图</a>
+                    <a href="../../../10/数论/组合数IV之高精度/">组合数IV之高精度</a>
                 </span>
             </li>
             
@@ -557,53 +584,53 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 11.577373653089904px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 17.538082982890025px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 13.413159642371298px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 16.058059772474902px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 12.84598399864049px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 11.872914116874702px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 16.055255530932904px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 11.70137937119333px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 18.39840088090508px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 19.190702364774847px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 13.21704229926395px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 16.08258731004837px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 9.432354831251162px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 16.732030827171px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 8.733260861035621px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 11.575612573243607px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 13.866293557332497px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 15.893372586474605px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 15.038525428540085px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 16.65202779970461px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 10.238835957388904px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 8.923307515733018px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 13.39661139305791px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 18.332763861728743px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 11.967576550025544px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 10.494362802700923px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 17.129953234951437px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 18.490667648148516px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 10.587957806857297px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 13.111484333533426px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 11.193643609919299px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 16.53551581214402px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 13.78876929217327px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 9.3559986796718px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 10.22502479045433px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 10.562134185738422px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 16.80703392581096px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 10.067961728278098px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 19.494316169841056px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 19.530753519100106px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 18.707068920570386px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 10.656037635841656px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 12.984072896052448px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 10.340954761808455px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 18.994120683718656px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 11.850692783413152px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 16.635094007089727px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 9.081318554091496px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -730,7 +757,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Fri Jun 14 2019 23:37:25 GMT+0800'
+      window.commentConfig.id = 'Thu Jul 11 2019 17:12:52 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -738,7 +765,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Fri Jun 14 2019 23:37:25 GMT+0800',
+      	id: 'Thu Jul 11 2019 17:12:52 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
