@@ -12,7 +12,7 @@
     
     
     
-    <title>雪花雪花雪花 | zhumenger ❤ blog</title>
+    <title>素数 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
@@ -253,13 +253,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>雪花雪花雪花</span>
+        <span>素数</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="">雪花雪花雪花</a>
+                <a href="">素数</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -267,14 +267,14 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/数据结构/">数据结构</a>, 
+                <a href="../../../../../tags/数论/">数论</a>, 
                 
-                <a href="../../../../../tags/字符串/">字符串</a>
+                <a href="../../../../../tags/素数/">素数</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-07-16
+                <i class="fa fa-calendar"></i> 2019-07-17
             </span>
             
         </div>
@@ -284,19 +284,19 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="">雪花雪花雪花</a>
+                    <a href="">素数</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-07-16
+                <i class="fa fa-calendar"></i> 2019-07-17
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/数据结构/">数据结构</a>, 
+                <a href="../../../../../tags/数论/">数论</a>, 
                 
-                <a href="../../../../../tags/字符串/">字符串</a>
+                <a href="../../../../../tags/素数/">素数</a>
                 
                 
                 
@@ -304,43 +304,66 @@
         </center>
     </div>
     <div class="content-article">
-        <h2 id="雪花雪花雪花"><a href="#雪花雪花雪花" class="headerlink" title="雪花雪花雪花"></a>雪花雪花雪花</h2><blockquote>
-<p>有N片雪花，每片雪花由六个角组成，每个角都有长度。</p>
-<p>第i片雪花六个角的长度从某个角开始顺时针依次记为ai1,ai2,…,ai6。</p>
-<p>因为雪花的形状是封闭的环形，所以从任何一个角开始顺时针或逆时针往后记录长度，得到的六元组都代表形状相同的雪花。</p>
-<p>例如ai1,ai2,…,ai6和ai2,ai3,…,ai6，ai1就是形状相同的雪花。</p>
-<p>ai1,ai2,…,ai6和ai6,ai5,…,ai1也是形状相同的雪花。</p>
-<p>我们称两片雪花形状相同，当且仅当它们各自从某一角开始顺时针或逆时针记录长度，能得到两个相同的六元组。</p>
-<p>求这N片雪花中是否存在两片形状相同的雪花。</p>
+        <h4 id="一-试除法判定质数"><a href="#一-试除法判定质数" class="headerlink" title="一.试除法判定质数"></a>一.试除法判定质数</h4><p><strong>即暴力枚举它之前的数，如果能整除，说明该数不是素数</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间复杂度O(sqrt(n))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">prime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n / i; i++)<span class="comment">//i * i 有溢出风险，所以要把i除过去</span></span><br><span class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">        <span class="keyword">if</span>(prime(a))<span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二-分解质因数"><a href="#二-分解质因数" class="headerlink" title="二.分解质因数"></a>二.分解质因数</h4><blockquote>
+<p>给定n个正整数ai，将每个数分解质因数，并按照质因数从小到大的顺序输出每个质因数的底数和指数。</p>
+</blockquote>
+<p><strong>输入格式</strong></p>
+<blockquote>
+<p>第一行包含整数n。</p>
+<p>接下来n行，每行包含一个正整数ai。</p>
+</blockquote>
+<p><strong>输出格式</strong></p>
+<blockquote>
+<p>对于每个正整数ai,按照从小到大的顺序输出其分解质因数后，每个质因数的底数和指数，每个底数和指数占一行。</p>
+<p>每个正整数的质因数全部输出完毕后，输出一个空行。</p>
+</blockquote>
+<p><strong>数据范围</strong></p>
+<p>1≤n≤100<br>1≤ai≤2∗109</p>
+<p><strong>输入样例：</strong></p>
+<blockquote>
+<p>2<br>6<br>8</p>
+</blockquote>
+<p><strong>输出样例：</strong></p>
+<blockquote>
+<p>2 1<br>3 1</p>
+<p>2 3</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">divide</span><span class="params">(ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i = <span class="number">2</span>; i &lt;= n / i; i++)&#123;  <span class="comment">//枚举到sqrt(n)，时间复杂度最大为O(sqrt(n))</span></span><br><span class="line">        <span class="keyword">if</span>(n % i== <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">                n /=i;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, n, <span class="number">1</span>);<span class="comment">//大于sqrt(n)的质因子</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    ll x;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;x);</span><br><span class="line">        divide(x);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三-筛质数"><a href="#三-筛质数" class="headerlink" title="三.筛质数"></a>三.筛质数</h4><p><strong>题目描述</strong></p>
+<blockquote>
+<p>给定一个正整数n，请你求出1~n中质数的个数。</p>
 </blockquote>
 <h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行输入一个整数N，代表雪花的数量。</p>
-<p>接下来N行，每行描述一片雪花.</p>
-<p>每行包含6个整数，分别代表雪花的六个角的长度（这六个数即为从雪花的随机一个角顺时针或逆时针记录长度得到）。</p>
-<p>同行数值之间，用空格隔开。</p>
+<p>共一行，包含整数n。</p>
 </blockquote>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>如果不存在两片形状相同的雪花，则输出：</p>
-<p>No two snowflakes are alike.</p>
-<p>如果存在两片形状相同的雪花，则输出：</p>
-<p>Twin snowflakes found.</p>
+<p>共一行，包含一个整数，表示1~n中质数的个数。</p>
 </blockquote>
 <h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤n≤100000<br>0≤ai,j&lt;10000000</p>
+<p>1≤n≤106</p>
 </blockquote>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>2<br>1 2 3 4 5 6<br>4 3 2 1 6 5</p>
+<p>8</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>Twin snowflakes found.</p>
+<p>4</p>
 </blockquote>
-<p><strong>题解：</strong></p>
-<p><strong>字符串的最小表示法：每一个字符串都有一个字典序最小的表示，比较这俩个字符串的最小表示是否相等即可</strong></p>
-<p><strong>1.用俩个数组分别存取该字符串的正序和逆序表示</strong></p>
-<p><strong>2.用最小表示法获得俩种表示方法中字典序最小的那个，并将该结果用数组储存起来</strong></p>
-<p><strong>3.我们需要对储存的结果进行排序，这样只需要比较相邻的俩个数是否相等即可，但并不能直接对二维数组进行排序，这里我们需要一个一维数组，来储存每个字符串的下标，该数组通过二维数组字符串的关系对下标进行排序,通过遍历该下标访问二维数组即可</strong></p>
-<p>代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> snows[N][<span class="number">6</span>], idx[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_min</span><span class="params">(<span class="keyword">int</span> a[])</span><span class="comment">//获得字符串的最小表示法</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b[<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++)b[i] = a[i % <span class="number">6</span>];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">1</span>, k;</span><br><span class="line">    <span class="keyword">while</span>(i &lt;= <span class="number">6</span> &amp;&amp; j &lt;= <span class="number">6</span>)&#123;</span><br><span class="line">        k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k &lt; <span class="number">6</span> &amp;&amp; b[i + k] == b[j + k])k++;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">6</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i + k] &lt; b[j + k])&#123;</span><br><span class="line">            j += k + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(j == i)j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            i += k + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i == j)i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    k = min(i, j);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">        a[i] = b[i + k];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp_array</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> b[])</span><span class="comment">//比较a是否小于b</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &gt; b[i])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[i] &lt; b[i])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><span class="comment">//对二维数组排序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cmp_array(snows[a], snows[b]);<span class="comment">//返回俩个字符串的关系</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> snow[<span class="number">6</span>], isnow[<span class="number">6</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">6</span>; j++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt;snow[j];</span><br><span class="line">            isnow[<span class="number">5</span> - j] = snow[j];</span><br><span class="line">        &#125;</span><br><span class="line">        get_min(snow);<span class="comment">//获得最小表示</span></span><br><span class="line">        get_min(isnow);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(cmp_array(snow, isnow))<span class="built_in">memcpy</span>(snows[i], snow, <span class="keyword">sizeof</span> snow);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">memcpy</span>(snows[i], isnow, <span class="keyword">sizeof</span> isnow);</span><br><span class="line">        idx[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(idx, idx + n, cmp);<span class="comment">//对下标进行排序</span></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;<span class="comment">//比较相邻的俩个数是否相同</span></span><br><span class="line">        <span class="keyword">if</span>(!cmp(idx[i - <span class="number">1</span>], idx[i]) &amp;&amp; !cmp(idx[i], idx[i - <span class="number">1</span>]))&#123;</span><br><span class="line">            flag = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag)<span class="built_in">puts</span>(<span class="string">"Twin snowflakes found."</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"No two snowflakes are alike."</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="埃氏筛法原理"><a href="#埃氏筛法原理" class="headerlink" title="埃氏筛法原理"></a>埃氏筛法原理</h4><blockquote>
+<p>素数的定义：素数就是除了1和本身之外没有其他的约数，所以有约数的都不是素数。 </p>
+<p><strong>埃氏筛法</strong>的思想就是：先去掉2的倍数，再去掉3的倍数，再去掉4的倍数，……依此类推，直到最大数小于最后一个标出的素数的平方，那么剩下的序列中所有的数都是素数。 时间复杂度：O(nloglogn)<br>代码如下：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 10000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">bool</span> a[maxn+<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="built_in">memset</span>(a,<span class="literal">true</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i])&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;i*j&lt;=n;j++)</span><br><span class="line">                a[i*j]=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[<span class="number">1</span>]=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">while</span>(m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">        <span class="keyword">if</span>(a[t])<span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="欧拉筛法"><a href="#欧拉筛法" class="headerlink" title="欧拉筛法"></a>欧拉筛法</h4><p>   在埃式筛法中，存在有些数存在重复筛的情况，如：385这个数，385= 5 * 7* 11，会被5的倍数时标记一次，7的倍数时标记一次，11的倍数时标记一次，造成效率达不到最优。而线性筛法基于改进这个不足的基础上，在线性时间内，也就是O(n)，用筛选的方法把素数找出来。</p>
+<blockquote>
+<p>核心原理：对于每个合数，都只由它最小的质因子筛掉。<br> 比如：（假定：ans[]数组中存放着已经确定的素数）合数 i = p（最小素因子）* a;  若 i%ans[j] ==0;<br> 则 i * ans[j+1] =  p * a * ans[j+1] 可以被后面的 a * ans[j+1] 再乘以素数 p 筛选出来，(显而p&lt;ans[j+1]） 所以i%ans[j] == 0 时要停止。</p>
+</blockquote>
+<p><img src="http://pu82h1duu.bkt.clouddn.com/X7AZA~XPD00N%5BL%5B21QPX_UF.png" alt><br>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 10000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">bool</span> a[maxn+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> b[maxn+<span class="number">5</span>];<span class="comment">//存储质数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="built_in">memset</span>(a,<span class="literal">true</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">    a[<span class="number">1</span>]=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i])   <span class="comment">//如果i为质数</span></span><br><span class="line">            b[k++]=i;<span class="comment">//存上</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k&amp;&amp;i*b[j]&lt;=n;j++)&#123;</span><br><span class="line">            a[i*b[j]]=<span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%b[j]==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">        <span class="keyword">if</span>(a[t])<span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -352,7 +375,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '雪花雪花雪花'
+      window.commentConfig.title = '素数'
     }
 </script>
 
@@ -416,19 +439,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../17/数论/素数/">素数</a>
+                    <a href="">素数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="">雪花雪花雪花</a>
+                    <a href="../../../16/数据结构基础/雪花雪花雪花/">雪花雪花雪花</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../邻值查找/">邻值查找</a>
+                    <a href="../../../16/数据结构基础/邻值查找/">邻值查找</a>
                 </span>
             </li>
             
@@ -492,13 +515,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
+                    <a href="../../../../06/15/搜索/有向图的拓扑排序/">有向图的拓扑排序(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
+                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../10/数论/满足条件的01序列/">满足条件的01序列</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../09/数论/组合数/">组合数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../10/数论/组合数IV之高精度/">组合数IV之高精度</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
@@ -510,37 +557,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../邻值查找/">邻值查找</a>
+                    <a href="../../../16/数据结构基础/邻值查找/">邻值查找</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../07/JavaScirpt/JS基础之Hello-World/">JS基础之Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../07/JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../07/JavaScirpt/JS基础之编写位置/">JS基础之编写位置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../08/JavaScirpt/JS基础之标识符、数据类型/">JS基础之标识符、数据类型</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../10/JavaScirpt/JS基础之强制类型转换/">JS基础之强制类型转换</a>
+                    <a href="../../../16/数据结构基础/雪花雪花雪花/">雪花雪花雪花</a>
                 </span>
             </li>
             
@@ -579,65 +602,65 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/dfs/" style="font-size: 14.885990630238297px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 11.138660277488007px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 15.0117838228363px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 13.105929513469286px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 8.417340234933787px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 8.53888953320151px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 12.820111394371075px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 17.099847677393523px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 9.649777775379203px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 10.612423656994414px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 10.66070484135727px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 18.899166300042197px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 14.823928238645468px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 9.408366167833869px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 9.341376655781417px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 18.906652290099515px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 15.180970271227075px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 10.819382809669978px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 12.477704573185814px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 12.081954361186483px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 8.916581943962008px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 14.95769376985599px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 13.376075632009913px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 13.939943896735961px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 11.200356687854745px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 9.555473458473674px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 13.895362219063582px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 8.37734972140929px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 8.292688616153134px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 9.921748044049313px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 16.182812867475487px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 9.173155266552541px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 8.58516841765378px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 16.669763431437357px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 14.911787915601233px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 10.843811522361092px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 16.819702506752066px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 13.871083731193892px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 16.167188380885726px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 9.79099053145437px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 19.391032712066178px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 11.932542622672361px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 14.614155367145601px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/链表/" style="font-size: 18.564535613138936px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 8.601070065508312px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 19.254057455504377px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 15.68807527444042px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 18.39663590805478px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 9.544901907319815px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 11.721638333485362px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 15.673677459816336px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 18.6908794868302px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 16.218412011385784px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 15.766134044064135px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 12.097526405739192px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 16.463923054420036px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 19.254030867247476px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 8.710918406145801px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 16.98505236317746px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 9.268239609609228px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -764,7 +787,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Jul 16 2019 09:39:15 GMT+0800'
+      window.commentConfig.id = 'Wed Jul 17 2019 08:50:38 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -772,7 +795,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Jul 16 2019 09:39:15 GMT+0800',
+      	id: 'Wed Jul 17 2019 08:50:38 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
