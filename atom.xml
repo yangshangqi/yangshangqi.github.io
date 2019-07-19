@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-07-18T11:20:42.828Z</updated>
+  <updated>2019-07-19T02:25:23.218Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>整数划分</title>
+    <link href="http://zhumenger.top/2019/07/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86/"/>
+    <id>http://zhumenger.top/2019/07/19/动态规划/整数划分/</id>
+    <published>2019-07-19T02:24:06.000Z</published>
+    <updated>2019-07-19T02:25:23.218Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述</strong></p><p>一个正整数n可以表示成若干个正整数之和，形如：n=n1+n2+…+nk，其中n1≥n2≥…≥nk,k≥1。</p><p>我们将这样的一种表示称为正整数n的一种划分。</p><p>现在给定一个正整数n，请你求出n共有多少种不同的划分方法。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>共一行，包含一个整数n。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>共一行，包含一个整数，表示总划分数量。</p><p>由于答案可能很大，输出结果请对109+7取模。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤n≤1000</p></blockquote><h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h4><blockquote><p>5</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>7</p></blockquote><p><strong>题解：</strong> </p><p>类似于完全背包问题，可以把n看成体积，有 n - 1种不能体积的物品，问将这些物品装入背包，容量恰好为n的方法有多少种</p><p><strong>状态表示：f(i, j) 表示前 i 个物品恰好能装进容量为 j 的方法总数</strong></p><p><strong>如何求f(i, j)？对于每个物品我们可以选择装，也可以选择不装:</strong></p><p><strong>1.第 i 个物品不装进背包中，说明前i - 1个物品装进背包的容量恰好为j，所以f(i, j) = f(i - 1, j)</strong></p><p><strong>1.第 i 个物品装进背包中，将第 i 个物品装进背包后，背包容量恰好为 j ，则状态转移方程为：</strong></p><p>*<em>f(i, j) = f(i, j - i) *</em></p><p><strong>所以总的状态转移方程为：f(i, j) = f(i - 1, j ) + f(i, j - 1)</strong></p><p>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> f[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="comment">// 枚举物品</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt;= n; j++)<span class="comment">//从小到大枚举体积</span></span><br><span class="line">            f[j] = (f[j] + f[j - i]) % mod;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[n] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个正整数n可以表示成若干个正整数之和，形如：n=n1+n2+…+nk，其中n1≥n2≥…≥nk,k≥1。&lt;/p&gt;
+&lt;p&gt;我们将这样的一种表示称为正整数n的一种划分。&lt;/p&gt;
+&lt;p&gt;现在给定一个正整数n，请你求出n共
+      
+    
+    </summary>
+    
+      <category term="动态规划" scheme="http://zhumenger.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="http://zhumenger.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="计数DP" scheme="http://zhumenger.top/tags/%E8%AE%A1%E6%95%B0DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>石子合并</title>
+    <link href="http://zhumenger.top/2019/07/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6/"/>
+    <id>http://zhumenger.top/2019/07/19/动态规划/石子合并/</id>
+    <published>2019-07-19T02:05:11.000Z</published>
+    <updated>2019-07-19T02:07:33.948Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述</strong></p><p>设有N堆石子排成一排，其编号为1，2，3，…，N。</p><p>每堆石子有一定的质量，可以用一个整数来描述，现在要将这N堆石子合并成为一堆。</p><p>每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，合并后与这两堆石子相邻的石子将和新堆相邻，合并时由于选择的顺序不同，合并的总代价也不相同。</p><p>例如有4堆石子分别为 1 3 5 2， 我们可以先合并1、2堆，代价为4，得到4 5 2， 又合并 1，2堆，代价为9，得到9 2 ，再合并得到11，总代价为4+9+11=24；</p><p>如果第二步是先合并2，3堆，则代价为7，得到4 7，最后一次合并代价为11，总代价为4+7+11=22。</p><p>问题是：找出一种合理的方法，使总的代价最小，输出最小代价。</p><p><strong>输入格式</strong></p><blockquote><p>第一行一个数N表示石子的堆数N。</p><p>第二行N个数，表示每堆石子的质量(均不超过1000)。</p></blockquote><p><strong>输出格式</strong></p><blockquote><p>输出一个整数，表示最小代价。</p></blockquote><p><strong>数据范围</strong></p><blockquote><p>1≤N≤300</p></blockquote><p><strong>输入样例：</strong></p><blockquote><p>4<br>1 3 5 2</p></blockquote><p><strong>输出样例：</strong></p><blockquote><p>22</p></blockquote><p><strong>题解：</strong> </p><p><strong>区间DP问题，用动态规划来做：</strong></p><p><strong>状态表示：f(i, j) 表示将第 i 堆石子到第 j 堆石子合并成一堆石子的代价的最小值</strong> </p><p><strong>如何求f(i, j)呢？</strong></p><p><strong>1.假设k为 i ~ j 堆石子的一个分界线，从 i 堆到 k 堆的最小代价已经求出，从 k + 1 堆到 j 堆的最小代价也已经求出，我们要求 i 堆到 j 堆的最小代价，只需要将左右俩堆的最小代价加起来，再加上这次合并的代价，就可以得到我们的f(i, j)了。</strong></p><p><strong>2.这次的合并代价为 i ~ j 堆所有石子的重量之和，我们可以用前缀和的方法来得到任意区间的总和</strong></p><p><strong>3.状态转移方程为：f(i, j) = min(f(i, j), f(i, k) + f(k + 1, j) + s[j] - s[i - 1])</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">310</span>;</span><br><span class="line"><span class="keyword">int</span> f[N][N], a[N], s[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        s[i] = a[i] + s[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;<span class="comment">//枚举长度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j + i - <span class="number">1</span> &lt;= n; j++)&#123;<span class="comment">//枚举这个长度下的起点和终点</span></span><br><span class="line">            <span class="keyword">int</span> l = j, r = j + i - <span class="number">1</span>;</span><br><span class="line">            f[l][r] = <span class="number">1e9</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = l; k &lt; r; k++)<span class="comment">//枚举分界线</span></span><br><span class="line">                f[l][r] = min(f[l][r], f[l][k] + f[k + <span class="number">1</span>][r] + s[r] - s[l - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[<span class="number">1</span>][n] &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;设有N堆石子排成一排，其编号为1，2，3，…，N。&lt;/p&gt;
+&lt;p&gt;每堆石子有一定的质量，可以用一个整数来描述，现在要将这N堆石子合并成为一堆。&lt;/p&gt;
+&lt;p&gt;每次只能合并相邻的两堆，合并的代价为这两堆石子的质量之和，
+      
+    
+    </summary>
+    
+      <category term="动态规划" scheme="http://zhumenger.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="http://zhumenger.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="区间DP" scheme="http://zhumenger.top/tags/%E5%8C%BA%E9%97%B4DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最短编辑距离</title>
+    <link href="http://zhumenger.top/2019/07/19/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E7%9F%AD%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/"/>
+    <id>http://zhumenger.top/2019/07/19/动态规划/最短编辑距离/</id>
+    <published>2019-07-19T01:27:36.000Z</published>
+    <updated>2019-07-19T01:29:08.648Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote><p>给定两个字符串A和B，现在要将A经过若干操作变为B，可进行的操作有：</p><ol><li><p>删除–将字符串A中的某个字符删除。</p></li><li><p>插入–在字符串A的某个位置插入某个字符。</p></li><li><p>替换–将字符串A中的某个字符替换为另一个字符。</p><p>现在请你求出，将A变为B至少需要进行多少次操作。</p></li></ol></blockquote><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>第一行包含整数n，表示字符串A的长度。</p><p>第二行包含一个长度为n的字符串A。</p><p>第三行包含整数m，表示字符串B的长度。</p><p>第四行包含一个长度为m的字符串B。</p><p>字符串中均只包含小写字母。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>输出一个整数，表示最少操作次数。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤n,m≤1000</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>10<br>AGTCTGACGC<br>11<br>AGTAAGTAGGC</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>4</p></blockquote><p><strong>题解：</strong> </p><p><strong>将一个字符串通过删除、插入、替换变为另一个字符串的最短距离,可以用动态规划来做，用f(i, j)来表示长度为i的字符串变为长度为j的字符串最小的操作次数，那么如何来求f(i, j)呢？对每个字符我们有3种操作:</strong></p><blockquote><p><strong>1.删除：假设删除a[i]后，a[1 ~ i] 与 b[1 ~ j] 匹配，那么说明a[1 ~ i - 1]已经与b[1 ~ j]相等了，那么多出来的a[i]直接删掉即可，状态转移方程为：f(i, j) = f(i - 1, j) + 1</strong></p></blockquote><blockquote><p><strong>2.插入： 假设插入一个a[i],使a[i] == b[j]后，a[1 ~ i] 与 b[1 ~ j] 匹配,那么说明a[1 ~ i]已经与b[i ~ j - 1]相等了，要使a[1 ~ i]与b[i ~ j]相等,只需再a[1 ~ i]的后面添加一个b[j]即可</strong></p><p><strong>状态转移方程为：f(i, j) = f(i, j - 1) + 1</strong></p></blockquote><blockquote><p><strong>3.替换：假设将a[i]替换成b[j],使得a[1 ~ i] 与 b[1 ~ j] 匹配,那么说明a[1 ~ i - 1]已经与b[i ~ j - 1]相等了，要使a[1 ~ i]与b[i ~ j]相等,只需将a[i]替换为b[j]即可。</strong></p><p><strong>如果a[i] = b[j]，则无需替换，状态转移方程为：f(i, j) = f(i - 1, j - 1)</strong> </p><p><strong>如果a[i] != b[j]，则需要替换，状态转移方程为：f(i, j) = f(i - 1, j - 1) + 1</strong> </p></blockquote><p><strong>所以我们得出来总的状态转移方程式为就是上述方程式的最小值</strong></p><p>代码如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">char</span> s1[N], s2[N];</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; s1 + <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; s2 + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++)  <span class="comment">//a[i ~ i]变为0，只能删除， 操作数为i</span></span><br><span class="line">        f[i][<span class="number">0</span>] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++)<span class="comment">//a[0]变为b[1 ~ i]，只能添加，操作数为i</span></span><br><span class="line">        f[<span class="number">0</span>][i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)&#123;</span><br><span class="line">            <span class="comment">//f[i - 1][j] + 1 表示进行删除操作</span></span><br><span class="line">            <span class="comment">//f[i][j - 1] + 1 表示进行添加操作</span></span><br><span class="line">            f[i][j] = min(f[i - <span class="number">1</span>][j] + <span class="number">1</span>, f[i][j - <span class="number">1</span>] + <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//下面的表示进行替换操作</span></span><br><span class="line">            <span class="keyword">if</span>(s1[i] == s2[j])f[i][j] = min(f[i][j], f[i - <span class="number">1</span>][j - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">else</span> f[i][j] = min(f[i][j], f[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;给定两个字符串A和B，现在要将A经过若干操作变为B，可进行的操作有：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="动态规划" scheme="http://zhumenger.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="动态规划" scheme="http://zhumenger.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>Java基础之运算符</title>
@@ -229,9 +317,9 @@
       <category term="动态规划" scheme="http://zhumenger.top/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-      <category term="背包问题" scheme="http://zhumenger.top/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
-    
       <category term="动态规划" scheme="http://zhumenger.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="背包问题" scheme="http://zhumenger.top/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
@@ -487,7 +575,7 @@
     <published>2019-07-07T13:14:03.000Z</published>
     <updated>2019-07-07T13:16:35.696Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="一-基本语法"><a href="#一-基本语法" class="headerlink" title="一.基本语法"></a>一.基本语法</h4><p><strong>1.注释</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">//单行注释</span><br><span class="line">    /*</span><br><span class="line">    多行注释，注释中的内容不会被执行</span><br><span class="line">    */</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>2.JS中严格区分大小写</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert("hello world");//可以执行</span><br><span class="line">Alert("hello world")；//会报错</span><br></pre></td></tr></table></figure><p><strong>3.分号表示一个语句的结束.</strong></p><p><strong>如果不写分号，浏览器会自动添加，但是会消耗一些系统资源</strong></p><p><strong>而且有点时候，浏览器会加错分号，所以在开发中分号必须写</strong></p><p><strong>4.JS会忽略多个空格和换行，所以我们可以利用空格和换行对代码进行格式化</strong></p><h4 id="二-字面量和变量"><a href="#二-字面量和变量" class="headerlink" title="二.字面量和变量"></a>二.字面量和变量</h4><p><strong>1.字面量</strong></p><blockquote><p>都是一些不可改变的值，比如：1 2 3 4 5</p><p>字面量可以直接使用，但是我们一般都不会直接使用字面量</p></blockquote><p><strong>2.变量</strong></p><blockquote><p>可以用来保存字面量，而且变量的值可以任意改变</p><p>所以在开发中都是通过变量取保存一个字面量，而很少直接用到字面量</p></blockquote><p><strong>3.变量的使用</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//在JS中使用var关键字来声明一个变量</span><br><span class="line">var a;</span><br><span class="line">//为变量赋值</span><br><span class="line">a = 123；</span><br><span class="line">//向页面输出a</span><br><span class="line">document.write(a)</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h4 id="一-基本语法"><a href="#一-基本语法" class="headerlink" title="一.基本语法"></a>一.基本语法</h4><p><strong>1.注释</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="comment">//单行注释</span></span></span><br><span class="line">    /*</span><br><span class="line">    多行注释，注释中的内容不会被执行</span><br><span class="line">    */</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>2.JS中严格区分大小写</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert("hello world");//可以执行</span><br><span class="line">Alert("hello world")；//会报错</span><br></pre></td></tr></table></figure><p><strong>3.分号表示一个语句的结束.</strong></p><p><strong>如果不写分号，浏览器会自动添加，但是会消耗一些系统资源</strong></p><p><strong>而且有点时候，浏览器会加错分号，所以在开发中分号必须写</strong></p><p><strong>4.JS会忽略多个空格和换行，所以我们可以利用空格和换行对代码进行格式化</strong></p><h4 id="二-字面量和变量"><a href="#二-字面量和变量" class="headerlink" title="二.字面量和变量"></a>二.字面量和变量</h4><p><strong>1.字面量</strong></p><blockquote><p>都是一些不可改变的值，比如：1 2 3 4 5</p><p>字面量可以直接使用，但是我们一般都不会直接使用字面量</p></blockquote><p><strong>2.变量</strong></p><blockquote><p>可以用来保存字面量，而且变量的值可以任意改变</p><p>所以在开发中都是通过变量取保存一个字面量，而很少直接用到字面量</p></blockquote><p><strong>3.变量的使用</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//在JS中使用var关键字来声明一个变量</span><br><span class="line">var a;</span><br><span class="line">//为变量赋值</span><br><span class="line">a = 123；</span><br><span class="line">//向页面输出a</span><br><span class="line">document.write(a)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -802,9 +890,9 @@
       <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
     
     
-      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
-    
       <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
+    
+      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
     
   </entry>
   
