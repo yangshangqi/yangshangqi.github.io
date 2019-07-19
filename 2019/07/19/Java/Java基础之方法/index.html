@@ -12,7 +12,7 @@
     
     
     
-    <title>堆 | zhumenger ❤ blog</title>
+    <title>Java基础之方法 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
@@ -257,13 +257,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>堆</span>
+        <span>Java基础之方法</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="">堆</a>
+                <a href="">Java基础之方法</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -271,12 +271,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/堆/">堆</a>
+                <a href="../../../../../tags/Java/">Java</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-10
+                <i class="fa fa-calendar"></i> 2019-07-19
             </span>
             
         </div>
@@ -286,17 +286,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="">堆</a>
+                    <a href="">Java基础之方法</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-10
+                <i class="fa fa-calendar"></i> 2019-07-19
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/堆/">堆</a>
+                <a href="../../../../../tags/Java/">Java</a>
                 
                 
                 
@@ -304,27 +304,19 @@
         </center>
     </div>
     <div class="content-article">
-        <p><strong>堆</strong>：一种支持插入，删除，查询最值的数据结构，是一颗完全二叉树，实际上就是一个优先队列<strong>priority_queue</strong>,这里我们用数组的实现这个堆<br><strong>大根堆</strong>：树中的任意一个节点的权值都小于等于其父节点<br><strong>小根堆</strong>：树中的任意一个节点的权值都大于等于其父节点<br><strong>如何实现堆</strong>：<br>直接用一个数组来保存二叉堆， 逐层的从左到右依次编号，将此编号作为节点在数组中存储的位置。所以，父亲点编号等于子节点编号除以2，左子节点编号等于父节点编号乘以2，又子节点等于父节点编号乘2加1 </p>
-<p><strong>堆的基本操作</strong>：<br>1求集合中的最小值：h[ 1 ]<br>2.插入一个数：h[++n] = x;up(n);  //up函数将x向上调整，找到x的位置，保证堆的有序性<br>3.删除最小值：h[1] = h[n–];down(1) //down函数，将x向下调整，找到x的位置，保证堆的有序性<br>4.删除任意一个元素：h[x] = h[n–];down(x);up(x);//因为不确定x的大小，所以可能是向上调整，也可能是向下调整，这俩个函数虽然都写上了，但实际上只会执行一个，<br>5.修改任意一个元素：h[k] = x;down(k);up(k)//跟4同理<br><strong>时间复杂度</strong>：与堆的高度有关，所以是O（logN）<br>代码如下：</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
-<p>输入一个长度为n的整数数列，从小到大输出前m小的数。</p>
-</blockquote>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行包含整数n和m。<br>第二行包含n个整数，表示整数数列。</p>
-</blockquote>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>共一行，包含m个整数，表示整数数列中前m小的数。</p>
-</blockquote>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤m≤n≤105，<br>1≤数列中元素≤109</p>
-</blockquote>
-<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>5 3<br>4 5 1 3 2</p>
-</blockquote>
-<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>1 2 3</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], n ,m;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> p)</span> <span class="comment">//向上调整</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">2</span> * p;  <span class="comment">//子节点</span></span><br><span class="line">    <span class="keyword">while</span>(s &lt;= n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s &lt; n &amp;&amp; h[s] &gt; h[s + <span class="number">1</span>])s++;  <span class="comment">//找到左右子节点的最小值</span></span><br><span class="line">        <span class="keyword">if</span>(h[s] &lt; h[p])&#123;  <span class="comment">//如果子节点比父节点小</span></span><br><span class="line">            swap(h[s], h[p]);  <span class="comment">//则交换</span></span><br><span class="line">            p = s;   <span class="comment">//继续向下调整</span></span><br><span class="line">            s = <span class="number">2</span> * p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(<span class="keyword">int</span> p)</span>  <span class="comment">//向上调整，</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(p &gt; <span class="number">1</span>)&#123; </span><br><span class="line">        <span class="keyword">if</span>(h[p] &lt; h[p / <span class="number">2</span>])&#123;  <span class="comment">//如果子节点小于父节点</span></span><br><span class="line">            swap(h[p], h[p / <span class="number">2</span>]);  <span class="comment">//则交换</span></span><br><span class="line">            p /= <span class="number">2</span>;  <span class="comment">//继续向上调整</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; h[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)down(i);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; h[<span class="number">1</span>] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        h[<span class="number">1</span>] = h[n--];</span><br><span class="line">        down(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><strong>java中的方法类似于其他语言中的函数，是完成特定功能的代码片段</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span> c = sum(a, b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a +b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法的重载：</strong> Java语言中的方法的名称可以相同</p>
+<p><strong>构成重载的条件：</strong></p>
+<p><strong>1.方法名相同，参数个数不同，构成重载</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">3</span>, d = <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">int</span> c = sum(a, b);</span><br><span class="line">        <span class="keyword">int</span> f = sum(a, b, d);</span><br><span class="line">        System.out.println(c);<span class="comment">//输出5</span></span><br><span class="line">        System.out.println(f);<span class="comment">//输出9</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a +b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b + c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.方法名相同，参数类型不同，构成重载</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">2.0</span>;</span><br><span class="line">        <span class="keyword">int</span> c = sum(a, b);</span><br><span class="line">        <span class="keyword">double</span> f = sum(d, b);</span><br><span class="line">        System.out.println(c);<span class="comment">//输出5</span></span><br><span class="line">        System.out.println(f);<span class="comment">//5.0</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a +b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法名相同，参数顺序不同，构成重载</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">double</span> a = <span class="number">2.0</span>;</span><br><span class="line">		<span class="keyword">int</span> b = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">double</span> c = sum(a, b);</span><br><span class="line">        <span class="keyword">double</span> d = sum(b, a);</span><br><span class="line">        System.out.println(c);<span class="comment">//5.0</span></span><br><span class="line">        System.out.println(d);<span class="comment">//5.0</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a +b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -336,7 +328,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '堆'
+      window.commentConfig.title = 'Java基础之方法'
     }
 </script>
 
@@ -400,61 +392,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/19/Java/Java基础之方法/">Java基础之方法</a>
+                    <a href="">Java基础之方法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/19/动态规划/整数划分/">整数划分</a>
+                    <a href="../../动态规划/整数划分/">整数划分</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/19/动态规划/石子合并/">石子合并</a>
+                    <a href="../../动态规划/石子合并/">石子合并</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/19/动态规划/最短编辑距离/">最短编辑距离</a>
+                    <a href="../../动态规划/最短编辑距离/">最短编辑距离</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/18/Java/Java基础之运算符/">Java基础之运算符</a>
+                    <a href="../../../18/Java/Java基础之运算符/">Java基础之运算符</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/18/Java/Java基础之基本类型/">Java基础之基本类型</a>
+                    <a href="../../../18/Java/Java基础之基本类型/">Java基础之基本类型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/17/Java/Java基础之-注释、标识符、变量/">Java基础之-注释、标识符、变量</a>
+                    <a href="../../../17/Java/Java基础之-注释、标识符、变量/">Java基础之-注释、标识符、变量</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/17/Java/Java基础之-程序详细解析/">Java基础之-程序详细解析</a>
+                    <a href="../../../17/Java/Java基础之-程序详细解析/">Java基础之-程序详细解析</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/17/数论/素数/">素数</a>
+                    <a href="../../../17/数论/素数/">素数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/16/数据结构基础/雪花雪花雪花/">雪花雪花雪花</a>
+                    <a href="../../../16/数据结构基础/雪花雪花雪花/">雪花雪花雪花</a>
                 </span>
             </li>
             
@@ -476,61 +468,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/17/Java/Java基础之-注释、标识符、变量/">Java基础之-注释、标识符、变量</a>
+                    <a href="../../../17/Java/Java基础之-注释、标识符、变量/">Java基础之-注释、标识符、变量</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/18/Java/Java基础之运算符/">Java基础之运算符</a>
+                    <a href="../../../10/JavaScirpt/JS基础之强制类型转换/">JS基础之强制类型转换</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/07/JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
+                    <a href="../../../../06/14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../16/搜索/dfs和bfs简介/">dfs和bfs简介</a>
+                    <a href="../../../../06/16/搜索/dfs和bfs简介/">dfs和bfs简介</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
+                    <a href="../../../../06/12/数据结构基础/哈希表-散列表/">哈希表(散列表)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../21/搜索/八数码/">八数码(bfs)</a>
+                    <a href="../../../../06/13/数据结构基础/字符串哈希/">字符串哈希</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../../11/数论/容斥原理/">容斥原理</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../13/数据结构基础/字符串哈希/">字符串哈希</a>
+                    <a href="../../../11/数论/博弈论/">博弈论</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/11/数论/容斥原理/">容斥原理</a>
+                    <a href="../../../07/数论/约数/">约数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/数论/满足条件的01序列/">满足条件的01序列</a>
+                    <a href="../../../../06/23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
                 </span>
             </li>
             
@@ -563,71 +555,71 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/Java/" style="font-size: 11.842887816667666px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/Java/" style="font-size: 13.390236830948096px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 9.237379699177861px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 18.490675202549188px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 15.893823196646046px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 9.872067854886446px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 16.239834793568743px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 17.974313709757382px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 17.58797056211241px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 11.553806964195102px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 18.226275100143255px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 12.267666161327128px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 9.1921483227309px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 10.877705301624928px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 18.13635481372533px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 13.740728233606248px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 10.05964633311835px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 15.15264128276695px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 19.667977059144057px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 13.902855619839855px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 16.09605138297725px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 16.368258600921223px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 16.139112362391828px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 14.88673062350558px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 9.488994192970596px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 8.861481453081161px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 19.077413822711016px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/链表/" style="font-size: 9.300450138189845px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 12.591263896340747px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 9.701380405829088px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 19.020403667557204px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 16.641216010854926px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 13.492775257267283px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 9.458010930937817px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 11.390681621695462px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 18.523853100883482px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 16.052295634774982px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 15.657849925995528px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 14.467639507543606px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 12.918722725562862px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 14.224957155878643px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 17.47126176637235px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 19.910917766345012px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 12.21169763171876px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 19.248494429964513px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 11.217351663718254px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 10.762424720112516px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 10.455632031183963px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 8.21284555844144px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 11.213116615881017px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 15.9785935103764px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 14.89245105520914px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 16.98301778372457px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 14.947298657241141px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 15.17554639620728px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 16.362883727496765px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 12.66097193819758px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 10.69386934484774px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 8.30176179316183px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 14.828623802971205px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 14.954131200081601px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 17.22298159951289px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 18.94217611828317px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 11.397609013576124px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 15.692270245287773px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 8.0168392496727px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -754,7 +746,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Mon Jun 10 2019 19:07:00 GMT+0800'
+      window.commentConfig.id = 'Fri Jul 19 2019 18:15:31 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -762,7 +754,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Mon Jun 10 2019 19:07:00 GMT+0800',
+      	id: 'Fri Jul 19 2019 18:15:31 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
