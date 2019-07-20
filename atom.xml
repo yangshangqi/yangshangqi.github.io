@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-07-20T11:03:07.925Z</updated>
+  <updated>2019-07-20T11:39:01.496Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础之类的构造方法和this简介</title>
+    <link href="http://zhumenger.top/2019/07/20/Java/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%92%8Cthis%E7%AE%80%E4%BB%8B/"/>
+    <id>http://zhumenger.top/2019/07/20/Java/Java基础之类的构造方法和this简介/</id>
+    <published>2019-07-20T11:37:21.000Z</published>
+    <updated>2019-07-20T11:39:01.496Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="一-构造方法"><a href="#一-构造方法" class="headerlink" title="一.构造方法"></a>一.构造方法</h4><p><strong>构造方法的本质是将类中的变量通过参数的形式进行赋值</strong></p><p><strong>要点：</strong></p><p><strong>1.通过new关键字调用</strong></p><p><strong>2.构造器有返回值，但是不能定义返回值，不能再构造器中使用return返回某个值</strong></p><p><strong>3.如果没有定义构造器，则编译器会自动顶一个无参的构造函数</strong></p><p><strong>4.构造器的方法名必须和类名一致</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">Point p1 = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">Point p2 = <span class="keyword">new</span> Point(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果自己添加了构造器，创建对象的时候，</span></span><br><span class="line"><span class="comment">//形式一定要和构造器的形式一样，否则会报错</span></span><br><span class="line"><span class="comment">//Point p3 = new Point();报错</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">System.out.println(p1.sum(p2));</span><br><span class="line">System.out.println(p2.sum(p1));</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> x, y;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造方法的名称必须和类的名称一致</span></span><br><span class="line"><span class="comment">//构造方法的本质是将类中的变量通过参数的形式进行赋值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">x = a;</span><br><span class="line">y = b;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(Point p)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> p.x + p.y;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="二-this简介"><a href="#二-this简介" class="headerlink" title="二.this简介"></a>二.this简介</h4><p><strong>1.this表示“创建好的对象的地址”，在构造方法中也可以使用this代表当前的对象</strong></p><p><strong>2.this不能用于static方法中</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a, b, c;</span><br><span class="line"></span><br><span class="line">Main(<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//this表示此类</span></span><br><span class="line"><span class="comment">//this.a表示此类中a这个成员变量</span></span><br><span class="line"><span class="keyword">this</span>.a = a;</span><br><span class="line"><span class="keyword">this</span>.b = b;</span><br><span class="line">&#125;</span><br><span class="line">Main(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用构造器</span></span><br><span class="line"><span class="comment">//构造器的调用必须放在第一句</span></span><br><span class="line"><span class="keyword">this</span>(a, b);</span><br><span class="line"><span class="keyword">this</span>.c = c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;一-构造方法&quot;&gt;&lt;a href=&quot;#一-构造方法&quot; class=&quot;headerlink&quot; title=&quot;一.构造方法&quot;&gt;&lt;/a&gt;一.构造方法&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;构造方法的本质是将类中的变量通过参数的形式进行赋值&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;str
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://zhumenger.top/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://zhumenger.top/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java基础之对象和内存分析</title>
@@ -941,9 +967,9 @@
       <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
     
     
-      <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
-    
       <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
+    
+      <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
     
   </entry>
   
