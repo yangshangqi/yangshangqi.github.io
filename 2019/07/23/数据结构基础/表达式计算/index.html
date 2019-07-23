@@ -12,7 +12,7 @@
     
     
     
-    <title>JS基础之强制类型转换 | zhumenger ❤ blog</title>
+    <title>表达式计算 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
@@ -257,13 +257,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>JS基础之强制类型转换</span>
+        <span>表达式计算</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="">JS基础之强制类型转换</a>
+                <a href="">表达式计算</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -271,12 +271,14 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                <a href="../../../../../tags/数据结构/">数据结构</a>, 
+                
+                <a href="../../../../../tags/栈/">栈</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-07-10
+                <i class="fa fa-calendar"></i> 2019-07-23
             </span>
             
         </div>
@@ -286,17 +288,19 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="">JS基础之强制类型转换</a>
+                    <a href="">表达式计算</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-07-10
+                <i class="fa fa-calendar"></i> 2019-07-23
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                <a href="../../../../../tags/数据结构/">数据结构</a>, 
+                
+                <a href="../../../../../tags/栈/">栈</a>
                 
                 
                 
@@ -304,10 +308,36 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h4><p><strong>将一个数据类型转化为另一个数据类型，如：String Number Boolean</strong></p>
-<h4 id="1-转化为String类型"><a href="#1-转化为String类型" class="headerlink" title="1.转化为String类型"></a>1.转化为String类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 *方式一：</span></span><br><span class="line"><span class="comment">	 *	-调用被转换数据类型的toString()的方法</span></span><br><span class="line"><span class="comment">	 *	-该方法不会影响到原变量，它会将转换的结果返回</span></span><br><span class="line"><span class="comment">	 *	-注意：null和undefined这俩个值没有toString()方法</span></span><br><span class="line"><span class="comment">	 *	     如果调用他们，会报错</span></span><br><span class="line"><span class="comment">	 */</span> </span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line">    <span class="keyword">var</span> b = a.toString();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);<span class="comment">//输出number</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> b)<span class="comment">//输出string</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//给自己赋值</span></span><br><span class="line">	a = a.toString();</span><br><span class="line">	</span><br><span class="line">	a = <span class="literal">null</span>;</span><br><span class="line">	<span class="comment">//a = a.toString();//报错</span></span><br><span class="line">	</span><br><span class="line">	a = <span class="literal">undefined</span>;</span><br><span class="line">	<span class="comment">//a = a.toString();//报错</span></span><br><span class="line"></span><br><span class="line">   	<span class="comment">/*方式二：</span></span><br><span class="line"><span class="comment">	 *	-调用String()函数，并将被转换的数据作为参数传递给函数</span></span><br><span class="line"><span class="comment">	 *	-调用String()函数做强制类型转换时，</span></span><br><span class="line"><span class="comment">	 *	     对于Number和boolean实际上就是调用的toString()方法</span></span><br><span class="line"><span class="comment">	 *	     对于null和undefined不会调用toString()方法</span></span><br><span class="line"><span class="comment">	 *	        它会直接转化为字符串</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 a = <span class="number">123</span>;</span><br><span class="line">	 a = <span class="built_in">String</span>(a);</span><br><span class="line"></span><br><span class="line">	 a = <span class="literal">null</span>;</span><br><span class="line">	 a = <span class="built_in">String</span>(a);<span class="comment">//输出字符串"null"</span></span><br><span class="line"></span><br><span class="line">	 a = <span class="literal">undefined</span>;</span><br><span class="line">	 a = <span class="built_in">String</span>(a);<span class="comment">//输出字符串"undefined"		</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-转化为number类型"><a href="#2-转化为number类型" class="headerlink" title="2.转化为number类型"></a>2.转化为number类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 *方式一:</span></span><br><span class="line"><span class="comment">	 *  -使用Number()函数</span></span><br><span class="line"><span class="comment">	 *  -字符 --&gt; 数字</span></span><br><span class="line"><span class="comment">	 *  	1.如果是纯数字的字符串，直接转化为相应的数字</span></span><br><span class="line"><span class="comment">	 *  	2.如果字符串中有只要有非数字的内容，则转换为NaN</span></span><br><span class="line"><span class="comment">	 *  	3.如果字符串为空串或者全是空格，则转化为0</span></span><br><span class="line"><span class="comment">	 *  -布尔 --&gt; 数字</span></span><br><span class="line"><span class="comment">	 *  	true 转为1</span></span><br><span class="line"><span class="comment">	 *  	false 转为0</span></span><br><span class="line"><span class="comment">	 *  -Null --&gt; 数字 0</span></span><br><span class="line"><span class="comment">	 *  -undefined --&gt; 数字 NaN</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="keyword">var</span> a = <span class="string">"123"</span>;</span><br><span class="line">	 a = <span class="built_in">Number</span>(a);</span><br><span class="line"></span><br><span class="line">	 a = <span class="literal">true</span>;</span><br><span class="line">	 a = <span class="built_in">Number</span>(a);<span class="comment">//值为1</span></span><br><span class="line"></span><br><span class="line">	 a = <span class="literal">false</span>;</span><br><span class="line">	 a = <span class="built_in">Number</span>(a);<span class="comment">//值为0</span></span><br><span class="line"></span><br><span class="line">	 a = <span class="literal">null</span>;</span><br><span class="line">	 a = <span class="built_in">Number</span>(a);<span class="comment">//值为0</span></span><br><span class="line"></span><br><span class="line">	 a = <span class="literal">undefined</span>;</span><br><span class="line">	 a = <span class="built_in">Number</span>();<span class="comment">//值为NaN</span></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 *转化方式二：</span></span><br><span class="line"><span class="comment">	 *	 -专门用来对付字符串的</span></span><br><span class="line"><span class="comment">	 *	 -parseInt();//把字符串转化为一个整数</span></span><br><span class="line"><span class="comment">	 *	 -parseFloat();//把一个字符串转化为浮点数</span></span><br><span class="line"><span class="comment">	 *	 -可以将字符串中有效的数字转化为Number</span></span><br><span class="line"><span class="comment">	 *	 -只要遇到非数字内容，后面的即使有整数也不再读取 </span></span><br><span class="line"><span class="comment">	 *	 -如果对非String使用parseInt()</span></span><br><span class="line"><span class="comment">	 *	 	它会先将其转化为String,然后在操作</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 a = <span class="string">"123px"</span>;</span><br><span class="line">	 a = <span class="built_in">parseInt</span>(a);<span class="comment">//输出123</span></span><br><span class="line">	</span><br><span class="line">	a = <span class="literal">true</span>;</span><br><span class="line">	a = <span class="built_in">parseInt</span>(a);<span class="comment">//输出NaN</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="表达式计算4"><a href="#表达式计算4" class="headerlink" title="表达式计算4"></a>表达式计算4</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote>
+<p>给出一个表达式,其中运算符仅包含<code>+,-,*,/,^</code>（加 减 乘 整除 乘方）要求求出表达式的最终值。</p>
+<p>数据可能会出现括号情况，还有可能出现多余括号情况。</p>
+<p>数据保证不会出现大于或等于231231的答案。</p>
+<p>数据可能会出现负数情况。</p>
+</blockquote>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
+<p>输入仅一行，即为表达式。</p>
+</blockquote>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
+<p>输出仅一行，既为表达式算出的结果。</p>
+</blockquote>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>(2+2)^(1+1)</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>16</p>
+</blockquote>
+<p><strong>题解：</strong> </p>
+<p><strong>栈的应用：用俩个栈分别存数字和运算符</strong></p>
+<p><strong>1.因为有多余括号的情况，所以所限要在字符串前加上字符串长度大小的‘（’进行预处理</strong></p>
+<p><strong>2.如果当前字符为数字，则直接存进nums栈中</strong></p>
+<p><strong>3.如果当前字符为加或减，首先判断减是否为负号，如果不是，其他运算符的优先级都是大于等于加或减的，所以就可以把括号中所有的元素进行一次操作，直到遇到’(‘为止</strong> </p>
+<p><strong>4.如果当前字符为乘或除，加、减的优先级都是低于乘除的，所以不能进运算，能进行运算的是乘除和乘方</strong></p>
+<p><strong>5.当前运算符为乘方，只有栈顶为乘方才能进行运算</strong></p>
+<p><strong>6.如果当前字符为‘(’,直接添加到栈中</strong></p>
+<p><strong>7.如果当前元素为’)’，则将括号中所有的元素进行运算，并弹出’(‘</strong></p>
+<p><strong>8.最后输出栈顶元素即可</strong></p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; nums;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; ops;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmi</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (k -- ) res *= a;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = nums.top(); nums.pop();</span><br><span class="line">    <span class="keyword">int</span> b = nums.top(); nums.pop();</span><br><span class="line">    <span class="keyword">char</span> c = ops.top(); ops.pop();</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'+'</span>) d = b + a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'-'</span>) d = b - a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'*'</span>) d = b * a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'/'</span>) d = b / a;</span><br><span class="line">    <span class="keyword">else</span> d = qmi(b, a);</span><br><span class="line"></span><br><span class="line">    nums.push(d);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">string</span> left;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.size(); i ++ ) left += <span class="string">'('</span>;</span><br><span class="line">    str = left + str + <span class="string">')'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.size(); i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str[i] &gt;= <span class="string">'0'</span> &amp;&amp; str[i] &lt;= <span class="string">'9'</span>)<span class="comment">//如果是数字</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j = i, t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (str[j] &gt;= <span class="string">'0'</span> &amp;&amp; str[j] &lt;= <span class="string">'9'</span>)<span class="comment">//可能有多位</span></span><br><span class="line">            &#123;</span><br><span class="line">                t = t * <span class="number">10</span> + str[j] - <span class="string">'0'</span>;</span><br><span class="line">                j ++ ;</span><br><span class="line">            &#125;</span><br><span class="line">            nums.push(t);</span><br><span class="line">            i = j - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">//如果是运算符</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> c = str[i];</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'('</span>) ops.push(c);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'+'</span> || c == <span class="string">'-'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="string">'-'</span> &amp;&amp; i &amp;&amp; !(str[i - <span class="number">1</span>] &gt;= <span class="string">'0'</span> &amp;&amp; str[i - <span class="number">1</span>] &lt;= <span class="string">'9'</span>) &amp;&amp; str[i - <span class="number">1</span>] != <span class="string">')'</span>)<span class="comment">//如果是负号的话</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">int</span> j = i + <span class="number">1</span>, t = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span> (str[j] &gt;= <span class="string">'0'</span> &amp;&amp; str[j] &lt;= <span class="string">'9'</span>)<span class="comment">//可能有多位</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        t = t * <span class="number">10</span> + str[j] - <span class="string">'0'</span>;</span><br><span class="line">                        j ++ ;</span><br><span class="line">                    &#125;</span><br><span class="line">                    nums.push(-t);<span class="comment">//添加-t</span></span><br><span class="line">                    i = j - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">while</span> (ops.top() != <span class="string">'('</span>) cal();</span><br><span class="line">                    ops.push(c);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'*'</span> || c == <span class="string">'/'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (ops.top() == <span class="string">'*'</span> || ops.top() == <span class="string">'/'</span> || ops.top() == <span class="string">'^'</span>) cal();</span><br><span class="line">                ops.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'^'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (ops.top() == <span class="string">'^'</span>) cal();</span><br><span class="line">                ops.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">')'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (ops.top() != <span class="string">'('</span>) cal();</span><br><span class="line">                ops.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid operator!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; nums.top() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -319,7 +349,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'JS基础之强制类型转换'
+      window.commentConfig.title = '表达式计算'
     }
 </script>
 
@@ -383,7 +413,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../23/数据结构基础/表达式计算/">表达式计算</a>
+                    <a href="">表达式计算</a>
                 </span>
             </li>
             
@@ -459,49 +489,43 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/16/搜索/dfs和bfs简介/">dfs和bfs简介</a>
+                    <a href="../../../07/JavaScirpt/JS基础之Hello-World/">JS基础之Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
+                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/树的重心/">树的重心(dfs)</a>
+                    <a href="../../../../06/21/搜索/八数码/">八数码(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/11/数据结构基础/最大异或对/">最大异或对</a>
+                    <a href="../../../07/数论/欧拉函数/">欧拉函数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../../11/数论/容斥原理/">容斥原理</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../16/数据结构基础/邻值查找/">邻值查找</a>
+                    <a href="../../../10/数论/满足条件的01序列/">满足条件的01序列</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../07/数论/约数/">约数</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../15/动态规划/背包九讲/">背包九讲</a>
+                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
@@ -513,7 +537,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../18/Java/Java基础之运算符/">Java基础之运算符</a>
+                    <a href="../../../19/Java/Java基础之方法/">Java基础之方法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
@@ -546,77 +576,77 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 9.309128936633268px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 19.403258526604265px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 10.291524652585581px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 15.609655119993167px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 13.95053168195939px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 17.038124812926682px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/树形DP/" style="font-size: 10.879988756722472px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../../../../tags/树形DP/" style="font-size: 12.245386504217564px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../../../../tags/子序列/" style="font-size: 10.276861572832349px;" class="tag-cloud-link">子序列</a>
+    <a href="../../../../../tags/子序列/" style="font-size: 17.278557938185916px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 13.58735680358555px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 14.066701679840925px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 10.042069621441627px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 12.132084407258624px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 15.000622595405687px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 10.914979522744247px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 8.379024594643857px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 14.783767682028328px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 9.023126682317809px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 12.91400541070267px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 10.423047723502583px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 9.813183571290232px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 13.049554301674604px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 10.853675142382839px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 8.882752669955403px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 18.807515159595503px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.155969078553557px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 17.13049854279164px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 16.7133227442842px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 17.798959334658px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 8.5942030267403px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 8.859000688244304px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 10.370922743638346px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 16.198276537998094px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/记忆化搜索/" style="font-size: 12.951926134189714px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 15.662572054806958px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 14.380808884584901px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/链表/" style="font-size: 19.206769911079295px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 9.874087375174348px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 14.766712439594372px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 18.09585164076821px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 13.530992726881559px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 15.904642989396997px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 14.44188130254209px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 17.236157514307898px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 8.522417114874134px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 18.375369198673823px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 12.453240682400313px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 9.467437308433798px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 15.66700571156785px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 16.215651391606663px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 13.648466528402384px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 19.773747044822677px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 8.349164679383602px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 9.262609765665982px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 14.839585748596164px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 14.416723050206453px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 10.212876034890552px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 18.937851614527183px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 18.209974927633272px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 14.476143821137335px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 14.04048304816813px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/Java/" style="font-size: 10.572577611794241px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/Java/" style="font-size: 8.348107283387897px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 19.06815085606455px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 10.236573632192881px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 19.142915870336562px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 17.391575180131504px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 12.995873152917877px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 10.382862498876646px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 11.48718973466165px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 10.467600983061878px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -743,7 +773,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Wed Jul 10 2019 18:08:47 GMT+0800'
+      window.commentConfig.id = 'Tue Jul 23 2019 09:46:38 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -751,7 +781,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Wed Jul 10 2019 18:08:47 GMT+0800',
+      	id: 'Tue Jul 23 2019 09:46:38 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
