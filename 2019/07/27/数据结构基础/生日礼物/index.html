@@ -12,7 +12,7 @@
     
     
     
-    <title>Java基础之基本类型 | zhumenger ❤ blog</title>
+    <title>生日礼物 | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
@@ -257,13 +257,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>Java基础之基本类型</span>
+        <span>生日礼物</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="">Java基础之基本类型</a>
+                <a href="">生日礼物</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -271,12 +271,16 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/Java/">Java</a>
+                <a href="../../../../../tags/数据结构/">数据结构</a>, 
+                
+                <a href="../../../../../tags/链表/">链表</a>, 
+                
+                <a href="../../../../../tags/二叉堆/">二叉堆</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-07-18
+                <i class="fa fa-calendar"></i> 2019-07-27
             </span>
             
         </div>
@@ -286,17 +290,21 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="">Java基础之基本类型</a>
+                    <a href="">生日礼物</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-07-18
+                <i class="fa fa-calendar"></i> 2019-07-27
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/Java/">Java</a>
+                <a href="../../../../../tags/数据结构/">数据结构</a>, 
+                
+                <a href="../../../../../tags/链表/">链表</a>, 
+                
+                <a href="../../../../../tags/二叉堆/">二叉堆</a>
                 
                 
                 
@@ -304,36 +312,37 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="1-常量"><a href="#1-常量" class="headerlink" title="1.常量"></a>1.常量</h4><p><strong>定义</strong>：指固定的值，不能随意改变，如：1， 2， “hello world”等</p>
-<p><strong>在java语言中，利用final关键字来定义一个常量，常量一旦被初始化后便不能再更改其值</strong></p>
-<p><strong>声明格式:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> type varname = value;</span><br></pre></td></tr></table></figure>
+        <h2 id="生日礼物"><a href="#生日礼物" class="headerlink" title="生日礼物"></a>生日礼物</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote>
+<p>翰翰18岁生日的时候，达达给她看了一个神奇的序列 A1,A2,…,ANA1,A2,…,AN。</p>
+<p>她被允许从中选择不超过 M 个连续的部分作为自己的生日礼物。</p>
+<p>翰翰想要知道选择元素之和的最大值。</p>
+<p>你能帮助她吗？</p>
+</blockquote>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
+<p>第一行包含两个整数N,M。</p>
+<p>第二行包含N个整数A1A1~ANAN。</p>
+</blockquote>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
+<p>输出一个整数，表示答案。</p>
+</blockquote>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
+<p>1≤N,M≤105<br>|Ai|≤104</p>
+</blockquote>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>5 2<br>2 -3 2 -1 2</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>5</p>
+</blockquote>
+<p><strong>题解：</strong> </p>
+<p><strong>1.将整个序列分为正负交替的序: 如果数x与前面的符号相同，就加起来，否则新开一个空间存储当前的数x<br>2.统计正数的个数cnt，如果cnt &lt;= m,把所有正数加起来，输出便是我们的答案<br>3.如果cnt &gt; m, 必须减少正数的个数，有俩种做法</strong></p>
+<blockquote>
+<p>1.直接删去最小的正数,<br>2.将俩个正数合并为1个连续子序列，中间必有一个负数，还需要加上负数的值</p>
+</blockquote>
+<p><strong>4.删去正数,或者加上负数，都可以看成减去他们的绝对值，可以用堆来存储他们<br>  的绝对值，以及他们的下标<br>5.如果删除的是正数，正数的俩边都是负数，需要将俩边的负数合并，重新放到堆中。<br>  并删除左右节点，<br>6.如果删除的是负数，负数的俩边都是正数，需要将俩边的正数合并，重新放到堆中。<br>  并删除左右节点，</strong></p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> a[N], l[N], r[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    l[r[x]] = l[x];</span><br><span class="line">    r[l[x]] = r[x];</span><br><span class="line">    </span><br><span class="line">    vis[x] = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span>(x == <span class="number">0</span>)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[k] * x &gt; <span class="number">0</span>)a[k] += x;</span><br><span class="line">        <span class="keyword">else</span> a[++k] = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">    priority_queue&lt;p, <span class="built_in">vector</span>&lt;p&gt;, greater&lt;p&gt; &gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            res += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        l[i] = i - <span class="number">1</span>;</span><br><span class="line">        r[i] = i + <span class="number">1</span>;</span><br><span class="line">        q.push(&#123;<span class="built_in">abs</span>(a[i]), i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(cnt &gt; m)&#123;</span><br><span class="line">        <span class="keyword">while</span>(vis[q.top().second])q.pop();</span><br><span class="line">        p t = q.top();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">int</span> v = t.first, point = t.second;</span><br><span class="line">        <span class="keyword">if</span>(l[point] != <span class="number">0</span> &amp;&amp; r[point] != k + <span class="number">1</span> || a[point] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            res -= v;</span><br><span class="line">            cnt--;</span><br><span class="line">            <span class="keyword">int</span> left = l[point], right = r[point];</span><br><span class="line">            a[point] += a[left] + a[right];</span><br><span class="line">            q.push(&#123;<span class="built_in">abs</span>(a[point]), point&#125;);</span><br><span class="line">            </span><br><span class="line">            remove(left);</span><br><span class="line">            remove(right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123; </span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br><span class="line">        System.out.println(PI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-基本数据类型"><a href="#2-基本数据类型" class="headerlink" title="2.基本数据类型"></a>2.基本数据类型</h4><p><strong>数值型：</strong> byte(1个字节)、short(2个字节)、int(4个字节)、long(8个字节)、float(4个字节)、double(8个字节)</p>
-<p><strong>字符型：</strong> char(2个字节)</p>
-<p><strong>布尔型：</strong> boolean(1个字节)</p>
-<p><strong>整形的4种表示方式</strong></p>
-<p>1.十进制：如，99 </p>
-<p>2.八进制：以0开头 如：015</p>
-<p>3.十六进制：以0x 或0X开头，如： 0xab 0x15</p>
-<p>4.二进制： 以0b 或 0B开头 如：0b011010</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123; </span><br><span class="line">        <span class="keyword">byte</span> a = <span class="number">5</span>;<span class="comment">//a的范围不能超过一个字节，否则会报错</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">015</span><span class="comment">//8进制</span></span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">0x15</span><span class="comment">//16进制</span></span><br><span class="line">        <span class="keyword">int</span> d = <span class="number">0b1001</span><span class="comment">//2进制</span></span><br><span class="line">        <span class="keyword">long</span> e = <span class="number">12345</span>;</span><br><span class="line">        <span class="keyword">long</span> f = <span class="number">10000000L</span>;(后面+L表示这是一个<span class="keyword">long</span>类型的变量)</span><br><span class="line">        System.out.println(PI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>浮点型</strong></p>
-<p><strong>1.表示形式</strong></p>
-<p>十进制数形式：3.14、0.1</p>
-<p>科学计数法表示：3e5 表示300000.0   300000e-5 表示3.0</p>
-<p>float类型数值有一个后缀 F 或 f ,没有后缀F/f的浮点数默认为double类型，也可以在数值后面添加D/d来声明它是一个double类型</p>
-<p>浮点型的值不精确：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">float</span> a = <span class="number">0.1f</span>;</span><br><span class="line">        <span class="keyword">double</span> b = <span class="number">1.0</span> / <span class="number">10</span>;</span><br><span class="line">        System.out.println(a == b);<span class="comment">//false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><p>字符型占2个字节，用单引号’ ‘ 来表示一个字符，用双引号” “ 来表示一个字符串，Java采用的是Unicode编码，可以处理各种语言的文字</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">char</span> str1 = <span class="string">'1'</span>;</span><br><span class="line">        <span class="keyword">char</span> str2 = <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">char</span> str3 = <span class="string">'哈'</span>;</span><br><span class="line">        <span class="comment">//也可以用转义字符\u + 4位16进制的数拉表示一个字符</span></span><br><span class="line">        <span class="keyword">char</span> a = <span class="string">'\u0061'</span>;<span class="comment">// 表示'a'</span></span><br><span class="line">        System.out.println(a == b);<span class="comment">//false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="boolean类型"><a href="#boolean类型" class="headerlink" title="boolean类型"></a>boolean类型</h4><p>有俩个常量：true和false</p>
 
     </div>
 </article>
@@ -344,7 +353,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'Java基础之基本类型'
+      window.commentConfig.title = '生日礼物'
     }
 </script>
 
@@ -408,43 +417,43 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/生日礼物/">生日礼物</a>
+                    <a href="">生日礼物</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/黑盒子-堆/">黑盒子(堆)</a>
+                    <a href="../黑盒子-堆/">黑盒子(堆)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/奶牛矩阵（二维KMP）/">奶牛矩阵（二维KMP）</a>
+                    <a href="../奶牛矩阵（二维KMP）/">奶牛矩阵（二维KMP）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/树的最小表示/">树的最小表示</a>
+                    <a href="../树的最小表示/">树的最小表示</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/矩阵(二维数组哈希) /">矩阵(二维数组哈希)</a>
+                    <a href="../矩阵(二维数组哈希) /">矩阵(二维数组哈希)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/城市游戏(二维单调栈)/">城市游戏</a>
+                    <a href="../城市游戏(二维单调栈)/">城市游戏</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/括号配对问题/">括号配对问题</a>
+                    <a href="../括号配对问题/">括号配对问题</a>
                 </span>
             </li>
             
@@ -484,61 +493,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../Java基础之运算符/">Java基础之运算符</a>
+                    <a href="../../../20/Java/Java基础之对象和内存分析/">Java基础之对象和内存分析</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../07/JavaScirpt/JS基础之编写位置/">JS基础之编写位置</a>
+                    <a href="../../../22/动态规划/动态规划之子序列问题/">动态规划之子序列问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../19/动态规划/最短编辑距离/">最短编辑距离</a>
+                    <a href="../../../19/动态规划/石子合并/">石子合并</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/21/搜索/八数码/">八数码(bfs)</a>
+                    <a href="../../../../06/13/数据结构基础/字符串哈希/">字符串哈希</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/树的重心/">树的重心(dfs)</a>
+                    <a href="../../../23/数据结构基础/表达式计算/">表达式计算</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/城市游戏(二维单调栈)/">城市游戏</a>
+                    <a href="../黑盒子-堆/">黑盒子(堆)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/11/数据结构基础/最大异或对/">最大异或对</a>
+                    <a href="../../../10/数论/满足条件的01序列/">满足条件的01序列</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/树的最小表示/">树的最小表示</a>
+                    <a href="../../../17/数论/素数/">素数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../11/数论/容斥原理/">容斥原理</a>
+                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../10/数论/组合数IV之高精度/">组合数IV之高精度</a>
+                    <a href="../../../../06/24/图论/二分图/二分图/">二分图</a>
                 </span>
             </li>
             
@@ -571,83 +580,83 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/Java/" style="font-size: 10.345265455596058px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/Java/" style="font-size: 16.0648683097727px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 12.194075925723219px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 18.570876214747717px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 12.784332406258777px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 14.863906455526324px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 19.790840920885827px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 19.572727130420247px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/子序列/" style="font-size: 15.404670666143911px;" class="tag-cloud-link">子序列</a>
+    <a href="../../../../../tags/子序列/" style="font-size: 9.987567317297252px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../../../../tags/树形DP/" style="font-size: 12.987910240135317px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../../../../tags/树形DP/" style="font-size: 14.609942332033008px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 8.285938902748201px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 15.364087434575577px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 14.765611119894713px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 17.33466644899307px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 8.985450100226249px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 19.05097830382084px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/记忆化搜索/" style="font-size: 18.721488786754783px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 15.482000551932318px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 10.859477393640468px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 16.7526073376539px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 17.934562464195064px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 18.78579155729517px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 18.439132858858507px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 11.638294404071875px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 18.06311025279941px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 16.05665386884481px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 14.571430837102719px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 17.72264940836875px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 18.101760122192804px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 9.194352543058539px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 12.6383515087982px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 9.744075969203333px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/kmp/" style="font-size: 18.26045289196653px;" class="tag-cloud-link">kmp</a>
+    <a href="../../../../../tags/kmp/" style="font-size: 9.254812002375015px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../../../../tags/树的最小表示/" style="font-size: 9.984975132772716px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 8.052579915281886px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 14.505576115027022px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 18.187985524561235px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 19.063789615017896px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/链表/" style="font-size: 17.126084446675968px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 13.642693950759368px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 16.370786274256925px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 15.00376277729687px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 18.05097529554908px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 11.263698916538537px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 16.26411562581975px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 13.923355605282843px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 17.163338254839502px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 16.009614805637604px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 14.226229038415385px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 8.535609102007161px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 14.27628364373452px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 19.782100726127275px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 16.57040925807033px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 19.368967067850292px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 8.160898484540589px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 14.588308416392296px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 17.6836521625913px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 13.005385126649653px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 14.390502796151212px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 11.213473254102453px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 8.395301336542023px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 19.6719320704299px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 14.92609441722422px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 18.86053356522494px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 9.825915607117722px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 17.711683149272282px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 8.138517223809778px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 14.167616762147302px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 14.764181109474922px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 12.146662771922026px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 15.507932269559767px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 16.954846361643305px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 12.486279860771933px;" class="tag-cloud-link">最短路问题</a>
     
-    <a href="../../../../../tags/二叉堆/" style="font-size: 19.164680688101186px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../../../../tags/二叉堆/" style="font-size: 16.77021419271689px;" class="tag-cloud-link">二叉堆</a>
     
 </div>
                 
@@ -774,7 +783,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Thu Jul 18 2019 18:43:17 GMT+0800'
+      window.commentConfig.id = 'Sat Jul 27 2019 13:18:43 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -782,7 +791,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Thu Jul 18 2019 18:43:17 GMT+0800',
+      	id: 'Sat Jul 27 2019 13:18:43 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
