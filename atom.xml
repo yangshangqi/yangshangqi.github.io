@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-07-27T05:21:30.468Z</updated>
+  <updated>2019-07-28T00:46:55.395Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可达性统计</title>
+    <link href="http://zhumenger.top/2019/07/28/%E6%90%9C%E7%B4%A2/%E5%8F%AF%E8%BE%BE%E6%80%A7%E7%BB%9F%E8%AE%A1/"/>
+    <id>http://zhumenger.top/2019/07/28/搜索/可达性统计/</id>
+    <published>2019-07-28T00:39:15.000Z</published>
+    <updated>2019-07-28T00:46:55.395Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote><p>给定一张N个点M条边的有向无环图，分别统计从每个点出发能够到达的点的数量。</p></blockquote><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>第一行两个整数N,M，接下来M行每行两个整数x,y，表示从x到y的一条有向边。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>输出共N行，表示每个点能够到达的点的数量。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤N,M≤30000</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>10 10<br>3 8<br>2 3<br>2 5<br>5 9<br>5 9<br>2 3<br>3 9<br>4 8<br>2 10<br>4 9</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>1<br>6<br>3<br>3<br>2<br>1<br>1<br>1<br>1<br>1</p></blockquote><p><strong>题解：</strong> </p><p><strong>x点能到的点的个数等于该点加上它的所有子节点可以达到的点个数，我们可以先拓扑排序，然后从后往前遍历,用位运算求出所有点能够达到的点的数量，位运算我们使用bitset来做：</strong></p><h4 id="C-bitset-用法"><a href="#C-bitset-用法" class="headerlink" title="C++ bitset 用法"></a>C++ bitset 用法</h4><p><strong>1.C++的 bitset 在 bitset 头文件中，它是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。可以用下标的形式对其进行访问</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;8&gt; foo (&quot;10011011&quot;);</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; foo.count() &lt;&lt; endl;　　//5　　（count函数用来求bitset中1的位数，foo中共有５个１</span><br><span class="line">cout &lt;&lt; foo.size() &lt;&lt; endl;　　 //8　　（size函数用来求bitset的大小，一共有８位</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; foo.test(0) &lt;&lt; endl;　　//true　　（test函数用来查下标处的元素是０还是１，并返回false或true，此处foo[0]为１，返回true</span><br><span class="line">cout &lt;&lt; foo.test(2) &lt;&lt; endl;　　//false　　（同理，foo[2]为０，返回false</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; foo.any() &lt;&lt; endl;　　//true　　（any函数检查bitset中是否有１</span><br><span class="line">cout &lt;&lt; foo.none() &lt;&lt; endl;　　//false　　（none函数检查bitset中是否没有１</span><br><span class="line">cout &lt;&lt; foo.all() &lt;&lt; endl;　　//false　　（all函数检查bitset中是全部为１</span><br></pre></td></tr></table></figure><p><strong>代码如下：</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;</span><br><span class="line"><span class="keyword">int</span> d[N], seq[N];</span><br><span class="line"><span class="built_in">bitset</span>&lt;N&gt; f[N];<span class="comment">//bitset</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">topsort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">if</span>(!d[i])q.push(i);</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        seq[k++] = t;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> u = e[i];</span><br><span class="line">            d[u]--;</span><br><span class="line">            <span class="keyword">if</span>(!d[u])q.push(u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;a &gt;&gt; b;</span><br><span class="line">        add(a, b);</span><br><span class="line">        d[b]++;</span><br><span class="line">    &#125;</span><br><span class="line">    topsort();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = seq[i];</span><br><span class="line">        f[u][u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = h[u]; j != <span class="number">-1</span>; j = ne[j])&#123;</span><br><span class="line">            f[u] |= f[e[j]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; f[i].count() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//求f[i]中1的个数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;给定一张N个点M条边的有向无环图，分别统计从每个点出发能够到达的点的数量。&lt;/p&gt;
+&lt;/block
+      
+    
+    </summary>
+    
+      <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
+    
+    
+      <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
+    
+  </entry>
   
   <entry>
     <title>生日礼物</title>
@@ -39,9 +66,9 @@
     
       <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="链表" scheme="http://zhumenger.top/tags/%E9%93%BE%E8%A1%A8/"/>
-    
       <category term="二叉堆" scheme="http://zhumenger.top/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
+    
+      <category term="链表" scheme="http://zhumenger.top/tags/%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   
@@ -152,9 +179,9 @@
       <category term="数据结构基础" scheme="http://zhumenger.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="哈希" scheme="http://zhumenger.top/tags/%E5%93%88%E5%B8%8C/"/>
-    
       <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="哈希" scheme="http://zhumenger.top/tags/%E5%93%88%E5%B8%8C/"/>
     
   </entry>
   
@@ -1279,9 +1306,9 @@
       <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
     
     
-      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
-    
       <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
+    
+      <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
     
   </entry>
   
