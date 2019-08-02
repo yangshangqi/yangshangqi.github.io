@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="zhumenger">
@@ -82,9 +82,7 @@
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
             <a href="http://zhumenger.top">
@@ -108,7 +106,7 @@
             <ul class="nav navbar-nav" id="menu-gal">
                 
                 
-                <li class="">
+                <li class>
                     <a href="../../../../../index.html">
                         <i class="fa fa-home"></i>首页
                     </a>
@@ -116,7 +114,7 @@
                 
                 
                 
-                <li class="">
+                <li class>
                     <a href="../../../../../archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -127,8 +125,7 @@
                 
                 <li class="dropdown">
                     <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-list"></i>分类
                     </a>
                     <ul class="dropdown-menu">
@@ -139,11 +136,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../categories/动态规划/">动态规划</a>
+                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../../../../categories/动态规划/">动态规划</a>
                         </li>
                         
                         <li>
@@ -177,8 +174,7 @@
                 
                 <li class="dropdown">
                     <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-tags"></i>标签
                     </a>
                     <ul class="dropdown-menu">
@@ -186,6 +182,10 @@
                         
                         <li>
                             <a href="../../../../../tags/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
@@ -201,15 +201,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/区间DP/">区间DP</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/树形DP/">树形DP</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../../../../tags/区间DP/">区间DP</a>
                         </li>
                         
                         <li>
@@ -236,7 +232,7 @@
                 
                 
                 
-                <li class="">
+                <li class>
                     <a href="../../../../../about">
                         <i class="fa fa-user"></i>关于我
                     </a>
@@ -263,7 +259,7 @@
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="">约数</a>
+                <a href>约数</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -286,7 +282,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="">约数</a>
+                    <a href>约数</a>
                 </h4>
             </div>
             <p>
@@ -322,7 +318,9 @@
 <p>1≤n≤100<br>1≤ai≤2∗10^9</p>
 </blockquote>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>3<br>2<br>6<br>8</p>
+<p>3
+2<br>6
+8</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
 <p>12</p>
@@ -344,7 +342,9 @@
 <p>1≤n≤100<br>1≤ai≤2∗10^9</p>
 </blockquote>
 <h4 id="输入样例：-1"><a href="#输入样例：-1" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>3<br>2<br>6<br>8</p>
+<p>3
+2<br>6
+8</p>
 </blockquote>
 <h4 id="输出样例：-1"><a href="#输出样例：-1" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
 <p>252</p>
@@ -374,8 +374,7 @@
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
 <aside id="sidebar-search">
     <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="../../../../../search/index.html">
+        <form class="form-inline clearfix" id="search-form" method="get" action="../../../../../search/index.html">
             <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
             <button class="btn btn-danger btn-gal" type="submit">
                 <i class="fa fa-search"></i>
@@ -391,10 +390,9 @@
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="http://pu82h1duu.bkt.clouddn.com/zhumenger.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>穿过落雁修竹, 看过日升月暮<br/>你说总有一天你会名扬天下实现你的抱负!</p>
-</p>
+            <img src="http://pu82h1duu.bkt.clouddn.com/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说总有一天你会名扬天下实现你的抱负!</p>
+<p></p>
         </div>
     </div>
 </aside>
@@ -502,19 +500,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../18/Java/Java基础之基本类型/">Java基础之基本类型</a>
+                    <a href="../../../08/JavaScirpt/JS基础之标识符、数据类型/">JS基础之标识符、数据类型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../JavaScirpt/JS基础之基本语法、字面量和变量/">JS基础之基本语法、字面量和变量</a>
+                    <a href="../../../19/动态规划/整数划分/">整数划分</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../31/搜索/送礼物-双向搜索/">送礼物(双向搜索)</a>
+                    <a href="../../../../06/21/搜索/八数码/">八数码(bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../31/搜索/矩阵距离-曼哈顿距离/">矩阵距离(曼哈顿距离)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
                 </span>
             </li>
             
@@ -526,7 +536,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../17/数论/素数/">素数</a>
+                    <a href="../../../../06/11/数据结构基础/Trie-字典树/">Trie-字典树</a>
                 </span>
             </li>
             
@@ -538,25 +548,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/括号配对问题/">括号配对问题</a>
+                    <a href="../../../27/数据结构基础/树的最小表示/">树的最小表示</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/生日礼物/">生日礼物</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../27/数据结构基础/黑盒子-堆/">黑盒子(堆)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
+                    <a href="../../../../06/10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
                 </span>
             </li>
             
@@ -589,85 +587,85 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/Java/" style="font-size: 9.762740126079107px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/Java/" style="font-size: 13.925544934004957px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 9.047222418645237px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 18.76889367121655px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 18.975354620974834px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 11.496889835880163px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/子序列/" style="font-size: 19.50809161954016px;" class="tag-cloud-link">子序列</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 14.16026898072867px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 19.258774982966838px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/子序列/" style="font-size: 18.524384909461755px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../../../../tags/树形DP/" style="font-size: 17.50747581634196px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../../../../tags/树形DP/" style="font-size: 8.838733598705748px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 14.720489551113312px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 19.922722073362795px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 12.317449958517013px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 17.208045256973225px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 13.804394081542199px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 19.52337247486865px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/搜索/" style="font-size: 12.916510109860344px;" class="tag-cloud-link">搜索</a>
+    <a href="../../../../../tags/搜索/" style="font-size: 19.76643918633037px;" class="tag-cloud-link">搜索</a>
     
-    <a href="../../../../../tags/记忆化搜索/" style="font-size: 17.28925982320768px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 16.298927951547224px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 12.921806267049096px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 18.33361627303689px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 9.154896789666168px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 18.003460621682862px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 15.762899324716344px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 9.616458412029315px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 8.692378266014785px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 11.446751612875595px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 8.258827570526059px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 13.75073326066493px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 15.55790615122519px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 19.09368835868647px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 15.612964608928097px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 16.782391024621152px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 14.712165070889622px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 12.32378879109997px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 15.642420622360332px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 11.615475498869635px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 16.98916330129669px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 8.500269012427148px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 13.874758160135372px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 17.24268480063219px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 9.076435045395984px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 15.435321614980504px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 10.046208869067781px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 12.7559234539101px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 19.046322486089068px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/栈/" style="font-size: 16.03983199506864px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 11.563195661366246px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 9.92854901265965px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 9.901753851129762px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 14.049757615719983px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/kmp/" style="font-size: 12.352256054426881px;" class="tag-cloud-link">kmp</a>
+    <a href="../../../../../tags/kmp/" style="font-size: 8.868438124264538px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.905510727297905px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.510969059269957px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/二叉堆/" style="font-size: 9.41337884051913px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 17.699550441189867px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 9.938562952479163px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/二叉堆/" style="font-size: 11.071092716153043px;" class="tag-cloud-link">二叉堆</a>
     
-    <a href="../../../../../tags/树的最小表示/" style="font-size: 12.644285658719845px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../../../../tags/链表/" style="font-size: 12.476588485339214px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 10.32860381936549px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 14.509989951423567px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 11.550593120916957px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 14.351760812620164px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 8.414523535564031px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 11.047762976297996px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 18.03613819502315px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 15.20506088180565px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 19.51203791891607px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 16.906854238866035px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 10.996945694066309px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 15.91467450372409px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 9.740331843994177px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 19.623641295158226px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 12.741359488136638px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 12.020371010839924px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -707,7 +705,7 @@
                 
             </div>
         </div>
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=370 height=86 src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
     </aside>
     
 </aside>r
