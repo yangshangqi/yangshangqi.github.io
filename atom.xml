@@ -304,9 +304,9 @@
     
       <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="二叉堆" scheme="http://zhumenger.top/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
-    
       <category term="链表" scheme="http://zhumenger.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+      <category term="二叉堆" scheme="http://zhumenger.top/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
     
   </entry>
   
@@ -333,9 +333,9 @@
       <category term="数据结构基础" scheme="http://zhumenger.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="堆" scheme="http://zhumenger.top/tags/%E5%A0%86/"/>
-    
       <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="堆" scheme="http://zhumenger.top/tags/%E5%A0%86/"/>
     
   </entry>
   
@@ -1227,7 +1227,7 @@
     <published>2019-07-07T12:45:20.000Z</published>
     <updated>2019-07-07T12:50:11.539Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>1.可以将JS的代码写到标签的属性中，当点击按钮时执行</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span> = <span class="string">"alert('讨厌，你点我干嘛');"</span>&gt;</span>点我一下<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>2.可以将JS代码写在href属性中，这样点击超链接时，会执行JS代码</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:alert('让你点你就点');"</span>&gt;</span>你也点我一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>虽然可以写在标签的属性中，但是他们属于结构与行为耦合不方便维护，不推荐使用</strong></p><p><strong>3.可以将JS写在script标签中,打开网页时直接运行</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">"我是script标签中的代码"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>4.可以将JS代码写到外部JS文件中，然后通过script标签引入,用src引入路径</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>script标签一旦引入外部文件，就不能编写代码了，即使编写了代码，编译器也会忽略</strong></p>]]></content>
+    <content type="html"><![CDATA[<p><strong>1.可以将JS的代码写到标签的属性中，当点击按钮时执行</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span> = <span class="string">"alert('讨厌，你点我干嘛');"</span>&gt;</span>点我一下<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>2.可以将JS代码写在href属性中，这样点击超链接时，会执行JS代码</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:alert('让你点你就点');"</span>&gt;</span>你也点我一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>虽然可以写在标签的属性中，但是他们属于结构与行为耦合不方便维护，不推荐使用</strong></p><p><strong>3.可以将JS写在script标签中,打开网页时直接运行</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">alert("我是script标签中的代码");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>4.可以将JS代码写到外部JS文件中，然后通过script标签引入,用src引入路径</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>script标签一旦引入外部文件，就不能编写代码了，即使编写了代码，编译器也会忽略</strong></p>]]></content>
     
     <summary type="html">
     
