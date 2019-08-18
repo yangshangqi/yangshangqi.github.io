@@ -136,10 +136,6 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../categories/动态规划/">动态规划</a>
                         </li>
                         
@@ -157,6 +153,10 @@
                         
                         <li>
                             <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
@@ -185,10 +185,6 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/动态规划/">动态规划</a>
                         </li>
                         
@@ -197,15 +193,15 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/计数DP/">计数DP</a>
-                        </li>
-                        
-                        <li>
                             <a href="../../../../../tags/树形DP/">树形DP</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/区间DP/">区间DP</a>
+                            <a href="../../../../../tags/计数DP/">计数DP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/A/">A*</a>
                         </li>
                         
                         <li>
@@ -213,11 +209,15 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/Astar/">Astar</a>
+                            <a href="../../../../../tags/bfs/">bfs</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/bfs/">bfs</a>
+                            <a href="../../../../../tags/区间DP/">区间DP</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/搜索/">搜索</a>
                         </li>
                         
                         
@@ -313,12 +313,14 @@
 <p>1≤n≤105</p>
 </blockquote>
 <h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><blockquote>
-<p>9<br>1 2<br>1 7<br>1 4<br>2 8<br>2 5<br>4 3<br>3 9<br>4 6</p>
+<p>9
+1 2<br>1 7<br>1 4<br>2 8<br>2 5<br>4 3<br>3 9<br>4 6</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
 <p>4</p>
 </blockquote>
-<p><strong>解题思路</strong>：<br>这道题就是树的深度优先遍历，我们只需套用模板，遍历每个点的同时，返回该子树的点的个数，以及计算去掉该点时连通块点的最大值即可，最后用ans取去掉每个点之后的最大联通块的最小值就是最后的答案。<br>具体代码如下：</p>
+<p><strong>解题思路</strong>：
+这道题就是树的深度优先遍历，我们只需套用模板，遍历每个点的同时，返回该子树的点的个数，以及计算去掉该点时连通块点的最大值即可，最后用ans取去掉每个点之后的最大联通块的最小值就是最后的答案。<br>具体代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N  = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx, n;</span><br><span class="line"><span class="keyword">int</span> ans = N;  <span class="comment">//答案</span></span><br><span class="line"><span class="keyword">bool</span> vis[N];  <span class="comment">//判断是否遍历过</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>  <span class="comment">//邻接表存树与图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vis[cur] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, sum = <span class="number">1</span>;  <span class="comment">//res表示去掉cur这个节点，联通块点的最大值， sum表示该子树点的个数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[cur]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">//遍历树</span></span><br><span class="line">        <span class="keyword">int</span> u = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!vis[u])&#123;</span><br><span class="line">            <span class="keyword">int</span> s = dfs(u);</span><br><span class="line">            res = max(res, s);</span><br><span class="line">            sum += s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    res = max(res, n - sum);  <span class="comment">// sum是该子树的点的个数， n - sum表示它的父节点所连接的联通块点的个数</span></span><br><span class="line">    ans = min(res, ans);  <span class="comment">//取最大连通块点的最小值</span></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="comment">//建树，双向图</span></span><br><span class="line">        add(a, b);</span><br><span class="line">        add(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
@@ -391,13 +393,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../08/18/搜索/八数码-Astar/">八数码(Astar)</a>
+                    <a href="../../../../08/18/搜索/骑士-Astar-dfs/">骑士(Astar + dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../08/18/搜索/第k短路-Astar算法/">第k短路(Astar算法)</a>
+                    <a href="../../../../08/18/搜索/八数码-(Astar + bfs)/">八数码(Astar + bfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../08/18/搜索/第k短路-(Astar + bfs)算法/">第k短路(Astar + bfs算法)</a>
                 </span>
             </li>
             
@@ -443,12 +451,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../07/30/搜索/加成序列/">加成序列(迭代加深)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -467,61 +469,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/18/Java/Java基础之运算符/">Java基础之运算符</a>
+                    <a href="../../../../07/19/Java/Java基础之方法/">Java基础之方法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/JavaScirpt/JS基础之强制类型转换/">JS基础之强制类型转换</a>
+                    <a href="../../../../07/19/动态规划/整数划分/">整数划分</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../21/搜索/八数码/">八数码(bfs)</a>
+                    <a href="../../../../07/30/搜索/加成序列/">加成序列(迭代加深)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/29/搜索/数独/">数独(dfs)</a>
+                    <a href="../n-皇后问题/">n-皇后问题(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/30/搜索/木棒/">木棒(学会剪枝)</a>
+                    <a href="../../../../07/19/动态规划/石子合并/">石子合并</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../08/02/搜索/装满的油箱/">装满的油箱(bfs)</a>
+                    <a href="../../../15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/31/搜索/送礼物-双向搜索/">送礼物(双向搜索)</a>
+                    <a href="../../../../07/27/数据结构基础/城市游戏(二维单调栈)/">城市游戏</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                    <a href="../../../11/数据结构基础/最大异或对/">最大异或对</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../13/数据结构基础/字符串哈希/">字符串哈希</a>
+                    <a href="../../../../07/08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/数论/组合数IV之高精度/">组合数IV之高精度</a>
+                    <a href="../../../../07/07/数论/欧拉函数/">欧拉函数</a>
                 </span>
             </li>
             
@@ -554,87 +556,87 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/Java/" style="font-size: 8.965817597003653px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/Java/" style="font-size: 9.656899116994675px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 16.711269412339483px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 9.83573997356022px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 13.78587466818227px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/子序列/" style="font-size: 16.836697416747132px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../../../../tags/子序列/" style="font-size: 12.018749205289577px;" class="tag-cloud-link">子序列</a>
+    <a href="../../../../../tags/树形DP/" style="font-size: 16.011693821559522px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 9.173291556173018px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 9.450813213787804px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/树形DP/" style="font-size: 14.779413147663902px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../../../../tags/A/" style="font-size: 13.982839128092511px;" class="tag-cloud-link">A*</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 11.18597807016927px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 17.24162999057765px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 17.369991605378996px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 14.151399923123872px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/Astar/" style="font-size: 13.841442050678005px;" class="tag-cloud-link">Astar</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 9.94933303828909px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 15.72277079056526px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/搜索/" style="font-size: 12.689870731663499px;" class="tag-cloud-link">搜索</a>
     
-    <a href="../../../../../tags/搜索/" style="font-size: 13.8985943902161px;" class="tag-cloud-link">搜索</a>
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 12.415069285053988px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../../../../tags/记忆化搜索/" style="font-size: 19.00265409250735px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 13.952729441169712px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 18.65849469788701px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 12.922601337609802px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 18.884495483091662px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/堆/" style="font-size: 17.618492203433615px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 11.318099636169576px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 13.587888200024139px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 8.67848292112236px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 8.778340465632025px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 16.052398013142415px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 8.774118035415839px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 10.88432686332461px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/栈/" style="font-size: 12.229950382230687px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/kmp/" style="font-size: 9.329363500678099px;" class="tag-cloud-link">kmp</a>
+    <a href="../../../../../tags/二叉堆/" style="font-size: 16.004530457243334px;" class="tag-cloud-link">二叉堆</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.312866564027289px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/链表/" style="font-size: 14.877952418572011px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/树的最小表示/" style="font-size: 14.918460093372683px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../../../../tags/kmp/" style="font-size: 9.747926597609961px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../../../../tags/二叉堆/" style="font-size: 19.540039051786877px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 12.826898982131326px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 8.2146988496743px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 9.703012299235333px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 12.516876676383173px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 9.413042605969233px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 10.015151414335197px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/数论/" style="font-size: 15.12958724616391px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 17.95939984780154px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 10.712822940767452px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 18.728070370073688px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 12.040868497587379px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 15.360845625954003px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 16.34544188536406px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 10.490019075644785px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 10.26828715641848px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 16.733865357856924px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 19.31059994009438px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 12.19840261480799px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 11.350238488343962px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 18.64120826152418px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/题解/" style="font-size: 16.020537505443787px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 9.846344186848842px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 13.269994242883113px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 10.798494012042681px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 19.25101453581445px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 14.583407968595944px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 15.497493933654342px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 15.597438837446527px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 16.00959435253021px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 10.923346166864578px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 17.00865346611623px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 17.951377787547763px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 16.87148475706326px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 18.26204234442437px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 12.061488363057244px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 18.422452201169236px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 18.01521568713178px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 19.24234649119743px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 17.260971374704226px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
