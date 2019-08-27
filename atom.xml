@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-08-26T15:39:13.675Z</updated>
+  <updated>2019-08-27T15:47:40.303Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>同余方程</title>
+    <link href="http://zhumenger.top/2019/08/27/%E6%95%B0%E8%AE%BA/%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/"/>
+    <id>http://zhumenger.top/2019/08/27/数论/同余方程/</id>
+    <published>2019-08-27T15:43:21.000Z</published>
+    <updated>2019-08-27T15:47:40.303Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>求关于x的同余方程 ax ≡ 1(mod b) 的最小正整数解。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>输入只有一行，包含两个正整数a,b,用一个空格隔开。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>输出只有一行,包含一个正整数x，表示最小正整数解。</p><p>输入数据保证一定有解。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>2≤a,b≤2∗10^9</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>3 10</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>7</p></blockquote><h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>扩展欧几里得算法：</strong></p><p><strong>对于任意整数a,b，存在一对整数x,y, 满足ax + by = gcd(a, b)</strong></p><p><strong>这道题求ax % b == 1, 即ax - 1是b的倍数,假设为-y倍, 则ax + by = 1, 利用扩展欧几里得算法即可求出一组特解(x0, y0)<br>(x, y), 有多种解, 题目要求最小正整数解,还需要转化为1~b之间</strong></p><p><strong>代码如下：</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll x, y, a, b;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span><span class="comment">//扩展欧几里得算法</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>) &#123;x = <span class="number">1</span>, y = <span class="number">0</span>; <span class="keyword">return</span> a;&#125;</span><br><span class="line">    ll d = exgcd(b, a % b, y, x);</span><br><span class="line">    y -= a / b * x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    exgcd(a, b, x, y);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (x % b + b) % b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;p&gt;求关于x的同余方程 ax ≡ 1(mod b) 的最小正整数解。&lt;/p&gt;
+&lt;h4 id=&quot;输入格式&quot;&gt;&lt;a href=&quot;#输
+      
+    
+    </summary>
+    
+      <category term="数论" scheme="http://zhumenger.top/categories/%E6%95%B0%E8%AE%BA/"/>
+    
+    
+      <category term="数论" scheme="http://zhumenger.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="同余" scheme="http://zhumenger.top/tags/%E5%90%8C%E4%BD%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最幸运的数字</title>
+    <link href="http://zhumenger.top/2019/08/27/%E6%95%B0%E8%AE%BA/%E6%9C%80%E5%B9%B8%E8%BF%90%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+    <id>http://zhumenger.top/2019/08/27/数论/最幸运的数字/</id>
+    <published>2019-08-27T15:36:30.000Z</published>
+    <updated>2019-08-27T15:42:54.889Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>8是中国的幸运数字，如果一个数字的每一位都由8构成则该数字被称作是幸运数字。</p><p>现在给定一个正整数L，请问至少多少个8连在一起组成的正整数（即最小幸运数字）是L的倍数。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>输入包含多组测试用例。</p><p>每组测试用例占一行，包含一个整数L。</p><p>当输入用例L=0时，表示输入终止，该用例无需处理。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>每组测试用例输出结果占一行。</p><p>结果为“Case 1: ”+一个整数N，N代表满足条件的最小幸运数字的位数。</p><p>如果满足条件的幸运数字不存在，则N=0。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤L≤2∗10^9</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>811<br>16<br>0</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>Case 1: 1<br>Case 2: 2<br>Case 3: 0</p></blockquote><h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>欧拉定理：若a，b互质，则a^f(b) % b == 1.其中f(b)为欧拉函数</strong></p><p><strong>引理1:</strong><br><strong>对于任何一个111，22…22，333…33,形如这样的数，我们都是可以用一个公式表示的。即:k * (10^x - 1) / 9;</strong></p><p><strong>所以目前的可以将问题转化为: 找到最小的x,使得满足(8 * (10^x - 1) / 9) % l == 0，<br>将公式化简: 9L | (8 * (10^x - 1))。我们令d = gcd(L,8),然后同时两边除上d，可得9L/d | (8/d * (10^x - 1))。</strong></p><p><strong>9L/d 与 8/d 这两个数一定是互质的。故，我们可以得到9L/d 因是 (10^x - 1)的因子。可得：9L/d | (10^x - 1).<br>可得：10^x % （9L/d） == 1.至此 这个函数跟欧拉定理，就是一样的形式了。</strong></p><p><strong>引理2:</strong><br> <strong>如正整数a, n互质,则满足a^x % n == 1的最小正整数x0是f(n)的约数</strong></p><p><strong>证明：<br>若10 与 (9L/d) 不是互质的，则二者有相同的因子b为2或者5。<br>若b为2 则：9L/d 为偶数，那么10 % （9L/d）一定不能等于1.同理可证b为5的情况。</strong></p><p><strong>继续根据欧拉函数推测：</strong><br><strong>f(9L/d)可以为x的取值。但是现在要找的是最小的x。我们知道a^b % n是有循环节r的。<br>r应是f(9L/d)的约数。</strong></p><p><strong>综上所述,我们推出了公式10^x % p == 1(p = 9 * l / (gcd(8, l))), 并且x满足为f(p)的约数<br>至此，我们目的明确了。<br>求出（9L/d）的欧拉函数值，枚举他的所有约数，找到满足10^x % （9L/d） == 1.的x的最小值。</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll l;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? gcd(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">get_ouler</span><span class="params">(ll p)</span>  <span class="comment">//获得p的欧拉函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = p;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= p; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p % i == <span class="number">0</span>) ans = ans / i * (i - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span>(p % i == <span class="number">0</span>) p /= i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p &gt; <span class="number">1</span>) ans = ans / p * (p - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function">ll <span class="title">qsm</span><span class="params">(ll a, ll b, ll mod)</span>  <span class="comment">//快速幂取模</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)ans = ans * a % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; l &amp;&amp; l != <span class="number">0</span>)&#123;</span><br><span class="line">        ll p = <span class="number">9</span> * l / gcd(l, <span class="number">8</span>);  <span class="comment">//得到模数p</span></span><br><span class="line">        ll ouler = get_ouler(p);  <span class="comment">//得到p的欧拉函数</span></span><br><span class="line">        ll ans = <span class="number">1e18</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll i = <span class="number">1</span>; i * i &lt;= ouler; i++)&#123;  <span class="comment">//枚举ouler所有的的约数,找到最小的满足条件的x</span></span><br><span class="line">            <span class="keyword">if</span>(ouler % i == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(qsm(<span class="number">10</span>, i, p) == <span class="number">1</span>) ans = min(ans, i);      <span class="comment">//由推论可知,x满足10 ^ x % p == 1</span></span><br><span class="line">                <span class="keyword">if</span>(qsm(<span class="number">10</span>, ouler / i, p) == <span class="number">1</span>) ans = min(ans, ouler / i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: "</span>, t++);   <span class="comment">//输出答案</span></span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="number">1e18</span>)<span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;p&gt;8是中国的幸运数字，如果一个数字的每一位都由8构成则该数字被称作是幸运数字。&lt;/p&gt;
+&lt;p&gt;现在给定一个正整数L，请问至少多
+      
+    
+    </summary>
+    
+      <category term="数论" scheme="http://zhumenger.top/categories/%E6%95%B0%E8%AE%BA/"/>
+    
+    
+      <category term="数论" scheme="http://zhumenger.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="同余" scheme="http://zhumenger.top/tags/%E5%90%8C%E4%BD%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>可见的点</title>
+    <link href="http://zhumenger.top/2019/08/27/%E6%95%B0%E8%AE%BA/%E5%8F%AF%E8%A7%81%E7%9A%84%E7%82%B9/"/>
+    <id>http://zhumenger.top/2019/08/27/数论/可见的点/</id>
+    <published>2019-08-27T15:32:26.000Z</published>
+    <updated>2019-08-27T15:35:37.713Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>在一个平面直角坐标系的第一象限内，如果一个点(x,y)与原点（0,0）的连线中没有通过其他任何点，则称该点在原点处是可见的。</p><p>例如，点(4,2)就是不可见的，因为它与原点的连线会通过点(2,1)。</p><p>部分可见点与原点的连线如下图所示：</p><p><img src="https://www.acwing.com/media/article/image/2019/01/18/19_a68c1a281a-3090_1.png" alt="3090_1.png"></p><p>编写一个程序，计算给定整数N的情况下，满足0≤x，y≤N0≤x，y≤N的可见点（x，y）的数量（可见点不包括原点）。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>第一行包含整数C，表示共有C组测试数据。</p><p>每组测试数据占一行，包含一个整数N。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>每组测试数据的输出占据一行。</p><p>应包括：测试数据的编号（从1开始），该组测试数据对应的N以及可见点的数量。</p><p>同行数据之间用空格隔开。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤N,C≤1000</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>42<br>45<br>231</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>1 2 5<br>2 4 13<br>3 5 21<br>4 231 32549</p></blockquote><h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>1.除了(1, 0),(0, 1),(1, 1) 一个钉子被看到当且仅当gcd(x, y) == 1, 我们只需考虑一半的情况即可,对于每个y(2 &lt;= y &lt;= N), 求出有多个数x与y互质,最后的答案ans = 3 + 2 * f(i)(2 &lt;= i &lt;= N)<br>2.对于f(i),我们可以用欧拉函数来求解</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> phi[N];</span><br><span class="line"><span class="keyword">int</span> t, n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)phi[i] = i;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)&#123;  <span class="comment">//枚举每一个数i</span></span><br><span class="line">        <span class="keyword">if</span>(phi[i] == i)&#123; <span class="comment">// 如果i为素数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt;= n; j += i)</span><br><span class="line">                phi[j] = phi[j] / i * (i - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        solve();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">            ans += <span class="number">2</span> * phi[i];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, p++, n, ans +<span class="number">3</span>);  <span class="comment">//输出答案</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;p&gt;在一个平面直角坐标系的第一象限内，如果一个点(x,y)与原点（0,0）的连线中没有通过其他任何点，则称该点在原点处是可见的。
+      
+    
+    </summary>
+    
+      <category term="数论" scheme="http://zhumenger.top/categories/%E6%95%B0%E8%AE%BA/"/>
+    
+    
+      <category term="数论" scheme="http://zhumenger.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="约数" scheme="http://zhumenger.top/tags/%E7%BA%A6%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>余数之和</title>
@@ -629,9 +712,9 @@
     
       <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="二叉堆" scheme="http://zhumenger.top/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
-    
       <category term="链表" scheme="http://zhumenger.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+      <category term="二叉堆" scheme="http://zhumenger.top/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
     
   </entry>
   
@@ -1841,9 +1924,9 @@
       <category term="搜索" scheme="http://zhumenger.top/categories/%E6%90%9C%E7%B4%A2/"/>
     
     
-      <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
-    
       <category term="dfs" scheme="http://zhumenger.top/tags/dfs/"/>
+    
+      <category term="bfs" scheme="http://zhumenger.top/tags/bfs/"/>
     
   </entry>
   
