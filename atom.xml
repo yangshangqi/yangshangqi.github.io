@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-08-27T15:47:40.303Z</updated>
+  <updated>2019-08-28T03:53:47.164Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>约数之和</title>
+    <link href="http://zhumenger.top/2019/08/28/%E6%95%B0%E8%AE%BA/%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <id>http://zhumenger.top/2019/08/28/数论/约数之和/</id>
+    <published>2019-08-28T03:48:30.000Z</published>
+    <updated>2019-08-28T03:53:47.164Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>假设现在有两个自然数A和B，S是ABAB的所有约数之和。</p><p>请你求出S mod 9901的值是多少。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>在一行中输入用空格隔开的两个整数A和B。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>输出一个整数，代表S mod 9901的值。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>0≤A,B≤5×10 ^ 7</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>2 3</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>15</p></blockquote><p><strong>注意</strong>: A和B不会同时为0</p><h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>1.约数之和公式:φ(N) = (1 + p1 + p1^2 + …+ p1^a1)(1 + p2 + p2^2 + … + p2^a2)…(1 + pn + pn^2 + … + pn^an).<br><em>* **2. 这道题求：φ(N) ^ b = (1 + p1 + p1^2 + …+ p1^(b</em>a1))(1 + p2 + p2^2 + … + p2^(b * a2))…(1 + pn + pn^2 + … + pn^(b * an)).*</strong></p><p><strong>3.可以用等比数列求和公式来计算: (1 + p + p^2 + …+ p^(b * a1)) = (p^(b * a1 + 1) - 1) / (p - 1)<br>使用快速幂来计算分子(p^(b*a1 + 1) - 1) % mod的值,和分母(p - 1) % mod的值</strong></p><p><strong>4.因为9931是质数,所以只要(p - 1)和mod互质,即不是mod的倍数便可以用乘法逆元来做,如果是mod的倍数,乘法逆元不存在,但p % mod = 1;<br>所以1 + p + p^2 + …+ p^(b<em>a1) % mod = 1 + 1^2 + …1^b</em>a1 % mod = b*a1 + 1 % mod</strong></p><p><strong>代码如下：</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">9901</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> a, b, p[<span class="number">20</span>], c[<span class="number">20</span>], cnt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> x)</span>  <span class="comment">//分解质因数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= x; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x % i == <span class="number">0</span>)&#123; </span><br><span class="line">            p[++cnt] = i, c[cnt] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(x % i == <span class="number">0</span>)&#123;</span><br><span class="line">                c[cnt]++;</span><br><span class="line">                x /= i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x &gt; <span class="number">1</span>) p[++cnt] = x, c[cnt]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qsm</span><span class="params">(<span class="keyword">int</span> a, ll b)</span>  <span class="comment">//快速幂</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)ans = (ll)ans * a % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (ll)a * a % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    divide(a);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>((p[i] - <span class="number">1</span>) % mod == <span class="number">0</span>)ans = (ll)(b * c[i] + <span class="number">1</span>) % mod * ans % mod; <span class="comment">//如果是mod的倍数, 特判</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> x = qsm(p[i], (ll)b * c[i] + <span class="number">1</span>);</span><br><span class="line">            x = (x - <span class="number">1</span> + mod) % mod;  <span class="comment">//分母 % mod</span></span><br><span class="line">            <span class="keyword">int</span> y = (p[i] - <span class="number">1</span>) % mod;  <span class="comment">//分子 % mod</span></span><br><span class="line">            y = qsm(y, mod - <span class="number">2</span>);     <span class="comment">//得到分子的乘法逆元</span></span><br><span class="line">            ans = (ll)ans * x % mod * y % mod;  <span class="comment">//累计答案</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(a)<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h4&gt;&lt;p&gt;假设现在有两个自然数A和B，S是ABAB的所有约数之和。&lt;/p&gt;
+&lt;p&gt;请你求出S mod 9901的值是多少。&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="数论" scheme="http://zhumenger.top/categories/%E6%95%B0%E8%AE%BA/"/>
+    
+    
+      <category term="数论" scheme="http://zhumenger.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="约数" scheme="http://zhumenger.top/tags/%E7%BA%A6%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>同余方程</title>
@@ -741,9 +770,9 @@
       <category term="数据结构基础" scheme="http://zhumenger.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="堆" scheme="http://zhumenger.top/tags/%E5%A0%86/"/>
+    
+      <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
