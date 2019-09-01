@@ -12,7 +12,7 @@
     
     
     
-    <title>Trie-字典树 | zhumenger ❤ blog</title>
+    <title>开关问题(高斯消元) | zhumenger ❤ blog</title>
     <link href="”http://zhumenger.top“" rel="”prefetch”">
 
     <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
@@ -253,13 +253,13 @@
         <i class="fa fa-home"></i>
         <a href="http://zhumenger.top">zhumenger ❤ blog</a>
         >
-        <span>Trie-字典树</span>
+        <span>开关问题(高斯消元)</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href>Trie-字典树</a>
+                <a href>开关问题(高斯消元)</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -267,12 +267,14 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/Trie/">Trie</a>
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/高斯消元/">高斯消元</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-09-01
             </span>
             
         </div>
@@ -282,17 +284,19 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href>Trie-字典树</a>
+                    <a href>开关问题(高斯消元)</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-11
+                <i class="fa fa-calendar"></i> 2019-09-01
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="../../../../../tags/Trie/">Trie</a>
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/高斯消元/">高斯消元</a>
                 
                 
                 
@@ -300,37 +304,38 @@
         </center>
     </div>
     <div class="content-article">
-        <p><strong>Trie(字典树):</strong><br> 一种用于实现字符串快速检索的多叉树结构</p>
-<p><strong>Trie插入：</strong></p>
-<blockquote>
-<p>当需要插入一个字符串s时，我们令一个指针P起始指向根节点。然后，依次扫描S中的每个字符c：<br>若P的c字符指针指向一个已经存在的节点Q，则令P = Q。<br>若P的c字符指针指向空，则新建一个节点Q，令P的c字符指针指向Q，然后令P = Q。<br>当S中的字符扫描完毕时，在当前节点P上标记它是一个字符串的结尾。</p>
-</blockquote>
-<p><strong>检索：</strong></p>
-<blockquote>
-<p>当需要检索一个字符串S在Trie中是否存在时，我们令一个指针P起初指向根节点，然后依次扫描S中的每个字符c：<br>若P的c字符指针指向空，则说明S没有被插入过Trie，结束检索。<br>若P的c字符指针指向一个已经存在的节点Q，则令P = Q。<br>当S中的字符扫描完毕时，若当前节点P被标记为一个字符串的结尾，则说明S在Trie中存在，否则说明S没有被插入过Trie。</p>
-</blockquote>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><blockquote>
-<p>“I x”向集合中插入一个字符串x；<br>“Q x”询问一个字符串在集合中出现了多少次。<br>共有N个操作，输入的字符串总长度不超过 105，字符串仅包含小写英文字母。</p>
-</blockquote>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote>
-<p>第一行包含整数N，表示操作数。<br>接下来N行，每行包含一个操作指令，指令为”I x”或”Q x”中的一种。</p>
-</blockquote>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote>
-<p>对于每个询问指令”Q x”，都要输出一个整数作为结果，表示x在集合中出现的次数。<br>每个结果占一行。</p>
-</blockquote>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
-<p>1≤N≤2∗104</p>
-</blockquote>
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>有N个相同的开关，每个开关都与某些开关有着联系，每当你打开或者关闭某个开关的时候，其他的与此开关相关联的开关也会相应地发生变化，即这些相联系的开关的状态如果原来为开就变为关，如果为关就变为开。</p>
+<p>你的目标是经过若干次开关操作后使得最后N个开关达到一个特定的状态。</p>
+<p>对于任意一个开关，最多只能进行一次开关操作。</p>
+<p>你的任务是，计算有多少种可以达到指定状态的方法。（不计开关操作的顺序）</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入第一行有一个数K，表示以下有K组测试数据。</p>
+<p>每组测试数据的格式如下：</p>
+<p>第一行 一个数N（0 &lt; N &lt; 29）。</p>
+<p>第二行 N个0或者1的数，表示开始时N个开关状态。</p>
+<p>第三行 N个0或者1的数，表示操作结束后N个开关的状态。</p>
+<p>接下来 每行两个数I J，表示如果操作第 I 个开关，第J个开关的状态也会变化。</p>
+<p>每组数据以 0 0 结束。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>如果有可行方法，输出总数，否则输出“Oh,it’s impossible~!!” 。</p>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
-<p>5
-I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
+<p>2
+3<br>0 0 0<br>1 1 1<br>1 2<br>1 3<br>2 1<br>2 3<br>3 1<br>3 2<br>0 0<br>3
+0 0 0<br>1 0 1<br>1 2<br>2 1<br>0 0</p>
 </blockquote>
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
-<p>1
-0<br>1</p>
+<p>4
+Oh,it’s impossible~!!</p>
 </blockquote>
-<p>代码如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> trie[N][<span class="number">26</span>], cnt[N], idx;</span><br><span class="line"><span class="keyword">char</span> str[N], c;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str), p = <span class="number">1</span>;  <span class="comment">//从根节点开始</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = str[i] - <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[p][u])<span class="comment">//如果没有节点，便创造一个节点</span></span><br><span class="line">        	trie[p][u] = idx++; <span class="comment">//对每个字符串进行编号</span></span><br><span class="line">        p = trie[p][u]; <span class="comment">//p等于该节点，继续往下遍历</span></span><br><span class="line">    &#125;</span><br><span class="line">    cnt[p]++;<span class="comment">// 统计编号为p的字符串的个数</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str), p = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> u = str[i] - <span class="string">'a'</span>;</span><br><span class="line">        <span class="keyword">if</span>(!trie[p][u])<span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">//如果该节点为空，说明该字符串没有出现</span></span><br><span class="line">        p = trie[p][u];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt[p];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    idx = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; str;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">'I'</span>)insert(str);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; search(str) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>1.设xi表示第i个开关的操作情况,那么xi = 1为按了这个开关,否则xi = 0表示这个开关并没有按下去,</strong></p>
+<p><strong>2.我们接着统计ai,j表示第i个开关和第j个开关的联系情况,ai,j = 1表示按下j会影响i的状态,</strong></p>
+<p><strong>否则就是不会影响,即ai,j = 0,特殊地一个点就是,ai,i = 1,因为我们本身肯定会影响本身.</strong></p>
+<p><strong>3.设一个开关起始状态为srci, 最后一个状态为dsti,那么我们可到一个线性方程组</strong></p>
+<p><strong>最后我们解方程组ai,1x1 xor ai,2x2 xor…xor ai,nxn = srci xor dsti(1 &lt;= i &lt;= n)</strong></p>
+<p><strong>4.为了高效简便, 可以把曾广矩阵的每一行进行状态压缩, 用一个int类型的整数表示n + 1位二进制数, 其中第0</strong></p>
+<p><strong>位为曾广矩阵最后一列的常数,第1 ~ n位分别表示为曾广矩阵1 ~ n位的系数</strong></p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">50</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>, j; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; j;</span><br><span class="line">            a[i] ^= j; </span><br><span class="line">            a[i] |= <span class="number">1</span> &lt;&lt; i; <span class="comment">// ai,i = 1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> x, y, ans = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y &amp;&amp; x &amp;&amp; y)&#123;</span><br><span class="line">            a[y] |= <span class="number">1</span> &lt;&lt; x;  <span class="comment">//ay,x = 1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="comment">//找到一个最大的a[i]， 即主元位数最高的a[i]</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">                <span class="keyword">if</span>(a[j] &gt; a[i])swap(a[i], a[j]);</span><br><span class="line">            <span class="comment">//如果最大的a[i]为0，说明消元完毕</span></span><br><span class="line">            <span class="comment">//此时有i - 1个主元, n - i + 1个自由元</span></span><br><span class="line">            <span class="keyword">if</span>(a[i] == <span class="number">0</span>)&#123;ans = <span class="number">1</span> &lt;&lt; (n - i + <span class="number">1</span>); <span class="keyword">break</span>;&#125; </span><br><span class="line">            <span class="keyword">if</span>(a[i] == <span class="number">1</span>)&#123;ans = <span class="number">0</span>; <span class="keyword">break</span>;&#125;  <span class="comment">//如果0 = 1，无解</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = n; k; k--)&#123;  <span class="comment">//枚举系数</span></span><br><span class="line">                <span class="keyword">if</span>(a[i] &gt;&gt; k &amp;&amp; <span class="number">1</span>)&#123;  <span class="comment">//a[i]最高位的1作为主元, 消去其他方程该位的系数</span></span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;  </span><br><span class="line">                        <span class="keyword">if</span>(i != j &amp;&amp; a[j] &gt;&gt; k &amp; <span class="number">1</span>)a[j] ^= a[i];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans == <span class="number">0</span>)<span class="built_in">puts</span>(<span class="string">"Oh,it's impossible~!!"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 </article>
 
@@ -340,7 +345,7 @@ I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'Trie-字典树'
+      window.commentConfig.title = '开关问题(高斯消元)'
     }
 </script>
 
@@ -402,19 +407,19 @@ I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../09/01/数论/开关问题-高斯消元/">开关问题(高斯消元)</a>
+                    <a href>开关问题(高斯消元)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../09/01/数论/矩阵快速幂-斐波那契/">矩阵快速幂(斐波那契)</a>
+                    <a href="../矩阵快速幂-斐波那契/">矩阵快速幂(斐波那契)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../09/01/数论/球形空间产生器-高斯消元/">球形空间产生器(高斯消元)</a>
+                    <a href="../球形空间产生器-高斯消元/">球形空间产生器(高斯消元)</a>
                 </span>
             </li>
             
@@ -478,61 +483,61 @@ I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/20/Java/Java基础之类的构造方法和this简介/">Java基础之类的构造方法和this简介</a>
+                    <a href="../../../../07/28/搜索/可达性统计/">可达性统计</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/22/动态规划/没有上司的舞会/">没有上司的舞会</a>
+                    <a href="../../../../07/30/搜索/木棒/">木棒(学会剪枝)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../14/搜索/n-皇后问题/">n-皇后问题(dfs)</a>
+                    <a href="../../../../06/14/搜索/树的重心/">树的重心(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../14/搜索/树的重心/">树的重心(dfs)</a>
+                    <a href="../../../../06/13/数据结构基础/字符串哈希/">字符串哈希</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/31/搜索/矩阵距离-曼哈顿距离/">矩阵距离(曼哈顿距离)</a>
+                    <a href="../../../../07/27/数据结构基础/生日礼物/">生日礼物</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../10/数据结构基础/直方图中最大的矩形（单调栈2）/">直方图中最大的矩形（单调栈2）</a>
+                    <a href="../../../../08/02/数据结构基础/矩阵-二维数组哈希/">矩阵(二维数组哈希)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
+                    <a href="../../../../07/27/数据结构基础/黑盒子-堆/">黑盒子(堆)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../08/28/数论/约数之和/">约数之和</a>
+                    <a href="../../../../08/27/数论/可见的点/">可见的点</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/10/数论/组合数IV之高精度/">组合数IV之高精度</a>
+                    <a href="../../../../07/09/数论/组合数/">组合数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../07/15/动态规划/背包九讲/">背包九讲</a>
+                    <a href="../../../../07/07/数论/欧拉函数/">欧拉函数</a>
                 </span>
             </li>
             
@@ -565,93 +570,93 @@ I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/Java/" style="font-size: 16.16066657449417px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/Java/" style="font-size: 12.369040873104641px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 9.256114645555808px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 19.128977700396725px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 8.951317880219868px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 18.893907538526104px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/子序列/" style="font-size: 12.73821248057692px;" class="tag-cloud-link">子序列</a>
+    <a href="../../../../../tags/子序列/" style="font-size: 12.588180182673364px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 14.700179645434112px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 17.396121189186907px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/树形DP/" style="font-size: 10.255910728180751px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../../../../tags/树形DP/" style="font-size: 8.08058482431163px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 17.37017148936244px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 15.329858696451431px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 19.616000862165137px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 18.53274475729669px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 17.067304627767662px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 10.640430954246966px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/A/" style="font-size: 14.144956183068585px;" class="tag-cloud-link">A*</a>
+    <a href="../../../../../tags/A/" style="font-size: 9.932237345133764px;" class="tag-cloud-link">A*</a>
     
-    <a href="../../../../../tags/搜索/" style="font-size: 16.599974598313082px;" class="tag-cloud-link">搜索</a>
+    <a href="../../../../../tags/搜索/" style="font-size: 18.417209028020057px;" class="tag-cloud-link">搜索</a>
     
-    <a href="../../../../../tags/记忆化搜索/" style="font-size: 8.844231553845383px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 9.856466981794203px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 14.639218016984465px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 17.16539195815341px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 9.655332760075552px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 15.489694615716509px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 19.03408622981954px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 16.995642421163602px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 17.54301368750654px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 12.694760149532065px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 8.767834794669428px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/栈/" style="font-size: 8.145658785816895px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 10.247901682395163px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/堆/" style="font-size: 9.379165396862426px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/kmp/" style="font-size: 18.736177221910225px;" class="tag-cloud-link">kmp</a>
+    <a href="../../../../../tags/kmp/" style="font-size: 14.8209812919698px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 18.644964727310047px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 15.22468816505123px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/树的最小表示/" style="font-size: 16.001313406109166px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 16.19052670101219px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../../../../tags/二叉堆/" style="font-size: 15.7374271567239px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../../../../tags/二叉堆/" style="font-size: 15.313161577484667px;" class="tag-cloud-link">二叉堆</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 15.70820213208627px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/链表/" style="font-size: 16.708990979749764px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 8.264195508537835px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 19.854249656775153px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 17.209821217324134px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 11.58760257076553px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 17.872335159782406px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/数论/" style="font-size: 11.047214005039107px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/约数/" style="font-size: 11.03467875123132px;" class="tag-cloud-link">约数</a>
+    <a href="../../../../../tags/约数/" style="font-size: 13.479466202022543px;" class="tag-cloud-link">约数</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 17.086532585976638px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 8.74125699382445px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/同余/" style="font-size: 19.457778263482947px;" class="tag-cloud-link">同余</a>
+    <a href="../../../../../tags/同余/" style="font-size: 17.245717074616458px;" class="tag-cloud-link">同余</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 11.020427758263104px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 12.939299682935964px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 13.060484946800804px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 17.77143579406833px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 11.142416152014121px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 17.70011437766024px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 9.808568813497613px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 17.993398554813236px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/矩阵快速幂/" style="font-size: 12.067164895326059px;" class="tag-cloud-link">矩阵快速幂</a>
+    <a href="../../../../../tags/矩阵快速幂/" style="font-size: 19.277324134962054px;" class="tag-cloud-link">矩阵快速幂</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 13.083309868255306px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 11.05130800275137px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 13.096200950303544px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 11.12472638537417px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 19.141175127632003px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/素数/" style="font-size: 10.276949825527165px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 18.234064274234747px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/题解/" style="font-size: 18.7349143609492px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 9.684701481870327px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 19.91899411992468px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 18.77933555039688px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/图论/" style="font-size: 9.246345966598199px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 16.596145298684398px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 14.177409726327664px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 19.496922623831733px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 19.186394433865427px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 8.94538367706912px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 19.107218481663157px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 11.470494039980615px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/最短路问题/" style="font-size: 18.69854371537693px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -778,7 +783,7 @@ I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Jun 11 2019 08:57:01 GMT+0800'
+      window.commentConfig.id = 'Sun Sep 01 2019 23:35:09 GMT+0800'
       window.commentConfig.owner = 'yangshangqi'
       window.commentConfig.repo = 'yangshangqi.github.io'
       window.commentConfig.client_id = '60e14965f8d29e28aed6'
@@ -786,7 +791,7 @@ I abc<br>Q abc<br>Q ab<br>I ab<br>Q ab</p>
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Jun 11 2019 08:57:01 GMT+0800',
+      	id: 'Sun Sep 01 2019 23:35:09 GMT+0800',
         owner: 'yangshangqi',
         repo: 'yangshangqi.github.io',
         client_id: '60e14965f8d29e28aed6',
