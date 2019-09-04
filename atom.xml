@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-09-04T11:48:42.105Z</updated>
+  <updated>2019-09-04T13:20:20.358Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>并查集</title>
+    <link href="http://zhumenger.top/2019/09/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    <id>http://zhumenger.top/2019/09/04/数据结构进阶/并查集/</id>
+    <published>2019-09-04T12:57:44.000Z</published>
+    <updated>2019-09-04T13:20:20.358Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>概念</strong></p><blockquote><p>并查集是一种可以动态维护若干个不重叠的结合,并且支持合并与查询的数据结构.也就是擅长维护各种各样的具有传递性质的关系</p></blockquote><p><strong>基本操作</strong></p><p><strong>1.find()操作 查询一个元素所属哪一个集合</strong><br><strong>2.join()合并操作,把两个集合合并成为一个集合</strong></p><p><strong>具体实现</strong></p><p>1.使用树形结构存储每个集合,刚开始的时候每个点就是一个独立的集合,即有n颗一个点的树</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//预处理</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    father[i]=i;</span><br><span class="line"><span class="comment">//father数组为这个点的父亲,刚开始也就是树根祖宗</span></span><br></pre></td></tr></table></figure><p>2.并查集的 Find() 操作</p><p>若x是树根，直接返回，否则递归访问f(x)直至根节点。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x != f[x])f[x] = Find(f[x]);</span><br><span class="line">    <span class="keyword">return</span> f[x];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.并查集的 join() 操作</p><p>合并元素 x 和元素 y 所在的集合，等于让 x 的树根作为 y 的树根的子节点</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    f(Find(x)) = Find(y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="例题：合并集合"><a href="#例题：合并集合" class="headerlink" title="例题：合并集合"></a>例题：合并集合</h4><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>一共有n个数，编号是1~n，最开始每个数各自在一个集合中。</p><p>现在要进行m个操作，操作共有两种：</p><ol><li>“M a b”，将编号为a和b的两个数所在的集合合并，如果两个数已经在同一个集合中，则忽略这个操作；</li><li>“Q a b”，询问编号为a和b的两个数是否在同一个集合中；</li></ol><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><blockquote><p>第一行输入整数n和m。</p><p>接下来m行，每行包含一个操作指令，指令为“M a b”或“Q a b”中的一种。</p></blockquote><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><blockquote><p>对于每个询问指令”Q a b”，都要输出一个结果，如果a和b在同一集合内，则输出“Yes”，否则输出“No”。</p><p>每个结果占一行。</p></blockquote><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote><p>1≤n,m≤10^5</p></blockquote><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>4 5<br>M 1 2<br>M 3 4<br>Q 1 2<br>Q 1 3<br>Q 3 4</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>Yes<br>No<br>Yes</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> f[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x != f[x])f[x] = Find(f[x]);</span><br><span class="line">    <span class="keyword">return</span> f[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = Find(x);</span><br><span class="line">    y = Find(y);</span><br><span class="line">    <span class="keyword">if</span>(x != y)</span><br><span class="line">        f[x] = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)f[i] = i;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">char</span> s;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="string">'M'</span>)join(a, b);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(Find(a) != Find(b))<span class="built_in">cout</span> &lt;&lt; <span class="string">"No"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;概念&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;并查集是一种可以动态维护若干个不重叠的结合,并且支持合并与查询的数据结构.也就是擅长维护各种各样的具有传递性质的关系&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;基本操作&lt;/str
+      
+    
+    </summary>
+    
+      <category term="数据结构进阶" scheme="http://zhumenger.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/"/>
+    
+    
+      <category term="数据结构进阶" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/"/>
+    
+      <category term="并查集" scheme="http://zhumenger.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>剪纸游戏</title>
