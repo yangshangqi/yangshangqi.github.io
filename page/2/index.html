@@ -132,11 +132,11 @@
                         
                         
                         <li>
-                            <a href="../../categories/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../categories/Java/">Java</a>
                         </li>
                         
                         <li>
-                            <a href="../../categories/Java/">Java</a>
+                            <a href="../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
@@ -185,11 +185,11 @@
                         
                         
                         <li>
-                            <a href="../../tags/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../tags/Java/">Java</a>
                         </li>
                         
                         <li>
-                            <a href="../../tags/Java/">Java</a>
+                            <a href="../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
@@ -306,7 +306,7 @@
                 <a href="../../2019/09/08/数据结构进阶/树状数组/谜一样的牛-树状数组/">
                     <div class="img">
                         
-                        <img src="http://pz4uij39w.bkt.clouddn.com/preview7.jpg" alt="谜一样的牛(树状数组)">
+                        <img src="http://pz4uij39w.bkt.clouddn.com/preview13.jpg" alt="谜一样的牛(树状数组)">
                     </div>
                     <div class="info">
                         <p>1.如果最后一头奶牛前面有 An 头牛比它低, 显然Hn = An + 1<br>2.如果倒数第二头牛有 A(n - 1) 头牛比它低,那么：<br>(1).若A(n - 1) &lt; An, 则它的身高H(n - 1) = A(n - 1) + 1;<br>(2).若A(n - 1) &gt;= An, 则它的身高H(n - 1) = A(n - 1) + 2;<br>3.依此类推，我们可以得到, 如果第 k 头牛前面有 Ak 头牛比它低, 则 Hk 为1 ~ n中第Ak + 1小的并且还没有出现过的数</p>
@@ -348,7 +348,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/09/08/数据结构进阶/树状数组/谜一样的牛-树状数组/">
                     
-                    <img src="http://pz4uij39w.bkt.clouddn.com/preview7.jpg" alt="谜一样的牛(树状数组)">
+                    <img src="http://pz4uij39w.bkt.clouddn.com/preview5.jpg" alt="谜一样的牛(树状数组)">
                 </a>
             </p>
         </div>
@@ -398,7 +398,7 @@
                 <a href="../../2019/09/07/数据结构进阶/树状数组/一个简单的整数问题2-树状数组/">
                     <div class="img">
                         
-                        <img src="http://pz4uij39w.bkt.clouddn.com/preview8.jpg" alt=" 一个简单的整数问题2 (树状数组)">
+                        <img src="http://pz4uij39w.bkt.clouddn.com/preview15.jpg" alt=" 一个简单的整数问题2 (树状数组)">
                     </div>
                     <div class="info">
                         <p>树状数组区间修改加区间查询:<br>1.设原数组第i位的值为ai，di=ai−a(i−1)，则有(这里认为a0 = 0)：ax = ∑(i=1 ~ x)di<br>2.所以有：∑(i = 1 ~ x)ai = ∑(i = 1 ~ x)∑(j = 1 ~ i)dj = ∑ (i = 1 ~ x)(x − i + 1)di<br>3.于是我们得到了：∑(i = 1 ~ x)<em>ai = (x + 1)</em>∑(i = 1 ~ x)di − ∑(i = 1 ~ x)*di * i<br>4.于是我们把原数组差分后维护两个树状数组，一个维护di，一个维护di×i。这样区间求和时可以在两个树状数组中查询得到前缀和，区间修改时就是差分数组的修改，每次修改两个点即可。</p>
@@ -440,7 +440,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/09/07/数据结构进阶/树状数组/一个简单的整数问题2-树状数组/">
                     
-                    <img src="http://pz4uij39w.bkt.clouddn.com/preview18.jpg" alt=" 一个简单的整数问题2 (树状数组)">
+                    <img src="http://pz4uij39w.bkt.clouddn.com/preview10.jpg" alt=" 一个简单的整数问题2 (树状数组)">
                 </a>
             </p>
         </div>
@@ -490,7 +490,7 @@
                 <a href="../../2019/09/07/数据结构进阶/树状数组/一个简单的整数问题-树状数组/">
                     <div class="img">
                         
-                        <img src="http://pz4uij39w.bkt.clouddn.com/preview11.jpg" alt="一个简单的整数问题(树状数组)">
+                        <img src="http://pz4uij39w.bkt.clouddn.com/preview3.jpg" alt="一个简单的整数问题(树状数组)">
                     </div>
                     <div class="info">
                         <p>1.这道题的操作有”区间增加”和“单点查询”两种操作, 而树状数组仅支持“单点增加”, 需要作出一些转化来解决这个问题<br>2.我们想到可以用前缀和的形式来记录区间的变化情况, 新建一个数组 c,对于指令”C l r x”, 让c[l] += x, c[r + 1] -= x; 并用树状数组来维护数组c的前缀和,想要求若干指令后第x的值,直接调用ask()函数求出c[1 ~ x]区间值的变化情况再加上a[i]变得到了答案</p>
@@ -532,7 +532,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/09/07/数据结构进阶/树状数组/一个简单的整数问题-树状数组/">
                     
-                    <img src="http://pz4uij39w.bkt.clouddn.com/preview15.jpg" alt="一个简单的整数问题(树状数组)">
+                    <img src="http://pz4uij39w.bkt.clouddn.com/preview2.jpg" alt="一个简单的整数问题(树状数组)">
                 </a>
             </p>
         </div>
@@ -582,7 +582,7 @@
                 <a href="../../2019/09/07/数据结构进阶/树状数组/树状数组简介/">
                     <div class="img">
                         
-                        <img src="http://pz4uij39w.bkt.clouddn.com/preview6.jpg" alt="树状数组简介">
+                        <img src="http://pz4uij39w.bkt.clouddn.com/preview15.jpg" alt="树状数组简介">
                     </div>
                     <div class="info">
                         <p>树状数组就是一种基数据结构, 其用途是维护序列的前缀和。可以实现“单点增加” + ”区间查询“的操作</p>
@@ -624,7 +624,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/09/07/数据结构进阶/树状数组/树状数组简介/">
                     
-                    <img src="http://pz4uij39w.bkt.clouddn.com/preview15.jpg" alt="树状数组简介">
+                    <img src="http://pz4uij39w.bkt.clouddn.com/preview11.jpg" alt="树状数组简介">
                 </a>
             </p>
         </div>
@@ -674,7 +674,7 @@
                 <a href="../../2019/09/05/数据结构进阶/并查集/奇偶游戏(并查集)/">
                     <div class="img">
                         
-                        <img src="http://pz4uij39w.bkt.clouddn.com/preview16.jpg" alt="奇偶游戏(并查集)">
+                        <img src="http://pz4uij39w.bkt.clouddn.com/preview14.jpg" alt="奇偶游戏(并查集)">
                     </div>
                     <div class="info">
                         
@@ -715,7 +715,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/09/05/数据结构进阶/并查集/奇偶游戏(并查集)/">
                     
-                    <img src="http://pz4uij39w.bkt.clouddn.com/preview2.jpg" alt="奇偶游戏(并查集)">
+                    <img src="http://pz4uij39w.bkt.clouddn.com/preview10.jpg" alt="奇偶游戏(并查集)">
                 </a>
             </p>
         </div>
@@ -765,7 +765,7 @@
                 <a href="../../2019/09/05/数据结构进阶/并查集/银河英雄传说(并查集)/">
                     <div class="img">
                         
-                        <img src="http://pz4uij39w.bkt.clouddn.com/preview17.jpg" alt="银河英雄传说(并查集)">
+                        <img src="http://pz4uij39w.bkt.clouddn.com/preview1.jpg" alt="银河英雄传说(并查集)">
                     </div>
                     <div class="info">
                         <p>1.开始时,每一个战舰都可以看做是一个集合, 用并查集来维护<br>2.建立一个数组d[x], 用来记录x到根节点的权值, 在状态压缩过程中,更新所有的d[x]即可<br>3.此外我们还需要一个 num 数组用来在每个树根记录上集合的大小,</p>
@@ -807,7 +807,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/09/05/数据结构进阶/并查集/银河英雄传说(并查集)/">
                     
-                    <img src="http://pz4uij39w.bkt.clouddn.com/preview16.jpg" alt="银河英雄传说(并查集)">
+                    <img src="http://pz4uij39w.bkt.clouddn.com/preview10.jpg" alt="银河英雄传说(并查集)">
                 </a>
             </p>
         </div>
@@ -1002,61 +1002,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/08/JavaScirpt/JS基础之标识符、数据类型/">JS基础之标识符、数据类型</a>
+                    <a href="../../2019/07/22/动态规划/动态规划之子序列问题/">动态规划之子序列问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/20/Java/Java基础之对象和内存分析/">Java基础之对象和内存分析</a>
+                    <a href="../../2019/07/28/搜索/可达性统计/">可达性统计</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/19/Java/Java基础之方法/">Java基础之方法</a>
+                    <a href="../../2019/08/20/搜索/导弹防御系统-dfs/">导弹防御系统(dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/22/搜索/滑雪/">滑雪</a>
+                    <a href="../../2019/06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/16/数据结构基础/雪花雪花雪花(最小表示法)/">雪花雪花雪花</a>
+                    <a href="../../2019/08/02/搜索/电路维修-双端队列/">电路维修(双端队列)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/08/26/数论/余数之和/">余数之和</a>
+                    <a href="../../2019/08/18/搜索/骑士-Astar-dfs/">骑士(Astar + dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/07/数论/欧拉函数/">欧拉函数</a>
+                    <a href="../../2019/06/12/数据结构基础/哈希表-散列表/">哈希表(散列表)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/09/05/数据结构进阶/并查集/银河英雄传说(并查集)/">银河英雄传说(并查集)</a>
+                    <a href="../../2019/06/10/数据结构基础/堆/">堆</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/09/14/数据结构进阶/线段树/窗内的星星-线段树-扫描线/">窗内的星星(线段树 + 扫描线)</a>
+                    <a href="../../2019/07/27/数据结构基础/奶牛矩阵（二维KMP）/">奶牛矩阵（二维KMP）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
+                    <a href="../../2019/09/05/数据结构进阶/并查集/程序自动分析(并查集)/">程序自动分析(并查集)</a>
                 </span>
             </li>
             
@@ -1089,105 +1089,105 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../tags/JavaScirpt/" style="font-size: 12.735040183070069px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../tags/Java/" style="font-size: 10.46644664257203px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../tags/Java/" style="font-size: 19.29783015437709px;" class="tag-cloud-link">Java</a>
+    <a href="../../tags/JavaScirpt/" style="font-size: 16.672127441940297px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../tags/动态规划/" style="font-size: 19.803484464058254px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../tags/动态规划/" style="font-size: 16.816491446768104px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../tags/子序列/" style="font-size: 15.69973431103212px;" class="tag-cloud-link">子序列</a>
+    <a href="../../tags/子序列/" style="font-size: 12.714875527706234px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../tags/计数DP/" style="font-size: 11.719708566747151px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../tags/计数DP/" style="font-size: 11.71838084819294px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../tags/树形DP/" style="font-size: 13.366950339167708px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../tags/树形DP/" style="font-size: 9.336919108360798px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../tags/区间DP/" style="font-size: 12.59693395091924px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../tags/区间DP/" style="font-size: 18.888860433514036px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../tags/dfs/" style="font-size: 17.73487927613284px;" class="tag-cloud-link">dfs</a>
+    <a href="../../tags/dfs/" style="font-size: 15.42721536037135px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../tags/bfs/" style="font-size: 17.79029623305626px;" class="tag-cloud-link">bfs</a>
+    <a href="../../tags/bfs/" style="font-size: 13.012229393589429px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../tags/A/" style="font-size: 16.94238579367603px;" class="tag-cloud-link">A*</a>
+    <a href="../../tags/A/" style="font-size: 18.046186121282695px;" class="tag-cloud-link">A*</a>
     
-    <a href="../../tags/搜索/" style="font-size: 14.95021415271936px;" class="tag-cloud-link">搜索</a>
+    <a href="../../tags/搜索/" style="font-size: 17.50764971922623px;" class="tag-cloud-link">搜索</a>
     
-    <a href="../../tags/记忆化搜索/" style="font-size: 13.38432587982706px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../tags/记忆化搜索/" style="font-size: 18.060864601401587px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../tags/Trie/" style="font-size: 9.370395331238797px;" class="tag-cloud-link">Trie</a>
+    <a href="../../tags/Trie/" style="font-size: 12.20383306693748px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../tags/单链表/" style="font-size: 12.892850311143732px;" class="tag-cloud-link">单链表</a>
+    <a href="../../tags/哈希/" style="font-size: 18.03937430647118px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../tags/哈希/" style="font-size: 18.813500330971014px;" class="tag-cloud-link">哈希</a>
+    <a href="../../tags/堆/" style="font-size: 19.98485731032888px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../tags/数据结构/" style="font-size: 8.493249701568082px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../tags/数据结构/" style="font-size: 15.583233653230806px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../tags/栈/" style="font-size: 8.703013667881702px;" class="tag-cloud-link">栈</a>
+    <a href="../../tags/kmp/" style="font-size: 19.265471988051885px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../tags/堆/" style="font-size: 8.919777458119594px;" class="tag-cloud-link">堆</a>
+    <a href="../../tags/栈/" style="font-size: 13.081683353827167px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../tags/kmp/" style="font-size: 15.346480835386497px;" class="tag-cloud-link">kmp</a>
+    <a href="../../tags/字符串哈希/" style="font-size: 17.129033873057544px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../tags/字符串哈希/" style="font-size: 10.860813418343078px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../tags/树的最小表示/" style="font-size: 15.804880892197474px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../tags/树的最小表示/" style="font-size: 18.813443981601452px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../tags/二叉堆/" style="font-size: 11.056464251917122px;" class="tag-cloud-link">二叉堆</a>
     
-    <a href="../../tags/二叉堆/" style="font-size: 15.205961305963438px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../tags/链表/" style="font-size: 15.927689233995217px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../tags/链表/" style="font-size: 10.088392185028447px;" class="tag-cloud-link">链表</a>
+    <a href="../../tags/单调栈/" style="font-size: 12.77959668115557px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../tags/单调栈/" style="font-size: 10.340557987995815px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../tags/字符串/" style="font-size: 17.016444051580642px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../tags/字符串/" style="font-size: 13.774077123605181px;" class="tag-cloud-link">字符串</a>
+    <a href="../../tags/数论/" style="font-size: 8.46228666605549px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../tags/数论/" style="font-size: 9.93379423354354px;" class="tag-cloud-link">数论</a>
+    <a href="../../tags/约数/" style="font-size: 16.844463957718236px;" class="tag-cloud-link">约数</a>
     
-    <a href="../../tags/约数/" style="font-size: 10.306135409194631px;" class="tag-cloud-link">约数</a>
+    <a href="../../tags/SG函数/" style="font-size: 17.736306949237672px;" class="tag-cloud-link">SG函数</a>
     
-    <a href="../../tags/SG函数/" style="font-size: 11.323440437554236px;" class="tag-cloud-link">SG函数</a>
+    <a href="../../tags/博弈论/" style="font-size: 14.896794084974562px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../tags/博弈论/" style="font-size: 9.130402976944797px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../tags/同余/" style="font-size: 15.403136005667799px;" class="tag-cloud-link">同余</a>
     
-    <a href="../../tags/同余/" style="font-size: 15.320076414610924px;" class="tag-cloud-link">同余</a>
+    <a href="../../tags/容斥原理/" style="font-size: 19.96031879746909px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../tags/容斥原理/" style="font-size: 19.313434397410912px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../tags/高斯消元/" style="font-size: 14.565595377175697px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../tags/高斯消元/" style="font-size: 9.835593565906684px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../tags/扩展欧几里得/" style="font-size: 19.911213071583933px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../tags/快速幂/" style="font-size: 18.298898196746435px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../tags/快速幂/" style="font-size: 13.616096472367854px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../tags/扩展欧几里得/" style="font-size: 10.780510120699816px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../tags/欧拉函数/" style="font-size: 9.612919460202608px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../tags/欧拉函数/" style="font-size: 8.631672838394149px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../tags/矩阵快速幂/" style="font-size: 9.324461306414634px;" class="tag-cloud-link">矩阵快速幂</a>
     
-    <a href="../../tags/矩阵快速幂/" style="font-size: 9.572858212680721px;" class="tag-cloud-link">矩阵快速幂</a>
+    <a href="../../tags/数论，约数/" style="font-size: 8.755852536837939px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../tags/素数/" style="font-size: 19.06095204232983px;" class="tag-cloud-link">素数</a>
+    <a href="../../tags/素数/" style="font-size: 12.272592258906911px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../tags/数论，约数/" style="font-size: 11.151098764850067px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../tags/组合数/" style="font-size: 8.83705983985043px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../tags/组合数/" style="font-size: 10.051473138237903px;" class="tag-cloud-link">组合数</a>
+    <a href="../../tags/数学期望/" style="font-size: 15.935207256277915px;" class="tag-cloud-link">数学期望</a>
     
-    <a href="../../tags/数学期望/" style="font-size: 15.999886865834874px;" class="tag-cloud-link">数学期望</a>
+    <a href="../../tags/单链表/" style="font-size: 15.62880745476478px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../tags/题解/" style="font-size: 9.78305767914263px;" class="tag-cloud-link">题解</a>
+    <a href="../../tags/题解/" style="font-size: 10.25384099678459px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../tags/背包问题/" style="font-size: 18.176825937116504px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../tags/背包问题/" style="font-size: 12.8405536746954px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../tags/图论/" style="font-size: 14.332703848982069px;" class="tag-cloud-link">图论</a>
+    <a href="../../tags/图论/" style="font-size: 12.406460403954862px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../tags/二分图/" style="font-size: 8.675150838102553px;" class="tag-cloud-link">二分图</a>
+    <a href="../../tags/二分图/" style="font-size: 11.912024532167358px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../tags/最小生成树/" style="font-size: 8.243736846054588px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../tags/最小生成树/" style="font-size: 18.868535450051226px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../tags/数据结构进阶/" style="font-size: 16.74003633497943px;" class="tag-cloud-link">数据结构进阶</a>
+    <a href="../../tags/数据结构进阶/" style="font-size: 11.701352912453116px;" class="tag-cloud-link">数据结构进阶</a>
     
-    <a href="../../tags/并查集/" style="font-size: 13.966256808739587px;" class="tag-cloud-link">并查集</a>
+    <a href="../../tags/并查集/" style="font-size: 14.791378587734656px;" class="tag-cloud-link">并查集</a>
     
-    <a href="../../tags/树状数组/" style="font-size: 17.36588049340958px;" class="tag-cloud-link">树状数组</a>
+    <a href="../../tags/树状数组/" style="font-size: 13.52490466794369px;" class="tag-cloud-link">树状数组</a>
     
-    <a href="../../tags/线段树/" style="font-size: 18.781775540929544px;" class="tag-cloud-link">线段树</a>
+    <a href="../../tags/线段树/" style="font-size: 12.588047266854002px;" class="tag-cloud-link">线段树</a>
     
-    <a href="../../tags/最短路问题/" style="font-size: 12.064246498670666px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../tags/最短路问题/" style="font-size: 11.737704332056694px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
@@ -1299,7 +1299,7 @@
 </script>
 <script>
     window.slideConfig = {
-      prefix: 'http://px4np122j.bkt.clouddn.com/preview',
+      prefix: 'http://pz4uij39w.bkt.clouddn.com/preview',
       ext: 'jpg',
       maxCount: '18'
     }
