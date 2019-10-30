@@ -132,6 +132,14 @@
                         
                         
                         <li>
+                            <a href="../../../../../categories/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
                             <a href="../../../../../categories/动态规划/">动态规划</a>
                         </li>
                         
@@ -144,7 +152,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../../../../categories/数论/">数论</a>
                         </li>
                         
                         <li>
@@ -152,19 +160,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../categories/数论/">数论</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/Java/">Java</a>
+                            <a href="../../../../../categories/图论/">图论</a>
                         </li>
                         
                         <li>
                             <a href="../../../../../categories/数据结构进阶/">数据结构进阶</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../categories/图论/">图论</a>
                         </li>
                         
                         
@@ -185,11 +185,15 @@
                         
                         
                         <li>
-                            <a href="../../../../../tags/动态规划/">动态规划</a>
+                            <a href="../../../../../tags/Java/">Java</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/树形DP/">树形DP</a>
+                            <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/动态规划/">动态规划</a>
                         </li>
                         
                         <li>
@@ -197,7 +201,7 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/区间DP/">区间DP</a>
+                            <a href="../../../../../tags/dfs/">dfs</a>
                         </li>
                         
                         <li>
@@ -205,11 +209,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/dfs/">dfs</a>
+                            <a href="../../../../../tags/子序列/">子序列</a>
                         </li>
                         
                         <li>
-                            <a href="../../../../../tags/子序列/">子序列</a>
+                            <a href="../../../../../tags/树形DP/">树形DP</a>
                         </li>
                         
                         <li>
@@ -218,10 +222,6 @@
                         
                         <li>
                             <a href="../../../../../tags/搜索/">搜索</a>
-                        </li>
-                        
-                        <li>
-                            <a href="../../../../../tags/记忆化搜索/">记忆化搜索</a>
                         </li>
                         
                         
@@ -308,7 +308,7 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="Acwing背包题库"><a href="#Acwing背包题库" class="headerlink" title="Acwing背包题库"></a><a href="https://www.acwing.com/problem/" target="_blank" rel="noopener">Acwing背包题库</a></h4><h4 id="一-01背包问题"><a href="#一-01背包问题" class="headerlink" title="一.01背包问题"></a>一.01背包问题</h4><p><strong>问题描述</strong></p>
+        <h4 id="Acwing背包题库"><a href="#Acwing背包题库" class="headerlink" title="Acwing背包题库"></a><a href="https://www.acwing.com/problem/" target="_blank" rel="noopener">Acwing背包题库</a></h4><h2 id="一-01背包问题"><a href="#一-01背包问题" class="headerlink" title="一.01背包问题"></a>一.01背包问题</h2><p><strong>问题描述</strong></p>
 <blockquote>
 <p>有 N 件物品和一个容量是 VV 的背包。每件物品只能使用一次。</p>
 <p>第 i 件物品的体积是 vi，价值是 wi。</p>
@@ -350,8 +350,6 @@
 <p>拿或者不拿，就要看哪种方法得到的价值最大，即</p>
 <p><strong>F(i, j) = max(f(i - 1, j), f(i - 1, j - v[i]) + w[i])</strong></p>
 </blockquote>
-<p> 如下图所示：</p>
-<p><img src="http://pu82h1duu.bkt.clouddn.com/6%5D_165TC5AQ~Q%285%5D62~HD%60C.png" alt></p>
 <p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 1000</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> v[maxn + <span class="number">5</span>], w[maxn + <span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> dp[maxn + <span class="number">5</span>][maxn + <span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,W;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;W);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;v[i],&amp;w[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= W; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(v[i] &gt; j)dp[i + <span class="number">1</span>][j] = dp[i][j];</span><br><span class="line">            <span class="keyword">else</span> dp[i + <span class="number">1</span>][j] = max(dp[i][j], dp[i][j - v[i]] +w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n][W]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -359,7 +357,7 @@
 <p><strong>如果用的是本层的状态，枚举体积的时候就要从小到大枚举，这样我们计算体积的时候，可以保证所用到的体积是本层之前计算好的体积</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> d[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, V;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; V;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v, w;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = V; j &gt;= v; j--)</span><br><span class="line">            d[j] = max(d[j], d[j - v] + w);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[V] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="二-01背包问题2"><a href="#二-01背包问题2" class="headerlink" title="二.01背包问题2"></a>二.01背包问题2</h4><p><strong>问题描述</strong></p>
+<h2 id="二-01背包问题2"><a href="#二-01背包问题2" class="headerlink" title="二.01背包问题2"></a>二.01背包问题2</h2><p><strong>问题描述</strong></p>
 <blockquote>
 <p>有n个重量和价值分别为wi，vi的物品。从这些物品中挑选总重量不超过W的物品，求所有挑选方案中价值总和最大的方案</p>
 </blockquote>
@@ -381,7 +379,7 @@
 <p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1000000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> max_n 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> max_v 100</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,W;</span><br><span class="line"><span class="keyword">int</span> dp[max_n+<span class="number">5</span>][max_n*max_v+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> w[max_n+<span class="number">5</span>],v[max_n+<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=max_n*max_v+<span class="number">5</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j&lt;v[i])dp[i+<span class="number">1</span>][j]=dp[i][j];</span><br><span class="line">            <span class="keyword">else</span> dp[i+<span class="number">1</span>][j]=min(dp[i][j],dp[i][j-v[i]]+w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;W);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;w[i]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;v[i]);</span><br><span class="line">    fill(dp[<span class="number">0</span>],dp[<span class="number">0</span>]+max_n*max_v+<span class="number">5</span>,INF);   <span class="comment">//初始化</span></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    solve();</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=max_n*max_v;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[n][i]&lt;=W)res=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="三-完全背包问题"><a href="#三-完全背包问题" class="headerlink" title="三.完全背包问题"></a>三.完全背包问题</h4><blockquote>
+<h2 id="三-完全背包问题"><a href="#三-完全背包问题" class="headerlink" title="三.完全背包问题"></a>三.完全背包问题</h2><blockquote>
 <p>有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。</p>
 <p>第 i 种物品的体积是 vi，价值是 wi。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。<br>输出最大价值。</p>
@@ -419,7 +417,7 @@
 <p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> d[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,V;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; V;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v, w;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = v; j &lt;= V; j++)</span><br><span class="line">            d[j] = max(d[j], d[j - v] + w);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[V] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="四-多重背包问题-I"><a href="#四-多重背包问题-I" class="headerlink" title="四.多重背包问题 I"></a>四.多重背包问题 I</h4><p><strong>题目描述</strong></p>
+<h2 id="四-多重背包问题-I"><a href="#四-多重背包问题-I" class="headerlink" title="四.多重背包问题 I"></a>四.多重背包问题 I</h2><p><strong>题目描述</strong></p>
 <blockquote>
 <p>有 N 种物品和一个容量是 V 的背包。</p>
 <p>第 i 种物品最多有 si 件，每件体积是 vi，价值是 wi。</p>
@@ -447,7 +445,7 @@
 <p><strong>一维数组实现，由于该状态转移用的是上一层的状态，所以枚举体积的时候，我们从大到小枚举</strong>，代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">int</span> d[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, V; </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; V;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v, w, s;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; v &gt;&gt; w &gt;&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = V; j &gt;= v; j--)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= s &amp;&amp; k * v &lt;= j; k++)</span><br><span class="line">                d[j] = max(d[j], d[j - k * v] + k * w);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[V] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="五-多重背包问题II"><a href="#五-多重背包问题II" class="headerlink" title="五.多重背包问题II"></a>五.多重背包问题II</h4><p><strong>题目描述</strong></p>
+<h2 id="五-多重背包问题II"><a href="#五-多重背包问题II" class="headerlink" title="五.多重背包问题II"></a>五.多重背包问题II</h2><p><strong>题目描述</strong></p>
 <blockquote>
 <p>有 N 种物品和一个容量是 V 的背包</p>
 <p>第 i 种物品最多有 si 件，每件体积是 vi，价值是 wi。</p>
@@ -479,7 +477,7 @@
 <p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], b[N], d[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n, V;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; V;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v, w, s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;v, &amp;w, &amp;s);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= s; j &lt;&lt;= <span class="number">1</span>)&#123;<span class="comment">//二进制拆分</span></span><br><span class="line">            a[k] = j * v;    <span class="comment">//用a数组来存体积</span></span><br><span class="line">            b[k++] = j * w;  <span class="comment">//b数组来存价值</span></span><br><span class="line">            s -= j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            a[k] = s * v;</span><br><span class="line">            b[k++] = s * w;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)<span class="comment">//01背包</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = V; j &gt;= a[i]; j--)</span><br><span class="line">            d[j] = max(d[j], d[j - a[i]] + b[i]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[V] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="六-分组背包问题"><a href="#六-分组背包问题" class="headerlink" title="六.分组背包问题"></a>六.分组背包问题</h4><p><strong>题目描述</strong></p>
+<h4 id="六-分组背包问题"><a href="#六-分组背包问题" class="headerlink" title="## 六.分组背包问题"></a>## 六.分组背包问题</h4><p><strong>题目描述</strong></p>
 <blockquote>
 <p>有 N 组物品和一个容量是 V 的背包。</p>
 <p>每组物品有若干个，同一组内的物品最多只能选一个。<br>每件物品的体积是 vij，价值是 wij，其中 i 是组号，j 是组内编号。</p>
@@ -518,7 +516,7 @@
 <p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">int</span> v[N][N], w[N][N];</span><br><span class="line"><span class="keyword">int</span> d[N], s[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, V;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; V;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s[i]; j++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; v[i][j] &gt;&gt; w[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)  <span class="comment">//枚举每一组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = V; j &gt;= <span class="number">0</span>; j--)  <span class="comment">//枚举体积</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; s[i]; k++)<span class="comment">//枚举第i组体积为j时，选取哪个物品价值最大</span></span><br><span class="line">                <span class="keyword">if</span>(v[i][k] &lt;= j)</span><br><span class="line">                    d[j] = max(d[j], d[j - v[i][k]] + w[i][k]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[V] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="七-背包问题求方案数"><a href="#七-背包问题求方案数" class="headerlink" title="七.背包问题求方案数"></a>七.背包问题求方案数</h4><p>有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。</p>
+<h2 id="七-背包问题求方案数"><a href="#七-背包问题求方案数" class="headerlink" title="七.背包问题求方案数"></a>七.背包问题求方案数</h2><p>有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。</p>
 <p>第 i 件物品的体积是 vi，价值是 wi。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
 <p>输出 <strong>最优选法的方案数</strong>。注意答案可能很大，请输出答案模 109+7 的结果。</p>
@@ -535,6 +533,25 @@
 <p><strong>题解：</strong>在01背包问题的基础上，添加一个num数组用来记录方案数即可</p>
 <p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e3</span> + <span class="number">10</span>, mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">int</span> w[N], v[N], dp[N], num[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, V;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;V);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;v[i], &amp;w[i]);</span><br><span class="line">        num[i] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = V; j &gt;= v[i]; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[j] &lt; dp[j - v[i]] + w[i])&#123;<span class="comment">//更新最大价值</span></span><br><span class="line">                dp[j] = dp[j - v[i]] + w[i];</span><br><span class="line">                num[j] = num[j - v[i]] % mod;<span class="comment">//num数组记录更新方案数</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(dp[j] == dp[j - v[i]] + w[i])&#123;<span class="comment">//如果相等</span></span><br><span class="line">                num[j] = (num[j] + num[j - v[i]]) % mod;<span class="comment">//方案数相加</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num[V] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="八-背包问题求具体方案"><a href="#八-背包问题求具体方案" class="headerlink" title="八. 背包问题求具体方案"></a>八. 背包问题求具体方案</h2><p>有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。</p>
+<p>第 i 件物品的体积是 vi，价值是 wi。</p>
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
+<p>输出 <strong>字典序最小的方案</strong>。这里的字典序是指：所选物品的编号所构成的序列。物品的编号范围是 1…N。</p>
+<h4 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行两个整数，N，V，用空格隔开，分别表示物品数量和背包容积。</p>
+<p>接下来有 N 行，每行两个整数 vi,wi，用空格隔开，分别表示第 i 件物品的体积和价值。</p>
+<h4 id="输出格式-3"><a href="#输出格式-3" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一行，包含若干个用空格隔开的整数，表示最优解中所选物品的编号序列，且该编号序列的字典序最小。</p>
+<p>物品编号范围是 1…N。</p>
+<h4 id="数据范围-3"><a href="#数据范围-3" class="headerlink" title="数据范围"></a>数据范围</h4><blockquote>
+<p>0&lt;N,V≤1000<br>0&lt;vi,wi≤1000</p>
+</blockquote>
+<h4 id="输入样例-4"><a href="#输入样例-4" class="headerlink" title="输入样例"></a>输入样例</h4><blockquote>
+<p>4 5<br>1 2<br>2 4<br>3 4<br>4 6</p>
+</blockquote>
+<h4 id="输出样例：-4"><a href="#输出样例：-4" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>1 4</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> v[N], w[N], d[N][N], ans[N];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; v[i] &gt;&gt; w[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; j++)&#123;</span><br><span class="line">            d[i][j] = d[i + <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(j &gt;= v[i])</span><br><span class="line">                d[i][j] = max(d[i][j], d[i + <span class="number">1</span>][j - v[i]] + w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> j = m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j &gt;= v[i] &amp;&amp; d[i][j] == d[i + <span class="number">1</span>][j - v[i]] + w[i])&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">            j -= v[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -608,6 +625,24 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="../../../../10/30/动态规划/状压DP/Acwing-炮兵阵地（状压DP）/">Acwing.炮兵阵地（状压DP）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../10/30/动态规划/状压DP/Acwing-玉米田（状压DP）/">Acwing.玉米田（状压DP）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../10/30/动态规划/状压DP/Acwing-骑士（状压DP）/">Acwing.骑士（状压DP）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="../../../../10/10/动态规划/动态规划之回文串/">动态规划之回文串</a>
                 </span>
             </li>
@@ -648,24 +683,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../09/08/数据结构进阶/树状数组/谜一样的牛-树状数组/">谜一样的牛(树状数组)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../09/07/数据结构进阶/树状数组/一个简单的整数问题2-树状数组/"> 一个简单的整数问题2 (树状数组)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../../../09/07/数据结构进阶/树状数组/一个简单的整数问题-树状数组/">一个简单的整数问题(树状数组)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -684,61 +701,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../31/搜索/送礼物-双向搜索/">送礼物(双向搜索)</a>
+                    <a href="../../../../06/15/搜索/树与图的广度优先遍历/">树与图的广度优先遍历(bfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/14/搜索/迷宫问题/">迷宫问题(bfs)</a>
+                    <a href="../../../../08/20/搜索/靶形数独(数独1变形)/">靶形数独(数独1变形)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../08/02/搜索/装满的油箱/">装满的油箱(bfs)</a>
+                    <a href="../../../../08/18/搜索/骑士-Astar-dfs/">骑士(Astar + dfs)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                    <a href="../../../../06/23/题解/编程俱乐部6月常规赛二题解/">编程俱乐部6月常规赛二题解</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../16/数据结构基础/邻值查找/">邻值查找</a>
+                    <a href="../../../17/数论/素数/">素数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../23/数据结构基础/表达式计算/">表达式计算</a>
+                    <a href="../../../09/数论/高斯消元解线性方程组/">高斯消元解线性方程组</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../27/数据结构基础/黑盒子-堆/">黑盒子(堆)</a>
+                    <a href="../../../../06/24/图论/最小生成树/最小生成树/">最小生成树</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../11/数论/容斥原理/">容斥原理</a>
+                    <a href="../../../../09/05/数据结构进阶/并查集/程序自动分析(并查集)/">程序自动分析(并查集)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../09/04/数据结构进阶/并查集/并查集/">并查集</a>
+                    <a href="../../../../09/10/数据结构进阶/线段树/最大连续字段和-线段树/">最大连续字段和(线段树)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../../../06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
+                    <a href="../../../../09/10/数据结构进阶/线段树/线段树简介/">线段树简介</a>
                 </span>
             </li>
             
@@ -771,105 +788,107 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../../../../tags/动态规划/" style="font-size: 17.869671949488072px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../../../../tags/Java/" style="font-size: 13.560143375805051px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../../../../tags/树形DP/" style="font-size: 16.494253040923727px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 18.877225396566683px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../../../../tags/计数DP/" style="font-size: 11.904341555275586px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../../../../tags/动态规划/" style="font-size: 16.705490285301103px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../../../../tags/区间DP/" style="font-size: 9.51861450670987px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../../../../tags/计数DP/" style="font-size: 12.97886001271803px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../../../../tags/bfs/" style="font-size: 9.108359093145395px;" class="tag-cloud-link">bfs</a>
+    <a href="../../../../../tags/dfs/" style="font-size: 10.593202026031998px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../../../../tags/dfs/" style="font-size: 9.938761737567697px;" class="tag-cloud-link">dfs</a>
+    <a href="../../../../../tags/bfs/" style="font-size: 15.56973989153601px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../../../../tags/子序列/" style="font-size: 12.48609785701034px;" class="tag-cloud-link">子序列</a>
+    <a href="../../../../../tags/子序列/" style="font-size: 9.93045200235387px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../../../../tags/A/" style="font-size: 14.837606483718709px;" class="tag-cloud-link">A*</a>
+    <a href="../../../../../tags/树形DP/" style="font-size: 8.191368786262785px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../../../../tags/搜索/" style="font-size: 11.552333666614965px;" class="tag-cloud-link">搜索</a>
+    <a href="../../../../../tags/A/" style="font-size: 15.909607178165px;" class="tag-cloud-link">A*</a>
     
-    <a href="../../../../../tags/记忆化搜索/" style="font-size: 16.280109451635802px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../../../../tags/搜索/" style="font-size: 11.788333630051824px;" class="tag-cloud-link">搜索</a>
     
-    <a href="../../../../../tags/单链表/" style="font-size: 19.48355290865272px;" class="tag-cloud-link">单链表</a>
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 17.717126800548275px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../../../../tags/哈希/" style="font-size: 13.757214527584264px;" class="tag-cloud-link">哈希</a>
+    <a href="../../../../../tags/哈希/" style="font-size: 19.563394323459747px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../../../../tags/堆/" style="font-size: 12.035826279375163px;" class="tag-cloud-link">堆</a>
+    <a href="../../../../../tags/数据结构/" style="font-size: 17.17712803668104px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../../../../tags/Trie/" style="font-size: 8.195461012141365px;" class="tag-cloud-link">Trie</a>
+    <a href="../../../../../tags/栈/" style="font-size: 10.222037939119476px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../../../../tags/数据结构/" style="font-size: 19.459124704733384px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../../../../tags/Trie/" style="font-size: 17.757007172704213px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../../../../tags/栈/" style="font-size: 10.34680589040088px;" class="tag-cloud-link">栈</a>
+    <a href="../../../../../tags/单链表/" style="font-size: 13.213594640221151px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../../../../tags/字符串哈希/" style="font-size: 10.978038788291006px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../../../../tags/kmp/" style="font-size: 8.08203549198162px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../../../../tags/单调栈/" style="font-size: 9.186171476166871px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 13.750846628137515px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../../../../tags/kmp/" style="font-size: 10.737471672806944px;" class="tag-cloud-link">kmp</a>
+    <a href="../../../../../tags/堆/" style="font-size: 16.373197220866572px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../../../../tags/链表/" style="font-size: 8.191764563075154px;" class="tag-cloud-link">链表</a>
+    <a href="../../../../../tags/单调栈/" style="font-size: 15.08635759047095px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../../../../tags/JavaScirpt/" style="font-size: 12.124693077778492px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../../../../tags/链表/" style="font-size: 15.633813991535655px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../../../../tags/树的最小表示/" style="font-size: 16.620867495502463px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../../../../tags/二叉堆/" style="font-size: 10.24150896682614px;" class="tag-cloud-link">二叉堆</a>
     
-    <a href="../../../../../tags/题解/" style="font-size: 18.931031067087847px;" class="tag-cloud-link">题解</a>
+    <a href="../../../../../tags/字符串/" style="font-size: 10.437538564387369px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../../../../tags/字符串/" style="font-size: 12.87865080097797px;" class="tag-cloud-link">字符串</a>
+    <a href="../../../../../tags/数论/" style="font-size: 10.26864015070775px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../../../../tags/二叉堆/" style="font-size: 17.159635465640918px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../../../../tags/约数/" style="font-size: 10.448355124019166px;" class="tag-cloud-link">约数</a>
     
-    <a href="../../../../../tags/数论/" style="font-size: 19.150077979629614px;" class="tag-cloud-link">数论</a>
+    <a href="../../../../../tags/SG函数/" style="font-size: 13.092249599143287px;" class="tag-cloud-link">SG函数</a>
     
-    <a href="../../../../../tags/约数/" style="font-size: 18.32818047265537px;" class="tag-cloud-link">约数</a>
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 14.798522751488614px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../../../../tags/高斯消元/" style="font-size: 14.424090332065163px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../../../../tags/博弈论/" style="font-size: 17.094515918171343px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../../../../tags/同余/" style="font-size: 11.602975412400937px;" class="tag-cloud-link">同余</a>
+    <a href="../../../../../tags/同余/" style="font-size: 19.988860179478067px;" class="tag-cloud-link">同余</a>
     
-    <a href="../../../../../tags/欧拉函数/" style="font-size: 9.606689204803507px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../../../../tags/容斥原理/" style="font-size: 8.143719514834174px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 10.60088423801083px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../../../../tags/高斯消元/" style="font-size: 17.501776552437967px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../../../../tags/博弈论/" style="font-size: 18.45848304793203px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 10.421179386542775px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../../../../tags/容斥原理/" style="font-size: 16.353470272993622px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../../../../tags/矩阵快速幂/" style="font-size: 16.497400255354158px;" class="tag-cloud-link">矩阵快速幂</a>
     
-    <a href="../../../../../tags/数论，约数/" style="font-size: 12.616900754805377px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 12.826445014961873px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../../../../tags/矩阵快速幂/" style="font-size: 11.631750547435924px;" class="tag-cloud-link">矩阵快速幂</a>
+    <a href="../../../../../tags/快速幂/" style="font-size: 17.210160830476116px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../../../../tags/SG函数/" style="font-size: 11.475460030343855px;" class="tag-cloud-link">SG函数</a>
+    <a href="../../../../../tags/数论，约数/" style="font-size: 8.085083776704733px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../../../../tags/组合数/" style="font-size: 16.93986956219707px;" class="tag-cloud-link">组合数</a>
+    <a href="../../../../../tags/数学期望/" style="font-size: 11.020936972900449px;" class="tag-cloud-link">数学期望</a>
     
-    <a href="../../../../../tags/快速幂/" style="font-size: 18.035927986281727px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../../../../tags/素数/" style="font-size: 10.762776902220041px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../../../../tags/数学期望/" style="font-size: 19.75394625282952px;" class="tag-cloud-link">数学期望</a>
+    <a href="../../../../../tags/题解/" style="font-size: 8.883860263472977px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../../../../tags/素数/" style="font-size: 15.235286053448768px;" class="tag-cloud-link">素数</a>
+    <a href="../../../../../tags/组合数/" style="font-size: 12.253586520719812px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../../../../tags/背包问题/" style="font-size: 12.458108478058783px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../../../../tags/背包问题/" style="font-size: 13.433720787407665px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../../../../tags/Java/" style="font-size: 12.908020524966958px;" class="tag-cloud-link">Java</a>
+    <a href="../../../../../tags/区间DP/" style="font-size: 16.991491957526353px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../../../../tags/数据结构进阶/" style="font-size: 14.149782372737633px;" class="tag-cloud-link">数据结构进阶</a>
+    <a href="../../../../../tags/状压DP/" style="font-size: 12.37156715472716px;" class="tag-cloud-link">状压DP</a>
     
-    <a href="../../../../../tags/并查集/" style="font-size: 10.585107124842807px;" class="tag-cloud-link">并查集</a>
+    <a href="../../../../../tags/图论/" style="font-size: 14.95869166193008px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../../../../tags/树状数组/" style="font-size: 8.294314289195643px;" class="tag-cloud-link">树状数组</a>
+    <a href="../../../../../tags/最小生成树/" style="font-size: 12.936721877733818px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../../../../tags/线段树/" style="font-size: 11.500921489858335px;" class="tag-cloud-link">线段树</a>
+    <a href="../../../../../tags/二分图/" style="font-size: 19.60741308309759px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../../../../tags/图论/" style="font-size: 9.836812320899458px;" class="tag-cloud-link">图论</a>
+    <a href="../../../../../tags/数据结构进阶/" style="font-size: 15.28487385504203px;" class="tag-cloud-link">数据结构进阶</a>
     
-    <a href="../../../../../tags/二分图/" style="font-size: 13.066151663957868px;" class="tag-cloud-link">二分图</a>
+    <a href="../../../../../tags/树状数组/" style="font-size: 11.937388851047265px;" class="tag-cloud-link">树状数组</a>
     
-    <a href="../../../../../tags/最小生成树/" style="font-size: 14.866080951324815px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../../../../tags/并查集/" style="font-size: 12.594330367883476px;" class="tag-cloud-link">并查集</a>
     
-    <a href="../../../../../tags/最短路问题/" style="font-size: 13.895165387354027px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../../../../tags/线段树/" style="font-size: 8.727101822005011px;" class="tag-cloud-link">线段树</a>
+    
+    <a href="../../../../../tags/最短路问题/" style="font-size: 8.058830626535373px;" class="tag-cloud-link">最短路问题</a>
     
 </div>
                 
