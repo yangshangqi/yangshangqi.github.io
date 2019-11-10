@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="zhumenger">
+    
+    <meta name="description" content="穿过落雁修竹, 看过日升月暮&lt;br/&gt;你说总有一天你会名扬天下实现你的抱负!">
+    
+    
+    
+    
+    
+    
+    <title>动态规划之回文串 | zhumenger ❤ blog</title>
+    <link href="”http://zhumenger.top“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="../../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../../css/aos.css">
+<link rel="stylesheet" href="../../../../../../css/style.css">
+    <script src="../../../../../../js/jquery.min.js"></script>
+    <script src="../../../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../../../js/aos.js"></script>
+    <script src="../../../../../../js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="../../../../../../js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '../../../../../../imgs/http:/q0c3sqvsl.bkt.clouddn.com/zhumenger.jpg'
+        var previews = 'http://q0c3sqvsl.bkt.clouddn.com/preview1.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview2.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview3.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview4.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview5.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview6.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview7.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview8.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview9.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview10.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview11.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview12.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview13.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview14.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview15.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview16.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview17.jpg,http://q0c3sqvsl.bkt.clouddn.com/preview18.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '../../../../../../imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://zhumenger.top" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="../../../../../../archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="../../../../../../about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="../../../../../../categories" class="menuItem" style="left: 19.6891%; top: 67.5%;">分类</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="../../../../../../imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://zhumenger.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">zhumenger ❤ blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class>
+                    <a href="../../../../../../index.html">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class>
+                    <a href="../../../../../../archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../../categories/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/数论/">数论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/动态规划/">动态规划</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/图论/">图论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../categories/数据结构进阶/">数据结构进阶</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../../tags/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/A/">A*</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/记忆化搜索/">记忆化搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/数据结构/">数据结构</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/栈/">栈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="../../../../../../tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class>
+                    <a href="../../../../../../about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>动态规划之回文串</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href>动态规划之回文串</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../../tags/动态规划/">动态规划</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-10-10
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href>动态规划之回文串</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-10-10
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../../tags/动态规划/">动态规划</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h4 id="一-DP求回文串-POJ-1159"><a href="#一-DP求回文串-POJ-1159" class="headerlink" title="一.DP求回文串[POJ-1159]"></a>一.DP求回文串<a href="https://vjudge.net/problem/POJ-1159" target="_blank" rel="noopener">[POJ-1159]</a></h4><p>A palindrome is a symmetrical string, that is, a string read identically from left to right as well as from right to left. You are to write a program which, given a string, determines the minimal number of characters to be inserted into the string in order to obtain a palindrome.</p>
+<p>As an example, by inserting 2 characters, the string “Ab3bd” can be transformed into a palindrome (“dAb3bAd” or “Adb3bdA”). However, inserting fewer than 2 characters does not produce a palindrome.</p>
+<h4 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h4><p>Your program is to read from standard input. The first line contains one integer: the length of the input string N, 3 &lt;= N &lt;= 5000. The second line contains one string with length N. The string is formed from uppercase letters from ‘A’ to ‘Z’, lowercase letters from ‘a’ to ‘z’ and digits from ‘0’ to ‘9’. Uppercase and lowercase letters are to be considered distinct.</p>
+<h4 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h4><p>Your program is to write to standard output. The first line contains one integer, which is the desired minimal number.</p>
+<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><blockquote>
+<p>5
+Ab3bd</p>
+</blockquote>
+<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><blockquote>
+<p>2</p>
+</blockquote>
+<p><strong>题目描述：</strong></p>
+<p>给你一个字符串，问最少需要添加几个字符可以将该字符串变为回文串</p>
+<p><strong>设原序列S的逆序列为S’，最少需要补充的字母数 = 原序列S的长度 —  S和S’的最长公共子串长度</strong></p>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//题目意思呢就是给你一串字符，问最少需要插入几个字符能形成回文字符串</span></span><br><span class="line"><span class="comment">//解题思路：这就是求该字符串正序和逆序最长公共子序列问题</span></span><br><span class="line"><span class="comment">//这样就可以找到对称着的最长公共子序列了，然后用总长度减去这个就是我们要求的了。</span></span><br><span class="line"><span class="comment">//这道题超内存, 所以要用</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5010</span>;</span><br><span class="line"><span class="keyword">char</span> s1[N], s2[N];</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">2</span>][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt;n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; (s1 + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        s2[i] = s1[n - i + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s1[i] == s2[j])</span><br><span class="line">                d[t][j] = d[t ^ <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> d[t][j] = max(d[t ^ <span class="number">1</span>][j], d[t][j - <span class="number">1</span>]);</span><br><span class="line">            ans = max(ans, d[t][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        t ^= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; n - ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二-DP求变成回文串的最小花费-POJ-3280"><a href="#二-DP求变成回文串的最小花费-POJ-3280" class="headerlink" title="二.DP求变成回文串的最小花费[POJ-3280]"></a>二.DP求变成回文串的最小花费<a href="https://vjudge.net/problem/POJ-3280" target="_blank" rel="noopener">[POJ-3280]</a></h4><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>Keeping track of all the cows can be a tricky task so Farmer John has installed a system to automate it. He has installed on each cow an electronic ID tag that the system will read as the cows pass by a scanner. Each ID tag’s contents are currently a single string with length <em>M</em> (1 ≤ <em>M</em> ≤ 2,000) characters drawn from an alphabet of <em>N</em> (1 ≤ <em>N</em> ≤ 26) different symbols (namely, the lower-case roman alphabet).</p>
+<p>Cows, being the mischievous creatures they are, sometimes try to spoof the system by walking backwards. While a cow whose ID is “abcba” would read the same no matter which direction the she walks, a cow with the ID “abcb” can potentially register as two different IDs (“abcb” and “bcba”).</p>
+<p>FJ would like to change the cows’s ID tags so they read the same no matter which direction the cow walks by. For example, “abcb” can be changed by adding “a” at the end to form “abcba” so that the ID is palindromic (reads the same forwards and backwards). Some other ways to change the ID to be palindromic are include adding the three letters “bcb” to the begining to yield the ID “bcbabcb” or removing the letter “a” to yield the ID “bcb”. One can add or remove characters at any location in the string yielding a string longer or shorter than the original string.</p>
+<p>Unfortunately as the ID tags are electronic, each character insertion or deletion has a cost (0 ≤ <em>cost</em> ≤ 10,000) which varies depending on exactly which character value to be added or deleted. Given the content of a cow’s ID tag and the cost of inserting or deleting each of the alphabet’s characters, find the minimum cost to change the ID tag so it satisfies FJ’s requirements. An empty ID tag is considered to satisfy the requirements of reading the same forward and backward. Only letters with associated costs can be added to a string.</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>Line 1: Two space-separated integers: <em>N</em> and <em>M</em><br>Line 2: This line contains exactly <em>M</em> characters which constitute the initial ID string<br>Lines 3.. <em>N</em>+2: Each line contains three space-separated entities: a character of the input alphabet and two integers which are respectively the cost of adding and deleting that character.</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>Line 1: A single line with a single integer that is the minimum cost to change the given name tag.</p>
+<h4 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例"></a>输入样例</h4><blockquote>
+<p>3 4<br>abcb<br>a 1000 1100<br>b 350 700<br>c 200 800</p>
+</blockquote>
+<h4 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例"></a>输出样例</h4><blockquote>
+<p>900</p>
+</blockquote>
+<p><strong>题目大意：</strong></p>
+<p>给你一个字符串，可以对每个字符串进行添加或删除，添加和删除都有对应的花费，问：变为回文串的最小花费</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我们用dp[i][j]表示将i~j位置的字符串变为回文串的最低消费。</span></span><br><span class="line"><span class="comment">//当str[i]==str[j]时：dp[i][j]==dp[i+1][j-1]</span></span><br><span class="line"><span class="comment">//当i+1到j是回文串时：dp[i][j]==dp[i+1][j] + min ( add[str[i]]，reduce[str[i]] )</span></span><br><span class="line"><span class="comment">//当i到j-1是回文串时：dp[i][j]==dp[i][j-1] + min( add[str[j]]，reduce[str[j]] )</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>, INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"><span class="keyword">int</span> cost[N], d[N][N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt;n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; (s + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        cost[c - <span class="string">'a'</span>] = min(a, b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//区间DP</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> len = <span class="number">2</span>; len &lt;= m; len++)&#123; <span class="comment">// 枚举长度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r = len; r &lt;= m; l++, r ++)&#123;  <span class="comment">//枚举起点和终点</span></span><br><span class="line">            d[l][r] = INF;</span><br><span class="line">            <span class="keyword">if</span>(s[l] == s[r])</span><br><span class="line">                d[l][r] = d[l + <span class="number">1</span>][r - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                d[l][r] = min(d[l][r], d[l + <span class="number">1</span>][r] + cost[s[l] - <span class="string">'a'</span>]);</span><br><span class="line">                d[l][r] = min(d[l][r], d[l][r - <span class="number">1</span>] + cost[s[r] - <span class="string">'a'</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[<span class="number">1</span>][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '动态规划之回文串'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="../../../../../../search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            zhumenger
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://q0c3sqvsl.bkt.clouddn.com/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说总有一天你会名扬天下实现你的抱负!</p>
+<p></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/10/动态规划/树形DP/皇宫看守-树形DP/">皇宫看守(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/10/动态规划/树形DP/战略游戏-树形DP/">战略游戏(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/10/动态规划/树形DP/二叉苹果树-树形DP/">二叉苹果树(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/10/动态规划/树形DP/数字转换-树形DP/">数字转换(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/树形DP/树的中心-树形DP/">树的中心(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/树形DP/树的最长路径-树形DP/">树的最长路径(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/区间DP/棋盘分割-区间DP/">棋盘分割(区间DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/区间DP/凸多边形的划分-区间DP/">凸多边形的划分(区间DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/区间DP/加分二叉树-区间DP/">加分二叉树(区间DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/区间DP/环形石子合并-区间DP/">环形石子合并(区间DP)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../07/20/Java/Java基础之对象和内存分析/">Java基础之对象和内存分析</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../07/08/JavaScirpt/JS基础之标识符、数据类型/">JS基础之标识符、数据类型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../08/19/搜索/回转游戏-Astar-dfs/">回转游戏(Astar + dfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../07/28/搜索/可达性统计/">可达性统计</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../08/20/搜索/靶形数独(数独1变形)/">靶形数独(数独1变形)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../06/10/数据结构基础/堆/">堆</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../07/16/数据结构基础/雪花雪花雪花(最小表示法)/">雪花雪花雪花</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../11/09/动态规划/树形DP/树的最长路径-树形DP/">树的最长路径(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../30/动态规划/状压DP/Acwing-玉米田（状压DP）/">Acwing.玉米田（状压DP）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../../09/05/数据结构进阶/并查集/奇偶游戏(并查集)/">奇偶游戏(并查集)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="../../../../../../tags/Java/" style="font-size: 13.987548424761343px;" class="tag-cloud-link">Java</a>
+    
+    <a href="../../../../../../tags/JavaScirpt/" style="font-size: 17.67148711727525px;" class="tag-cloud-link">JavaScirpt</a>
+    
+    <a href="../../../../../../tags/dfs/" style="font-size: 10.979970580419694px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="../../../../../../tags/bfs/" style="font-size: 19.621930075972386px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="../../../../../../tags/A/" style="font-size: 10.740257024367434px;" class="tag-cloud-link">A*</a>
+    
+    <a href="../../../../../../tags/搜索/" style="font-size: 14.919458657190308px;" class="tag-cloud-link">搜索</a>
+    
+    <a href="../../../../../../tags/记忆化搜索/" style="font-size: 13.989808651689922px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="../../../../../../tags/数据结构/" style="font-size: 11.178440114571579px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="../../../../../../tags/栈/" style="font-size: 18.496529726855396px;" class="tag-cloud-link">栈</a>
+    
+    <a href="../../../../../../tags/单链表/" style="font-size: 10.623425876686483px;" class="tag-cloud-link">单链表</a>
+    
+    <a href="../../../../../../tags/哈希/" style="font-size: 11.578927934012427px;" class="tag-cloud-link">哈希</a>
+    
+    <a href="../../../../../../tags/kmp/" style="font-size: 13.677999197445498px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="../../../../../../tags/二叉堆/" style="font-size: 9.58993639405185px;" class="tag-cloud-link">二叉堆</a>
+    
+    <a href="../../../../../../tags/链表/" style="font-size: 16.689415857539622px;" class="tag-cloud-link">链表</a>
+    
+    <a href="../../../../../../tags/Trie/" style="font-size: 12.485377744815521px;" class="tag-cloud-link">Trie</a>
+    
+    <a href="../../../../../../tags/堆/" style="font-size: 13.250312920884921px;" class="tag-cloud-link">堆</a>
+    
+    <a href="../../../../../../tags/单调栈/" style="font-size: 13.211348498493818px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="../../../../../../tags/字符串哈希/" style="font-size: 14.49524065929078px;" class="tag-cloud-link">字符串哈希</a>
+    
+    <a href="../../../../../../tags/字符串/" style="font-size: 18.919480631952474px;" class="tag-cloud-link">字符串</a>
+    
+    <a href="../../../../../../tags/数论/" style="font-size: 17.376122337855918px;" class="tag-cloud-link">数论</a>
+    
+    <a href="../../../../../../tags/约数/" style="font-size: 11.528215733302012px;" class="tag-cloud-link">约数</a>
+    
+    <a href="../../../../../../tags/SG函数/" style="font-size: 17.09271737607189px;" class="tag-cloud-link">SG函数</a>
+    
+    <a href="../../../../../../tags/树的最小表示/" style="font-size: 15.487653763783978px;" class="tag-cloud-link">树的最小表示</a>
+    
+    <a href="../../../../../../tags/博弈论/" style="font-size: 10.608102227236312px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="../../../../../../tags/容斥原理/" style="font-size: 8.795545217071318px;" class="tag-cloud-link">容斥原理</a>
+    
+    <a href="../../../../../../tags/高斯消元/" style="font-size: 16.281434521562453px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="../../../../../../tags/同余/" style="font-size: 16.02765000451439px;" class="tag-cloud-link">同余</a>
+    
+    <a href="../../../../../../tags/欧拉函数/" style="font-size: 11.400907719298072px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="../../../../../../tags/数论，约数/" style="font-size: 15.031305765843907px;" class="tag-cloud-link">数论，约数</a>
+    
+    <a href="../../../../../../tags/矩阵快速幂/" style="font-size: 9.892845449163994px;" class="tag-cloud-link">矩阵快速幂</a>
+    
+    <a href="../../../../../../tags/快速幂/" style="font-size: 8.233278781061076px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="../../../../../../tags/扩展欧几里得/" style="font-size: 12.601991810147549px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="../../../../../../tags/组合数/" style="font-size: 12.728593190735271px;" class="tag-cloud-link">组合数</a>
+    
+    <a href="../../../../../../tags/数学期望/" style="font-size: 9.416388207810073px;" class="tag-cloud-link">数学期望</a>
+    
+    <a href="../../../../../../tags/素数/" style="font-size: 9.072251882775815px;" class="tag-cloud-link">素数</a>
+    
+    <a href="../../../../../../tags/题解/" style="font-size: 15.330702081587937px;" class="tag-cloud-link">题解</a>
+    
+    <a href="../../../../../../tags/动态规划/" style="font-size: 13.743267280845563px;" class="tag-cloud-link">动态规划</a>
+    
+    <a href="../../../../../../tags/区间DP/" style="font-size: 10.571135095672775px;" class="tag-cloud-link">区间DP</a>
+    
+    <a href="../../../../../../tags/计数DP/" style="font-size: 8.435033268023439px;" class="tag-cloud-link">计数DP</a>
+    
+    <a href="../../../../../../tags/子序列/" style="font-size: 9.357474788001902px;" class="tag-cloud-link">子序列</a>
+    
+    <a href="../../../../../../tags/树形DP/" style="font-size: 16.358510608852455px;" class="tag-cloud-link">树形DP</a>
+    
+    <a href="../../../../../../tags/状压DP/" style="font-size: 15.989408070153122px;" class="tag-cloud-link">状压DP</a>
+    
+    <a href="../../../../../../tags/图论/" style="font-size: 11.847509875238591px;" class="tag-cloud-link">图论</a>
+    
+    <a href="../../../../../../tags/二分图/" style="font-size: 17.872308154138942px;" class="tag-cloud-link">二分图</a>
+    
+    <a href="../../../../../../tags/最小生成树/" style="font-size: 18.199274001403538px;" class="tag-cloud-link">最小生成树</a>
+    
+    <a href="../../../../../../tags/数据结构进阶/" style="font-size: 16.45152783725323px;" class="tag-cloud-link">数据结构进阶</a>
+    
+    <a href="../../../../../../tags/并查集/" style="font-size: 16.020681947386148px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="../../../../../../tags/背包问题/" style="font-size: 10.882104776413886px;" class="tag-cloud-link">背包问题</a>
+    
+    <a href="../../../../../../tags/树状数组/" style="font-size: 8.099120937722542px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="../../../../../../tags/线段树/" style="font-size: 9.074008960380189px;" class="tag-cloud-link">线段树</a>
+    
+    <a href="../../../../../../tags/最短路问题/" style="font-size: 12.321309501318186px;" class="tag-cloud-link">最短路问题</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://zhuojiuw.top/" target="_blank">酌酒</a>
+    </li>
+    
+    <li>
+        <a href="http://120.77.42.77/?tdsourcetag=s_pcqq_aiomsg" target="_blank">血小板自动机&#39;s Blog</a>
+    </li>
+    
+    <li>
+        <a href="http://lengtongorz.com" target="_blank">空白之间</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.csdn.net/qq_43328040" target="_blank">CSDN</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
+    </aside>
+    
+</aside>r
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 zhumenger Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+
+<!-- 雪花特效 -->
+<script type="text/javascript">
+  var windowWidth = $(window).width();
+  if (windowWidth > 480) {
+    document.write('<script type="text/javascript" src="/js/snow.js"><\/script>');
+  }
+</script>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/love.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://q0c3sqvsl.bkt.clouddn.com/preview',
+      ext: 'jpg',
+      maxCount: '18'
+    }
+</script>
+<script src="../../../../../../js/hs.js"></script>
+<script src="../../../../../../js/blog.js"></script>
+
+<script src="../../../../../../js/oni.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Thu Oct 10 2019 20:54:40 GMT+0800'
+      window.commentConfig.owner = 'yangshangqi'
+      window.commentConfig.repo = 'yangshangqi.github.io'
+      window.commentConfig.client_id = '60e14965f8d29e28aed6'
+      window.commentConfig.client_secret = '734664cef8637979b4e5ace1145b8f19456aa802'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Thu Oct 10 2019 20:54:40 GMT+0800',
+        owner: 'yangshangqi',
+        repo: 'yangshangqi.github.io',
+        client_id: '60e14965f8d29e28aed6',
+        client_secret: '734664cef8637979b4e5ace1145b8f19456aa802',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="../../../../../../js/comment/gitment.js"></script>
+
+<script src="/live2d-widget/autoload.js"></script>
+</html>
