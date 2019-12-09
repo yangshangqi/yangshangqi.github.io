@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhumenger.top/"/>
-  <updated>2019-12-03T10:56:09.762Z</updated>
+  <updated>2019-12-09T05:37:21.593Z</updated>
   <id>http://zhumenger.top/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pycharm导入包问题</title>
+    <link href="http://zhumenger.top/2019/12/09/%E6%9D%82%E7%AB%A0/pycharm%E5%AF%BC%E5%85%A5%E5%8C%85%E9%97%AE%E9%A2%98/"/>
+    <id>http://zhumenger.top/2019/12/09/杂章/pycharm导入包问题/</id>
+    <published>2019-12-09T05:32:27.000Z</published>
+    <updated>2019-12-09T05:37:21.593Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用pycharm安装模块的时候，经常出现安装不成功或超时的问题，</p><p>一般情况下pip出现ReadTimeoutError都是因为被GFW给墙了，所以一般遇到这种问题，我们可以选择国内的镜像来解决问题。</p><p>注：防火长城（英语：Great Firewall (of China)，常用简称：GFW，中文也称中国国家防火墙，中国大陆民众俗称墙、防火墙、功夫网等等），是对中华人民共和国政府在其互联网边界审查系统（包括相关行政审查系统）的统称。</p><p>解决方法：</p><h4 id="一-使用镜像。"><a href="#一-使用镜像。" class="headerlink" title="一.使用镜像。"></a>一.使用镜像。</h4><blockquote><p>常用的有镜像有<br>清华大学镜像：<a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br>阿里云：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a><br>中科大镜像：<a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>豆瓣镜像：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><br>中科大镜像2：<a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a><br>使用镜像的安装范式为：pip install xxxx -i http://… 或者 pip install  -i http://… xxxx。</p></blockquote><blockquote><p> 示例如下：</p><p>pip install imageio -i <a href="https://pypi.douban.com/simple" target="_blank" rel="noopener">https://pypi.douban.com/simple</a></p></blockquote><h4 id="二-在Windows下："><a href="#二-在Windows下：" class="headerlink" title="二.在Windows下："></a>二.在Windows下：</h4><p>C:\Users\Administrator\下新建pip文件夹，在创建pip.ini文件，拷贝下面代码进去，保存。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> [global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用pycharm安装模块的时候，经常出现安装不成功或超时的问题，&lt;/p&gt;
+&lt;p&gt;一般情况下pip出现ReadTimeoutError都是因为被GFW给墙了，所以一般遇到这种问题，我们可以选择国内的镜像来解决问题。&lt;/p&gt;
+&lt;p&gt;注：防火长城（英语：Great Firewa
+      
+    
+    </summary>
+    
+      <category term="杂章" scheme="http://zhumenger.top/categories/%E6%9D%82%E7%AB%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>将本地文件夹添加到git仓库</title>
+    <link href="http://zhumenger.top/2019/12/09/%E6%9D%82%E7%AB%A0/%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B7%BB%E5%8A%A0%E5%88%B0git%E4%BB%93%E5%BA%93/"/>
+    <id>http://zhumenger.top/2019/12/09/杂章/将本地文件夹添加到git仓库/</id>
+    <published>2019-12-09T05:26:26.000Z</published>
+    <updated>2019-12-09T05:31:35.587Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>git init;</span><br><span class="line"><span class="number">2.</span>git add .</span><br><span class="line"><span class="number">3.</span>git commit -m ``<span class="string">"初始化"</span></span><br><span class="line"><span class="number">4.</span>git remote add origin https:``<span class="comment">//github.com/githubusername/demo.git</span></span><br><span class="line"><span class="number">5.</span>git pull --rebase origin master</span><br><span class="line"><span class="number">6.</span>git push -u origin master</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;li
+      
+    
+    </summary>
+    
+      <category term="杂章" scheme="http://zhumenger.top/categories/%E6%9D%82%E7%AB%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>理想的正方形(单调队列DP)</title>
@@ -102,7 +150,7 @@
     <link href="http://zhumenger.top/2019/12/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97DP/%E6%97%85%E8%A1%8C%E9%97%AE%E9%A2%98-%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97DP/"/>
     <id>http://zhumenger.top/2019/12/03/动态规划/单调队列DP/旅行问题-单调队列DP/</id>
     <published>2019-12-03T10:11:41.000Z</published>
-    <updated>2019-12-03T10:48:34.182Z</updated>
+    <updated>2019-12-06T00:05:39.463Z</updated>
     
     <content type="html"><![CDATA[<h4 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><a href="https://www.acwing.com/problem/content/1090/" target="_blank" rel="noopener">题目传送门</a></h4><p>John 打算驾驶一辆汽车周游一个环形公路。</p><p>公路上总共有 n 个车站，每站都有若干升汽油（有的站可能油量为零），每升油可以让汽车行驶一千米。</p><p>John 必须从某个车站出发，一直按顺时针（或逆时针）方向走遍所有的车站，并回到起点。</p><p>在一开始的时候，汽车内油量为零，John 每到一个车站就把该站所有的油都带上（起点站亦是如此），行驶过程中不能出现没有油的情况。</p><p>任务：判断以每个车站为起点能否按条件成功周游一周。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行是一个整数 n，表示环形公路上的车站数；</p><p>接下来 n 行，每行两个整数 pi,di，分别表示表示第 i 号车站的存油量和第 i 号车站到下一站的距离。</p><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出共 n 行，如果从第 i 号车站出发，一直按顺时针（或逆时针）方向行驶，能够成功周游一圈，则在第 i 行输出 TAK，否则输出 NIE。</p><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>3≤n≤106<br>0≤pi≤2×109<br>0&lt;di≤2×109</p><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote><p>53 1<br>1 2<br>5 2<br>0 1<br>5 4</p></blockquote><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote><p>TAK<br>NIE<br>TAK<br>NIE<br>TAK</p></blockquote><h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>环形路，扩展2倍变成一条路<br>先顺时针方向：倒着求, 单调队列存最小前缀和, 最后判断从 i 出发如果最小前缀和s[j] &gt;= s[ i ] (j &gt; i, j &gt; i + n - 1,且车站个数为n), 说明可以从i出发到各个点<br>逆时针方向: 正着求, 单调队列存最大前缀和, 最后判断从 i 出发如果最大前缀和s[j] &lt;= s[ i ] (j &lt; i, j &gt; i - n - 1且车站个数为n), 说明可以从i出发到各个点<br>最后输出答案即可</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> st[N], l, r;</span><br><span class="line"><span class="keyword">int</span> vis[N];</span><br><span class="line">ll s[N];</span><br><span class="line"><span class="keyword">int</span> a[N], b[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i] &gt;&gt; b[i];</span><br><span class="line">        s[i] = s[i + n] = a[i] - b[i];  <span class="comment">//得到俩个点之间的权值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2</span> * n; i++)</span><br><span class="line">        s[i] += s[i - <span class="number">1</span>];</span><br><span class="line">    l = <span class="number">0</span>;</span><br><span class="line">    r = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> * n; i &gt;= <span class="number">0</span>; i--)&#123;  <span class="comment">//顺时针走，需要倒着求</span></span><br><span class="line">        <span class="keyword">if</span>(st[l] &gt;= i + n)l++;  <span class="comment">//维护n个车站</span></span><br><span class="line">        <span class="keyword">if</span>(i &lt; n)&#123;   </span><br><span class="line">            <span class="keyword">if</span>(s[i] &lt;= s[st[l]])vis[i + <span class="number">1</span>] = <span class="number">1</span>;  <span class="comment">//起点i + 1与 n 个车站内的最小前缀和进行比较, 判断是否可达 </span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r &amp;&amp; s[st[r]] &gt;= s[i])r--;</span><br><span class="line">        st[++r] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//翻转一下，逆时针方向走</span></span><br><span class="line">    b[<span class="number">0</span>] = b[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) s[i] = s[i + n] = a[i] - b[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2</span> * n; i++) s[i] += s[i - <span class="number">1</span>];</span><br><span class="line">    l = <span class="number">0</span>;</span><br><span class="line">    r = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2</span> * n; i++)&#123;  <span class="comment">//逆时针走, 需要先正着求</span></span><br><span class="line">        <span class="keyword">if</span>(st[l] &lt;= i - n)l++; <span class="comment">//维护n个车站</span></span><br><span class="line">        <span class="keyword">if</span>(i &gt; n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] &gt;= s[st[l]])vis[i - n] = <span class="number">1</span>; <span class="comment">//起点 i - n与 n 个车站内的最大前缀和进行比较, 判断是否可达</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r &amp;&amp; s[st[r]] &lt;= s[i])r--;</span><br><span class="line">        st[++r] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[i])<span class="built_in">puts</span>(<span class="string">"TAK"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"NIE"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
