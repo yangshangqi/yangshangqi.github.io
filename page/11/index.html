@@ -132,11 +132,11 @@
                         
                         
                         <li>
-                            <a href="../../categories/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../categories/Java/">Java</a>
                         </li>
                         
                         <li>
-                            <a href="../../categories/Java/">Java</a>
+                            <a href="../../categories/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
@@ -148,11 +148,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../categories/杂章/">杂章</a>
+                            <a href="../../categories/数论/">数论</a>
                         </li>
                         
                         <li>
-                            <a href="../../categories/数论/">数论</a>
+                            <a href="../../categories/杂章/">杂章</a>
                         </li>
                         
                         <li>
@@ -189,11 +189,11 @@
                         
                         
                         <li>
-                            <a href="../../tags/JavaScirpt/">JavaScirpt</a>
+                            <a href="../../tags/Java/">Java</a>
                         </li>
                         
                         <li>
-                            <a href="../../tags/Java/">Java</a>
+                            <a href="../../tags/JavaScirpt/">JavaScirpt</a>
                         </li>
                         
                         <li>
@@ -217,11 +217,11 @@
                         </li>
                         
                         <li>
-                            <a href="../../tags/单链表/">单链表</a>
+                            <a href="../../tags/Trie/">Trie</a>
                         </li>
                         
                         <li>
-                            <a href="../../tags/Trie/">Trie</a>
+                            <a href="../../tags/单链表/">单链表</a>
                         </li>
                         
                         <li>
@@ -308,7 +308,7 @@
                 <a href="../../2019/08/18/搜索/骑士-Astar-dfs/">
                     <div class="img">
                         
-                        <img src="http://q1xkysiha.bkt.clouddn.com/preview4.jpg" alt="骑士(Astar + dfs)">
+                        <img src="http://q1xkysiha.bkt.clouddn.com/preview13.jpg" alt="骑士(Astar + dfs)">
                     </div>
                     <div class="info">
                         <p>迭代加深的A<em>算法:1.A</em>算法与dfs结合，这里的估价函数表示到达目的状态需要的最少的步数,<br>2.构建dfs(depth, x, y, k), depth表示到达(x, y)点时所需要的步数，k表示步数限制；<br>3.如果当前深度depth + 预估函数f  &gt; k 则直接返回， 如果预估函数的值为0，说明已经到达目的状态，返回答案即可， 不断加大深度限制k，直到找到答案</p>
@@ -348,7 +348,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/08/18/搜索/骑士-Astar-dfs/">
                     
-                    <img src="http://q1xkysiha.bkt.clouddn.com/preview2.jpg" alt="骑士(Astar + dfs)">
+                    <img src="http://q1xkysiha.bkt.clouddn.com/preview12.jpg" alt="骑士(Astar + dfs)">
                 </a>
             </p>
         </div>
@@ -398,7 +398,7 @@
                 <a href="../../2019/08/18/搜索/八数码-(Astar + bfs)/">
                     <div class="img">
                         
-                        <img src="http://q1xkysiha.bkt.clouddn.com/preview11.jpg" alt="八数码(Astar + bfs)">
+                        <img src="http://q1xkysiha.bkt.clouddn.com/preview15.jpg" alt="八数码(Astar + bfs)">
                     </div>
                     <div class="info">
                         <p>八数码问题无解:当且仅当展开的逆序对数量是奇数<br>1.使用A*算法搜索一种移动步数最少的方案, 预估函数可以是当前状态到目标状态的所有曼哈顿距离之和;<br>2.建立二元组(dist + f(state), state) state表示当前状态,建立二叉堆，从堆中不断的取出从初态到当前状态state已经移动过的步数f(state)最小的一个状态进行扩展，当终态第一次被取出时，就得到了答案;<br>3.由于每一个状态都是用字符串来表示的,所以我们可以用hash来记录当前状态是否出现过,我们还需要俩个哈希变量prev和dist分别来记录移动的轨迹和距离</p>
@@ -440,7 +440,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/08/18/搜索/八数码-(Astar + bfs)/">
                     
-                    <img src="http://q1xkysiha.bkt.clouddn.com/preview15.jpg" alt="八数码(Astar + bfs)">
+                    <img src="http://q1xkysiha.bkt.clouddn.com/preview6.jpg" alt="八数码(Astar + bfs)">
                 </a>
             </p>
         </div>
@@ -488,7 +488,7 @@
                 <a href="../../2019/08/18/搜索/第k短路-(Astar + bfs)算法/">
                     <div class="img">
                         
-                        <img src="http://q1xkysiha.bkt.clouddn.com/preview14.jpg" alt="第k短路(Astar + bfs算法)">
+                        <img src="http://q1xkysiha.bkt.clouddn.com/preview13.jpg" alt="第k短路(Astar + bfs算法)">
                     </div>
                     <div class="info">
                         <p>a_star(A *)算法<br>1.求出预估函数:预处理出各个节点到终点T的最短路的长度—反向求单源最短路得到预估数组f(x);<br>2.建立二叉堆,存储(dist + f(x),(dist, x)), x为节点的编号, dist表示从S到节点x走过的距离,起初堆里只有(0 + f(S), (S, 0));<br>3.每次从二叉堆中取出最小的dist + f(x), 然后沿着从x出发的每条边(x, y)进行扩展, 如果节点y被取出的次数未达到k，则将(dist + length(x, y) + f[y], (y, dist + length(x, y)))入队.<br>4.重复2、3步，直到终点T第K次被取出,这时dist便是我们的答案.</p>
@@ -528,7 +528,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/08/18/搜索/第k短路-(Astar + bfs)算法/">
                     
-                    <img src="http://q1xkysiha.bkt.clouddn.com/preview18.jpg" alt="第k短路(Astar + bfs算法)">
+                    <img src="http://q1xkysiha.bkt.clouddn.com/preview11.jpg" alt="第k短路(Astar + bfs算法)">
                 </a>
             </p>
         </div>
@@ -576,7 +576,7 @@
                 <a href="../../2019/08/18/搜索/噩梦-双向BFS/">
                     <div class="img">
                         
-                        <img src="http://q1xkysiha.bkt.clouddn.com/preview12.jpg" alt="噩梦(双向BFS)">
+                        <img src="http://q1xkysiha.bkt.clouddn.com/preview14.jpg" alt="噩梦(双向BFS)">
                     </div>
                     <div class="info">
                         <p>双向bfs问题:<br>1.用俩个队列分别从男孩的起始位置和女孩的起始位置开始进行bfs;<br>2.每一轮中，男孩bfs3次,女孩bfs1次;<br>3.使用数组d来记录男孩和女孩的可达性;<br>4.在bfs时,计算新状态与鬼之间的曼哈顿距离是否合法;<br>5.最后便可以得到我们想要的答案</p>
@@ -616,7 +616,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/08/18/搜索/噩梦-双向BFS/">
                     
-                    <img src="http://q1xkysiha.bkt.clouddn.com/preview2.jpg" alt="噩梦(双向BFS)">
+                    <img src="http://q1xkysiha.bkt.clouddn.com/preview6.jpg" alt="噩梦(双向BFS)">
                 </a>
             </p>
         </div>
@@ -664,7 +664,7 @@
                 <a href="../../2019/08/02/数据结构基础/矩阵-二维数组哈希/">
                     <div class="img">
                         
-                        <img src="http://q1xkysiha.bkt.clouddn.com/preview11.jpg" alt="矩阵(二维数组哈希)">
+                        <img src="http://q1xkysiha.bkt.clouddn.com/preview15.jpg" alt="矩阵(二维数组哈希)">
                     </div>
                     <div class="info">
                         <p>二维数组哈希：先预处理出每一行的哈希值，这样可以在O(1)的时间内获得任意子段的哈希值**</p>
@@ -704,7 +704,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/08/02/数据结构基础/矩阵-二维数组哈希/">
                     
-                    <img src="http://q1xkysiha.bkt.clouddn.com/preview6.jpg" alt="矩阵(二维数组哈希)">
+                    <img src="http://q1xkysiha.bkt.clouddn.com/preview5.jpg" alt="矩阵(二维数组哈希)">
                 </a>
             </p>
         </div>
@@ -752,7 +752,7 @@
                 <a href="../../2019/08/02/搜索/装满的油箱/">
                     <div class="img">
                         
-                        <img src="http://q1xkysiha.bkt.clouddn.com/preview15.jpg" alt="装满的油箱(bfs)">
+                        <img src="http://q1xkysiha.bkt.clouddn.com/preview14.jpg" alt="装满的油箱(bfs)">
                     </div>
                     <div class="info">
                         <p>广搜+dp:使用二元组(city, fuel)来表示每个状态,city为城市编号,fuel为油箱中剩余的汽油量,并使用数组d[city] [fuel]储存最少花费</p>
@@ -792,7 +792,7 @@
             <p style="text-align: center;">
                 <a href="../../2019/08/02/搜索/装满的油箱/">
                     
-                    <img src="http://q1xkysiha.bkt.clouddn.com/preview4.jpg" alt="装满的油箱(bfs)">
+                    <img src="http://q1xkysiha.bkt.clouddn.com/preview16.jpg" alt="装满的油箱(bfs)">
                 </a>
             </p>
         </div>
@@ -1001,25 +1001,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/07/JavaScirpt/JS基础之编写位置/">JS基础之编写位置</a>
+                    <a href="../../2019/07/10/JavaScirpt/JS基础之强制类型转换/">JS基础之强制类型转换</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/08/18/搜索/噩梦-双向BFS/">噩梦(双向BFS)</a>
+                    <a href="../../2019/08/02/搜索/电路维修-双端队列/">电路维修(双端队列)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="../../2019/07/27/数据结构基础/城市游戏(二维单调栈)/">城市游戏</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="../../2019/12/09/杂章/将本地文件夹添加到git仓库/">将本地文件夹添加到git仓库</a>
                 </span>
             </li>
             
@@ -1037,13 +1031,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/07/10/数论/满足条件的01序列/">满足条件的01序列</a>
+                    <a href="../../2019/07/08/数论/扩展欧几里得算法/">扩展欧几里得算法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/11/10/动态规划/数位DP/数字游戏-数位DP/">数字游戏(数位DP)</a>
+                    <a href="../../2019/09/04/数论/绿豆蛙的归宿-数学期望/">绿豆蛙的归宿(数学期望)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../2019/07/19/动态规划/区间DP/石子合并(区间DP)/">石子合并</a>
                 </span>
             </li>
             
@@ -1055,7 +1055,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="../../2019/09/10/数据结构进阶/线段树/区间最大公约数-线段树/">区间最大公约数(线段树)</a>
+                    <a href="../../2019/09/07/数据结构进阶/树状数组/树状数组简介/">树状数组简介</a>
                 </span>
             </li>
             
@@ -1088,113 +1088,113 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="../../tags/JavaScirpt/" style="font-size: 19.403290305311206px;" class="tag-cloud-link">JavaScirpt</a>
+    <a href="../../tags/Java/" style="font-size: 11.463255113153892px;" class="tag-cloud-link">Java</a>
     
-    <a href="../../tags/Java/" style="font-size: 17.230284756922657px;" class="tag-cloud-link">Java</a>
+    <a href="../../tags/JavaScirpt/" style="font-size: 10.60390002325995px;" class="tag-cloud-link">JavaScirpt</a>
     
-    <a href="../../tags/dfs/" style="font-size: 14.467200389257007px;" class="tag-cloud-link">dfs</a>
+    <a href="../../tags/dfs/" style="font-size: 14.82737198357524px;" class="tag-cloud-link">dfs</a>
     
-    <a href="../../tags/bfs/" style="font-size: 16.391653527176963px;" class="tag-cloud-link">bfs</a>
+    <a href="../../tags/bfs/" style="font-size: 8.449414758400764px;" class="tag-cloud-link">bfs</a>
     
-    <a href="../../tags/A/" style="font-size: 11.59546250630341px;" class="tag-cloud-link">A*</a>
+    <a href="../../tags/A/" style="font-size: 15.242320552587152px;" class="tag-cloud-link">A*</a>
     
-    <a href="../../tags/搜索/" style="font-size: 19.63315389663723px;" class="tag-cloud-link">搜索</a>
+    <a href="../../tags/搜索/" style="font-size: 10.151649111539047px;" class="tag-cloud-link">搜索</a>
     
-    <a href="../../tags/记忆化搜索/" style="font-size: 14.61354294695938px;" class="tag-cloud-link">记忆化搜索</a>
+    <a href="../../tags/记忆化搜索/" style="font-size: 16.56961203581313px;" class="tag-cloud-link">记忆化搜索</a>
     
-    <a href="../../tags/单链表/" style="font-size: 13.238370092454907px;" class="tag-cloud-link">单链表</a>
+    <a href="../../tags/Trie/" style="font-size: 13.152019926578742px;" class="tag-cloud-link">Trie</a>
     
-    <a href="../../tags/Trie/" style="font-size: 12.812600399323298px;" class="tag-cloud-link">Trie</a>
+    <a href="../../tags/单链表/" style="font-size: 12.864063365326194px;" class="tag-cloud-link">单链表</a>
     
-    <a href="../../tags/哈希/" style="font-size: 8.683525606983856px;" class="tag-cloud-link">哈希</a>
+    <a href="../../tags/哈希/" style="font-size: 19.553578833118px;" class="tag-cloud-link">哈希</a>
     
-    <a href="../../tags/数据结构/" style="font-size: 15.338945802408796px;" class="tag-cloud-link">数据结构</a>
+    <a href="../../tags/数据结构/" style="font-size: 11.043305613016663px;" class="tag-cloud-link">数据结构</a>
     
-    <a href="../../tags/栈/" style="font-size: 18.815730270302666px;" class="tag-cloud-link">栈</a>
+    <a href="../../tags/栈/" style="font-size: 18.96240049200006px;" class="tag-cloud-link">栈</a>
     
-    <a href="../../tags/堆/" style="font-size: 9.450487700469825px;" class="tag-cloud-link">堆</a>
+    <a href="../../tags/堆/" style="font-size: 16.348469409107697px;" class="tag-cloud-link">堆</a>
     
-    <a href="../../tags/kmp/" style="font-size: 9.791735461671042px;" class="tag-cloud-link">kmp</a>
+    <a href="../../tags/kmp/" style="font-size: 11.165647642484723px;" class="tag-cloud-link">kmp</a>
     
-    <a href="../../tags/字符串哈希/" style="font-size: 10.485523777864813px;" class="tag-cloud-link">字符串哈希</a>
+    <a href="../../tags/字符串哈希/" style="font-size: 16.572017114486442px;" class="tag-cloud-link">字符串哈希</a>
     
-    <a href="../../tags/树的最小表示/" style="font-size: 14.046944481773812px;" class="tag-cloud-link">树的最小表示</a>
+    <a href="../../tags/二叉堆/" style="font-size: 9.680553204652275px;" class="tag-cloud-link">二叉堆</a>
     
-    <a href="../../tags/二叉堆/" style="font-size: 16.382037677847315px;" class="tag-cloud-link">二叉堆</a>
+    <a href="../../tags/链表/" style="font-size: 13.706162821959007px;" class="tag-cloud-link">链表</a>
     
-    <a href="../../tags/链表/" style="font-size: 12.463871610841766px;" class="tag-cloud-link">链表</a>
+    <a href="../../tags/树的最小表示/" style="font-size: 11.715899585614986px;" class="tag-cloud-link">树的最小表示</a>
     
-    <a href="../../tags/单调栈/" style="font-size: 15.639425242727498px;" class="tag-cloud-link">单调栈</a>
+    <a href="../../tags/单调栈/" style="font-size: 11.69424934792395px;" class="tag-cloud-link">单调栈</a>
     
-    <a href="../../tags/字符串/" style="font-size: 8.705286428982284px;" class="tag-cloud-link">字符串</a>
+    <a href="../../tags/数论/" style="font-size: 13.273127715773818px;" class="tag-cloud-link">数论</a>
     
-    <a href="../../tags/数论/" style="font-size: 13.385669524330826px;" class="tag-cloud-link">数论</a>
+    <a href="../../tags/约数/" style="font-size: 17.97258746282641px;" class="tag-cloud-link">约数</a>
     
-    <a href="../../tags/约数/" style="font-size: 12.743045468355021px;" class="tag-cloud-link">约数</a>
+    <a href="../../tags/SG函数/" style="font-size: 15.397355398489173px;" class="tag-cloud-link">SG函数</a>
     
-    <a href="../../tags/SG函数/" style="font-size: 16.49903006819038px;" class="tag-cloud-link">SG函数</a>
+    <a href="../../tags/博弈论/" style="font-size: 19.639341867962145px;" class="tag-cloud-link">博弈论</a>
     
-    <a href="../../tags/博弈论/" style="font-size: 18.65730075803353px;" class="tag-cloud-link">博弈论</a>
+    <a href="../../tags/同余/" style="font-size: 18.49324187460524px;" class="tag-cloud-link">同余</a>
     
-    <a href="../../tags/容斥原理/" style="font-size: 15.609322482914303px;" class="tag-cloud-link">容斥原理</a>
+    <a href="../../tags/容斥原理/" style="font-size: 16.579464766590387px;" class="tag-cloud-link">容斥原理</a>
     
-    <a href="../../tags/同余/" style="font-size: 10.805177898165864px;" class="tag-cloud-link">同余</a>
+    <a href="../../tags/高斯消元/" style="font-size: 14.966477850034487px;" class="tag-cloud-link">高斯消元</a>
     
-    <a href="../../tags/高斯消元/" style="font-size: 18.770756462384256px;" class="tag-cloud-link">高斯消元</a>
+    <a href="../../tags/快速幂/" style="font-size: 10.569507717837588px;" class="tag-cloud-link">快速幂</a>
     
-    <a href="../../tags/扩展欧几里得/" style="font-size: 11.940620717006894px;" class="tag-cloud-link">扩展欧几里得</a>
+    <a href="../../tags/扩展欧几里得/" style="font-size: 16.849580458461112px;" class="tag-cloud-link">扩展欧几里得</a>
     
-    <a href="../../tags/快速幂/" style="font-size: 11.348156400371092px;" class="tag-cloud-link">快速幂</a>
+    <a href="../../tags/欧拉函数/" style="font-size: 13.014155691092492px;" class="tag-cloud-link">欧拉函数</a>
     
-    <a href="../../tags/欧拉函数/" style="font-size: 12.440226512624502px;" class="tag-cloud-link">欧拉函数</a>
+    <a href="../../tags/矩阵快速幂/" style="font-size: 10.358763063841467px;" class="tag-cloud-link">矩阵快速幂</a>
     
-    <a href="../../tags/矩阵快速幂/" style="font-size: 17.40179894087636px;" class="tag-cloud-link">矩阵快速幂</a>
+    <a href="../../tags/素数/" style="font-size: 15.360039861760853px;" class="tag-cloud-link">素数</a>
     
-    <a href="../../tags/素数/" style="font-size: 8.585988432194753px;" class="tag-cloud-link">素数</a>
+    <a href="../../tags/数论，约数/" style="font-size: 15.362058920945259px;" class="tag-cloud-link">数论，约数</a>
     
-    <a href="../../tags/数论，约数/" style="font-size: 17.00534727457761px;" class="tag-cloud-link">数论，约数</a>
+    <a href="../../tags/组合数/" style="font-size: 15.391010211587139px;" class="tag-cloud-link">组合数</a>
     
-    <a href="../../tags/组合数/" style="font-size: 14.484714903624575px;" class="tag-cloud-link">组合数</a>
+    <a href="../../tags/数学期望/" style="font-size: 12.366436527219568px;" class="tag-cloud-link">数学期望</a>
     
-    <a href="../../tags/数学期望/" style="font-size: 13.234441968870595px;" class="tag-cloud-link">数学期望</a>
+    <a href="../../tags/字符串/" style="font-size: 17.89060364548299px;" class="tag-cloud-link">字符串</a>
     
-    <a href="../../tags/题解/" style="font-size: 8.022601933374567px;" class="tag-cloud-link">题解</a>
+    <a href="../../tags/题解/" style="font-size: 17.221914235796007px;" class="tag-cloud-link">题解</a>
     
-    <a href="../../tags/动态规划/" style="font-size: 15.918610255666511px;" class="tag-cloud-link">动态规划</a>
+    <a href="../../tags/动态规划/" style="font-size: 18.40466899257315px;" class="tag-cloud-link">动态规划</a>
     
-    <a href="../../tags/区间DP/" style="font-size: 16.894166587860756px;" class="tag-cloud-link">区间DP</a>
+    <a href="../../tags/区间DP/" style="font-size: 18.976519037419486px;" class="tag-cloud-link">区间DP</a>
     
-    <a href="../../tags/单调队列DP/" style="font-size: 10.63960434379727px;" class="tag-cloud-link">单调队列DP</a>
+    <a href="../../tags/单调队列DP/" style="font-size: 16.15410366372287px;" class="tag-cloud-link">单调队列DP</a>
     
-    <a href="../../tags/子序列/" style="font-size: 14.708143295260006px;" class="tag-cloud-link">子序列</a>
+    <a href="../../tags/子序列/" style="font-size: 8.791317950461664px;" class="tag-cloud-link">子序列</a>
     
-    <a href="../../tags/计数DP/" style="font-size: 18.998898554251536px;" class="tag-cloud-link">计数DP</a>
+    <a href="../../tags/计数DP/" style="font-size: 11.768366233138988px;" class="tag-cloud-link">计数DP</a>
     
-    <a href="../../tags/背包问题/" style="font-size: 16.276921986652827px;" class="tag-cloud-link">背包问题</a>
+    <a href="../../tags/数位DP/" style="font-size: 19.778230285761907px;" class="tag-cloud-link">数位DP</a>
     
-    <a href="../../tags/数位DP/" style="font-size: 16.556342494176132px;" class="tag-cloud-link">数位DP</a>
+    <a href="../../tags/背包问题/" style="font-size: 13.003124842088184px;" class="tag-cloud-link">背包问题</a>
     
-    <a href="../../tags/树形DP/" style="font-size: 11.62137312083096px;" class="tag-cloud-link">树形DP</a>
+    <a href="../../tags/树形DP/" style="font-size: 13.745025519871525px;" class="tag-cloud-link">树形DP</a>
     
-    <a href="../../tags/状压DP/" style="font-size: 17.7380769800089px;" class="tag-cloud-link">状压DP</a>
+    <a href="../../tags/状压DP/" style="font-size: 11.205553526080589px;" class="tag-cloud-link">状压DP</a>
     
-    <a href="../../tags/图论/" style="font-size: 16.400156776198955px;" class="tag-cloud-link">图论</a>
+    <a href="../../tags/图论/" style="font-size: 8.881494291909313px;" class="tag-cloud-link">图论</a>
     
-    <a href="../../tags/二分图/" style="font-size: 13.287296363648448px;" class="tag-cloud-link">二分图</a>
+    <a href="../../tags/二分图/" style="font-size: 16.812582850504647px;" class="tag-cloud-link">二分图</a>
     
-    <a href="../../tags/最小生成树/" style="font-size: 17.132389552007588px;" class="tag-cloud-link">最小生成树</a>
+    <a href="../../tags/最短路问题/" style="font-size: 11.46426520773517px;" class="tag-cloud-link">最短路问题</a>
     
-    <a href="../../tags/最短路问题/" style="font-size: 13.359083296512605px;" class="tag-cloud-link">最短路问题</a>
+    <a href="../../tags/最小生成树/" style="font-size: 13.844751648655908px;" class="tag-cloud-link">最小生成树</a>
     
-    <a href="../../tags/AC自动机/" style="font-size: 18.350798258480637px;" class="tag-cloud-link">AC自动机</a>
+    <a href="../../tags/AC自动机/" style="font-size: 11.016990838822252px;" class="tag-cloud-link">AC自动机</a>
     
-    <a href="../../tags/数据结构进阶/" style="font-size: 9.88501719406774px;" class="tag-cloud-link">数据结构进阶</a>
+    <a href="../../tags/数据结构进阶/" style="font-size: 10.370037159258302px;" class="tag-cloud-link">数据结构进阶</a>
     
-    <a href="../../tags/并查集/" style="font-size: 18.795010194228002px;" class="tag-cloud-link">并查集</a>
+    <a href="../../tags/并查集/" style="font-size: 11.127876552251445px;" class="tag-cloud-link">并查集</a>
     
-    <a href="../../tags/树状数组/" style="font-size: 8.257982440229544px;" class="tag-cloud-link">树状数组</a>
+    <a href="../../tags/树状数组/" style="font-size: 16.923002442898955px;" class="tag-cloud-link">树状数组</a>
     
-    <a href="../../tags/线段树/" style="font-size: 17.49381994416717px;" class="tag-cloud-link">线段树</a>
+    <a href="../../tags/线段树/" style="font-size: 15.382322380003306px;" class="tag-cloud-link">线段树</a>
     
 </div>
                 
