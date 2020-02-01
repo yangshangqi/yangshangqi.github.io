@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="zhumenger">
+    
+    <meta name="description" content="穿过落雁修竹, 看过日升月暮&lt;br/&gt;你说总有一天你会名扬天下实现你的抱负!">
+    
+    
+    
+    
+    
+    
+    <title>加成序列(迭代加深) | zhumenger ❤ blog</title>
+    <link href="”http://zhumenger.top“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../css/aos.css">
+<link rel="stylesheet" href="../../../../../css/style.css">
+    <script src="../../../../../js/jquery.min.js"></script>
+    <script src="../../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../../js/aos.js"></script>
+    <script src="../../../../../js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="../../../../../js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '../../../../../imgs/http:/q50lh27pc.bkt.clouddn.com/zhumenger.jpg'
+        var previews = 'http://q50lh27pc.bkt.clouddn.com/preview1.jpg,http://q50lh27pc.bkt.clouddn.com/preview2.jpg,http://q50lh27pc.bkt.clouddn.com/preview3.jpg,http://q50lh27pc.bkt.clouddn.com/preview4.jpg,http://q50lh27pc.bkt.clouddn.com/preview5.jpg,http://q50lh27pc.bkt.clouddn.com/preview6.jpg,http://q50lh27pc.bkt.clouddn.com/preview7.jpg,http://q50lh27pc.bkt.clouddn.com/preview8.jpg,http://q50lh27pc.bkt.clouddn.com/preview9.jpg,http://q50lh27pc.bkt.clouddn.com/preview10.jpg,http://q50lh27pc.bkt.clouddn.com/preview11.jpg,http://q50lh27pc.bkt.clouddn.com/preview12.jpg,http://q50lh27pc.bkt.clouddn.com/preview13.jpg,http://q50lh27pc.bkt.clouddn.com/preview14.jpg,http://q50lh27pc.bkt.clouddn.com/preview15.jpg,http://q50lh27pc.bkt.clouddn.com/preview16.jpg,http://q50lh27pc.bkt.clouddn.com/preview17.jpg,http://q50lh27pc.bkt.clouddn.com/preview18.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '../../../../../imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://zhumenger.top" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="../../../../../archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="../../../../../about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="../../../../../categories" class="menuItem" style="left: 19.6891%; top: 67.5%;">分类</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="../../../../../imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://zhumenger.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">zhumenger ❤ blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class>
+                    <a href="../../../../../index.html">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class>
+                    <a href="../../../../../archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../categories/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数论/">数论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/杂章/">杂章</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/动态规划/">动态规划</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/图论/">图论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数据结构进阶/">数据结构进阶</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../tags/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/A/">A*</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/记忆化搜索/">记忆化搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="../../../../../tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class>
+                    <a href="../../../../../about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>加成序列(迭代加深)</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href>加成序列(迭代加深)</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/dfs/">dfs</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-30
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href>加成序列(迭代加深)</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-30
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/dfs/">dfs</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>满足如下条件的序列X（序列中元素被标号为1、2、3…m）被称为“加成序列”：</p>
+<p>1、X[1]=1</p>
+<p>2、X[m]=n</p>
+<p>3、X[1]&lt;X[2]&lt;…&lt;X[m-1]&lt;X[m]</p>
+<p>4、对于每个 kk（2≤k≤m2≤k≤m）都存在两个整数 ii 和 jj （1≤i,j≤k−11≤i,j≤k−1，ii 和 jj 可相等），使得X[k]=X[i]+X[j]。</p>
+<p>你的任务是：给定一个整数n，找出符合上述条件的长度m最小的“加成序列”。</p>
+<p>如果有多个满足要求的答案，只需要找出任意一个可行解。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入包含多组测试用例。</p>
+<p>每组测试用例占据一行，包含一个整数n。</p>
+<p>当输入为单行的0时，表示输入结束。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每个测试用例，输出一个满足需求的整数序列，数字之间用空格隔开。</p>
+<p>每个输出占一行。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤100</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>5
+7<br>12<br>15<br>77<br>0</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>1 2 4 5<br>1 2 4 6 7<br>1 2 4 8 12<br>1 2 4 5 10 15<br>1 2 4 8 9 17 34 68 77</p>
+</blockquote>
+<p><strong>迭代加深搜索:<br>如果我们想要的答案在一个比较浅的节点上,而树的深度比较深，那么我们进行深度优先搜索的时候便会浪费大量的时间此时，我们可以限制搜索的深度,如果在当前深度找不到答案,就把深度的限制增加,重新搜索，直到找到答案为止,这道题便是这样的一个思路</strong></p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(u == k)<span class="keyword">return</span> a[u - <span class="number">1</span>] == n;</span><br><span class="line">    <span class="comment">//暴力枚举</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = u - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">int</span> s = a[i] + a[j];</span><br><span class="line">            <span class="keyword">if</span>(vis[s] || s &gt; n || s &lt;= a[u - <span class="number">1</span>])<span class="keyword">continue</span>;</span><br><span class="line">            a[u] = s;</span><br><span class="line">            <span class="keyword">if</span>(dfs(u + <span class="number">1</span>, k))<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n)&#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//如果不成功，增加搜索深度的限制</span></span><br><span class="line">        <span class="keyword">while</span>(!dfs(<span class="number">1</span>, k))&#123;</span><br><span class="line">            <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> vis);</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++)<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '加成序列(迭代加深)'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="../../../../../search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            zhumenger
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://q50lh27pc.bkt.clouddn.com/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说总有一天你会名扬天下实现你的抱负!</p>
+<p></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/09/杂章/pycharm导入包问题/">pycharm导入包问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/09/杂章/将本地文件夹添加到git仓库/">将本地文件夹添加到git仓库</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/理想的正方形-单调队列DP/">理想的正方形(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/绿色通道-单调队列DP/">绿色通道(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/烽火传递-单调队列DP/">烽火传递(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/旅行问题-单调队列DP/">旅行问题(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/修剪草坪-单调队列DP/">修剪草坪(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/最大子序和-单调队列DP/">最大子序和(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/14/数据结构进阶/AC自动机/出现次数最多的子串-AC自动机/">出现次数最多的子串(AC自动机)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/13/数据结构进阶/AC自动机/AC自动机-模板题/">AC自动机(模板题)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../31/搜索/立体推箱子-复杂迷宫问题/">立体推箱子(复杂迷宫问题)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../16/数据结构基础/邻值查找(邻接表)/">邻值查找</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../16/数据结构基础/雪花雪花雪花(最小表示法)/">雪花雪花雪花</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../08/27/数论/最幸运的数字/">最幸运的数字</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/09/杂章/将本地文件夹添加到git仓库/">将本地文件夹添加到git仓库</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../22/动态规划/基础DP/动态规划之子序列问题/">动态规划之子序列问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../19/动态规划/基础DP/整数划分/">整数划分</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/14/数据结构进阶/AC自动机/出现次数最多的子串-AC自动机/">出现次数最多的子串(AC自动机)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../09/05/数据结构进阶/并查集/程序自动分析(并查集)/">程序自动分析(并查集)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../09/10/数据结构进阶/线段树/一个简单的整数问题2-线段树/">一个简单的整数问题2(线段树)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="../../../../../tags/Java/" style="font-size: 9.249049335224012px;" class="tag-cloud-link">Java</a>
+    
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 19.760687662485296px;" class="tag-cloud-link">JavaScirpt</a>
+    
+    <a href="../../../../../tags/dfs/" style="font-size: 19.601399187708445px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="../../../../../tags/bfs/" style="font-size: 8.616218571073567px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="../../../../../tags/A/" style="font-size: 13.95000865705494px;" class="tag-cloud-link">A*</a>
+    
+    <a href="../../../../../tags/搜索/" style="font-size: 8.89855057492055px;" class="tag-cloud-link">搜索</a>
+    
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 13.921802630097748px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="../../../../../tags/Trie/" style="font-size: 8.348334428311821px;" class="tag-cloud-link">Trie</a>
+    
+    <a href="../../../../../tags/单链表/" style="font-size: 15.324979633996033px;" class="tag-cloud-link">单链表</a>
+    
+    <a href="../../../../../tags/哈希/" style="font-size: 16.27998233327983px;" class="tag-cloud-link">哈希</a>
+    
+    <a href="../../../../../tags/数据结构/" style="font-size: 17.371377827855447px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="../../../../../tags/栈/" style="font-size: 14.871905180649875px;" class="tag-cloud-link">栈</a>
+    
+    <a href="../../../../../tags/堆/" style="font-size: 16.351863723340667px;" class="tag-cloud-link">堆</a>
+    
+    <a href="../../../../../tags/kmp/" style="font-size: 17.29501281117067px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 16.982900804500012px;" class="tag-cloud-link">字符串哈希</a>
+    
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 18.468242146431958px;" class="tag-cloud-link">树的最小表示</a>
+    
+    <a href="../../../../../tags/二叉堆/" style="font-size: 11.978023820617434px;" class="tag-cloud-link">二叉堆</a>
+    
+    <a href="../../../../../tags/链表/" style="font-size: 14.966562444718203px;" class="tag-cloud-link">链表</a>
+    
+    <a href="../../../../../tags/单调栈/" style="font-size: 9.676487763419422px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="../../../../../tags/字符串/" style="font-size: 12.663128131008131px;" class="tag-cloud-link">字符串</a>
+    
+    <a href="../../../../../tags/数论/" style="font-size: 12.366978333693856px;" class="tag-cloud-link">数论</a>
+    
+    <a href="../../../../../tags/约数/" style="font-size: 11.557489576106342px;" class="tag-cloud-link">约数</a>
+    
+    <a href="../../../../../tags/SG函数/" style="font-size: 11.234435549765777px;" class="tag-cloud-link">SG函数</a>
+    
+    <a href="../../../../../tags/博弈论/" style="font-size: 14.393554485438823px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="../../../../../tags/同余/" style="font-size: 18.0532428349284px;" class="tag-cloud-link">同余</a>
+    
+    <a href="../../../../../tags/容斥原理/" style="font-size: 8.39847946883009px;" class="tag-cloud-link">容斥原理</a>
+    
+    <a href="../../../../../tags/高斯消元/" style="font-size: 19.5627558100754px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="../../../../../tags/快速幂/" style="font-size: 12.409665526333574px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 18.746513325648188px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 17.606938076947753px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="../../../../../tags/矩阵快速幂/" style="font-size: 9.752220702276006px;" class="tag-cloud-link">矩阵快速幂</a>
+    
+    <a href="../../../../../tags/素数/" style="font-size: 11.666968328846973px;" class="tag-cloud-link">素数</a>
+    
+    <a href="../../../../../tags/数论，约数/" style="font-size: 12.828355381378822px;" class="tag-cloud-link">数论，约数</a>
+    
+    <a href="../../../../../tags/组合数/" style="font-size: 12.348194781542066px;" class="tag-cloud-link">组合数</a>
+    
+    <a href="../../../../../tags/数学期望/" style="font-size: 18.85890368607335px;" class="tag-cloud-link">数学期望</a>
+    
+    <a href="../../../../../tags/题解/" style="font-size: 15.488390173751432px;" class="tag-cloud-link">题解</a>
+    
+    <a href="../../../../../tags/动态规划/" style="font-size: 12.379197804365191px;" class="tag-cloud-link">动态规划</a>
+    
+    <a href="../../../../../tags/区间DP/" style="font-size: 14.89976928540192px;" class="tag-cloud-link">区间DP</a>
+    
+    <a href="../../../../../tags/单调队列DP/" style="font-size: 13.436568366288775px;" class="tag-cloud-link">单调队列DP</a>
+    
+    <a href="../../../../../tags/子序列/" style="font-size: 10.844254294774323px;" class="tag-cloud-link">子序列</a>
+    
+    <a href="../../../../../tags/计数DP/" style="font-size: 18.910281640980386px;" class="tag-cloud-link">计数DP</a>
+    
+    <a href="../../../../../tags/背包问题/" style="font-size: 9.753153240551264px;" class="tag-cloud-link">背包问题</a>
+    
+    <a href="../../../../../tags/数位DP/" style="font-size: 12.171303629991144px;" class="tag-cloud-link">数位DP</a>
+    
+    <a href="../../../../../tags/树形DP/" style="font-size: 10.3552488962731px;" class="tag-cloud-link">树形DP</a>
+    
+    <a href="../../../../../tags/状压DP/" style="font-size: 9.897164717674883px;" class="tag-cloud-link">状压DP</a>
+    
+    <a href="../../../../../tags/图论/" style="font-size: 12.309646496832757px;" class="tag-cloud-link">图论</a>
+    
+    <a href="../../../../../tags/二分图/" style="font-size: 11.66075073314559px;" class="tag-cloud-link">二分图</a>
+    
+    <a href="../../../../../tags/最小生成树/" style="font-size: 15.710214653510217px;" class="tag-cloud-link">最小生成树</a>
+    
+    <a href="../../../../../tags/最短路问题/" style="font-size: 10.646079760567627px;" class="tag-cloud-link">最短路问题</a>
+    
+    <a href="../../../../../tags/AC自动机/" style="font-size: 16.738438343968014px;" class="tag-cloud-link">AC自动机</a>
+    
+    <a href="../../../../../tags/数据结构进阶/" style="font-size: 11.907873846275898px;" class="tag-cloud-link">数据结构进阶</a>
+    
+    <a href="../../../../../tags/并查集/" style="font-size: 15.136614954332302px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="../../../../../tags/树状数组/" style="font-size: 19.736216820275047px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="../../../../../tags/线段树/" style="font-size: 15.699544583257762px;" class="tag-cloud-link">线段树</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://zhuojiuw.top/" target="_blank">酌酒</a>
+    </li>
+    
+    <li>
+        <a href="http://120.77.42.77/?tdsourcetag=s_pcqq_aiomsg" target="_blank">血小板自动机&#39;s Blog</a>
+    </li>
+    
+    <li>
+        <a href="http://www.sorashiro.top/" target="_blank">空白之间</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.csdn.net/qq_43328040" target="_blank">CSDN</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
+    </aside>
+    
+</aside>r
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 zhumenger Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+
+<!-- 雪花特效 -->
+<script type="text/javascript">
+  var windowWidth = $(window).width();
+  if (windowWidth > 480) {
+    document.write('<script type="text/javascript" src="/js/snow.js"><\/script>');
+  }
+</script>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/love.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://q50lh27pc.bkt.clouddn.com/preview',
+      ext: 'jpg',
+      maxCount: '18'
+    }
+</script>
+<script src="../../../../../js/hs.js"></script>
+<script src="../../../../../js/blog.js"></script>
+
+<script src="../../../../../js/oni.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Tue Jul 30 2019 12:36:17 GMT+0800'
+      window.commentConfig.owner = 'yangshangqi'
+      window.commentConfig.repo = 'yangshangqi.github.io'
+      window.commentConfig.client_id = '60e14965f8d29e28aed6'
+      window.commentConfig.client_secret = '734664cef8637979b4e5ace1145b8f19456aa802'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Tue Jul 30 2019 12:36:17 GMT+0800',
+        owner: 'yangshangqi',
+        repo: 'yangshangqi.github.io',
+        client_id: '60e14965f8d29e28aed6',
+        client_secret: '734664cef8637979b4e5ace1145b8f19456aa802',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="../../../../../js/comment/gitment.js"></script>
+
+<script src="/live2d-widget/autoload.js"></script>
+</html>

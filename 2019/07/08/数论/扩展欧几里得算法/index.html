@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="zhumenger">
+    
+    <meta name="description" content="穿过落雁修竹, 看过日升月暮&lt;br/&gt;你说总有一天你会名扬天下实现你的抱负!">
+    
+    
+    
+    
+    
+    
+    <title>扩展欧几里得算法 | zhumenger ❤ blog</title>
+    <link href="”http://zhumenger.top“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../css/aos.css">
+<link rel="stylesheet" href="../../../../../css/style.css">
+    <script src="../../../../../js/jquery.min.js"></script>
+    <script src="../../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../../js/aos.js"></script>
+    <script src="../../../../../js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="../../../../../js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '../../../../../imgs/http:/q50lh27pc.bkt.clouddn.com/zhumenger.jpg'
+        var previews = 'http://q50lh27pc.bkt.clouddn.com/preview1.jpg,http://q50lh27pc.bkt.clouddn.com/preview2.jpg,http://q50lh27pc.bkt.clouddn.com/preview3.jpg,http://q50lh27pc.bkt.clouddn.com/preview4.jpg,http://q50lh27pc.bkt.clouddn.com/preview5.jpg,http://q50lh27pc.bkt.clouddn.com/preview6.jpg,http://q50lh27pc.bkt.clouddn.com/preview7.jpg,http://q50lh27pc.bkt.clouddn.com/preview8.jpg,http://q50lh27pc.bkt.clouddn.com/preview9.jpg,http://q50lh27pc.bkt.clouddn.com/preview10.jpg,http://q50lh27pc.bkt.clouddn.com/preview11.jpg,http://q50lh27pc.bkt.clouddn.com/preview12.jpg,http://q50lh27pc.bkt.clouddn.com/preview13.jpg,http://q50lh27pc.bkt.clouddn.com/preview14.jpg,http://q50lh27pc.bkt.clouddn.com/preview15.jpg,http://q50lh27pc.bkt.clouddn.com/preview16.jpg,http://q50lh27pc.bkt.clouddn.com/preview17.jpg,http://q50lh27pc.bkt.clouddn.com/preview18.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '../../../../../imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://zhumenger.top" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="../../../../../archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="../../../../../about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="../../../../../categories" class="menuItem" style="left: 19.6891%; top: 67.5%;">分类</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="../../../../../imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://zhumenger.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">zhumenger ❤ blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class>
+                    <a href="../../../../../index.html">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class>
+                    <a href="../../../../../archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../categories/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数据结构基础/">数据结构基础</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数论/">数论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/杂章/">杂章</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/题解/">题解</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/动态规划/">动态规划</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/图论/">图论</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../categories/数据结构进阶/">数据结构进阶</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="../../../../../tags/Java/">Java</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/JavaScirpt/">JavaScirpt</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/dfs/">dfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/bfs/">bfs</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/A/">A*</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/搜索/">搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/记忆化搜索/">记忆化搜索</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/Trie/">Trie</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/单链表/">单链表</a>
+                        </li>
+                        
+                        <li>
+                            <a href="../../../../../tags/哈希/">哈希</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="../../../../../tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class>
+                    <a href="../../../../../about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://zhumenger.top">zhumenger ❤ blog</a>
+        >
+        <span>扩展欧几里得算法</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href>扩展欧几里得算法</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/扩展欧几里得/">扩展欧几里得</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-08
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href>扩展欧几里得算法</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-08
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="../../../../../tags/数论/">数论</a>, 
+                
+                <a href="../../../../../tags/扩展欧几里得/">扩展欧几里得</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="一-扩展欧几里得算法"><a href="#一-扩展欧几里得算法" class="headerlink" title="一.扩展欧几里得算法"></a>一.扩展欧几里得算法</h2><h4 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h4><blockquote>
+<p><strong>对于任意的整数a, b，存在一对整数 x，y，满足ax + by = gcd(a, b).</strong></p>
+</blockquote>
+<p><strong>题目描述</strong></p>
+<p>给定n对正整数ai,bi，对于每对数，求出一组xi,yi，使其满足ai∗xi+bi∗yi=gcd(ai,bi)。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行包含整数n。</p>
+<p>接下来n行，每行包含两个整数ai,bi。</p>
+<p><strong>输出格式</strong></p>
+<p>输出共n行，对于每组ai,bi，求出一组满足条件的xi,yi，每组结果占一行。</p>
+<p>本题答案不唯一，输出任意满足条件的xi,yi均可。</p>
+<p><strong>数据范围</strong></p>
+<p>1≤n≤105<br>1≤ai,bi≤2∗109</p>
+<p><strong>输入样例：</strong></p>
+<blockquote>
+<p>2
+4 6<br>8 18</p>
+</blockquote>
+<p><strong>输出样例：</strong></p>
+<blockquote>
+<p>-1 1<br>-2 1</p>
+</blockquote>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> d = exgcd(b, a % b, y, x);</span><br><span class="line">    y -= a / b * x ; <span class="comment">//y表示b的系数</span></span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    ll a, b, x, y;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;a, &amp;b);</span><br><span class="line">        ll d = exgcd(a, b, x, y);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld %lld\n"</span>, x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-线性同余方程"><a href="#二-线性同余方程" class="headerlink" title="二.线性同余方程"></a>二.线性同余方程</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定n组数据ai,bi,mi，对于每组数求出一个xi，使其满足ai∗xi≡bi(mod mi)，如果无解则输出impossible。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数n。</p>
+<p>接下来n行，每行包含一组数据ai,bi,mi。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出共n行，每组数据输出一个整数表示一个满足条件的xi，如果无解则输出impossible。</p>
+<p>每组数据结果占一行，结果可能不唯一，输出任意一个满足条件的结果均可。</p>
+<p>输出答案必须在int范围之内。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤10^5<br>1≤ai,bi,mi≤2∗10^9</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>2
+2 3 6<br>4 3 5</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>impossible<br>7</p>
+</blockquote>
+<p><strong>题解：</strong></p>
+<p><strong>对于a * x % m = b 等价于 a * x  - b 是m的倍数，不妨设为 -y 倍。于是，该方程可以改写为 a * x + m * y = b。</strong></p>
+<p><strong>这样就变成了欧几里得算法，只有 b 为 gcd(a, m) 的倍数的时候，方程才有解，带公式即可</strong></p>
+<p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b == <span class="number">0</span>)&#123;</span><br><span class="line">        x = <span class="number">1</span>;</span><br><span class="line">        y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll d = exgcd(b, a % b, y ,x);</span><br><span class="line">    y -= a / b * x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        ll a, b, c;</span><br><span class="line">        ll x, y;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld %lld %lld"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        ll d = exgcd(a, c, x, y);</span><br><span class="line">        <span class="keyword">if</span>(b % d == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, x *(b / d) % c);  <span class="comment">//x 乘以倍数 % c</span></span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"impossible"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '扩展欧几里得算法'
+    }
+</script>
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="../../../../../search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            zhumenger
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://q50lh27pc.bkt.clouddn.com/zhumenger.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>穿过落雁修竹, 看过日升月暮<br>你说总有一天你会名扬天下实现你的抱负!</p>
+<p></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/09/杂章/pycharm导入包问题/">pycharm导入包问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/09/杂章/将本地文件夹添加到git仓库/">将本地文件夹添加到git仓库</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/理想的正方形-单调队列DP/">理想的正方形(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/绿色通道-单调队列DP/">绿色通道(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/烽火传递-单调队列DP/">烽火传递(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/旅行问题-单调队列DP/">旅行问题(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/修剪草坪-单调队列DP/">修剪草坪(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/最大子序和-单调队列DP/">最大子序和(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/14/数据结构进阶/AC自动机/出现次数最多的子串-AC自动机/">出现次数最多的子串(AC自动机)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/13/数据结构进阶/AC自动机/AC自动机-模板题/">AC自动机(模板题)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../20/Java/Java基础之对象和内存分析/">Java基础之对象和内存分析</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../08/18/搜索/噩梦-双向BFS/">噩梦(双向BFS)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../08/19/搜索/排书-Astar + dfs/">排书(A* + dfs)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/11/数据结构基础/Trie-字典树/">Trie-字典树</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../27/数据结构基础/括号配对问题/">括号配对问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../07/数论/快速幂/">快速幂</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../12/03/动态规划/单调队列DP/理想的正方形-单调队列DP/">理想的正方形(单调队列DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../11/10/动态规划/树形DP/皇宫看守-树形DP/">皇宫看守(树形DP)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../06/23/图论/最短路/图论之最短路问题/">图论之最短路问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="../../../../09/04/数据结构进阶/并查集/并查集/">并查集</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="../../../../../tags/Java/" style="font-size: 16.739575473028975px;" class="tag-cloud-link">Java</a>
+    
+    <a href="../../../../../tags/JavaScirpt/" style="font-size: 10.152115196418048px;" class="tag-cloud-link">JavaScirpt</a>
+    
+    <a href="../../../../../tags/dfs/" style="font-size: 15.916436550094247px;" class="tag-cloud-link">dfs</a>
+    
+    <a href="../../../../../tags/bfs/" style="font-size: 16.529854094326332px;" class="tag-cloud-link">bfs</a>
+    
+    <a href="../../../../../tags/A/" style="font-size: 9.505004270034199px;" class="tag-cloud-link">A*</a>
+    
+    <a href="../../../../../tags/搜索/" style="font-size: 11.100684894859224px;" class="tag-cloud-link">搜索</a>
+    
+    <a href="../../../../../tags/记忆化搜索/" style="font-size: 13.755760332320754px;" class="tag-cloud-link">记忆化搜索</a>
+    
+    <a href="../../../../../tags/Trie/" style="font-size: 19.610924925817223px;" class="tag-cloud-link">Trie</a>
+    
+    <a href="../../../../../tags/单链表/" style="font-size: 14.068653174087716px;" class="tag-cloud-link">单链表</a>
+    
+    <a href="../../../../../tags/哈希/" style="font-size: 10.779301123097383px;" class="tag-cloud-link">哈希</a>
+    
+    <a href="../../../../../tags/数据结构/" style="font-size: 16.501359548671605px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="../../../../../tags/栈/" style="font-size: 18.753464345786604px;" class="tag-cloud-link">栈</a>
+    
+    <a href="../../../../../tags/堆/" style="font-size: 10.378439023374327px;" class="tag-cloud-link">堆</a>
+    
+    <a href="../../../../../tags/kmp/" style="font-size: 8.810498870659881px;" class="tag-cloud-link">kmp</a>
+    
+    <a href="../../../../../tags/字符串哈希/" style="font-size: 17.937869027017484px;" class="tag-cloud-link">字符串哈希</a>
+    
+    <a href="../../../../../tags/树的最小表示/" style="font-size: 12.912859455830159px;" class="tag-cloud-link">树的最小表示</a>
+    
+    <a href="../../../../../tags/二叉堆/" style="font-size: 14.292504163151367px;" class="tag-cloud-link">二叉堆</a>
+    
+    <a href="../../../../../tags/链表/" style="font-size: 18.88582328772905px;" class="tag-cloud-link">链表</a>
+    
+    <a href="../../../../../tags/单调栈/" style="font-size: 11.328783264509616px;" class="tag-cloud-link">单调栈</a>
+    
+    <a href="../../../../../tags/字符串/" style="font-size: 10.309108189178652px;" class="tag-cloud-link">字符串</a>
+    
+    <a href="../../../../../tags/数论/" style="font-size: 9.191281939810828px;" class="tag-cloud-link">数论</a>
+    
+    <a href="../../../../../tags/约数/" style="font-size: 8.453397938204462px;" class="tag-cloud-link">约数</a>
+    
+    <a href="../../../../../tags/SG函数/" style="font-size: 17.293742424849825px;" class="tag-cloud-link">SG函数</a>
+    
+    <a href="../../../../../tags/博弈论/" style="font-size: 11.248989880019213px;" class="tag-cloud-link">博弈论</a>
+    
+    <a href="../../../../../tags/同余/" style="font-size: 15.9861180707838px;" class="tag-cloud-link">同余</a>
+    
+    <a href="../../../../../tags/容斥原理/" style="font-size: 15.550636250655867px;" class="tag-cloud-link">容斥原理</a>
+    
+    <a href="../../../../../tags/高斯消元/" style="font-size: 19.692349833323927px;" class="tag-cloud-link">高斯消元</a>
+    
+    <a href="../../../../../tags/快速幂/" style="font-size: 18.540124017519762px;" class="tag-cloud-link">快速幂</a>
+    
+    <a href="../../../../../tags/扩展欧几里得/" style="font-size: 14.555421216944579px;" class="tag-cloud-link">扩展欧几里得</a>
+    
+    <a href="../../../../../tags/欧拉函数/" style="font-size: 14.345595726914283px;" class="tag-cloud-link">欧拉函数</a>
+    
+    <a href="../../../../../tags/矩阵快速幂/" style="font-size: 16.519018731437534px;" class="tag-cloud-link">矩阵快速幂</a>
+    
+    <a href="../../../../../tags/素数/" style="font-size: 17.741160853838156px;" class="tag-cloud-link">素数</a>
+    
+    <a href="../../../../../tags/数论，约数/" style="font-size: 14.196027269735719px;" class="tag-cloud-link">数论，约数</a>
+    
+    <a href="../../../../../tags/组合数/" style="font-size: 13.02468175151042px;" class="tag-cloud-link">组合数</a>
+    
+    <a href="../../../../../tags/数学期望/" style="font-size: 12.91828803691838px;" class="tag-cloud-link">数学期望</a>
+    
+    <a href="../../../../../tags/题解/" style="font-size: 17.405807201513298px;" class="tag-cloud-link">题解</a>
+    
+    <a href="../../../../../tags/动态规划/" style="font-size: 10.851818482800612px;" class="tag-cloud-link">动态规划</a>
+    
+    <a href="../../../../../tags/区间DP/" style="font-size: 16.55927838518813px;" class="tag-cloud-link">区间DP</a>
+    
+    <a href="../../../../../tags/单调队列DP/" style="font-size: 19.776647724877733px;" class="tag-cloud-link">单调队列DP</a>
+    
+    <a href="../../../../../tags/子序列/" style="font-size: 13.14294070045447px;" class="tag-cloud-link">子序列</a>
+    
+    <a href="../../../../../tags/计数DP/" style="font-size: 15.704703615080483px;" class="tag-cloud-link">计数DP</a>
+    
+    <a href="../../../../../tags/背包问题/" style="font-size: 12.776543148135797px;" class="tag-cloud-link">背包问题</a>
+    
+    <a href="../../../../../tags/数位DP/" style="font-size: 16.287215389912582px;" class="tag-cloud-link">数位DP</a>
+    
+    <a href="../../../../../tags/树形DP/" style="font-size: 19.179792260814118px;" class="tag-cloud-link">树形DP</a>
+    
+    <a href="../../../../../tags/状压DP/" style="font-size: 19.33686020729938px;" class="tag-cloud-link">状压DP</a>
+    
+    <a href="../../../../../tags/图论/" style="font-size: 11.469017982621954px;" class="tag-cloud-link">图论</a>
+    
+    <a href="../../../../../tags/二分图/" style="font-size: 18.612461591545472px;" class="tag-cloud-link">二分图</a>
+    
+    <a href="../../../../../tags/最小生成树/" style="font-size: 15.714714122667548px;" class="tag-cloud-link">最小生成树</a>
+    
+    <a href="../../../../../tags/最短路问题/" style="font-size: 16.967121089318088px;" class="tag-cloud-link">最短路问题</a>
+    
+    <a href="../../../../../tags/AC自动机/" style="font-size: 17.94673225237048px;" class="tag-cloud-link">AC自动机</a>
+    
+    <a href="../../../../../tags/数据结构进阶/" style="font-size: 9.968372716650382px;" class="tag-cloud-link">数据结构进阶</a>
+    
+    <a href="../../../../../tags/并查集/" style="font-size: 14.72538296903989px;" class="tag-cloud-link">并查集</a>
+    
+    <a href="../../../../../tags/树状数组/" style="font-size: 17.22004039330077px;" class="tag-cloud-link">树状数组</a>
+    
+    <a href="../../../../../tags/线段树/" style="font-size: 10.381726464419927px;" class="tag-cloud-link">线段树</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://zhuojiuw.top/" target="_blank">酌酒</a>
+    </li>
+    
+    <li>
+        <a href="http://120.77.42.77/?tdsourcetag=s_pcqq_aiomsg" target="_blank">血小板自动机&#39;s Blog</a>
+    </li>
+    
+    <li>
+        <a href="http://www.sorashiro.top/" target="_blank">空白之间</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.csdn.net/qq_43328040" target="_blank">CSDN</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=1334647784&auto=1&height=66"></iframe>
+    </aside>
+    
+</aside>r
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 zhumenger Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+
+<!-- 雪花特效 -->
+<script type="text/javascript">
+  var windowWidth = $(window).width();
+  if (windowWidth > 480) {
+    document.write('<script type="text/javascript" src="/js/snow.js"><\/script>');
+  }
+</script>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/love.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://q50lh27pc.bkt.clouddn.com/preview',
+      ext: 'jpg',
+      maxCount: '18'
+    }
+</script>
+<script src="../../../../../js/hs.js"></script>
+<script src="../../../../../js/blog.js"></script>
+
+<script src="../../../../../js/oni.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Mon Jul 08 2019 11:36:44 GMT+0800'
+      window.commentConfig.owner = 'yangshangqi'
+      window.commentConfig.repo = 'yangshangqi.github.io'
+      window.commentConfig.client_id = '60e14965f8d29e28aed6'
+      window.commentConfig.client_secret = '734664cef8637979b4e5ace1145b8f19456aa802'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Mon Jul 08 2019 11:36:44 GMT+0800',
+        owner: 'yangshangqi',
+        repo: 'yangshangqi.github.io',
+        client_id: '60e14965f8d29e28aed6',
+        client_secret: '734664cef8637979b4e5ace1145b8f19456aa802',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="../../../../../js/comment/gitment.js"></script>
+
+<script src="/live2d-widget/autoload.js"></script>
+</html>
