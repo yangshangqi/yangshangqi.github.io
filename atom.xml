@@ -2082,9 +2082,9 @@
       <category term="数据结构基础" scheme="http://zhumenger.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="堆" scheme="http://zhumenger.top/tags/%E5%A0%86/"/>
-    
       <category term="数据结构" scheme="http://zhumenger.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="堆" scheme="http://zhumenger.top/tags/%E5%A0%86/"/>
     
   </entry>
   
@@ -3002,7 +3002,7 @@
     <published>2019-07-07T11:51:48.000Z</published>
     <updated>2019-07-07T11:57:14.595Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><p><strong>1.所有的JS代码都要放到script标签里</strong></p><p><strong>2.alert(）：可以控制浏览器发出一个警告框</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"这是我的第一行JS代码"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果如下：</p><p><img src="http://pu82h1duu.bkt.clouddn.com/ZGPLX~G%5BK%7BM7J%5B5%608YSP~2N.png" alt></p><p><strong>3.document.write()可以向body中输出一个内容</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.write(<span class="string">"看我出不出来"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>4.console.log()可以向控制台输出一个内容</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"你猜猜我在哪"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果如下：</p><p><img src="http://pu82h1duu.bkt.clouddn.com/R9M%25_9PJ%5D1LZ96XMFII~~PU.png" alt></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><p><strong>1.所有的JS代码都要放到script标签里</strong></p><p><strong>2.alert(）：可以控制浏览器发出一个警告框</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">    alert("这是我的第一行JS代码");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果如下：</p><p><img src="http://pu82h1duu.bkt.clouddn.com/ZGPLX~G%5BK%7BM7J%5B5%608YSP~2N.png" alt></p><p><strong>3.document.write()可以向body中输出一个内容</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">    document.write("看我出不出来");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>4.console.log()可以向控制台输出一个内容</strong></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">    console.log("你猜猜我在哪");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>效果如下：</p><p><img src="http://pu82h1duu.bkt.clouddn.com/R9M%25_9PJ%5D1LZ96XMFII~~PU.png" alt></p>]]></content>
     
     <summary type="html">
     
@@ -3208,9 +3208,9 @@
       <category term="图论" scheme="http://zhumenger.top/categories/%E5%9B%BE%E8%AE%BA/"/>
     
     
-      <category term="最短路问题" scheme="http://zhumenger.top/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/"/>
-    
       <category term="图论" scheme="http://zhumenger.top/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="最短路问题" scheme="http://zhumenger.top/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
